@@ -1,1 +1,206 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideReady - Your Ultimate Theme Park Companion</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .logo {
+            width: 180px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        p.subtitle {
+            font-size: 1.25rem;
+            color: #cccccc;
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+        .features {
+            text-align: left;
+            margin: 50px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+        .feature-icon {
+            font-size: 2.5rem; /* Emojis for icons */
+            margin-right: 25px;
+            width: 50px;
+            text-align: center;
+        }
+        .feature-text h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+        .feature-text p {
+            margin: 8px 0 0;
+            color: #aaaaaa;
+            line-height: 1.5;
+        }
+        .beta-signup {
+            margin: 70px 0;
+            padding: 40px 20px;
+            background-color: #111111;
+            border-radius: 15px;
+        }
+        .beta-signup h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .beta-signup p {
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .email-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .email-input {
+            width: 100%;
+            max-width: 320px;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #444;
+            background-color: #222222;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        .email-input::placeholder {
+            color: #888888;
+        }
+        .submit-button {
+            padding: 18px 35px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(90deg, #FF416C, #FF4B2B);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .submit-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 75, 43, 0.5);
+        }
+        footer {
+            margin-top: 60px;
+            padding-bottom: 30px;
+            font-size: 0.9rem;
+            color: #888888;
+        }
+        footer a {
+            color: #aaaaaa;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            p.subtitle {
+                font-size: 1.1rem;
+            }
+            .email-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            .email-input {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- IMPORTANT: Replace this src link with the URL to your actual logo -->
+        <img src="images/logo.png" alt="RideReady Logo" class="logo">
+
+        <h1>Turn Wait Times Into Ride Times</h1>
+        <p class="subtitle">Your ultimate companion for theme park adventures. Get real-time data and smart alerts to maximize your fun and minimize the hassle.</p>
+
+        <div class="beta-signup">
+            <h2>Get Early Access to the Magic</h2>
+            <p>Be the first to experience RideReady. Enter your email below to join the beta test and revolutionize your park visits.</p>
+            
+            <!-- FORM ACTION: Replace "#" with your form handling URL from a service like Netlify or Formspree -->
+            <form class="email-form" action="#" method="POST">
+                <input type="email" name="email" placeholder="Enter your email address" class="email-input" required>
+                <button type="submit" class="submit-button">Request Invite</button>
+            </form>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🎢</div>
+                <div class="feature-text">
+                    <h3>Real-Time Wait Times</h3>
+                    <p>Get up-to-the-minute queue lengths and see predicted waits for the next hour.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-text">
+                    <h3>AI-Powered Recommendations</h3>
+                    <p>Our intelligent "Skip" system suggests the best next ride based on your location and preferences.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔔</div>
+                <div class="feature-text">
+                    <h3>Smart Ride Alerts</h3>
+                    <p>Get instant notifications when a closed ride reopens or your favorite ride's wait time drops.</p>
+                </div>
+            </div>
+             <div class="feature">
+                <div class="feature-icon">⏱️</div>
+                <div class="feature-text">
+                    <h3>Auto-Queue Timer (Coming Soon)</h3>
+                    <p>Automatically track your wait with live updates via Dynamic Island and Lock Screen widgets.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>For support or questions, contact us at <a href="mailto:support@rideready.app">support@rideready.app</a></p>
+            <p>© 2025 RideReady. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
