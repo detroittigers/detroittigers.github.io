@@ -159,10 +159,12 @@
             <h2>Get Early Access to the Magic</h2>
             <p>Be the first to experience RideReady. Enter your email below to join the beta test and revolutionize your park visits.</p>
             
-            <!-- FORM ACTION: Replace "#" with your form handling URL from a service like Netlify or Formspree -->
-            <form class="email-form" action="#" method="POST">
+            <!-- FORM ACTION: Using Formspree for email collection -->
+            <form class="email-form" action="https://formspree.io/f/mrblqqdo" method="POST">
                 <input type="email" name="email" placeholder="Enter your email address" class="email-input" required>
                 <button type="submit" class="submit-button">Request Invite</button>
+                <!-- Hidden honeypot field for spam protection -->
+                <input type="text" name="_gotcha" style="display:none" />
             </form>
         </div>
 
