@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RideReady - Your Ultimate Theme Park Companion</title>
+    <meta name="description" content="Smart Theme Park Companion - Avoid the lines! Get real-time wait times, personalized recommendations, and queue alerts for Cedar Point, Kings Island, and Canada's Wonderland.">
+    <meta property="og:title" content="Ride Ready — Smart Theme Park Companion">
+    <meta property="og:description" content="Avoid the lines! Get real-time wait times, personalized recommendations, and queue alerts for your favorite theme parks.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rideready.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" as="image" href="/images/logo.png" fetchpriority="high">
+    <title>Ride Ready - Smart Theme Park Companion</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -20,6 +27,7 @@
         }
         .logo {
             width: 180px;
+            height: auto;
             margin-top: 40px;
             margin-bottom: 20px;
         }
@@ -27,6 +35,7 @@
             font-size: 2.8rem;
             font-weight: 700;
             background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-top: 20px;
@@ -37,6 +46,12 @@
             color: #cccccc;
             margin-bottom: 50px;
             line-height: 1.6;
+        }
+        .platform-note {
+            color: #bbbbbb;
+            font-size: 0.95rem;
+            margin-top: -35px;
+            margin-bottom: 55px;
         }
         .features {
             text-align: left;
@@ -129,6 +144,125 @@
             text-decoration: underline;
         }
 
+        .supported-parks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin: -30px 0 40px;
+        }
+        .supported-parks .label {
+            color: #bbbbbb;
+            font-size: 0.95rem;
+            margin-right: 6px;
+        }
+        .chip {
+            background: #171717;
+            border: 1px solid #333333;
+            color: #dddddd;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+        }
+        .request-park {
+            color: #bbbbbb;
+            text-decoration: none;
+            margin-left: 6px;
+            font-size: 0.95rem;
+        }
+        .request-park:hover { text-decoration: underline; }
+        .form-reassurance { color: #aaaaaa; margin-top: 12px; font-size: 0.95rem; }
+        .cta-bottom { margin: 30px 0 10px; }
+        .cta-lead { color: #cccccc; margin-top: 10px; }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0, 0, 1px, 1px); white-space: nowrap; border: 0;
+        }
+        .disclaimer { color: #aaaaaa; margin: 10px 0 20px; font-size: 0.9rem; }
+        .email-input:focus, .submit-button:focus, .request-park:focus {
+            outline: 2px solid #FF4B2B; outline-offset: 2px;
+        }
+        
+        .more-note { color: #888888; font-size: 0.9rem; margin-left: 4px; }
+
+        /* Screenshot Gallery Styles */
+        .screenshots-section {
+            margin: 60px 0;
+            padding: 50px 20px;
+            background-color: #0a0a0a;
+            border-radius: 15px;
+        }
+        .screenshots-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .screenshots-section p {
+            color: #cccccc;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .screenshot-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #111111;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .screenshot-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(255, 75, 43, 0.2);
+        }
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+        .screenshot-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: #ffffff;
+            padding: 20px 15px 15px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .screenshot-placeholder {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666666;
+            font-size: 0.9rem;
+            border-radius: 15px;
+        }
+        .notification-item {
+            grid-column: 1 / -1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .notification-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
         /* Responsive design for smaller screens */
         @media (max-width: 600px) {
             h1 {
@@ -159,58 +293,115 @@
 <body>
     <div class="container">
         <!-- IMPORTANT: Replace this src link with the URL to your actual logo -->
-        <img src="images/logo.png" alt="RideReady Logo" class="logo">
+        <img src="images/logo.png" alt="Ride Ready Logo" class="logo" width="180" decoding="async" fetchpriority="high">
 
-        <h1>Turn Wait Times Into Ride Times</h1>
-        <p class="subtitle">Your ultimate companion for theme park adventures. Get real-time data and smart alerts to maximize your fun and minimize the hassle.</p>
+        <h1>Smart Theme Park Companion</h1>
+        <p class="subtitle">Avoid the lines! Get real-time wait times, personalized recommendations, and queue alerts for your favorite theme parks. Make every visit count!</p>
+        <p class="platform-note">Currently available for iOS. Android support coming later.</p>
 
-        <div class="beta-signup">
+        <div class="supported-parks" role="list" aria-label="Supported parks">
+            <span class="label">Supported parks:</span>
+            <span class="chip" role="listitem">Cedar Point</span>
+            <span class="chip" role="listitem">Kings Island</span>
+            <span class="chip" role="listitem">Canada’s Wonderland</span>
+            <a class="request-park" href="mailto:support@rideready.app?subject=Park%20request">Request a park</a>
+            <span class="more-note">More parks coming soon</span>
+        </div>
+
+        <div class="beta-signup" id="beta">
             <h2>Get Early Access to the Magic</h2>
-            <p>Be the first to experience RideReady. Enter your email below to join the beta test and revolutionize your park visits.</p>
+            <p>Be the first to experience Ride Ready. Enter your email below to join the beta test and revolutionize your park visits.</p>
             
             <!-- FORM ACTION: Using Formspree for email collection -->
             <form class="email-form" action="https://formspree.io/f/mrblqqdo" method="POST">
-                <input type="email" name="email" placeholder="Enter your email address" class="email-input" required>
+                <label for="email" class="sr-only">Email address</label>
+                <input id="email" type="email" name="email" placeholder="Enter your email address" class="email-input" required autocomplete="email" aria-describedby="beta-note">
                 <button type="submit" class="submit-button">Request Invite</button>
                 <!-- Hidden honeypot field for spam protection -->
                 <input type="text" name="_gotcha" style="display:none" />
             </form>
+            <p id="beta-note" class="form-reassurance">No spam. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="screenshots-section">
+            <h2>See Ride Ready in Action</h2>
+            <p>Take a look at how Ride Ready transforms your theme park experience with smart features and intuitive design.</p>
+            
+            <div class="screenshot-gallery">
+                <div class="screenshot-item">
+                    <img src="images/screenshots/main.jpeg" alt="Real-Time Wait Times Screen" loading="lazy">
+                    <div class="screenshot-caption">Real-Time Wait Times</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screenshots/recommendations.jpeg" alt="Smart Recommendations Interface" loading="lazy">
+                    <div class="screenshot-caption">Smart Recommendations</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screenshots/plan.jpeg" alt="Park Planning and Ride History" loading="lazy">
+                    <div class="screenshot-caption">Park Planning</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screenshots/ride.jpeg" alt="Ride Details and History" loading="lazy">
+                    <div class="screenshot-caption">Ride Details & History</div>
+                </div>
+                <div class="screenshot-item notification-item">
+                    <img src="images/screenshots/notification.jpeg" alt="Queue Alert Notification" loading="lazy">
+                    <div class="screenshot-caption">Queue Alerts & Notifications</div>
+                </div>
+            </div>
         </div>
 
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">🎢</div>
                 <div class="feature-text">
+                    <h3>Smart Recommendations</h3>
+                    <p>Get personalized ride suggestions based on your preferences, current wait times, and park conditions. Our algorithm learns what you love most.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⏰</div>
+                <div class="feature-text">
                     <h3>Real-Time Wait Times</h3>
-                    <p>Get up-to-the-minute queue lengths and see predicted waits for the next hour.</p>
+                    <p>Never wonder about wait times again. Get live updates from major theme parks and make informed decisions about your next adventure.</p>
                 </div>
             </div>
             <div class="feature">
-                <div class="feature-icon">🤖</div>
+                <div class="feature-icon">📍</div>
                 <div class="feature-text">
-                    <h3>AI-Powered Recommendations</h3>
-                    <p>Our intelligent "Skip" system suggests the best next ride based on your location and preferences.</p>
+                    <h3>Queue Alerts & Timing</h3>
+                    <p>Set up smart alerts for your must-ride attractions. We'll notify you when wait times drop or when it's the perfect time to head over.</p>
                 </div>
             </div>
             <div class="feature">
-                <div class="feature-icon">🔔</div>
+                <div class="feature-icon">🗺️</div>
                 <div class="feature-text">
-                    <h3>Smart Ride Alerts</h3>
-                    <p>Get instant notifications when a closed ride reopens or your favorite ride's wait time drops.</p>
+                    <h3>Park Optimization</h3>
+                    <p>Plan your day with our intelligent routing suggestions. Spend more time on rides and less time walking around confused.</p>
                 </div>
             </div>
-             <div class="feature">
-                <div class="feature-icon">⏱️</div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
                 <div class="feature-text">
-                    <h3>Auto-Queue Timer (Coming Soon)</h3>
-                    <p>Automatically track your wait with live updates via Dynamic Island and Lock Screen widgets.</p>
+                    <h3>Personalized Experience</h3>
+                    <p>Create your unique profile based on ride preferences, thrill level, height requirements, and mobility needs. Ride Ready adapts to make your perfect day.</p>
                 </div>
             </div>
         </div>
+        <p class="cta-lead">Ready to skip the lines?</p>
+        <div class="cta-bottom">
+            <a href="#beta" class="submit-button">Request Invite</a>
+        </div>
 
         <footer>
-            <p>For support or questions, contact us at <a href="mailto:support@rideready.app">support@rideready.app</a></p>
-            <p>© 2025 RideReady. All rights reserved.</p>
+            <p class="disclaimer">
+                Ride Ready is an independent application and is not affiliated with, endorsed by, or sponsored by Cedar Fair Entertainment Company
+                (including Cedar Point, Kings Island, and Canada’s Wonderland), Six Flags Entertainment Corporation, or any other theme park operators.
+                All park and ride names and related trademarks are the property of their respective owners. Information is provided for informational
+                purposes only and is subject to change without notice.
+            </p>
+            <p>For support or questions, contact us at <a href="mailto:support@rideready.app">support@rideready.app</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+            <p>© 2025 Ride Ready. All rights reserved.</p>
         </footer>
     </div>
 </body>
