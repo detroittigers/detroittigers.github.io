@@ -20,16 +20,84 @@
             padding: 0;
             text-align: center;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% -10%, rgba(255, 75, 43, 0.32), transparent 55%),
+                        radial-gradient(circle at 80% 0%, rgba(255, 65, 108, 0.24), transparent 50%),
+                        radial-gradient(circle at -10% 60%, rgba(255, 175, 43, 0.14), transparent 55%);
+            pointer-events: none;
+            z-index: -1;
         }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 30px 24px 90px;
+        }
+        .hero {
+            position: relative;
+            max-width: 880px;
+            margin: 0 auto 110px;
+            padding: 64px 44px 84px;
+            border-radius: 32px;
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 75, 43, 0.2);
+            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.45);
+            overflow: hidden;
+        }
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+            border-radius: 999px;
+            filter: blur(0px);
+            opacity: 0.75;
+            transition: transform 0.6s ease;
+        }
+        .hero::before {
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, rgba(255, 75, 43, 0.35), transparent 70%);
+            top: -150px;
+            left: -140px;
+        }
+        .hero::after {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(255, 160, 60, 0.28), transparent 70%);
+            bottom: -140px;
+            right: -120px;
+        }
+        .hero:hover::before { transform: translateY(12px); }
+        .hero:hover::after { transform: translateY(-12px); }
         .logo {
             width: 180px;
             height: auto;
-            margin-top: 40px;
-            margin-bottom: 20px;
+        }
+        .hero-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        .hero-logo-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 190px;
+            height: 190px;
+            border-radius: 32px;
+            background: radial-gradient(circle, rgba(255, 75, 43, 0.24), transparent 72%);
+            padding: 26px;
+            filter: drop-shadow(0 18px 32px rgba(0,0,0,0.55));
+            overflow: hidden;
+        }
+        .hero-logo {
+            width: 100%;
+            height: auto;
         }
         h1 {
             font-size: 2.8rem;
@@ -38,97 +106,128 @@
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-top: 20px;
-            margin-bottom: 15px;
+            margin: 0;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            background: rgba(255, 75, 43, 0.18);
+            border-radius: 999px;
+            color: #ffb6a3;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
         p.subtitle {
-            font-size: 1.25rem;
-            color: #cccccc;
-            margin-bottom: 50px;
-            line-height: 1.6;
+            font-size: 1.3rem;
+            color: #dddddd;
+            margin: 0;
+            line-height: 1.7;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-cta {
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+        .hero-button {
+            font-size: 1.08rem;
+            padding: 20px 56px;
+            box-shadow: 0 18px 44px rgba(255, 75, 43, 0.4);
+            position: relative;
+        }
+        .hero-button::after {
+            content: "";
+            width: 18px;
+            height: 18px;
+            margin-left: 12px;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.6"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/%3E%3C/svg%3E') center/contain no-repeat;
+            filter: drop-shadow(0 0 4px rgba(0,0,0,0.4));
         }
         .platform-note {
             color: #bbbbbb;
             font-size: 0.95rem;
-            margin-top: -35px;
-            margin-bottom: 55px;
+            margin: 8px 0 0;
         }
         .features {
-            text-align: left;
-            margin: 50px 0;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 90px auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 26px;
         }
         .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 35px;
+            background: linear-gradient(160deg, rgba(17, 17, 17, 0.95), rgba(32, 32, 32, 0.83));
+            border: 1px solid rgba(255, 75, 43, 0.16);
+            border-radius: 18px;
+            padding: 28px 26px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 12% 12%, rgba(255, 75, 43, 0.18), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+        .feature:hover::after {
+            opacity: 1;
         }
         .feature-icon {
-            font-size: 2.5rem; /* Emojis for icons */
-            margin-right: 25px;
-            width: 50px;
-            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .feature-text h3 {
             margin: 0;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: #ffffff;
         }
         .feature-text p {
-            margin: 8px 0 0;
-            color: #aaaaaa;
-            line-height: 1.5;
+            margin: 10px 0 0;
+            color: #b5b5b5;
+            line-height: 1.6;
         }
-        .beta-signup {
-            margin: 70px 0;
-            padding: 40px 20px;
-            background-color: #111111;
-            border-radius: 15px;
-        }
-        .beta-signup h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        .beta-signup p {
-            color: #cccccc;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-        .email-form {
-            display: flex;
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .email-input {
-            width: 100%;
-            max-width: 320px;
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid #444;
-            background-color: #222222;
-            color: #ffffff;
-            font-size: 1rem;
-        }
-        .email-input::placeholder {
-            color: #888888;
-        }
-        .submit-button {
-            padding: 18px 35px;
-            border-radius: 10px;
+            padding: 18px 38px;
+            border-radius: 12px;
             border: none;
-            background: linear-gradient(90deg, #FF416C, #FF4B2B);
+            background: linear-gradient(100deg, #FF416C, #FF4B2B 55%, #FF9A44);
             color: #ffffff;
-            font-size: 1rem;
-            font-weight: bold;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .submit-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 75, 43, 0.5);
+        .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 45px rgba(255, 75, 43, 0.35);
+        }
+        .primary-button:focus-visible {
+            outline: 2px solid #FF4B2B;
+            outline-offset: 2px;
+        }
+        .app-store-button {
+            min-width: 260px;
+            padding: 18px 46px;
+            font-size: 1.08rem;
         }
         footer {
             margin-top: 60px;
@@ -186,10 +285,10 @@
         .supported-parks {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
             align-items: center;
-            margin: -30px 0 40px;
+            margin: 26px 0 0;
         }
         .supported-parks .label {
             color: #bbbbbb;
@@ -211,7 +310,6 @@
             font-size: 0.95rem;
         }
         .request-park:hover { text-decoration: underline; }
-        .form-reassurance { color: #aaaaaa; margin-top: 12px; font-size: 0.95rem; }
         .cta-bottom { margin: 30px 0 10px; }
         .cta-lead { color: #cccccc; margin-top: 10px; }
         .sr-only {
@@ -219,18 +317,20 @@
             clip: rect(0, 0, 1px, 1px); white-space: nowrap; border: 0;
         }
         .disclaimer { color: #aaaaaa; margin: 10px 0 20px; font-size: 0.9rem; }
-        .email-input:focus, .submit-button:focus, .request-park:focus {
-            outline: 2px solid #FF4B2B; outline-offset: 2px;
+        .request-park:focus-visible {
+            outline: 2px solid #FF4B2B;
+            outline-offset: 2px;
         }
-        
         .more-note { color: #888888; font-size: 0.9rem; margin-left: 4px; }
 
         /* Screenshot Gallery Styles */
         .screenshots-section {
-            margin: 60px 0;
-            padding: 50px 20px;
-            background-color: #0a0a0a;
-            border-radius: 15px;
+            margin: 110px 0 80px;
+            padding: 62px 36px;
+            background: linear-gradient(182deg, rgba(12, 12, 12, 0.95), rgba(6, 6, 6, 0.92));
+            border-radius: 24px;
+            border: 1px solid rgba(255, 75, 43, 0.12);
+            box-shadow: 0 26px 50px rgba(0, 0, 0, 0.35);
         }
         .screenshots-section h2 {
             font-size: 2rem;
@@ -247,38 +347,63 @@
         }
         .screenshot-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
+            grid-template-columns: repeat(4, minmax(220px, 1fr));
+            gap: 28px;
+            max-width: 1150px;
             margin: 0 auto;
+            justify-content: center;
         }
         .screenshot-item {
             position: relative;
-            border-radius: 15px;
+            border-radius: 18px;
             overflow: hidden;
-            background: #111111;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: linear-gradient(160deg, rgba(18, 18, 18, 0.9), rgba(28, 28, 28, 0.9));
+            transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+            border: 1px solid rgba(255, 75, 43, 0.12);
+            aspect-ratio: 9 / 19;
+            outline: none;
+        }
+        .screenshot-item.wide {
+            grid-column: 2 / span 2;
+            aspect-ratio: 16 / 9;
         }
         .screenshot-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 30px rgba(255, 75, 43, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(255, 75, 43, 0.2);
+            border-color: rgba(255, 75, 43, 0.22);
         }
         .screenshot-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
+            object-fit: cover;
             border-radius: 15px;
         }
-        .screenshot-caption {
+        .screenshot-item::after {
+            content: attr(data-label);
             position: absolute;
-            bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            color: #ffffff;
-            padding: 20px 15px 15px;
+            bottom: 0;
+            padding: 16px 18px;
             font-size: 0.95rem;
             font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #ffffff;
+            background: linear-gradient(0deg, rgba(0,0,0,0.75), transparent 70%);
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+        }
+        .screenshot-item:hover::after,
+        .screenshot-item:focus-visible::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .screenshot-item:focus-visible {
+            box-shadow: 0 0 0 3px rgba(255, 75, 43, 0.6);
+            border-color: rgba(255, 75, 43, 0.35);
         }
         .screenshot-placeholder {
             width: 100%;
@@ -291,18 +416,32 @@
             font-size: 0.9rem;
             border-radius: 15px;
         }
-        .notification-item {
-            grid-column: 1 / -1;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .notification-item img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
         /* Responsive design for smaller screens */
+        @media (max-width: 900px) {
+            .hero {
+                padding: 60px 26px 76px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            p.subtitle {
+                font-size: 1.18rem;
+            }
+            .screenshots-section {
+                padding: 54px 28px;
+            }
+            .screenshot-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                justify-content: center;
+            }
+            .screenshot-item.wide {
+                grid-column: auto;
+                aspect-ratio: 16 / 9;
+            }
+            .screenshot-item::after {
+                font-size: 0.9rem;
+            }
+        }
         @media (max-width: 600px) {
             h1 {
                 font-size: 2.2rem;
@@ -310,12 +449,30 @@
             p.subtitle {
                 font-size: 1.1rem;
             }
-            .email-form {
-                flex-direction: column;
-                align-items: center;
+            .hero {
+                padding: 46px 20px 60px;
             }
-            .email-input {
-                width: 80%;
+            .hero-button {
+                width: 100%;
+                padding: 18px 24px;
+            }
+            .hero-button::after {
+                display: none;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .download-card {
+                padding: 42px 26px;
+            }
+            .screenshots-section {
+                padding: 52px 22px;
+            }
+            .screenshot-gallery {
+                grid-template-columns: 1fr;
+            }
+            .screenshot-item.wide img {
+                height: auto;
             }
         }
     </style>
@@ -331,61 +488,48 @@
 </script>
 <body>
     <div class="container">
-        <!-- IMPORTANT: Replace this src link with the URL to your actual logo -->
-        <img src="images/logo.png" alt="Ride Ready Logo" class="logo" width="180" decoding="async" fetchpriority="high">
-
-        <h1>Smart Theme Park Companion</h1>
-        <p class="subtitle">Avoid the lines! Get real-time wait times, personalized recommendations, and queue alerts for your favorite theme parks. Make every visit count!</p>
-        <p class="platform-note">Currently available for iOS. Android support coming later.</p>
-
-        <div class="supported-parks" role="list" aria-label="Supported parks">
-            <span class="label">Supported parks:</span>
-            <span class="chip" role="listitem">Cedar Point</span>
-            <span class="chip" role="listitem">Kings Island</span>
-            <span class="chip" role="listitem">Canada’s Wonderland</span>
-            <a class="request-park" href="mailto:support@rideready.app?subject=Park%20request">Request a park</a>
-            <span class="more-note">More parks coming soon</span>
-        </div>
-
-        <div class="beta-signup" id="beta">
-            <h2>Get Early Access to the Magic</h2>
-            <p>Be the first to experience Ride Ready. Enter your email below to join the beta test and revolutionize your park visits.</p>
-            
-            <!-- FORM ACTION: Using Formspree for email collection -->
-            <form class="email-form" action="https://formspree.io/f/mrblqqdo" method="POST">
-                <label for="email" class="sr-only">Email address</label>
-                <input id="email" type="email" name="email" placeholder="Enter your email address" class="email-input" required autocomplete="email" aria-describedby="beta-note">
-                <button type="submit" class="submit-button">Request Invite</button>
-                <!-- Hidden honeypot field for spam protection -->
-                <input type="text" name="_gotcha" style="display:none" />
-            </form>
-            <p id="beta-note" class="form-reassurance">No spam. Unsubscribe anytime.</p>
-        </div>
-
+        <section class="hero" id="top">
+            <!-- IMPORTANT: Replace this src link with the URL to your actual logo -->
+            <div class="hero-stack">
+                <div class="hero-logo-wrapper">
+                    <img class="hero-logo" src="images/logo.png" alt="Ride Ready Logo" width="180" decoding="async" fetchpriority="high">
+                </div>
+                <p class="hero-badge">Live park intel at your fingertips</p>
+                <h1>Ride Ready: Your Theme Park Shortcut</h1>
+                <p class="subtitle">Unlock live wait intel, tailored ride picks, and timely queue alerts so you can spend every minute on the thrills that matter.</p>
+            </div>
+            <div class="hero-cta">
+                <a class="primary-button hero-button" href="https://apps.apple.com/us/app/ride-ready/id6748330847?utm_source=website&utm_medium=hero&utm_campaign=app_launch" target="_blank" rel="noopener noreferrer" data-app-store-link="hero-cta">Download on the App Store</a>
+                <p class="platform-note">Available now on the App Store for iPhone. Android support coming soon.</p>
+            </div>
+            <div class="supported-parks" role="list" aria-label="Supported parks">
+                <span class="label">Supported parks:</span>
+                <span class="chip" role="listitem">Cedar Point</span>
+                <span class="chip" role="listitem">Kings Island</span>
+                <span class="chip" role="listitem">Canada’s Wonderland</span>
+                <a class="request-park" href="mailto:support@rideready.app?subject=Park%20request">Request a park</a>
+                <span class="more-note">More parks coming soon</span>
+            </div>
+        </section>
         <div class="screenshots-section">
             <h2>See Ride Ready in Action</h2>
             <p>Take a look at how Ride Ready transforms your theme park experience with smart features and intuitive design.</p>
             
             <div class="screenshot-gallery">
-                <div class="screenshot-item">
-                    <img src="images/screenshots/main.jpeg" alt="Real-Time Wait Times Screen" loading="lazy">
-                    <div class="screenshot-caption">Real-Time Wait Times</div>
+                <div class="screenshot-item" data-label="Real-Time Wait Times" tabindex="0">
+                    <img src="images/screenshots/main.jpeg" alt="Real-Time wait times screen showing ride queues" loading="lazy">
                 </div>
-                <div class="screenshot-item">
-                    <img src="images/screenshots/recommendations.jpeg" alt="Smart Recommendations Interface" loading="lazy">
-                    <div class="screenshot-caption">Smart Recommendations</div>
+                <div class="screenshot-item" data-label="Smart Recommendations" tabindex="0">
+                    <img src="images/screenshots/recommendations.jpeg" alt="Smart ride recommendation interface" loading="lazy">
                 </div>
-                <div class="screenshot-item">
-                    <img src="images/screenshots/plan.jpeg" alt="Park Planning and Ride History" loading="lazy">
-                    <div class="screenshot-caption">Park Planning</div>
+                <div class="screenshot-item" data-label="Park Planning" tabindex="0">
+                    <img src="images/screenshots/plan.jpeg" alt="Park planning checklist" loading="lazy">
                 </div>
-                <div class="screenshot-item">
-                    <img src="images/screenshots/ride.jpeg" alt="Ride Details and History" loading="lazy">
-                    <div class="screenshot-caption">Ride Details & History</div>
+                <div class="screenshot-item" data-label="Ride Details & History" tabindex="0">
+                    <img src="images/screenshots/ride.jpeg" alt="Ride details and wait history" loading="lazy">
                 </div>
-                <div class="screenshot-item notification-item">
-                    <img src="images/screenshots/notification.jpeg" alt="Queue Alert Notification" loading="lazy">
-                    <div class="screenshot-caption">Queue Alerts & Notifications</div>
+                <div class="screenshot-item wide" data-label="Queue Alerts & Notifications" tabindex="0">
+                    <img src="images/screenshots/notification.jpeg" alt="Queue alert notification on lock screen" loading="lazy">
                 </div>
             </div>
         </div>
@@ -429,7 +573,7 @@
         </div>
         <p class="cta-lead">Ready to skip the lines?</p>
         <div class="cta-bottom">
-            <a href="#beta" class="submit-button">Request Invite</a>
+            <a class="primary-button" href="https://apps.apple.com/us/app/ride-ready/id6748330847?utm_source=website&utm_medium=cta&utm_campaign=app_launch" target="_blank" rel="noopener noreferrer" data-app-store-link="footer-cta">Get Ride Ready on the App Store</a>
         </div>
 
         <footer>
@@ -455,5 +599,22 @@
             <p>© 2025 Ride Ready. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var appStoreLinks = document.querySelectorAll('[data-app-store-link]');
+            appStoreLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (typeof gtag === 'function') {
+                        var locationLabel = link.getAttribute('data-app-store-link');
+                        gtag('event', 'app_store_click', {
+                            event_category: 'engagement',
+                            event_label: locationLabel,
+                            transport_type: 'beacon'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
