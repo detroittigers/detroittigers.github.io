@@ -13,6 +13,8 @@
     <meta property="og:type" content="article">
     <meta property="og:url"
         content="https://rideready.app/universal-orlando/epic-universe/mine-cart-madness-queue-times.html">
+    <meta property="og:image" content="https://rideready.app/images/maps/mine-cart-madness-queue-map.jpg">
+    <meta name="twitter:image" content="https://rideready.app/images/maps/mine-cart-madness-queue-map.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="/images/logo.png">
     <title>Mine-Cart Madness Queue Tracker: Time Remaining by Room - Ride Ready</title>
@@ -106,6 +108,42 @@
         .header {
             text-align: center;
             margin-bottom: 50px;
+        }
+
+        /* SEO Survival Grid */
+        .survival-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .survival-box {
+            background: #111;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .survival-icon {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .survival-label {
+            color: #888;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+        }
+
+        .survival-val {
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: block;
         }
 
         h1 {
@@ -391,6 +429,25 @@
             <p style="color: #aaa; font-size: 1.1rem; max-width: 500px; margin: 0 auto;">Donkey Kong's line is a "Sun
                 Trap." Manage your exposure and water intake.</p>
         </header>
+
+        <!-- SEO Survival Grid -->
+        <div class="survival-grid">
+            <div class="survival-box">
+                <span class="survival-icon">🤢</span>
+                <span class="survival-label">Intensity</span>
+                <span class="survival-val" style="color: #ff6b6b;">High</span>
+            </div>
+            <div class="survival-box">
+                <span class="survival-icon">⛈️</span>
+                <span class="survival-label">Rain Policy</span>
+                <span class="survival-val" style="color: #ff6b6b;">Closes</span>
+            </div>
+            <div class="survival-box">
+                <span class="survival-icon">🚽</span>
+                <span class="survival-label">In Queue?</span>
+                <span class="survival-val" style="color: #ff6b6b;">NO</span>
+            </div>
+        </div>
 
         <div class="queue-map">
             <div class="map-header">

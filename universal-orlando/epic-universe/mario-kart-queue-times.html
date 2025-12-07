@@ -108,6 +108,42 @@
             margin-bottom: 50px;
         }
 
+        /* SEO Survival Grid */
+        .survival-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .survival-box {
+            background: #111;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .survival-icon {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .survival-label {
+            color: #888;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+        }
+
+        .survival-val {
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: block;
+        }
+
         h1 {
             font-size: 2.2rem;
             font-weight: 700;
@@ -391,6 +427,25 @@
             <p style="color: #aaa; font-size: 1.1rem; max-width: 500px; margin: 0 auto;">Don't get hit by a blue shell.
                 Know exactly how much longer you have to wait.</p>
         </header>
+
+        <!-- SEO Survival Grid -->
+        <div class="survival-grid">
+            <div class="survival-box">
+                <span class="survival-icon">🤢</span>
+                <span class="survival-label">Intensity</span>
+                <span class="survival-val" style="color: #00cc66;">Low</span>
+            </div>
+            <div class="survival-box">
+                <span class="survival-icon">⛈️</span>
+                <span class="survival-label">Rain Policy</span>
+                <span class="survival-val" style="color: #00cc66;">Open</span>
+            </div>
+            <div class="survival-box">
+                <span class="survival-icon">🚽</span>
+                <span class="survival-label">In Queue?</span>
+                <span class="survival-val" style="color: #ff6b6b;">NO</span>
+            </div>
+        </div>
 
         <div class="queue-map">
             <div class="map-header">
