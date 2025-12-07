@@ -105,17 +105,21 @@
         /* SEO Survival Grid */
         .survival-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
             margin-bottom: 40px;
         }
 
         .survival-box {
             background: #111;
-            padding: 12px;
+            padding: 10px 4px;
+            /* Tighter padding for mobile */
             border-radius: 12px;
             border: 1px solid #333;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .survival-icon {
@@ -126,16 +130,25 @@
 
         .survival-label {
             color: #888;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
             font-weight: bold;
+            margin-bottom: 2px;
             display: block;
         }
 
         .survival-val {
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            line-height: 1.1;
             display: block;
+        }
+
+        /* Stack on very small screens if needed */
+        @media (max-width: 400px) {
+            .survival-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         h1 {
@@ -225,7 +238,8 @@
         /* Vertical Line */
         .timeline-line {
             position: absolute;
-            left: 35px;
+            left: 36px;
+            transform: translateX(-50%);
             top: 40px;
             bottom: 40px;
             width: 2px;
@@ -410,19 +424,24 @@
         <!-- SEO Survival Grid -->
         <div class="survival-grid">
             <div class="survival-box">
-                <span class="survival-icon">🤢</span>
-                <span class="survival-label">Intensity</span>
-                <span class="survival-val" style="color: #ff6b6b;">High</span>
+                <span class="survival-icon">📏</span>
+                <span class="survival-label">Height</span>
+                <span class="survival-val">48" (122cm)</span>
             </div>
             <div class="survival-box">
-                <span class="survival-icon">⛈️</span>
-                <span class="survival-label">Rain Policy</span>
-                <span class="survival-val" style="color: #ff6b6b;">Closes</span>
+                <span class="survival-icon">👤</span>
+                <span class="survival-label">Single Rider</span>
+                <span class="survival-val" style="color: #00cc66;">Yes</span>
             </div>
             <div class="survival-box">
-                <span class="survival-icon">🚽</span>
-                <span class="survival-label">In Queue?</span>
-                <span class="survival-val" style="color: #ff6b6b;">NO</span>
+                <span class="survival-icon">🎒</span>
+                <span class="survival-label">Bags</span>
+                <span class="survival-val" style="color: #ff6b6b;">Strict Locker</span>
+            </div>
+            <div class="survival-box">
+                <span class="survival-icon">⏱️</span>
+                <span class="survival-label">Duration</span>
+                <span class="survival-val">~3 Min</span>
             </div>
         </div>
 
@@ -432,53 +451,116 @@
                 <span class="live-badge">Live Estimates</span>
             </div>
             <div class="map-content">
-                <div class="timeline-line"></div>
-
-                <!-- 60+ Mins -->
-                <div class="landmark">
-                    <div class="marker high"></div>
-                    <div class="landmark-info">
-                        <h3>Celestial Park Queue Entrance</h3>
-                        <div class="time-tag high">60+ Minutes Left</div>
-                        <p class="landmark-desc">The main extended queue winding through the gardens.</p>
-                    </div>
+                <div class="map-header">
+                    <h2>Celestial Park Queue Map</h2>
+                    <span class="live-badge">Live Estimates</span>
                 </div>
+                <div class="map-content">
+                    <!-- Dynamic Slider -->
+                    <div
+                        style="background: rgba(255, 255, 255, 0.05); padding: 16px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 30px; position: relative; z-index: 10;">
+                        <label for="waitSlider"
+                            style="display: flex; justify-content: space-between; color: #ccc; margin-bottom: 12px; font-size: 0.9rem; font-weight: 600;">
+                            <span>Entrance Sign Says:</span>
+                            <span
+                                style="color: #FF4B2B; background: rgba(255, 75, 43, 0.1); padding: 2px 8px; border-radius: 4px;"><span
+                                    id="waitDisplay">90</span> min</span>
+                        </label>
+                        <input type="range" id="waitSlider" min="10" max="180" value="90" step="5"
+                            style="width: 100%; accent-color: #FF4B2B; cursor: pointer; height: 6px; background: #444; border-radius: 5px; appearance: none;">
+                    </div>
 
-                <!-- 20-25 Mins -->
-                <div class="landmark">
-                    <div class="marker severe"></div>
-                    <div class="landmark-info">
-                        <h3>The Lockers</h3>
-                        <div class="time-tag severe">~20-25 Minutes Left</div>
-                        <div class="alert-box" style="margin: 10px 0 0; padding: 12px; font-size: 0.9rem;">
-                            <h4 style="margin: 0 0 4px; color: #ff6b6b;">📱 LAST CHANCE FOR PHONES</h4>
-                            <p style="margin: 0; color: #ccc;">You must lock your phone and all loose items here. Send
-                                your final texts now. You will be disconnected for ~25 mins.</p>
+                    <div class="timeline-line"></div>
+
+                    <!-- 60+ Mins -->
+                    <div class="landmark">
+                        <div class="marker high"></div>
+                        <div class="landmark-info">
+                            <h3>Celestial Park Queue Entrance</h3>
+                            <div class="time-tag high">60+ Minutes Left</div>
+                            <p class="landmark-desc">The main extended queue winding through the gardens.</p>
+                        </div>
+                    </div>
+
+                    <!-- 20-25 Mins -->
+                    <div class="landmark">
+                        <div class="marker severe"></div>
+                        <div class="landmark-info">
+                            <h3>The Lockers</h3>
+                            <div class="time-tag severe">~20-25 Minutes Left</div>
+                            <div class="alert-box" style="margin: 10px 0 0; padding: 12px; font-size: 0.9rem;">
+                                <h4 style="margin: 0 0 4px; color: #ff6b6b;">📱 LAST CHANCE FOR PHONES</h4>
+                                <p style="margin: 0; color: #ccc;">You must lock your phone and all loose items here.
+                                    Send
+                                    your final texts now. You will be disconnected for ~25 mins.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="cta-box">
+                    <p>Plan your day at Epic Universe.</p>
+                    <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?utm_source=stardust_page&utm_medium=web&utm_campaign=queue_guide"
+                        class="primary-button">Download Ride Ready App</a>
+                </div>
             </div>
-            <div class="cta-box">
-                <p>Plan your day at Epic Universe.</p>
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?utm_source=stardust_page&utm_medium=web&utm_campaign=queue_guide"
-                    class="primary-button">Download Ride Ready App</a>
+
+            <section class="content-prose">
+                <h2>The No-Phone Zone</h2>
+                <p>Stardust Racers has a strict loose article policy. Unlike other rides where you can stow items in
+                    pouches, here you must use a locker well before the boarding area. This means you will be standing
+                    in
+                    line for 20-25 minutes without your device. Plan accordingly!</p>
+            </section>
+
+            <div style="margin-top: 60px; border-top: 1px solid #222; padding-top: 30px; text-align: left;">
+                <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 15px;">Check Other Wait Times</h3>
+                <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px;">
+                    <a href="ministry-queue-times.html"
+                        style="background: #1a1a1a; padding: 10px 16px; border-radius: 99px; text-decoration: none; color: #ccc; border: 1px solid #333; font-size: 0.85rem; white-space: nowrap;">⚡
+                        Ministry</a>
+                    <a href="mario-kart-queue-times.html"
+                        style="background: #1a1a1a; padding: 10px 16px; border-radius: 99px; text-decoration: none; color: #ccc; border: 1px solid #333; font-size: 0.85rem; white-space: nowrap;">🏎️
+                        Mario Kart</a>
+                    <a href="mine-cart-madness-queue-times.html"
+                        style="background: #1a1a1a; padding: 10px 16px; border-radius: 99px; text-decoration: none; color: #ccc; border: 1px solid #333; font-size: 0.85rem; white-space: nowrap;">🚋
+                        Mine-Cart</a>
+                    <a href="monsters-unchained-queue-times.html"
+                        style="background: #1a1a1a; padding: 10px 16px; border-radius: 99px; text-decoration: none; color: #ccc; border: 1px solid #333; font-size: 0.85rem; white-space: nowrap;">🧟
+                        Monsters</a>
+                    <a href="hiccups-wing-gliders-queue-times.html"
+                        style="background: #1a1a1a; padding: 10px 16px; border-radius: 99px; text-decoration: none; color: #ccc; border: 1px solid #333; font-size: 0.85rem; white-space: nowrap;">🐉
+                        Hiccup's</a>
+                </div>
             </div>
+
+            <footer
+                style="margin-top: 60px; border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; color: #666;">
+                <p>© 2025 Ride Ready. Not affiliated with Universal Orlando Resort.</p>
+                <p><a href="/privacy.html" style="color: #666;">Privacy</a> · <a href="/terms.html"
+                        style="color: #666;">Terms</a></p>
+            </footer>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Stardust: Entrance (1.0), Lockers (0.40)
+                const percentages = [1.0, 0.40];
 
-        <section class="content-prose">
-            <h2>The No-Phone Zone</h2>
-            <p>Stardust Racers has a strict loose article policy. Unlike other rides where you can stow items in
-                pouches, here you must use a locker well before the boarding area. This means you will be standing in
-                line for 20-25 minutes without your device. Plan accordingly!</p>
-        </section>
+                const slider = document.getElementById('waitSlider');
+                const display = document.getElementById('waitDisplay');
+                const timeTags = document.querySelectorAll('.landmark .time-tag');
 
-        <footer
-            style="margin-top: 60px; border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; color: #666;">
-            <p>© 2025 Ride Ready. Not affiliated with Universal Orlando Resort.</p>
-            <p><a href="/privacy.html" style="color: #666;">Privacy</a> · <a href="/terms.html"
-                    style="color: #666;">Terms</a></p>
-        </footer>
-    </div>
+                function updateMap(totalTime) {
+                    display.textContent = totalTime;
+                    timeTags.forEach((tag, index) => {
+                        if (percentages[index] !== undefined) {
+                            let calcTime = Math.round(totalTime * percentages[index]);
+                            tag.innerHTML = `~${calcTime} Minutes Left`;
+                        }
+                    });
+                }
+                if (slider) slider.addEventListener('input', (e) => updateMap(e.target.value));
+            });
+        </script>
 </body>
 
 </html>
