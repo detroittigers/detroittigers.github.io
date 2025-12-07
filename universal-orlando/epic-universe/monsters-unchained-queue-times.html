@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Monsters Unchained: The Frankenstein Experiment Queue Wait Times. See how long the line is from the Manor Gates, Laboratory, and more.">
+    <meta name="apple-itunes-app" content="app-id=6748330847">
+    <meta property="og:title" content="Monsters Unchained Queue Tracker: Time Remaining by Room">
+    <meta property="og:description"
+        content="Standing in the Laboratory? You have 25 minutes left. See the full breakdown of the Monsters Unchained queue.">
+    <meta property="og:type" content="article">
+    <meta property="og:url"
+        content="https://rideready.app/universal-orlando/epic-universe/monsters-unchained-queue-times.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <title>Monsters Unchained Queue Tracker: Time Remaining by Room - Ride Ready</title>
+    <link rel="canonical"
+        href="https://rideready.app/universal-orlando/epic-universe/monsters-unchained-queue-times.html" />
+
+    <!-- JSON-LD Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://rideready.app/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Epic Universe",
+        "item": "https://rideready.app/universal-orlando/epic-universe/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Monsters Unchained Queue Guide"
+      }]
+    }
+    </script>
+
+    <!-- JSON-LD FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long is the Monsters Unchained line from the Manor Gates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are currently at the Manor Gates in the Monsters Unchained queue, you have approximately 45 minutes remaining."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long is the Monsters Unchained line from the Laboratory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are currently at the Laboratory (The Tank) in the Monsters Unchained queue, you have approximately 25 minutes remaining."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% -10%, rgba(255, 75, 43, 0.15), transparent 55%),
+                radial-gradient(circle at 80% 0%, rgba(255, 65, 108, 0.1), transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px 90px;
+            text-align: left;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .back-link svg {
+            margin-right: 6px;
+        }
+
+        /* Queue Map Component */
+        .queue-map {
+            background: linear-gradient(160deg, rgba(17, 17, 17, 0.95), rgba(32, 32, 32, 0.83));
+            border: 1px solid rgba(255, 75, 43, 0.2);
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .map-header {
+            background: linear-gradient(90deg, #1a1a1a, #222);
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .map-header h2 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 75, 43, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(255, 75, 43, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 75, 43, 0);
+            }
+        }
+
+        .live-badge {
+            background: rgba(255, 75, 43, 0.2);
+            color: #ffb6a3;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 99px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            animation: pulse 2s infinite;
+        }
+
+        .map-content {
+            padding: 30px 24px;
+            position: relative;
+        }
+
+        /* Vertical Line */
+        .timeline-line {
+            position: absolute;
+            left: 35px;
+            top: 40px;
+            bottom: 40px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .landmark {
+            position: relative;
+            display: flex;
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+
+        .landmark:last-child {
+            margin-bottom: 0;
+        }
+
+        .marker {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 3px solid #1a1a1a;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .marker.severe {
+            background-color: #ff4444;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+        }
+
+        .marker.high {
+            background-color: #ff9900;
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+        }
+
+        .marker.medium {
+            background-color: #ffcc00;
+        }
+
+        .marker.low {
+            background-color: #00cc66;
+            box-shadow: 0 0 15px rgba(0, 204, 102, 0.3);
+        }
+
+        .landmark-info h3 {
+            margin: 0 0 6px;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .time-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .time-tag.severe {
+            background: rgba(255, 68, 68, 0.15);
+            color: #ff8888;
+        }
+
+        .time-tag.high {
+            background: rgba(255, 153, 0, 0.15);
+            color: #ffbb55;
+        }
+
+        .time-tag.medium {
+            background: rgba(255, 204, 0, 0.15);
+            color: #ffeebb;
+        }
+
+        .time-tag.low {
+            background: rgba(0, 204, 102, 0.15);
+            color: #66ffaa;
+        }
+
+        .landmark-desc {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .cta-box {
+            text-align: center;
+            background: #111;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px;
+        }
+
+        .cta-box p {
+            color: #888;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 12px;
+            background: linear-gradient(100deg, #FF416C, #FF4B2B);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Content Section */
+        .content-prose {
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .content-prose h2 {
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        .content-prose p {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .queue-map {
+                border-radius: 16px;
+            }
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-KGYGTPMTQ3');
+</script>
+
+<body>
+    <div class="container">
+        <a href="/universal-orlando/epic-universe/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5m7 7l-7-7 7-7" />
+            </svg>
+            Back to Epic Universe
+        </a>
+
+        <header class="header">
+            <div
+                style="width: 80px; height: 80px; margin: 0 auto 20px; background: rgba(255, 75, 43, 0.1); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 40px;">🧟</span>
+            </div>
+            <h1>Monsters Unchained:<br>Queue Tracker</h1>
+            <p style="color: #aaa; font-size: 1.1rem; max-width: 500px; margin: 0 auto;">High capacity means a fast
+                line. But where are you really?</p>
+        </header>
+
+        <div class="queue-map">
+            <div class="map-header">
+                <h2>Dark Universe Queue Map</h2>
+                <span class="live-badge">Live Estimates</span>
+            </div>
+            <div class="map-content">
+                <div class="timeline-line"></div>
+
+                <!-- 45 Mins -->
+                <div class="landmark">
+                    <div class="marker high"></div>
+                    <div class="landmark-info">
+                        <h3>Manor Gates</h3>
+                        <div class="time-tag high">~45 Minutes Left</div>
+                        <p class="landmark-desc">Entering the grounds of Frankenstein Manor.</p>
+                    </div>
+                </div>
+
+                <!-- 25 Mins -->
+                <div class="landmark">
+                    <div class="marker medium"></div>
+                    <div class="landmark-info">
+                        <h3>The Laboratory (The Tank)</h3>
+                        <div class="time-tag medium">~25 Minutes Left</div>
+                        <p class="landmark-desc">The main lab with the Frankenstein monster floating in a glass tank.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 10 Mins -->
+                <div class="landmark">
+                    <div class="marker low"></div>
+                    <div class="landmark-info">
+                        <h3>Pre-Show Doors</h3>
+                        <div class="time-tag low">~10 Minutes Left</div>
+                        <p class="landmark-desc">Almost there. Prepare for the experiment.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-box">
+                <p>Track wait times for Dark Universe.</p>
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?utm_source=monsters_page&utm_medium=web&utm_campaign=queue_guide"
+                    class="primary-button">Download Ride Ready App</a>
+            </div>
+        </div>
+
+        <section class="content-prose">
+            <h2>The Fastest Line in the Park?</h2>
+            <p>Monsters Unchained is a high-capacity ride, meaning the line often moves faster than expected. However,
+                the lengthy pre-show and indoor laboratory section can feel stagnant. Use this guide to know when you're
+                truly close to boarding.</p>
+        </section>
+
+        <footer
+            style="margin-top: 60px; border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; color: #666;">
+            <p>© 2025 Ride Ready. Not affiliated with Universal Orlando Resort.</p>
+            <p><a href="/privacy.html" style="color: #666;">Privacy</a> · <a href="/terms.html"
+                    style="color: #666;">Terms</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
