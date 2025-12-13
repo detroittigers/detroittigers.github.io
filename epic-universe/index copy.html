@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Holiday crowds at Epic Universe will be brutal. Skip already knows which rides to rope drop, which are walk-ons, and when crowds peak. Get the free strategy guide.">
-    <meta property="og:title" content="Epic Universe Holiday Crowd Strategy | Ride Ready">
+        content="Beat Epic Universe crowds without the $300 Express Pass. Our AI 'Skip' predicts wait times for Stardust Racers, Mario Kart & more—telling you exactly WHEN to ride. Free app.">
+    <meta property="og:title" content="Epic Universe Wait Times & Line Strategy | Ride Ready">
     <meta property="og:description"
-        content="Skip knows Epic Universe. Mine-Cart: 28 min at rope drop, 120 min by noon. Stardust: walk-on all day. Get the holiday strategy free.">
+        content="Beat Epic Universe crowds without the $300 Express Pass. Our AI 'Skip' predicts wait times for Stardust Racers, Mario Kart & more.">
     <meta property="og:image" content="https://rideready.app/images/epic_landing/map.png">
     <meta property="og:url" content="https://rideready.app/epic-universe">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="../images/logo.png">
     <link rel="canonical" href="https://rideready.app/epic-universe">
-    <title>Epic Universe Holiday Crowd Strategy | Ride Ready</title>
+    <title>Epic Universe Wait Times & Line Strategy | Ride Ready</title>
 
     <style>
         :root {
@@ -410,9 +410,11 @@
         <section class="hero">
             <span class="badge">Launching Dec 18</span>
             <h1>Skip the $300 <span class="highlight">Express Pass</span></h1>
-            <p class="subtitle">Holiday crowds at Epic Universe will be insane. 90-minute waits. Exhausted kids. $300 Express Passes.<br><br>
-                <strong>Skip</strong> already knows which rides to hit at rope drop, which are walk-ons all day, and when crowds peak.<br><br>
-                We'll send you the holiday strategy on December 18th. Then take Skip with you—live predictions, drop alerts, and AI plans that adapt all day.
+            <p class="subtitle">Epic Universe is the hottest park in the world right now. Express Pass? $200-400 per
+                person. Per day.<br><br>
+                Meet <strong>Skip</strong>—your AI tour guide that builds a personalized plan for your entire day. ML
+                predictions. Walking routes. Crowd patterns. All optimized for YOUR group.<br><br>
+                Same rides. No $1,200 upcharge. Just smarter timing.
             </p>
             <div style="color: #ddd; font-weight: 600; margin-bottom: 30px; font-size: 1.1rem;">
                 Rated <span style="color: #FFB400;">★★★★★</span> on the App Store
@@ -429,16 +431,15 @@
                             style="font-size: 1.1rem; padding: 14px 20px; border: none; background: transparent; color: white;">
                         <input type="text" name="_gotcha" style="display:none" />
                         <button type="submit" class="submit-btn" id="submit-btn"
-                            style="font-size: 1.1rem; padding: 14px 28px;">Get the Holiday Strategy</button>
+                            style="font-size: 1.1rem; padding: 14px 28px;">Get Early Access</button>
                     </div>
                 </form>
-                <p style="color: #888; font-size: 0.9rem; margin-top: 12px;">Arrives December 18th—the day Skip goes live.</p>
                 <div class="success-message" id="success-message">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                         <polyline points="22 4 12 14.01 9 11.01"></polyline>
                     </svg>
-                    <span>You're in! Check your inbox December 18th.</span>
+                    <span>Success! You're on the list.</span>
                 </div>
             </div>
 
@@ -592,50 +593,202 @@
 
         </section>
 
-        <!-- What Skip Does In-Park -->
-        <section class="teaser-section" style="margin-bottom: 80px;">
+        <!-- AI Plans Section - The Hero Feature -->
+        <section class="ai-plans-section" style="margin-bottom: 100px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="badge"
+                    style="background: rgba(76, 175, 80, 0.15); border-color: rgba(76, 175, 80, 0.3); color: #81C784;">AI-POWERED</span>
+                <h2 style="font-size: 2.2rem; margin: 20px 0 15px;">Your Personal Tour Guide</h2>
+                <p style="color: #aaa; max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+                    Skip doesn't just show wait times—it builds your entire day, ride by ride, optimized to your group.
+                </p>
+            </div>
+
+            <!-- The User Journey -->
+            <!-- The User Journey -->
+            <div class="tour-guide-grid"
+                style="background: rgba(20, 20, 20, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 40px; max-width: 1000px; margin: 0 auto;">
+
+                <style>
+                    .tour-guide-grid {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 40px;
+                        align-items: center;
+                    }
+
+                    @media (min-width: 900px) {
+                        .tour-guide-grid {
+                            grid-template-columns: 1.1fr 0.9fr;
+                            /* Slightly more space for text */
+                            text-align: left;
+                        }
+                    }
+
+                    .ai-plan-image-container {
+                        position: relative;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        transition: transform 0.3s;
+                    }
+
+                    .ai-plan-image-container:hover {
+                        transform: scale(1.02);
+                    }
+                </style>
+
+                <!-- Left Column: Steps -->
+                <div class="tour-steps">
+                    <!-- Step 1: Tell Skip Who You Are -->
+                    <div style="display: flex; gap: 20px; margin-bottom: 35px; align-items: flex-start;">
+                        <div
+                            style="background: var(--primary-gradient); color: white; font-weight: 700; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            1</div>
+                        <div style="text-align: left;">
+                            <h4 style="margin: 0 0 8px; color: white; font-size: 1.15rem;">Tell Skip who you are</h4>
+                            <p style="margin: 0; color: #aaa; font-size: 0.95rem;">Thrill seeker chasing coasters?
+                                Family
+                                with a 42" height limit? First-timer wanting to see everything? Skip adapts its entire
+                                strategy to match.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Skip Predicts the Future -->
+                    <div style="display: flex; gap: 20px; margin-bottom: 35px; align-items: flex-start;">
+                        <div
+                            style="background: var(--primary-gradient); color: white; font-weight: 700; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            2</div>
+                        <div style="text-align: left;">
+                            <h4 style="margin: 0 0 8px; color: white; font-size: 1.15rem;">Skip predicts the future</h4>
+                            <p style="margin: 0; color: #aaa; font-size: 0.95rem;">Using ML models trained on 21,800+
+                                wait
+                                time samples, Skip knows Mine-Cart will spike to 120 min at noon—so it routes you there
+                                at 9
+                                AM when it's 28 min.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Get Your Optimized Plan -->
+                    <div style="display: flex; gap: 20px; margin-bottom: 35px; align-items: flex-start;">
+                        <div
+                            style="background: var(--primary-gradient); color: white; font-weight: 700; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            3</div>
+                        <div style="text-align: left;">
+                            <h4 style="margin: 0 0 8px; color: white; font-size: 1.15rem;">Get your optimized plan</h4>
+                            <p style="margin: 0; color: #aaa; font-size: 0.95rem;">Skip factors in walking time between
+                                rides, your avoid list, height restrictions, and crowd patterns—then generates a
+                                minute-by-minute touring plan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Adapt as You Go -->
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <div
+                            style="background: var(--primary-gradient); color: white; font-weight: 700; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            4</div>
+                        <div style="text-align: left;">
+                            <h4 style="margin: 0 0 8px; color: white; font-size: 1.15rem;">Adapt as you go</h4>
+                            <p style="margin: 0; color: #aaa; font-size: 0.95rem;">Rode Stardust at rope drop? Skip
+                                removes
+                                it and recalculates your remaining day in seconds. Rain delay? New plan. Ride breaks
+                                down?
+                                Skip reroutes you instantly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Screenshot -->
+                <div class="tour-image">
+                    <div class="ai-plan-image-container">
+                        <!-- Using explicit width/height for aspect ratio placeholder if needed, or just let CSS handle max-width -->
+                        <img src="../images/epic_landing/epic-ai-plan.png" alt="Ride Ready AI Touring Plan Interface"
+                            style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+
+                <!-- Footer: Math Callout (Spans both columns on mobile, maybe adjust for grid) -->
+                <!-- Ideally this stays wide. Let's make it span the full grid on desktop too if we want, or put it under the steps. 
+                     For now, let's put it OUTSIDE the grid columns, but inside the main container, by making the grid apply to a wrapper or just appending it below. 
+                     Actually, with the current CSS simple grid above, putting it as a child would make it a grid item.
+                     Let's use a nested structure or `grid-column: 1 / -1` for the footer.
+                -->
+                <div class="tour-math" style="grid-column: 1 / -1; margin-top: 20px;">
+                    <div
+                        style="padding: 24px; background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 16px; text-align: center;">
+                        <div
+                            style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 15px;">
+                            <div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0 0 5px;">Random order</p>
+                                <p style="color: #ff6b6b; font-size: 1.8rem; font-weight: 700; margin: 0;">16+ hours</p>
+                                <p style="color: #888; font-size: 0.8rem; margin: 0;">of waiting</p>
+                            </div>
+                            <div style="display: flex; align-items: center; color: #888;">→</div>
+                            <div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0 0 5px;">Skip AI Plan</p>
+                                <p style="color: #4CAF50; font-size: 1.8rem; font-weight: 700; margin: 0;">6 hours</p>
+                                <p style="color: #888; font-size: 0.8rem; margin: 0;">of waiting</p>
+                            </div>
+                        </div>
+                        <p style="color: white; font-weight: 600; margin: 0; font-size: 1.1rem;">
+                            That's <span style="color: #4CAF50;">10 hours saved</span>—an entire extra day at the park.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="teaser-section">
             <div class="teaser-header">
-                <h2>In the Park, Skip Works in Real-Time</h2>
+                <h2>Why Pay $300 to Skip Lines?</h2>
             </div>
 
             <div class="teaser-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                 <div class="teaser-card">
-                    <div style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
-                        <img src="../images/epic_landing/epic-waittime-graph.png" alt="Wait time forecast graph"
+                    <div
+                        style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
+                        <img src="../images/epic_landing/epic-ride-list.png" alt="Trend Forecasting"
                             style="max-width: 95%; max-height: 95%; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));"
                             loading="lazy">
                     </div>
                     <div class="card-content">
-                        <h3>Live Forecasts</h3>
-                        <p>Know what wait times will be in 30 and 60 minutes—not just right now. Stay one step ahead of the crowds.</p>
+                        <h3>🤖 Skip Replaces the Guesswork</h3>
+                        <p>Skip watches every queue in real-time and tells you exactly when to go. "Mario Kart drops to
+                            40 min at 6pm." "Stardust Racers is lowest before 11am." Stop refreshing. Start riding.</p>
                     </div>
                 </div>
 
                 <div class="teaser-card">
-                    <div style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
-                        <img src="../images/epic_landing/epic-notification.png" alt="Ride drop alert notification"
+                    <div
+                        style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
+                        <img src="../images/epic_landing/epic-waittime-graph.png" alt="All Day Strategy"
                             style="max-width: 95%; max-height: 95%; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));"
                             loading="lazy">
                     </div>
                     <div class="card-content">
-                        <h3>Drop Alerts</h3>
-                        <p>Pick a ride, set a target wait. Skip pings you the instant it hits. No more refreshing—just ride.</p>
+                        <h3>All-Day Strategy</h3>
+                        <p>Other apps show what's short NOW. Skip shows what's short LATER—and builds your game plan
+                            around it. Morning priorities. Midday pivots. Evening wins. Forecasts adapt as crowds shift.
+                        </p>
                     </div>
                 </div>
 
                 <div class="teaser-card">
-                    <div style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
-                        <img src="../images/epic_landing/epic-ride-list.png" alt="Ride Ready app ride list"
+                    <div
+                        style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
+                        <img src="../images/epic_landing/epic-notification.png" alt="Ride Drop Alert"
                             style="max-width: 95%; max-height: 95%; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));"
                             loading="lazy">
                     </div>
                     <div class="card-content">
-                        <h3>AI Day Plans</h3>
-                        <p>Tell Skip your group—thrill seekers, families, first-timers. It builds your route and adapts when plans change.</p>
+                        <h3>Alerts That Beat the Crowd</h3>
+                        <p>Set a target wait on any ride. Skip pings you the instant it drops. While everyone else is
+                            checking the app, you're already walking to the entrance.</p>
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; color: #888; font-size: 0.95rem; margin-top: 30px;">The email gets you ready. Skip keeps you ahead all day.</p>
         </section>
 
         <section class="price-comparison"
@@ -678,9 +831,34 @@
             </div>
         </section>
 
+        <section style="text-align: center; margin-bottom: 60px;">
+            <p style="color: #aaa; margin-bottom: 10px;">Already using Ride Ready at other Universal parks?</p>
+            <p style="color: white; font-weight: 600; font-size: 1.1rem; margin-bottom: 30px;">Epic Universe support
+                drops Dec 18. You're all set.</p>
+
+            <div
+                style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 30px; max-width: 500px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.1);">
+                <h3 style="margin-top: 0; color: white;">Traveling Sooner?</h3>
+                <p style="color: #bbb; margin-bottom: 20px;">Download Ride Ready free today for Universal Studios and
+                    Islands of Adventure.</p>
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847"
+                    style="display: inline-block; background: white; color: black; font-weight: 700; padding: 12px 24px; border-radius: 99px; text-decoration: none; transition: transform 0.2s;">Download
+                    on App Store</a>
+            </div>
+        </section>
+
         <footer>
-            <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">*Wait times based on 21,800+ actual samples from Epic Universe. Patterns may vary by day.</p>
-            <p style="margin-bottom: 15px;"><a href="https://apps.apple.com/us/app/ride-ready/id6748330847" style="color: #aaa; text-decoration: underline;">Visiting Universal Studios or Islands of Adventure? Download Ride Ready now.</a></p>
+            <div style="max-width: 600px; margin: 0 auto; padding-bottom: 20px;">
+                <p style="color: white; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6;">
+                    Holiday crowds are brutal. 90-minute waits are the norm.<br><br>
+                    But crowds follow patterns. <strong>Skip</strong> learns them from 21,800+ data points. Rope drop
+                    Mine-Cart at 28 min before it hits 120. Get an alert when Ministry dips. Walk onto Monsters
+                    Unchained anytime.<br><br>
+                    That's not luck. That's data.
+                </p>
+                <p style="color: #888; font-size: 0.85rem;">*Wait times based on actual Epic Universe data. Patterns may
+                    vary by day.</p>
+            </div>
             <p>&copy; 2025 Ride Ready. Not affiliated with Universal Destinations & Experiences.</p>
         </footer>
     </div>
