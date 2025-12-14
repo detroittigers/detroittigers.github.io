@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Stardust Racers Queue Wait Times and Locker Warning. Know when to put your phone away.">
+        content="Stardust Racers queue times, locker warning, and hidden Flux Capacitor Easter egg. Know when your phone gets locked up for 25 minutes.">
     <meta name="apple-itunes-app" content="app-id=6748330847">
-    <meta property="og:title" content="Stardust Racers Queue Tracker & Locker Warning">
+    <meta property="og:title" content="Stardust Racers Queue Tracker: Flux Capacitor & Locker Warning">
     <meta property="og:description"
-        content="Approaching the lockers? You are about to lose your phone for 25 minutes. Get the warning here.">
+        content="Standing at the Metal Detectors? You are about to lose your phone. See the full queue breakdown and secret Flux Capacitor location.">
     <meta property="og:type" content="article">
     <meta property="og:url"
         content="https://rideready.app/universal-orlando/epic-universe/stardust-racers-queue-times.html">
@@ -64,6 +64,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "You must place your phone and loose items in the lockers approximately 20-25 minutes before boarding. You will be without your phone for this duration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I ride Pulsar (green) or Photon (yellow) on Stardust Racers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Green (Pulsar) is more popular and slightly more intense with more airtime. Yellow (Photon) offers a great view of the other train before the inversion. First-timers may prefer Yellow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Stardust Racers cause motion sickness?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stardust Racers has inversions, sudden acceleration, and only lap restraints (no shoulder bars). If you're prone to motion sickness, consider Dramamine and try the Yellow (Photon) track first."
           }
         }
       ]
@@ -390,6 +406,23 @@
                 border-radius: 16px;
             }
         }
+
+        .icon-row {
+            margin-top: 8px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .icon-tag {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #aaa;
+            gap: 6px;
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -466,7 +499,33 @@
                     <div class="landmark-info">
                         <h3>Celestial Park Queue Entrance</h3>
                         <div class="time-tag high">60+ Minutes Left</div>
-                        <p class="landmark-desc">The main extended queue winding through the gardens.</p>
+                        <p class="landmark-desc">The main extended queue winding through the gardens. Look for the "Just
+                            lose yourself among the stars" inscription.</p>
+                        <div class="icon-row">
+                            <span class="icon-tag">👯 Twin Goddess Statues</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 30-35 Mins -->
+                <div class="landmark">
+                    <div class="marker medium"></div>
+                    <div class="landmark-info">
+                        <h3>Subway-Style Stairwell</h3>
+                        <div class="time-tag medium">~35 Minutes Left</div>
+                        <p class="landmark-desc">Ascending the stairs toward the station. The aesthetic shifts to a
+                            galactic subway.</p>
+                    </div>
+                </div>
+
+                <!-- 25 Mins -->
+                <div class="landmark">
+                    <div class="marker severe"></div>
+                    <div class="landmark-info">
+                        <h3>Metal Detectors</h3>
+                        <div class="time-tag severe">~25 Minutes Left</div>
+                        <p class="landmark-desc">Strict security check. <strong style="color: #ff9900;">Apple Watch
+                                Trick:</strong> Raise hands above head AND cover watch face with other hand.</p>
                     </div>
                 </div>
 
@@ -484,6 +543,20 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 5 Mins -->
+                <div class="landmark">
+                    <div class="marker low"></div>
+                    <div class="landmark-info">
+                        <h3>Station: Choose Your Track</h3>
+                        <div class="time-tag low">~5 Minutes Left</div>
+                        <p class="landmark-desc">Choose <strong>Pulsar (Green)</strong> for intensity or <strong>Photon
+                                (Yellow)</strong> for views.</p>
+                        <div class="icon-row">
+                            <span class="icon-tag">🔮 Secret: Flux Capacitor on cars</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="cta-box">
                 <p>Plan your day at Epic Universe.</p>
@@ -493,11 +566,40 @@
         </div>
 
         <section class="content-prose">
-            <h2>The No-Phone Zone</h2>
+            <div
+                style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px; margin-top: 30px;">
+                <h3 style="color: #FF4B2B; margin-top: 0;">⚠️ Know Before You Queue</h3>
+                <ul style="margin: 0; padding-left: 20px; color: #ddd;">
+                    <li style="margin-bottom: 8px;"><strong>Motion Warning:</strong> High-speed coaster with inversions
+                        and airtime. Lap restraints only means you feel every G-force.</li>
+                    <li style="margin-bottom: 8px;"><strong>Green vs. Yellow:</strong> <strong>Pulsar (Green)</strong>
+                        is more intense with airtime. <strong>Photon (Yellow)</strong> is smoother.</li>
+                    <li style="margin-bottom: 8px;"><strong>Apple Watch Trick:</strong> Metal detectors trip on watches.
+                        Raise hands above head or cover watch face to avoid getting pulled aside.</li>
+                    <li style="margin-bottom: 8px;"><strong>Weather:</strong> As an outdoor coaster, this closes
+                        instantly for lightning. Check the app.</li>
+                </ul>
+            </div>
+
+            <h2>Secret Easter Eggs</h2>
+            <ul style="color: #aaa; line-height: 1.6;">
+                <li><strong>🔮 Flux Capacitor:</strong> Look at the back of every coaster car train. Each one has a
+                    working Flux Capacitor from <em>Back to the Future</em>! Lore says Doc Brown donated tech to
+                    stabilize the comets.</li>
+                <li><strong>⚙️ Time Machine Controls:</strong> The station operator controls resemble H.G. Wells' movie
+                    props.</li>
+                <li><strong>☄️ Steampunk Comets:</strong> The station ceiling features massive mechanical comets with
+                    LED tails.</li>
+            </ul>
+
+            <h2 style="margin-top: 40px;">The No-Phone Zone</h2>
             <p>Stardust Racers has a strict loose article policy. Unlike other rides where you can stow items in
                 pouches, here you must use a locker well before the boarding area. This means you will be standing
                 in
                 line for 20-25 minutes without your device. Plan accordingly!</p>
+
+            <p><strong>Best Times:</strong> Rope drop (10-20 min), before 11:30 AM, or the final 30 minutes. <strong>Pro
+                    Tip:</strong> Ride at night to see the portal lights converge with the Cosmos Fountain show!</p>
         </section>
 
         <!-- Holiday Strategy Banner -->
