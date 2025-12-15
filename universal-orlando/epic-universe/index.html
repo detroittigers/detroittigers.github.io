@@ -140,6 +140,83 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* Wait Time Analysis Styles */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
+
+        .day-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .day-card.best {
+            background: rgba(0, 204, 102, 0.1);
+            border-color: rgba(0, 204, 102, 0.3);
+        }
+
+        .day-card.avoid {
+            background: rgba(255, 68, 68, 0.1);
+            border-color: rgba(255, 68, 68, 0.3);
+        }
+
+        .day-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            width: 120px;
+        }
+
+        .stat-group {
+            text-align: right;
+        }
+
+        .stat-val {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .badge.best {
+            background: #00cc66;
+            color: #000;
+        }
+
+        .badge.avoid {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        @media (min-width: 600px) {
+            .analysis-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -319,6 +396,95 @@
                 </svg>
             </a>
         </div>
+
+        <section style="margin-bottom: 60px;">
+            <h2 style="color: #fff; margin-bottom: 20px;">📅 Best Day to Visit</h2>
+            <p style="color: #ccc; margin-bottom: 30px; line-height: 1.6;">Based on <strong>110,000+ wait time
+                    samples</strong> from the last 30 days. Plan your trip to avoid the mid-week spikes.</p>
+
+            <div class="analysis-grid">
+                <!-- Tuesday (Best) -->
+                <div class="day-card best">
+                    <div class="day-info">
+                        <div class="day-name">Tuesday <span class="badge best">Best Bet</span></div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="stat-val">36 min</div>
+                        <div class="stat-label">Avg Wait</div>
+                    </div>
+                </div>
+
+                <!-- Thursday (Good) -->
+                <div class="day-card best">
+                    <div class="day-info">
+                        <div class="day-name">Thursday <span class="badge best">Good</span></div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="stat-val">41 min</div>
+                        <div class="stat-label">Avg Wait</div>
+                    </div>
+                </div>
+
+                <!-- Sunday -->
+                <div class="day-card">
+                    <div class="day-info">
+                        <div class="day-name">Sunday</div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="stat-val">38 min</div>
+                        <div class="stat-label">Avg Wait</div>
+                    </div>
+                </div>
+
+                <!-- Saturday -->
+                <div class="day-card">
+                    <div class="day-info">
+                        <div class="day-name">Saturday</div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="stat-val">41 min</div>
+                        <div class="stat-label">Avg Wait</div>
+                    </div>
+                </div>
+
+                <!-- Friday -->
+                <div class="day-card">
+                    <div class="day-info">
+                        <div class="day-name">Friday</div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="stat-val">44 min</div>
+                        <div class="stat-label">Avg Wait</div>
+                    </div>
+                </div>
+
+                <!-- Wednesday (Avoid) -->
+                <div class="day-card avoid">
+                    <div class="day-info">
+                        <div class="day-name">Wednesday <span class="badge avoid">Busy</span></div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="stat-val">59 min</div>
+                        <div class="stat-label">Avg Wait</div>
+                    </div>
+                </div>
+
+                <!-- Monday (Avoid) -->
+                <div class="day-card avoid">
+                    <div class="day-info">
+                        <div class="day-name">Monday <span class="badge avoid">Busy</span></div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="stat-val">60 min</div>
+                        <div class="stat-label">Avg Wait</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="font-size: 0.85rem; color: #888; font-style: italic;">*Data represents the average wait time
+                across all major attractions. "Avg Wait" accounts for outliers; median waits are typically lower (e.g.,
+                Tuesday median is 25 min).</p>
+        </section>
 
         <section style="color: #ccc; line-height: 1.7; margin-bottom: 60px;">
             <h2 style="color: #fff; margin-bottom: 20px;">Planning Your Day at Epic Universe</h2>

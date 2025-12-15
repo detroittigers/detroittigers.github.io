@@ -394,6 +394,87 @@
             font-size: 0.9rem;
             line-height: 1.5;
         }
+
+        /* Best Day Grid Styles */
+        .best-day-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .bd-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bd-card.highlight-green {
+            border-color: rgba(0, 204, 102, 0.3);
+            background: rgba(0, 204, 102, 0.05);
+        }
+
+        .bd-card.highlight-red {
+            border-color: rgba(255, 68, 68, 0.3);
+            background: rgba(255, 68, 68, 0.05);
+        }
+
+        .bd-day {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .bd-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 4px;
+            width: fit-content;
+        }
+
+        .bd-badge.green {
+            background: #00cc66;
+            color: #000;
+        }
+
+        .bd-badge.red {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .bd-stat {
+            text-align: right;
+        }
+
+        .bd-time {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .bd-label {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @media (min-width: 600px) {
+            .best-day-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 
@@ -629,6 +710,97 @@
                     </div>
 
                 </div>
+            </div>
+
+            <!-- Best Day to Visit Section -->
+            <div style="margin-top: 60px; margin-bottom: 60px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <span style="font-size: 1.8rem;">📅</span>
+                    <h2 style="margin: 0; font-size: 1.8rem;">Best Day to Visit</h2>
+                </div>
+                <p style="color: #aaa; margin-bottom: 30px; font-size: 1rem;">Based on <strong
+                        style="color: white;">110,000+ wait time samples</strong> from the last 30 days. Plan your trip
+                    to avoid the mid-week spikes.</p>
+
+                <div class="best-day-grid">
+                    <!-- Tuesday (Best) -->
+                    <div class="bd-card highlight-green">
+                        <div class="bd-day">
+                            Tuesday
+                            <span class="bd-badge green">BEST BET</span>
+                        </div>
+                        <div class="bd-stat">
+                            <div class="bd-time">36 min</div>
+                            <div class="bd-label">Avg Wait</div>
+                        </div>
+                    </div>
+
+                    <!-- Thursday (Good) -->
+                    <div class="bd-card highlight-green">
+                        <div class="bd-day">
+                            Thursday
+                            <span class="bd-badge green">GOOD</span>
+                        </div>
+                        <div class="bd-stat">
+                            <div class="bd-time">41 min</div>
+                            <div class="bd-label">Avg Wait</div>
+                        </div>
+                    </div>
+
+                    <!-- Sunday -->
+                    <div class="bd-card">
+                        <div class="bd-day">Sunday</div>
+                        <div class="bd-stat">
+                            <div class="bd-time">38 min</div>
+                            <div class="bd-label">Avg Wait</div>
+                        </div>
+                    </div>
+
+                    <!-- Saturday -->
+                    <div class="bd-card">
+                        <div class="bd-day">Saturday</div>
+                        <div class="bd-stat">
+                            <div class="bd-time">41 min</div>
+                            <div class="bd-label">Avg Wait</div>
+                        </div>
+                    </div>
+
+                    <!-- Friday -->
+                    <div class="bd-card">
+                        <div class="bd-day">Friday</div>
+                        <div class="bd-stat">
+                            <div class="bd-time">44 min</div>
+                            <div class="bd-label">Avg Wait</div>
+                        </div>
+                    </div>
+
+                    <!-- Wednesday (Avoid) -->
+                    <div class="bd-card highlight-red">
+                        <div class="bd-day">
+                            Wednesday
+                            <span class="bd-badge red">BUSY</span>
+                        </div>
+                        <div class="bd-stat">
+                            <div class="bd-time">59 min</div>
+                            <div class="bd-label">Avg Wait</div>
+                        </div>
+                    </div>
+
+                    <!-- Monday (Avoid) -->
+                    <div class="bd-card highlight-red">
+                        <div class="bd-day">
+                            Monday
+                            <span class="bd-badge red">BUSY</span>
+                        </div>
+                        <div class="bd-stat">
+                            <div class="bd-time">60 min</div>
+                            <div class="bd-label">Avg Wait</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 0.85rem; color: #666; font-style: italic;">*Data represents the average wait time
+                    across all major attractions. "Avg Wait" accounts for outliers; median waits are typically lower
+                    (e.g., Tuesday median is 25 min).</p>
             </div>
 
             <!-- Blurred Guide Preview Section -->
