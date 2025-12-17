@@ -118,8 +118,7 @@
 
         .survival-box {
             background: #111;
-            padding: 10px 4px;
-            /* Tighter padding for mobile */
+            padding: 12px 8px;
             border-radius: 12px;
             border: 1px solid #333;
             text-align: center;
@@ -150,8 +149,8 @@
             display: block;
         }
 
-        /* Stack on very small screens if needed */
-        @media (max-width: 400px) {
+        /* 2x2 grid on mobile for better readability */
+        @media (max-width: 600px) {
             .survival-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -411,6 +410,140 @@
             border-radius: 4px;
             color: #aaa;
         }
+
+        /* Queue Tracker Panel */
+        .tracker-panel {
+            background: linear-gradient(135deg, #1a1a1a, #252525);
+            border-bottom: 1px solid rgba(255, 75, 43, 0.3);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tracker-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tracker-icon {
+            font-size: 1.2rem;
+        }
+
+        .tracker-label {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .tracker-eta {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tracker-pace {
+            font-size: 0.85rem;
+            color: #888;
+            flex: 1;
+            text-align: center;
+        }
+
+        .tracker-reset {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
+            color: #aaa;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .tracker-reset:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        /* Landmark Interactive States */
+        .landmark[data-landmark-id] {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 12px;
+        }
+
+        .landmark[data-landmark-id]:hover {
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateX(4px);
+        }
+
+        .landmark[data-landmark-id]:focus {
+            outline: 2px solid rgba(255, 75, 43, 0.5);
+            outline-offset: 4px;
+        }
+
+        .landmark.visited {
+            opacity: 0.5;
+        }
+
+        .landmark.visited .marker {
+            position: relative;
+        }
+
+        .landmark.visited .marker::after {
+            content: "✓";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .landmark.current {
+            background: rgba(255, 75, 43, 0.1);
+            margin-left: -8px;
+            margin-right: -8px;
+            padding: 8px;
+        }
+
+        .landmark.current .marker {
+            animation: currentPulse 2s infinite;
+        }
+
+        @keyframes currentPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 75, 43, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(255, 75, 43, 0); }
+        }
+
+        /* Adjusted Time Display */
+        .time-adjusted {
+            display: block;
+            font-size: 0.8rem;
+            color: #66ffaa;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .tracker-panel {
+                flex-direction: column;
+                text-align: center;
+            }
+            .tracker-status {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .tracker-pace {
+                order: 3;
+            }
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -456,7 +589,7 @@
                 <span class="survival-label">Height</span>
                 <span class="survival-val">40" (102cm)</span>
                 <span class="survival-label"
-                    style="font-size: 0.5rem; text-transform: none; color: #666; margin-top: 2px;">40"-48" requires
+                    style="font-size: 0.75rem; text-transform: none; color: #666; margin-top: 2px;">40"-48" requires
                     companion</span>
             </div>
             <div class="survival-box">
@@ -464,7 +597,7 @@
                 <span class="survival-label">Single Rider</span>
                 <span class="survival-val" style="color: #00cc66;">Offered</span>
                 <span class="survival-label"
-                    style="font-size: 0.5rem; text-transform: none; color: #666; margin-top: 2px;">Subject to
+                    style="font-size: 0.75rem; text-transform: none; color: #666; margin-top: 2px;">Subject to
                     availability</span>
             </div>
             <div class="survival-box">
@@ -493,9 +626,20 @@
             <div class="map-header">
                 <h2>Ministry of Magic Queue Map</h2>
             </div>
+            <div class="tracker-panel" id="trackerPanel" style="display: none;">
+                <div class="tracker-status">
+                    <span class="tracker-icon">📍</span>
+                    <span class="tracker-label">Your Estimated Wait</span>
+                    <span class="tracker-eta" id="trackerETA">--</span>
+                </div>
+                <div class="tracker-pace">
+                    <span id="trackerPace">Tap your current location to start</span>
+                </div>
+                <button class="tracker-reset" id="trackerReset">Reset</button>
+            </div>
             <div class="map-content">
                 <!-- 130+ Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="outdoor-overflow" data-minutes="130" data-cumulative="130" role="button" tabindex="0">
                     <div class="marker severe"></div>
                     <div class="landmark-info">
                         <h3>Outdoor Overflow</h3>
@@ -504,14 +648,12 @@
                                 minutes</strong> to your wait.</p>
                         <div class="icon-row">
                             <span class="icon-tag">☀️ No Shade</span>
-                            <span class="icon-tag" style="color: #ffb6a3; background: rgba(255, 75, 43, 0.1);">🚀
-                                Express Skips This</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- 90 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="metro-floo" data-minutes="90" data-cumulative="90" role="button" tabindex="0">
                     <div class="marker severe"></div>
                     <div class="landmark-info">
                         <h3>Metro-Floo Entrance (White Tiles)</h3>
@@ -528,7 +670,7 @@
                 </div>
 
                 <!-- 80 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="grand-atrium" data-minutes="80" data-cumulative="80" role="button" tabindex="0">
                     <div class="marker severe"></div>
                     <div class="landmark-info">
                         <h3>The Grand Atrium</h3>
@@ -547,7 +689,7 @@
                 </div>
 
                 <!-- 75 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="ministry-reception" data-minutes="75" data-cumulative="75" role="button" tabindex="0">
                     <div class="marker severe"></div>
                     <div class="landmark-info">
                         <h3>Ministry Reception</h3>
@@ -561,7 +703,7 @@
                 </div>
 
                 <!-- 65 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="hall-of-ministers" data-minutes="65" data-cumulative="65" role="button" tabindex="0">
                     <div class="marker high"></div>
                     <div class="landmark-info">
                         <h3>Hall of Ministers</h3>
@@ -575,7 +717,7 @@
                 </div>
 
                 <!-- 50 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="map-room" data-minutes="50" data-cumulative="50" role="button" tabindex="0">
                     <div class="marker high"></div>
                     <div class="landmark-info">
                         <h3>The Map Room</h3>
@@ -589,7 +731,7 @@
                 </div>
 
                 <!-- 45 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="cleaning-hallway" data-minutes="45" data-cumulative="45" role="button" tabindex="0">
                     <div class="marker high"></div>
                     <div class="landmark-info">
                         <h3>Cleaning Hallway</h3>
@@ -601,7 +743,7 @@
                 </div>
 
                 <!-- 38 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="auror-locker-room" data-minutes="38" data-cumulative="38" role="button" tabindex="0">
                     <div class="marker high"></div>
                     <div class="landmark-info">
                         <h3>Auror Locker Room</h3>
@@ -617,7 +759,7 @@
                 </div>
 
                 <!-- 30 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="fallen-auror-memorial" data-minutes="30" data-cumulative="30" role="button" tabindex="0">
                     <div class="marker medium"></div>
                     <div class="landmark-info">
                         <h3>Fallen Auror Memorial</h3>
@@ -631,7 +773,7 @@
                 </div>
 
                 <!-- 20 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="law-enforcement" data-minutes="20" data-cumulative="20" role="button" tabindex="0">
                     <div class="marker medium"></div>
                     <div class="landmark-info">
                         <h3>Department of Magical Law Enforcement</h3>
@@ -644,7 +786,7 @@
                 </div>
 
                 <!-- 15 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="trial-antechamber" data-minutes="18" data-cumulative="18" role="button" tabindex="0">
                     <div class="marker medium"></div>
                     <div class="landmark-info">
                         <h3>Trial Chamber Antechamber</h3>
@@ -657,7 +799,7 @@
                 </div>
 
                 <!-- 18 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="pink-hallway" data-minutes="15" data-cumulative="15" role="button" tabindex="0">
                     <div class="marker low"></div>
                     <div class="landmark-info">
                         <h3>Training Schedule & Pink Hallway</h3>
@@ -668,10 +810,10 @@
                 </div>
 
                 <!-- 12 Mins -->
-                <div class="landmark">
+                <div class="landmark" data-landmark-id="umbridge-office" data-minutes="12" data-cumulative="12" role="button" tabindex="0">
                     <div class="marker low"></div>
                     <div class="landmark-info">
-                        <h3>Umbridge’s Office (The Pink Room)</h3>
+                        <h3>Umbridge's Office (The Pink Room)</h3>
                         <div class="time-tag low">~12 Minutes Left</div>
                         <p class="landmark-desc">The final scene. Highly detailed pink office. Look for the house-elf
                             <strong>Higgledy</strong> perched on a cabinet, packing up Umbridge's belongings.
@@ -804,6 +946,371 @@
                     style="color: #666;">Terms</a></p>
         </footer>
     </div>
+
+    <!-- Queue Tracker JavaScript -->
+    <script>
+    (function() {
+        const STORAGE_KEY = 'queue-tracker-ministry';
+        const RIDE_NAME = 'ministry';
+        const LAST_LANDMARK_ID = 'umbridge-office';
+
+        // State
+        let state = {
+            visitedLandmarks: [], // [{id, timestamp, cumulative}]
+            startTime: null
+        };
+
+        // GA4 Tracking Functions
+        function trackStart(landmarkId) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'queue_tracker_started', {
+                    'ride': RIDE_NAME,
+                    'landmark': landmarkId
+                });
+            }
+        }
+
+        function trackLandmarkTap(landmarkId, landmarksVisited, paceFactor) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'queue_tracker_landmark', {
+                    'ride': RIDE_NAME,
+                    'landmark': landmarkId,
+                    'landmarks_visited': landmarksVisited,
+                    'pace_factor': Math.round(paceFactor * 10) / 10
+                });
+            }
+        }
+
+        function trackCompleted(totalLandmarks, actualMinutes, expectedMinutesCovered, paceFactor) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'queue_tracker_completed', {
+                    'ride': RIDE_NAME,
+                    'total_landmarks': totalLandmarks,
+                    'actual_minutes': Math.round(actualMinutes),
+                    'expected_minutes_covered': expectedMinutesCovered, // time between first and last landmark (not total queue)
+                    'pace_factor': Math.round(paceFactor * 10) / 10
+                });
+            }
+        }
+
+        function trackReset(landmarksVisited) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'queue_tracker_reset', {
+                    'ride': RIDE_NAME,
+                    'landmarks_visited': landmarksVisited
+                });
+            }
+        }
+
+        // Get valid landmark IDs from the page
+        function getValidLandmarkIds() {
+            const ids = new Set();
+            document.querySelectorAll('.landmark[data-landmark-id]').forEach(function(el) {
+                ids.add(el.dataset.landmarkId);
+            });
+            return ids;
+        }
+
+        // Load from localStorage
+        function loadState() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+
+                    // Validate basic structure
+                    if (!parsed || typeof parsed !== 'object') {
+                        localStorage.removeItem(STORAGE_KEY);
+                        return false;
+                    }
+                    if (!Number.isFinite(parsed.startTime)) {
+                        localStorage.removeItem(STORAGE_KEY);
+                        return false;
+                    }
+                    if (!Array.isArray(parsed.visitedLandmarks)) {
+                        localStorage.removeItem(STORAGE_KEY);
+                        return false;
+                    }
+
+                    // Only restore if less than 4 hours old
+                    if (Date.now() - parsed.startTime >= 4 * 60 * 60 * 1000) {
+                        localStorage.removeItem(STORAGE_KEY);
+                        return false;
+                    }
+
+                    // Filter to only valid landmark IDs with valid numeric values
+                    // Normalize cumulative from DOM to prevent stale localStorage from showing wrong numbers
+                    const validIds = getValidLandmarkIds();
+                    const seenIds = new Set();
+                    parsed.visitedLandmarks = parsed.visitedLandmarks.map(function(v) {
+                        if (!v || typeof v !== 'object') return null;
+                        if (!v.id || !validIds.has(v.id)) return null;
+                        if (!Number.isFinite(v.timestamp)) return null;
+                        if (seenIds.has(v.id)) return null; // dedupe
+                        seenIds.add(v.id);
+
+                        // Normalize cumulative from current DOM (not stored value)
+                        const el = document.querySelector('.landmark[data-landmark-id="' + v.id + '"]');
+                        const domCumulative = el ? parseInt(el.dataset.cumulative, 10) : NaN;
+                        if (!Number.isFinite(domCumulative)) return null;
+
+                        return { id: v.id, timestamp: v.timestamp, cumulative: domCumulative };
+                    }).filter(function(v) { return v !== null; });
+
+                    // Sort by timestamp and enforce monotonically decreasing cumulative
+                    parsed.visitedLandmarks.sort(function(a, b) { return a.timestamp - b.timestamp; });
+                    let lastCumulative = Infinity;
+                    parsed.visitedLandmarks = parsed.visitedLandmarks.filter(function(v) {
+                        if (v.cumulative >= lastCumulative) return false; // must strictly decrease
+                        lastCumulative = v.cumulative;
+                        return true;
+                    });
+
+                    state = parsed;
+                    return state.visitedLandmarks.length > 0;
+                }
+            } catch (e) {
+                console.error('Failed to load tracker state:', e);
+                localStorage.removeItem(STORAGE_KEY); // Clear corrupted data
+            }
+            return false;
+        }
+
+        // Save to localStorage
+        function saveState() {
+            try {
+                state.startTime = state.startTime || Date.now();
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            } catch (e) {
+                console.error('Failed to save tracker state:', e);
+            }
+        }
+
+        // Calculate pace factor
+        function calculatePaceFactor() {
+            if (state.visitedLandmarks.length < 2) return 1;
+
+            const first = state.visitedLandmarks[0];
+            const last = state.visitedLandmarks[state.visitedLandmarks.length - 1];
+
+            const actualMinutes = (last.timestamp - first.timestamp) / 60000;
+            const expectedMinutes = first.cumulative - last.cumulative;
+
+            // Need at least 3 minutes actual time AND 5 minutes expected to avoid jumpy early estimates
+            if (actualMinutes < 3 || expectedMinutes < 5) return 1;
+
+            let paceFactor = expectedMinutes / actualMinutes;
+
+            // Cap pace factor to realistic bounds (0.25x to 4x)
+            // Queue can't realistically be more than 4x faster or slower than average
+            paceFactor = Math.min(Math.max(paceFactor, 0.25), 4);
+
+            return paceFactor;
+        }
+
+        // Check if we have enough data for meaningful pace
+        function hasMeaningfulPace() {
+            if (state.visitedLandmarks.length < 2) return false;
+            const first = state.visitedLandmarks[0];
+            const last = state.visitedLandmarks[state.visitedLandmarks.length - 1];
+            const actualMinutes = (last.timestamp - first.timestamp) / 60000;
+            const expectedMinutes = first.cumulative - last.cumulative;
+            // Require 3+ minutes actual time AND 5+ minutes expected coverage
+            return actualMinutes >= 3 && expectedMinutes >= 5;
+        }
+
+        // Update all UI elements
+        function updateUI() {
+            const panel = document.getElementById('trackerPanel');
+            const landmarks = document.querySelectorAll('.landmark[data-landmark-id]');
+
+            // Show panel if any landmarks visited
+            if (state.visitedLandmarks.length > 0) {
+                panel.style.display = 'flex';
+            }
+
+            const paceFactor = calculatePaceFactor();
+            const currentLandmark = state.visitedLandmarks[state.visitedLandmarks.length - 1];
+
+            // Update landmark states
+            landmarks.forEach(landmark => {
+                const id = landmark.dataset.landmarkId;
+                const cumulative = parseInt(landmark.dataset.cumulative);
+                const isVisited = state.visitedLandmarks.some(v => v.id === id);
+                const isCurrent = currentLandmark && currentLandmark.id === id;
+
+                landmark.classList.toggle('visited', isVisited && !isCurrent);
+                landmark.classList.toggle('current', isCurrent);
+
+                // Remove old adjusted time if exists
+                const oldAdjusted = landmark.querySelector('.time-adjusted');
+                if (oldAdjusted) oldAdjusted.remove();
+
+                // Update inline adjusted time for landmarks ahead (only if we have meaningful pace)
+                const meaningfulPace = hasMeaningfulPace();
+                if (currentLandmark && cumulative < currentLandmark.cumulative && meaningfulPace && paceFactor !== 1) {
+                    const baseMinutes = parseInt(landmark.dataset.minutes);
+                    const adjusted = Math.round(baseMinutes / paceFactor);
+
+                    // Only show if the adjusted time is meaningfully different
+                    if (Math.abs(adjusted - baseMinutes) >= 2) {
+                        const adjustedEl = document.createElement('span');
+                        adjustedEl.className = 'time-adjusted';
+                        adjustedEl.textContent = '→ ~' + adjusted + ' min at your pace';
+
+                        const timeTag = landmark.querySelector('.time-tag');
+                        if (timeTag) {
+                            timeTag.insertAdjacentElement('afterend', adjustedEl);
+                        }
+                    }
+                }
+            });
+
+            // Update header panel
+            if (currentLandmark) {
+                const meaningfulPace = hasMeaningfulPace();
+                const isCompleted = currentLandmark.id === LAST_LANDMARK_ID;
+
+                if (isCompleted) {
+                    // Special completion state
+                    document.getElementById('trackerETA').textContent = 'Almost there!';
+                    if (meaningfulPace) {
+                        const totalMinutes = Math.round((currentLandmark.timestamp - state.visitedLandmarks[0].timestamp) / 60000);
+                        document.getElementById('trackerPace').textContent = 'Total wait: ~' + totalMinutes + ' min. Enjoy the ride!';
+                    } else {
+                        document.getElementById('trackerPace').textContent = 'Pre-show ahead. Enjoy the ride!';
+                    }
+                } else if (meaningfulPace) {
+                    const adjustedETA = Math.round(currentLandmark.cumulative / paceFactor);
+                    document.getElementById('trackerETA').textContent = '~' + adjustedETA + ' min';
+
+                    let paceText;
+                    if (paceFactor > 1.1) {
+                        paceText = paceFactor.toFixed(1) + 'x faster than average';
+                    } else if (paceFactor < 0.9) {
+                        paceText = (1/paceFactor).toFixed(1) + 'x slower than average';
+                    } else {
+                        paceText = 'Moving at average pace';
+                    }
+                    document.getElementById('trackerPace').textContent = paceText;
+                } else {
+                    // Show base estimate until we have meaningful pace data
+                    document.getElementById('trackerETA').textContent = '~' + currentLandmark.cumulative + ' min';
+                    if (state.visitedLandmarks.length >= 2) {
+                        document.getElementById('trackerPace').textContent = 'Keep marking landmarks for personalized estimate';
+                    } else {
+                        document.getElementById('trackerPace').textContent = 'Tap next landmark for pace estimate';
+                    }
+                }
+            }
+        }
+
+        // Handle landmark tap
+        function onLandmarkTap(landmark) {
+            const id = landmark.dataset.landmarkId;
+            const cumulative = parseInt(landmark.dataset.cumulative, 10);
+
+            // Guard against NaN from bad data attributes
+            if (!id || !Number.isFinite(cumulative)) {
+                return;
+            }
+
+            // Don't allow tapping landmarks already visited
+            if (state.visitedLandmarks.some(v => v.id === id)) {
+                return;
+            }
+
+            // Prevent out-of-order taps (can't go backward in queue)
+            if (state.visitedLandmarks.length > 0) {
+                const currentLandmark = state.visitedLandmarks[state.visitedLandmarks.length - 1];
+                if (cumulative >= currentLandmark.cumulative) {
+                    // User tapped a landmark earlier in queue than current position - ignore
+                    return;
+                }
+            }
+
+            // Add to visited
+            state.visitedLandmarks.push({
+                id: id,
+                cumulative: cumulative,
+                timestamp: Date.now()
+            });
+
+            // Track in GA4
+            if (state.visitedLandmarks.length === 1) {
+                trackStart(id);
+            } else {
+                trackLandmarkTap(id, state.visitedLandmarks.length, calculatePaceFactor());
+            }
+
+            // Check if completed (last landmark)
+            if (id === LAST_LANDMARK_ID && state.visitedLandmarks.length >= 2) {
+                const first = state.visitedLandmarks[0];
+                const last = state.visitedLandmarks[state.visitedLandmarks.length - 1];
+                const actualMinutes = (last.timestamp - first.timestamp) / 60000; // tap-to-tap measurement
+                const expectedMinutesCovered = first.cumulative - last.cumulative;
+                trackCompleted(state.visitedLandmarks.length, actualMinutes, expectedMinutesCovered, calculatePaceFactor());
+            }
+
+            saveState();
+            updateUI();
+
+            // Haptic feedback if available
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+
+        // Reset tracking
+        function reset() {
+            trackReset(state.visitedLandmarks.length);
+
+            state = { visitedLandmarks: [], startTime: null };
+            localStorage.removeItem(STORAGE_KEY);
+
+            document.querySelectorAll('.landmark').forEach(function(l) {
+                l.classList.remove('visited', 'current');
+                const adj = l.querySelector('.time-adjusted');
+                if (adj) adj.remove();
+            });
+
+            document.getElementById('trackerPanel').style.display = 'none';
+            document.getElementById('trackerETA').textContent = '--';
+            document.getElementById('trackerPace').textContent = 'Tap your current location to start';
+        }
+
+        // Initialize
+        function init() {
+            // Add click handlers to landmarks
+            document.querySelectorAll('.landmark[data-landmark-id]').forEach(function(landmark) {
+                landmark.addEventListener('click', function() {
+                    onLandmarkTap(landmark);
+                });
+                landmark.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        onLandmarkTap(landmark);
+                    }
+                });
+            });
+
+            // Reset button
+            document.getElementById('trackerReset').addEventListener('click', reset);
+
+            // Load saved state and update UI
+            if (loadState()) {
+                updateUI();
+            }
+        }
+
+        // Run on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
 
 </body>
 
