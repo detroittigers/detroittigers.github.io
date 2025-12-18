@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Universe Holiday Strategy Guide | Ride Ready</title>
+    <meta name="description"
+        content="Data-driven guide to Epic Universe holiday crowds. 407,000+ wait time samples reveal the best times, days, and strategies to conquer Universal's newest park.">
+    <meta property="og:title" content="Epic Universe Holiday Strategy Guide | Ride Ready">
+    <meta property="og:description"
+        content="407,000+ wait samples. Sunday is BEST (28 min avg), Monday is WORST (40 min). Mine-Cart at 9 AM: 30 min. At peak: 127 min. Get the full strategy.">
+    <meta property="og:image" content="https://rideready.app/images/epic_landing/map.png">
+    <meta property="og:url" content="https://rideready.app/epic-universe/guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --text: #374151;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            background-size: 30px 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .data-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 .emoji {
+            font-size: 1.8rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card.warning {
+            background: linear-gradient(135deg, var(--warning) 0%, #d97706 100%);
+        }
+
+        .stat-card.danger {
+            background: linear-gradient(135deg, var(--danger) 0%, #dc2626 100%);
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .ride-tier {
+            margin-bottom: 30px;
+        }
+
+        .tier-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tier-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tier-1 .tier-badge {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .tier-2 .tier-badge {
+            background: #fffbeb;
+            color: #d97706;
+        }
+
+        .tier-3 .tier-badge {
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+        .ride-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ride-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+            gap: 15px;
+        }
+
+        .ride-name {
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .ride-wait {
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .wait-high {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .wait-med {
+            background: #fffbeb;
+            color: #d97706;
+        }
+
+        .wait-low {
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+        .ride-tip {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .chart-container {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .chart-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bar-label {
+            width: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 24px;
+            background: #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 0.5s ease;
+        }
+
+        .bar-value {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .comparison-chart {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+        }
+
+        .comparison-item {
+            text-align: center;
+        }
+
+        .comparison-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .comparison-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--success), var(--warning), var(--danger), var(--warning), var(--success));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -26px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary);
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .timeline-content {
+            font-size: 0.95rem;
+        }
+
+        .cheat-sheet {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border-radius: 16px;
+            padding: 30px;
+            color: white;
+        }
+
+        .cheat-sheet h2 {
+            color: white;
+        }
+
+        .cheat-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cheat-item:last-child {
+            border-bottom: none;
+        }
+
+        .cheat-number {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .cheat-text strong {
+            color: var(--success);
+        }
+
+        .fun-facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .fun-fact {
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .fun-fact-land {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #7c3aed;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .fun-fact-text {
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-cta {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background: #fef2f2;
+            border: 2px solid #fca5a5;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .warning-box strong {
+            color: #dc2626;
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fun-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .comparison-chart {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Epic Universe Holiday Strategy</h1>
+            <p class="subtitle">Your data-driven guide to conquering Universal's newest park</p>
+            <span class="data-badge">Based on 407,124 wait time samples</span>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="number">79</span>
+                <span class="label">Days of Data</span>
+            </div>
+            <div class="stat-card warning">
+                <span class="number">4x</span>
+                <span class="label">Peak vs Morning</span>
+            </div>
+            <div class="stat-card danger">
+                <span class="number">5hr</span>
+                <span class="label">Time You'll Save</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">📊</span> The Holiday Reality</h2>
+            <p style="margin-bottom: 10px;">During peak hours (10 AM - 5 PM), waits spike 3-4x higher than morning.
+                Here's the hourly pattern:</p>
+            <p
+                style="margin-bottom: 20px; padding: 12px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; border-left: 4px solid #f59e0b; font-size: 0.9rem;">
+                <strong>🎄 First Christmas at Epic Universe:</strong> This data is from Thanksgiving week 2025. We
+                expect Christmas week waits to match or exceed these numbers—plan accordingly!
+            </p>
+
+            <div class="chart-container">
+                <div class="chart-title">Hourly Wait Times: Thanksgiving Week</div>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">9 AM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 21%; background: var(--success);"></div>
+                            <span class="bar-value">21 min ⭐ Golden Hour</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">11 AM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 71%; background: var(--danger);"></div>
+                            <span class="bar-value">71 min 🔥 Peak</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">3 PM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 63%; background: var(--danger);"></div>
+                            <span class="bar-value">63 min 🔥 Peak</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">7 PM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 45%; background: var(--warning);"></div>
+                            <span class="bar-value">45 min ⭐ Evening Window</span>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-light);">
+                    <span
+                        style="display: inline-block; width: 12px; height: 12px; background: var(--success); border-radius: 2px; margin-right: 5px;"></span>
+                    Best times
+                    <span
+                        style="display: inline-block; width: 12px; height: 12px; background: var(--danger); border-radius: 2px; margin: 0 5px 0 15px;"></span>
+                    Avoid queuing headliners
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">🎢</span> The Ride Hierarchy</h2>
+
+            <div class="ride-tier tier-1">
+                <div class="tier-header">
+                    <span class="tier-badge">Tier 1: Headliners</span>
+                    <span style="color: var(--text-light); font-size: 0.85rem;">100+ min peak</span>
+                </div>
+                <div class="ride-list">
+                    <div class="ride-item">
+                        <div class="ride-name">Mine-Cart Madness</div>
+                        <span class="ride-wait wait-high">127 min peak</span>
+                        <span class="ride-tip">Best: 9 AM (30 min)</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Battle at the Ministry</div>
+                        <span class="ride-wait wait-high">114 min peak</span>
+                        <span class="ride-tip">Best: 7 PM (~76 min)</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Mario Kart</div>
+                        <span class="ride-wait wait-high">105 min peak</span>
+                        <span class="ride-tip">Best: 9 AM (22 min)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ride-tier tier-2">
+                <div class="tier-header">
+                    <span class="tier-badge">Tier 2: Plan Ahead</span>
+                    <span style="color: var(--text-light); font-size: 0.85rem;">50-70 min peak</span>
+                </div>
+                <div class="ride-list">
+                    <div class="ride-item">
+                        <div class="ride-name">Yoshi's Adventure</div>
+                        <span class="ride-wait wait-med">70 min peak</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Curse of the Werewolf</div>
+                        <span class="ride-wait wait-med">56 min peak</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Hiccup's Wing Gliders</div>
+                        <span class="ride-wait wait-med">52 min peak</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Dragon Racer's Rally</div>
+                        <span class="ride-wait wait-med">50 min peak</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ride-tier tier-3">
+                <div class="tier-header">
+                    <span class="tier-badge">Tier 3: Walk-Ons</span>
+                    <span style="color: var(--text-light); font-size: 0.85rem;">Under 35 min</span>
+                </div>
+                <div class="ride-list">
+                    <div class="ride-item">
+                        <div class="ride-name">Fyre Drill</div>
+                        <span class="ride-wait wait-low">30 min peak</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Stardust Racers</div>
+                        <span class="ride-wait wait-low">29 min peak</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Constellation Carousel</div>
+                        <span class="ride-wait wait-low">25 min peak</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Monsters Unchained</div>
+                        <span class="ride-wait wait-low">24 min peak</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">🧙</span> Battle at the Ministry</h2>
+            <p style="margin-bottom: 20px;">Universal's most advanced dark ride—and the hardest to experience
+                efficiently.</p>
+
+            <div class="comparison-chart">
+                <div class="comparison-item">
+                    <div class="comparison-circle" style="background: linear-gradient(135deg, #ef4444, #dc2626);">114
+                    </div>
+                    <div class="comparison-label">11 AM Wait</div>
+                </div>
+                <div class="comparison-item">
+                    <div class="comparison-circle" style="background: linear-gradient(135deg, #f59e0b, #d97706);">95
+                    </div>
+                    <div class="comparison-label">6 PM Wait</div>
+                </div>
+                <div class="comparison-item">
+                    <div class="comparison-circle" style="background: linear-gradient(135deg, #10b981, #059669);">76
+                    </div>
+                    <div class="comparison-label">7 PM Wait</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>Critical Warning:</strong> Don't wait until 9 PM! Our data shows 40% fewer samples at 9 PM—the
+                queue is often already closed. Universal closes queues ~2 hours before park close if waits exceed 120
+                min. <strong>Queue by 7 PM</strong> to guarantee access and finish by ~9:30 PM.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">📅</span> Best Day to Visit</h2>
+            <p style="margin-bottom: 20px;">The data surprised us. Here's what 407,000 samples reveal:</p>
+
+            <div class="chart-container">
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">Sunday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 70%; background: var(--success);"></div>
+                            <span class="bar-value">28 min avg ⭐ BEST</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Tuesday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 80%; background: var(--success);"></div>
+                            <span class="bar-value">32 min avg</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Friday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 80%; background: var(--success);"></div>
+                            <span class="bar-value">32 min avg</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Saturday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 83%; background: var(--warning);"></div>
+                            <span class="bar-value">33 min avg</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Thursday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 90%; background: var(--warning);"></div>
+                            <span class="bar-value">36 min avg</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Wednesday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 95%; background: var(--danger);"></div>
+                            <span class="bar-value">38 min avg</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Monday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 100%; background: var(--danger);"></div>
+                            <span class="bar-value">40 min avg ❌ WORST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 15px;">
+                <strong>Why?</strong> Families typically start vacations on Monday after traveling over the weekend. By
+                Sunday, many are packing up or switching parks.
+            </p>
+        </div>
+
+        <div class="card cheat-sheet">
+            <h2><span class="emoji">🎯</span> The 5 Golden Rules</h2>
+
+            <div class="cheat-item">
+                <div class="cheat-number">1</div>
+                <div class="cheat-text">
+                    <strong>Rope drop to Mine-Cart Madness</strong> — 30 min at 9 AM vs 127 min at peak
+                </div>
+            </div>
+
+            <div class="cheat-item">
+                <div class="cheat-number">2</div>
+                <div class="cheat-text">
+                    <strong>Queue for Battle at the Ministry at 6-7 PM</strong> — Don't wait until 9 PM (queue closes
+                    early!)
+                </div>
+            </div>
+
+            <div class="cheat-item">
+                <div class="cheat-number">3</div>
+                <div class="cheat-text">
+                    <strong>Sunday is best</strong> (28 min avg) — Monday is WORST (40 min avg)
+                </div>
+            </div>
+
+            <div class="cheat-item">
+                <div class="cheat-number">4</div>
+                <div class="cheat-text">
+                    <strong>Stardust Racers is always manageable</strong> — Even at peak, rarely over 45 min
+                </div>
+            </div>
+
+            <div class="cheat-item">
+                <div class="cheat-number">5</div>
+                <div class="cheat-text">
+                    <strong>Take time to explore the worlds</strong> — Hidden details, unique food & photo ops in every
+                    land
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">🔮</span> Hidden Secrets & Easter Eggs</h2>
+
+            <div class="fun-facts">
+                <div class="fun-fact">
+                    <div class="fun-fact-land">Super Nintendo World</div>
+                    <div class="fun-fact-text">Look for the portrait of Bowser signed by Shigeru Miyamoto himself in the
+                        Mario Kart queue!</div>
+                </div>
+
+                <div class="fun-fact">
+                    <div class="fun-fact-land">Celestial Park</div>
+                    <div class="fun-fact-text">Every Stardust Racers vehicle has a Flux Capacitor—a nod to Back to the
+                        Future.</div>
+                </div>
+
+                <div class="fun-fact">
+                    <div class="fun-fact-land">Dark Universe</div>
+                    <div class="fun-fact-text">The well at "Das Stakehaus" glows red at night—signaling that vampires
+                        are awake.</div>
+                </div>
+
+                <div class="fun-fact">
+                    <div class="fun-fact-land">Wizarding World</div>
+                    <div class="fun-fact-text">A window on Rue Cachée occasionally glows green—marking where Grindelwald
+                        committed a crime.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">⏰</span> Your Optimal Day</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">7:30 AM</div>
+                    <div class="timeline-content">Arrive & queue at park gate (EPA starts at 9 AM)</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">9:00 AM</div>
+                    <div class="timeline-content">Rope drop → Mine-Cart Madness (30 min wait)</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">9:30 AM</div>
+                    <div class="timeline-content">Hiccup's Wing Gliders or Mario Kart (4-22 min)</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">10:00 AM - 5:00 PM</div>
+                    <div class="timeline-content">DANGER ZONE: Explore lands, eat, shop, ride walk-ons</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">5:30 PM</div>
+                    <div class="timeline-content">Mario Kart: Bowser's Challenge (~105 min)</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">7:00 PM</div>
+                    <div class="timeline-content">Battle at the Ministry (~76 min, guarantees queue access)</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">9:00 PM</div>
+                    <div class="timeline-content">Explore Wizarding World + re-rides if extended hours</div>
+                </div>
+            </div>
+
+            <div style="background: #ecfdf5; border-radius: 10px; padding: 15px; margin-top: 20px;">
+                <strong style="color: #059669;">Result:</strong> All 11 attractions in 8-10 hours vs 15+ hours random
+                touring. You save 5+ hours and $300 on Express Pass.
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847" class="footer-cta">Get Ride Ready for Live
+                Updates</a>
+            <div class="footer-logo">Ride Ready</div>
+            <p>Real-time wait times • AI-powered recommendations • $6.99/day</p>
+            <p style="margin-top: 20px; font-size: 0.8rem;">
+                Data period: Oct 1 - Dec 18, 2025 • 407,124 samples • 11 attractions
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
