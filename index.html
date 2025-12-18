@@ -365,10 +365,20 @@
             text-decoration: none;
             margin-left: 6px;
             font-size: 0.95rem;
+            /* Ghost Chip Style for better touch target */
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            display: inline-flex;
+            white-space: nowrap;
+            transition: all 0.2s ease;
         }
 
         .request-park:hover {
-            text-decoration: underline;
+            text-decoration: none;
+            border-color: #fff;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .cta-bottom {
@@ -583,6 +593,32 @@
 
             .screenshot-gallery {
                 grid-template-columns: 1fr;
+            }
+
+            /* Horizontal Scroll Fix for Supported Parks */
+            .supported-parks {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                width: 100vw;
+                margin-left: -20px;
+                /* Counteract container padding */
+                padding: 0 20px 12px;
+                /* Add padding back to content */
+                scrollbar-width: none;
+                /* Hide scrollbar Firefox */
+                mask-image: linear-gradient(to right, black 90%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+            }
+
+            .supported-parks::-webkit-scrollbar {
+                display: none;
+                /* Hide scrollbar Chrome/Safari */
+            }
+
+            .supported-parks .label {
+                display: none;
+                /* Hide "Supported parks:" label on mobile to save space */
             }
 
             .screenshot-item.wide img {
