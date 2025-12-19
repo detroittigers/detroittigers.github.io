@@ -395,6 +395,20 @@
             line-height: 1.5;
         }
 
+        /* Clickable Card Hover */
+        .insight-card-link {
+            transition: transform 0.2s ease;
+        }
+
+        .insight-card-link:hover {
+            transform: translateY(-4px);
+        }
+
+        .insight-card-link:hover .insight-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
         /* Best Day Grid Styles */
         .best-day-grid {
             display: grid;
@@ -736,76 +750,98 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
 
                     <!-- Stardust -->
-                    <div class="insight-card" style="--card-accent: #4CAF50;">
-                        <div class="insight-header">
-                            <div class="insight-title">Stardust Racers</div>
-                            <div class="insight-stat">22 min avg</div>
+                    <a href="../universal-orlando/epic-universe/stardust-racers-queue-times/" class="insight-card-link"
+                        style="text-decoration: none; display: block;">
+                        <div class="insight-card" style="--card-accent: #4CAF50; height: 100%;">
+                            <div class="insight-header">
+                                <div class="insight-title">Stardust Racers</div>
+                                <div class="insight-stat">22 min avg</div>
+                            </div>
+                            <div class="insight-body">
+                                62 mph dueling coaster. Never tops 60 min even on busiest days. <span
+                                    style="color: #4CAF50; font-weight: 600;">Ride anytime.</span>
+                            </div>
                         </div>
-                        <div class="insight-body">
-                            62 mph dueling coaster. Never tops 60 min even on busiest days. <span
-                                style="color: #4CAF50; font-weight: 600;">Ride anytime.</span>
-                        </div>
-                    </div>
+                    </a>
 
                     <!-- Monsters -->
-                    <div class="insight-card" style="--card-accent: #4CAF50;">
-                        <div class="insight-header">
-                            <div class="insight-title">Monsters Unchained</div>
-                            <div class="insight-stat">15 min avg</div>
+                    <a href="../universal-orlando/epic-universe/monsters-unchained-queue-times/"
+                        class="insight-card-link" style="text-decoration: none; display: block;">
+                        <div class="insight-card" style="--card-accent: #4CAF50; height: 100%;">
+                            <div class="insight-header">
+                                <div class="insight-title">Monsters Unchained</div>
+                                <div class="insight-stat">15 min avg</div>
+                            </div>
+                            <div class="insight-body">
+                                High-throughput KUKA system. Scariest ride, shortest wait. <span
+                                    style="color: #4CAF50; font-weight: 600;">Walk-on machine.</span>
+                            </div>
                         </div>
-                        <div class="insight-body">
-                            High-throughput KUKA system. Scariest ride, shortest wait. <span
-                                style="color: #4CAF50; font-weight: 600;">Walk-on machine.</span>
-                        </div>
-                    </div>
+                    </a>
 
                     <!-- Mario -->
-                    <div class="insight-card" style="--card-accent: #FFB400;">
-                        <div class="insight-header">
-                            <div class="insight-title">Mario Kart</div>
-                            <div class="insight-stat">52 min avg</div>
+                    <a href="../universal-orlando/epic-universe/mario-kart-queue-times/" class="insight-card-link"
+                        style="text-decoration: none; display: block;">
+                        <div class="insight-card" style="--card-accent: #FFB400; height: 100%;">
+                            <div class="insight-header">
+                                <div class="insight-title">Mario Kart</div>
+                                <div class="insight-stat">52 min avg</div>
+                            </div>
+                            <div class="insight-body">
+                                68 min at open → 151 min by 11 AM. <span style="color: #FFB400; font-weight: 600;">Save
+                                    for
+                                    evening (33 min at 9 PM).</span>
+                            </div>
                         </div>
-                        <div class="insight-body">
-                            68 min at open → 151 min by 11 AM. <span style="color: #FFB400; font-weight: 600;">Save for
-                                evening (33 min at 9 PM).</span>
-                        </div>
-                    </div>
+                    </a>
 
                     <!-- Mine-Cart -->
-                    <div class="insight-card" style="--card-accent: #ff6b6b;">
-                        <div class="insight-header">
-                            <div class="insight-title">Mine-Cart Madness</div>
-                            <div class="insight-stat">67 min avg</div>
+                    <a href="../universal-orlando/epic-universe/mine-cart-madness-queue-times/"
+                        class="insight-card-link" style="text-decoration: none; display: block;">
+                        <div class="insight-card" style="--card-accent: #ff6b6b; height: 100%;">
+                            <div class="insight-header">
+                                <div class="insight-title">Mine-Cart Madness</div>
+                                <div class="insight-stat">67 min avg</div>
+                            </div>
+                            <div class="insight-body">
+                                25 min at 8 AM → 185 min by 11 AM. <span style="color: #ff6b6b; font-weight: 600;">Rope
+                                    drop
+                                    priority #1.</span>
+                            </div>
                         </div>
-                        <div class="insight-body">
-                            25 min at 8 AM → 185 min by 11 AM. <span style="color: #ff6b6b; font-weight: 600;">Rope drop
-                                priority #1.</span>
-                        </div>
-                    </div>
+                    </a>
 
                     <!-- Ministry -->
-                    <div class="insight-card" style="--card-accent: #ff6b6b;">
-                        <div class="insight-header">
-                            <div class="insight-title">Battle at the Ministry</div>
-                            <div class="insight-stat">79 min avg</div>
+                    <a href="../universal-orlando/epic-universe/ministry-queue-times/" class="insight-card-link"
+                        style="text-decoration: none; display: block;">
+                        <div class="insight-card" style="--card-accent: #ff6b6b; height: 100%;">
+                            <div class="insight-header">
+                                <div class="insight-title">Battle at the Ministry</div>
+                                <div class="insight-stat">79 min avg</div>
+                            </div>
+                            <div class="insight-body">
+                                Peaks 195 min at 10 AM. Queue at 7 PM (125 min)—<span
+                                    style="color: var(--accent-color); font-weight: 600;">9 PM queue often
+                                    closed!</span>
+                            </div>
                         </div>
-                        <div class="insight-body">
-                            Peaks 195 min at 10 AM. Queue at 7 PM (125 min)—<span
-                                style="color: var(--accent-color); font-weight: 600;">9 PM queue often closed!</span>
-                        </div>
-                    </div>
+                    </a>
 
-                    <!-- Fyre -->
-                    <div class="insight-card" style="--card-accent: #4CAF50;">
-                        <div class="insight-header">
-                            <div class="insight-title">Fyre Drill</div>
-                            <div class="insight-stat">11 min avg</div>
+                    <!-- Hiccup's Wing Gliders -->
+                    <a href="../universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/"
+                        class="insight-card-link" style="text-decoration: none; display: block;">
+                        <div class="insight-card" style="--card-accent: #ff6b6b; height: 100%;">
+                            <div class="insight-header">
+                                <div class="insight-title">Hiccup's Wing Gliders</div>
+                                <div class="insight-stat">75+ min avg</div>
+                            </div>
+                            <div class="insight-body">
+                                Slow loader. Outdoor queue (hot!). <span style="color: #ff6b6b; font-weight: 600;">Don't
+                                    save for last (capacity
+                                    closes).</span>
+                            </div>
                         </div>
-                        <div class="insight-body">
-                            Perfect palate cleanser between headliners. <span
-                                style="color: #4CAF50; font-weight: 600;">Instant win.</span>
-                        </div>
-                    </div>
+                    </a>
 
                 </div>
             </div>
