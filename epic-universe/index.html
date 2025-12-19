@@ -675,9 +675,28 @@
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
-                        <span>Check your inbox now! The PDF is on its way.</span>
+                        <span>Success! Please allow a few minutes for delivery.</span>
+                    </div>
+
+                    <!-- Post-Signup App Upsell -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: left;">
+                        <p style="color: white; font-weight: 600; margin: 0 0 8px; font-size: 0.95rem;">While you wait:
+                        </p>
+                        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
+                            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847" target="_blank"
+                                style="background: white; color: black; font-weight: 700; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-size: 0.85rem;">Download
+                                App</a>
+                            <span style="color: #aaa; font-size: 0.85rem;">Free to try</span>
+                        </div>
+                        <p style="color: #bbb; font-size: 0.85rem; line-height: 1.4; margin: 0;">
+                            <strong>How to start:</strong> Open App → Choose "Epic Universe" → Set a Drop Alert for
+                            Mine-Cart at 45 min.
+                        </p>
                     </div>
                 </div>
+                <p style="color: #666; font-size: 0.75rem; margin-top: 12px; text-align: center;">No spam. One PDF +
+                    occasional big updates.</p>
             </div>
 
             <!-- App Card (Secondary) -->
@@ -1143,26 +1162,7 @@
     </div>
 
     <script>
-        // Set the date we're counting down to (Dec 18, 2025)
-        const countDownDate = new Date("Dec 18, 2025 09:00:00").getTime();
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
 
         // Form handling
         // Form handling
