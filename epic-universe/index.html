@@ -1253,23 +1253,24 @@
     }
     ]
     </script>
-    // Sticky Footer Logic
-    const observer = new IntersectionObserver((entries) => {
-    const footer = document.getElementById('sticky-footer');
-    entries.forEach(entry => {
-    // If hero is NOT intersecting (scrolled past), show footer
-    if (!entry.isIntersecting) {
-    footer.classList.add('visible');
-    } else {
-    footer.classList.remove('visible');
-    }
-    });
-    }, { threshold: 0 });
+    <script>
+        // Sticky Footer Logic
+        const observer = new IntersectionObserver((entries) => {
+            const footer = document.getElementById('sticky-footer');
+            entries.forEach(entry => {
+                // If hero is NOT intersecting (scrolled past), show footer
+                if (!entry.isIntersecting) {
+                    footer.classList.add('visible');
+                } else {
+                    footer.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0 });
 
-    const hero = document.querySelector('.hero');
-    if (hero) {
-    observer.observe(hero);
-    }
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            observer.observe(hero);
+        }
     </script>
 </body>
 
