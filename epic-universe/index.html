@@ -8,7 +8,7 @@
         content="Free Epic Universe Strategy Guide. Holiday crowds will be brutal—Skip knows exactly which rides to rope drop and which are walk-ons. Get the free cheat sheet.">
     <meta property="og:title" content="Epic Universe Holiday Crowd Strategy | Ride Ready">
     <meta property="og:description"
-        content="Get the Free Epic Universe Strategy Guide. Mine-Cart: 28 min at rope drop vs 120 min. Stardust: walk-on all day. Don't pay for Express.">
+        content="Skip the $300 Express Pass at Epic Universe. 400k+ data points reveal Sunday is the BEST day and Monday is WORST. Free strategy guide inside.">
     <meta property="og:image" content="https://rideready.app/images/epic_landing/epic-portal.png">
     <meta property="og:url" content="https://rideready.app/epic-universe">
     <meta name="twitter:card" content="summary_large_image">
@@ -514,6 +514,77 @@
             text-decoration: none;
             white-space: nowrap;
         }
+
+        /* Hub Actions */
+        .hub-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            margin: 30px 0 10px;
+        }
+
+        .action-btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            border: none;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .action-btn.primary {
+            background: var(--primary-gradient);
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+        }
+
+        .action-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 75, 43, 0.4);
+        }
+
+        .action-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .action-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .disclaimer-text {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        #email-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
     <script type="application/ld+json">
     [
@@ -553,7 +624,7 @@
         "name": "Is Express Pass worth it at Epic Universe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Express Pass costs $200-400 per person. Based on 385,000+ wait samples, it's valuable for Mine-Cart Madness (67 min avg) and Battle at the Ministry (79 min avg), but wasted on Stardust Racers (22 min avg) and Monsters Unchained (15 min avg). Ride Ready tells you exactly which rides need it."
+          "text": "Express Pass costs $200-400 per person. Based on 400k+ wait samples, it's valuable for Mine-Cart Madness (67 min avg) and Battle at the Ministry (79 min avg), but wasted on Stardust Racers (22 min avg) and Monsters Unchained (15 min avg). Ride Ready tells you exactly which rides need it."
         }
       },
       {
@@ -561,7 +632,7 @@
         "name": "What are the longest waits at Epic Universe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Based on 385,000+ wait time samples: Battle at the Ministry averages 79 minutes (peaks at 195 min at 10 AM), Mine-Cart Madness averages 67 minutes (peaks at 185 min at 11 AM), and Mario Kart averages 52 minutes. Rope drop is critical for Mine-Cart; save Mario Kart for evening."
+          "text": "Based on 400k+ wait time samples: Battle at the Ministry averages 79 minutes (peaks at 195 min at 10 AM), Mine-Cart Madness averages 67 minutes (peaks at 185 min at 11 AM), and Mario Kart averages 52 minutes. Rope drop is critical for Mine-Cart; save Mario Kart for evening."
         }
       },
       {
@@ -585,7 +656,7 @@
         "name": "How does Skip's AI Plan work for Epic Universe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Skip's AI Plan builds a personalized touring strategy for your entire day. You tell Skip your group type (thrill seeker, family with kids, first-timer), and it creates an optimized route using ML predictions trained on 385,000+ wait time samples. The plan factors in walking distances between rides, your avoid list, height restrictions, and real-time crowd patterns. As you complete rides or conditions change (rain, ride breakdowns), Skip recalculates instantly."
+          "text": "Skip's AI Plan builds a personalized touring strategy for your entire day. You tell Skip your group type (thrill seeker, family with kids, first-timer), and it creates an optimized route using ML predictions trained on 400k+ wait time samples. The plan factors in walking distances between rides, your avoid list, height restrictions, and real-time crowd patterns. As you complete rides or conditions change (rain, ride breakdowns), Skip recalculates instantly."
         }
       }
     ]
@@ -598,7 +669,7 @@
     <!-- Sticky Footer -->
     <div class="sticky-footer" id="sticky-footer">
         <span class="sticky-text">📱 Track waits live</span>
-        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=holiday_guide_cta&ct=ride_ready_launch"
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&ct=epic-hub"
             class="sticky-btn">Download App</a>
     </div>
 
@@ -622,8 +693,22 @@
 
 
 
-            <!-- Email Form (Primary) -->
-            <div class="email-form" style="max-width: 520px; margin: 0 auto 20px;">
+            <!-- Hub Actions -->
+            <div class="hub-actions">
+                <a href="./2025-holiday-strategy/" class="action-btn primary">Read the full Holiday Strategy (no
+                    email)</a>
+                <button onclick="toggleEmailForm()" class="action-btn secondary">📧 Get Printable PDF + Christmas Week
+                    Updates</button>
+                <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 0; color: #aaa; font-size: 0.85rem;">
+                    <span style="color: #FFB400;">★★★★★</span>
+                    <span>"Helped me get onto Top Thrill 2 with less than a 15 min wait"</span>
+                </div>
+            </div>
+            <p class="disclaimer-text">Read free below • Email gets you updates when patterns change</p>
+
+            <!-- Email Form (Hidden by default) -->
+            <div id="email-section" class="email-form" style="max-width: 520px; margin: 0 auto 20px;">
                 <h3 style="color: white; font-size: 1.1rem; margin-bottom: 12px;">📧 Get the Holiday Crowd Guide
                     (Free)</h3>
                 <form id="waitlist-form" action="https://formspree.io/f/mrblqqdo" method="POST"
@@ -634,6 +719,7 @@
                             required aria-label="Email address"
                             style="font-size: 1.1rem; padding: 14px 20px; border: none; background: transparent; color: white;">
                         <input type="text" name="_gotcha" style="display:none" />
+                        <input type="hidden" name="source" value="hub-page">
                         <button type="submit" class="submit-btn" id="submit-btn"
                             style="font-size: 1.1rem; padding: 14px 28px;">Send Me the PDF</button>
                     </div>
@@ -656,7 +742,7 @@
                         <p style="color: white; font-weight: 600; margin: 0 0 8px; font-size: 0.95rem;">While you wait:
                         </p>
                         <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
-                            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=holiday_guide_cta&ct=ride_ready_launch"
+                            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&ct=epic-hub"
                                 target="_blank"
                                 style="background: white; color: black; font-weight: 700; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-size: 0.85rem;">Download
                                 App</a>
@@ -680,7 +766,9 @@
                         Ready is LIVE</div>
                     <div style="color: #aaa; font-size: 0.9rem;">Track wait times + get drop alerts.</div>
                 </div>
-                Get the App
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&ct=hub_app_card"
+                    style="background: white; color: black; font-weight: 700; padding: 10px 20px; border-radius: 99px; text-decoration: none; font-size: 0.9rem; white-space: nowrap;">
+                    Get the App
                 </a>
             </div>
 
@@ -730,7 +818,7 @@
                 <!-- Skip Knows Section -->
                 <h3 style="text-align: center; margin: 40px 0 20px; color: white;">Skip Knows Every Ride</h3>
                 <p style="text-align: center; color: #888; margin-bottom: 24px; font-size: 0.9rem;">Meet Skip, your AI
-                    crowd strategist. Based on 385,000+
+                    crowd strategist. Based on 400k+
                     actual wait time samples from Epic Universe</p>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
@@ -934,7 +1022,7 @@
                         style="background: rgba(255,75,43,0.2); color: #ff9a8b; padding: 6px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Sneak
                         Peek</span>
                     <h3 style="margin: 16px 0 8px; color: white; font-size: 1.4rem;">The Holiday Strategy Guide</h3>
-                    <p style="color: #888; font-size: 0.9rem; margin: 0;">385,000+ wait samples. 69 days of data. One
+                    <p style="color: #888; font-size: 0.9rem; margin: 0;">400k+ wait samples. 69 days of data. One
                         winning playbook.</p>
                 </div>
 
@@ -1018,7 +1106,7 @@
                     <p style="color: #ccc; font-size: 1rem; margin-bottom: 16px;">Get the complete guide + printable
                         cheat sheet now</p>
                     <a href="#waitlist-form"
-                        onclick="document.getElementById('waitlist-form').scrollIntoView({behavior:'smooth'}); return false;"
+                        onclick="const es=document.getElementById('email-section'); es.style.display='block'; es.style.animation='fadeIn 0.4s ease'; document.getElementById('waitlist-form').scrollIntoView({behavior:'smooth'}); return false;"
                         style="display: inline-block; background: var(--primary-gradient); color: white; padding: 14px 32px; border-radius: 12px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;"
                         onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(255,75,43,0.3)';"
                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">Get the Full
@@ -1123,11 +1211,11 @@
         </section>
 
         <footer>
-            <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">*Wait times based on 385,000+ actual
+            <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">*Wait times based on 400k+ actual
                 samples
                 from Epic Universe (Oct-Dec 2025). Patterns may vary by day.</p>
             <p style="margin-bottom: 15px;"><a
-                    href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=holiday_guide_cta&ct=ride_ready_launch"
+                    href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&ct=epic-hub"
                     style="color: #aaa; text-decoration: underline;">Visiting Universal Studios or Islands of Adventure?
                     Download Ride Ready now.</a></p>
             <p>&copy; 2025 Ride Ready. Not affiliated with Universal Destinations & Experiences.</p>
@@ -1138,7 +1226,16 @@
 
 
         // Form handling
-        // Form handling
+        function toggleEmailForm() {
+            const emailSection = document.getElementById('email-section');
+            if (emailSection.style.display === 'none' || !emailSection.style.display) {
+                emailSection.style.display = 'block';
+                emailSection.style.animation = 'fadeIn 0.4s ease';
+            } else {
+                emailSection.style.display = 'none';
+            }
+        }
+
         function handleFormSubmit(e) {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
@@ -1147,7 +1244,7 @@
             const originalBtnText = btn.innerText;
 
             btn.disabled = true;
-            btn.innerText = "Joining...";
+            btn.innerText = "...";
 
             const formData = new FormData(form);
 
@@ -1166,14 +1263,14 @@
                         if (data.errors) {
                             alert(data.errors.map(error => error.message).join(", "));
                         } else {
-                            alert("Oops! There was a problem submitting your form");
+                            alert("Oops! Problem submitting form.");
                         }
                     }).catch(() => {
                         alert("Oops! There was a problem submitting your form (Network Error)");
                     });
                 }
             }).catch(error => {
-                alert("Oops! There was a problem submitting your form");
+                alert("Network error.");
             }).finally(() => {
                 btn.disabled = false;
                 btn.innerText = originalBtnText;
