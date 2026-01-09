@@ -1,0 +1,46 @@
+# Ride Ready
+
+> Ride Ready is an iOS app that provides real-time theme park wait times, personalized ride recommendations, and queue alerts for Epic Universe, Universal Orlando, Cedar Point, and other major parks.
+
+## About This Site
+
+This is the marketing website for Ride Ready. It includes:
+- App features and download links
+- Epic Universe strategy guides with data-driven insights
+- Queue time trackers showing room-by-room wait times for popular rides
+
+## Key Pages
+
+- Homepage: https://rideready.app/
+- Epic Universe Holiday Strategy Guide: https://rideready.app/epic-universe/2025-holiday-strategy/
+- Epic Universe Overview: https://rideready.app/universal-orlando/epic-universe/
+
+## Queue Time Guides
+
+Interactive guides showing how long you'll wait based on your current position in line:
+
+- Battle at the Ministry: https://rideready.app/universal-orlando/epic-universe/ministry-queue-times/
+- Mario Kart: Bowser's Challenge: https://rideready.app/universal-orlando/epic-universe/mario-kart-queue-times/
+- Stardust Racers: https://rideready.app/universal-orlando/epic-universe/stardust-racers-queue-times/
+- Mine-Cart Madness: https://rideready.app/universal-orlando/epic-universe/mine-cart-madness-queue-times/
+- Monsters Unchained: https://rideready.app/universal-orlando/epic-universe/monsters-unchained-queue-times/
+- Hiccup's Wing Gliders: https://rideready.app/universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/
+
+## Supported Parks
+
+- Epic Universe (Universal Orlando)
+- Universal Studios Florida
+- Islands of Adventure
+- SeaWorld Orlando
+- Busch Gardens Tampa
+- Cedar Point
+- Kings Island
+- Canada's Wonderland
+
+## App Download
+
+iOS App Store: https://apps.apple.com/us/app/ride-ready/id6748330847
+
+## Contact
+
+support@rideready.app

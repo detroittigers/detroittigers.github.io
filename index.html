@@ -15,6 +15,81 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" as="image" href="/images/logo.png" fetchpriority="high">
     <title>Ride Ready - Smart Theme Park Companion</title>
+
+    <!-- FAQ Schema for SEO and LLMs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Ride Ready free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Ride Ready is free to download and use. The free version includes real-time wait times, 3 personalized ride recommendations per day, and basic queue alerts. Premium upgrades unlock wait time forecasts, unlimited recommendations, and persistent alerts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What theme parks does Ride Ready support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ride Ready supports Epic Universe, Universal Studios Florida, Islands of Adventure, SeaWorld Orlando, Busch Gardens Tampa, Cedar Point, Kings Island, and Canada's Wonderland. More parks are being added regularly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Ride Ready available on Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ride Ready is currently available on iOS (iPhone) only. An Android version is planned for 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate are the wait times in Ride Ready?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ride Ready displays real-time wait times pulled directly from park systems. Our data updates continuously throughout the day, giving you the same information the parks display on their boards and apps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an account to use Ride Ready?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Ride Ready requires a quick sign-in with your Apple or Google account. This enables personalized recommendations, synced favorites, and persistent alerts across devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the best times to visit Epic Universe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Based on our data analysis of 400,000+ wait time samples, Sundays typically have 30% shorter waits than Mondays. Early mornings (rope drop) and the last 2 hours before close offer the shortest lines. Check our free Epic Universe Holiday Strategy Guide for detailed recommendations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Ride Ready different from official park apps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ride Ready offers personalized ride recommendations based on your preferences, cross-park support (track multiple parks in one app), smart queue alerts that notify you when wait times drop, and data-driven strategy guides. Official apps only show wait times for their own parks without personalization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Ride Ready Premium include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Premium unlocks ML-powered wait time forecasts (see 30-60 minutes into the future), 25 personalized recommendations per day instead of 3, unlimited queue alerts that persist across days, and unlimited favorites. Available as Day Pass ($6.99), Week Pass ($11.99), or Monthly ($19.99)."
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -706,6 +781,88 @@
         .price-tag strong {
             color: #FFD700;
         }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 80px auto 40px;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .faq-section h2 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 32px;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .faq-item {
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(255, 75, 43, 0.15);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 75, 43, 0.05);
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.4rem;
+            color: #FF4B2B;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.open .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: #b5b5b5;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .faq-answer a {
+            color: #FF6B4B;
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -916,6 +1073,67 @@
             </div>
         </div>
 
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">Is Ride Ready free?</button>
+                <div class="faq-answer">
+                    <p>Yes! Ride Ready is free to download and use. The free version includes real-time wait times, 3 personalized ride recommendations per day, and basic queue alerts. Premium upgrades unlock wait time forecasts, unlimited recommendations, and persistent alerts.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What theme parks does Ride Ready support?</button>
+                <div class="faq-answer">
+                    <p>Ride Ready supports Epic Universe, Universal Studios Florida, Islands of Adventure, SeaWorld Orlando, Busch Gardens Tampa, Cedar Point, Kings Island, and Canada's Wonderland. More parks are being added regularly.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Is Ride Ready available on Android?</button>
+                <div class="faq-answer">
+                    <p>Ride Ready is currently available on iOS (iPhone) only. An Android version is planned for 2026.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Do I need an account to use Ride Ready?</button>
+                <div class="faq-answer">
+                    <p>Yes, Ride Ready requires a quick sign-in with your Apple or Google account. This enables personalized recommendations, synced favorites, and persistent alerts across devices.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How accurate are the wait times?</button>
+                <div class="faq-answer">
+                    <p>Ride Ready displays real-time wait times pulled directly from park systems. Our data updates continuously throughout the day, giving you the same information the parks display on their boards and apps.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What are the best times to visit Epic Universe?</button>
+                <div class="faq-answer">
+                    <p>Based on our analysis of 400,000+ wait time samples, Sundays typically have 30% shorter waits than Mondays. Early mornings (rope drop) and the last 2 hours before close offer the shortest lines. Check our free <a href="/epic-universe/2025-holiday-strategy/">Epic Universe Strategy Guide</a> for detailed recommendations.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How is Ride Ready different from official park apps?</button>
+                <div class="faq-answer">
+                    <p>Ride Ready offers personalized ride recommendations based on your preferences, cross-park support (track multiple parks in one app), smart queue alerts that notify you when wait times drop, and data-driven strategy guides. Official apps only show wait times for their own parks without personalization.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What does Ride Ready Premium include?</button>
+                <div class="faq-answer">
+                    <p>Premium unlocks ML-powered wait time forecasts (see 30-60 minutes into the future), 25 personalized recommendations per day instead of 3, unlimited queue alerts that persist across days, and unlimited favorites. Available as Day Pass ($6.99), Week Pass ($11.99), or Monthly ($19.99).</p>
+                </div>
+            </div>
+        </div>
+
         <p class="cta-lead">Ready to skip the lines?</p>
         <div class="cta-bottom">
             <a class="primary-button"
@@ -1091,6 +1309,32 @@
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(scrollHandler, 100);
             }, { passive: true });
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-question').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var item = btn.parentElement;
+                    var wasOpen = item.classList.contains('open');
+
+                    // Close all
+                    document.querySelectorAll('.faq-item').forEach(function (faq) {
+                        faq.classList.remove('open');
+                    });
+
+                    // Open clicked if it wasn't open
+                    if (!wasOpen) {
+                        item.classList.add('open');
+
+                        // Track FAQ interaction
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'faq_click', {
+                                event_category: 'engagement',
+                                faq_question: btn.textContent
+                            });
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
