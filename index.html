@@ -625,6 +625,87 @@
                 height: auto;
             }
         }
+
+        /* Premium Section */
+        .premium-section {
+            margin: 80px auto 40px;
+            padding: 48px 36px;
+            background: linear-gradient(160deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.05));
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .premium-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .premium-section .crown-icon {
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+        }
+
+        .premium-section .subtitle {
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .premium-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .premium-feature {
+            background: rgba(255, 215, 0, 0.06);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 12px;
+            padding: 20px 24px;
+            max-width: 280px;
+            text-align: left;
+        }
+
+        .premium-feature h4 {
+            color: #FFD700;
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+        }
+
+        .premium-feature p {
+            color: #bbbbbb;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .premium-pricing {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .price-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 20px;
+            color: #dddddd;
+            font-size: 0.95rem;
+        }
+
+        .price-tag strong {
+            color: #FFD700;
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -802,6 +883,39 @@
                 </div>
             </div>
         </div>
+
+        <!-- Premium Section -->
+        <div class="premium-section">
+            <div class="crown-icon">👑</div>
+            <h2>Go Premium</h2>
+            <p class="subtitle">Unlock the full power of Ride Ready</p>
+
+            <div class="premium-features">
+                <div class="premium-feature">
+                    <h4>Wait Time Forecasts</h4>
+                    <p>See wait times 30-60 minutes into the future with ML-powered predictions</p>
+                </div>
+                <div class="premium-feature">
+                    <h4>8x More Suggestions</h4>
+                    <p>Get 25 personalized ride recommendations per day instead of 3</p>
+                </div>
+                <div class="premium-feature">
+                    <h4>Unlimited Alerts</h4>
+                    <p>Set as many ride alerts as you want that persist across days</p>
+                </div>
+                <div class="premium-feature">
+                    <h4>Unlimited Favorites</h4>
+                    <p>Save all your must-do rides to your bucket list</p>
+                </div>
+            </div>
+
+            <div class="premium-pricing">
+                <span class="price-tag">Day Pass: <strong>$6.99</strong></span>
+                <span class="price-tag">Week Pass: <strong>$11.99</strong></span>
+                <span class="price-tag">Monthly: <strong>$19.99</strong></span>
+            </div>
+        </div>
+
         <p class="cta-lead">Ready to skip the lines?</p>
         <div class="cta-bottom">
             <a class="primary-button"
@@ -844,6 +958,7 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // App Store click tracking (with conversion value)
             var appStoreLinks = document.querySelectorAll('[data-app-store-link]');
             appStoreLinks.forEach(function (link) {
                 link.addEventListener('click', function () {
@@ -852,11 +967,130 @@
                         gtag('event', 'app_store_click', {
                             event_category: 'engagement',
                             event_label: locationLabel,
+                            value: 10,
+                            currency: 'USD',
                             transport_type: 'beacon'
                         });
                     }
                 });
             });
+
+            // Queue guide click tracking
+            var queueGuideLinks = document.querySelectorAll('a[href*="queue-times"]');
+            queueGuideLinks.forEach(function (link, index) {
+                link.addEventListener('click', function () {
+                    if (typeof gtag === 'function') {
+                        var guideName = link.querySelector('h3') ? link.querySelector('h3').textContent : 'Unknown Guide';
+                        gtag('event', 'queue_guide_click', {
+                            event_category: 'content_engagement',
+                            guide_name: guideName,
+                            guide_position: index + 1,
+                            source_page: 'homepage',
+                            value: 2,
+                            currency: 'USD'
+                        });
+                    }
+                });
+            });
+
+            // Epic Universe strategy guide chip click
+            var strategyChip = document.querySelector('a.chip[href*="epic-universe"]');
+            if (strategyChip) {
+                strategyChip.addEventListener('click', function () {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'strategy_guide_click', {
+                            event_category: 'content_engagement',
+                            guide_type: 'epic_universe',
+                            link_location: 'supported_parks_section',
+                            value: 2,
+                            currency: 'USD'
+                        });
+                    }
+                });
+            }
+
+            // Premium section visibility tracking
+            var premiumSection = document.querySelector('.premium-section');
+            if (premiumSection && 'IntersectionObserver' in window) {
+                var premiumObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && typeof gtag === 'function') {
+                            gtag('event', 'premium_section_view', {
+                                event_category: 'engagement',
+                                section: 'premium_pricing',
+                                value: 3,
+                                currency: 'USD'
+                            });
+                            premiumObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                premiumObserver.observe(premiumSection);
+            }
+
+            // Social media click tracking
+            var socialLinks = document.querySelectorAll('.social-links a');
+            socialLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (typeof gtag === 'function') {
+                        var platform = link.getAttribute('aria-label') || 'unknown';
+                        gtag('event', 'social_click', {
+                            event_category: 'engagement',
+                            social_network: platform,
+                            link_url: link.href
+                        });
+                    }
+                });
+            });
+
+            // Park request click tracking
+            var parkRequestLink = document.querySelector('.request-park');
+            if (parkRequestLink) {
+                parkRequestLink.addEventListener('click', function () {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'park_request_click', {
+                            event_category: 'engagement',
+                            request_method: 'email',
+                            value: 5,
+                            currency: 'USD'
+                        });
+                    }
+                });
+            }
+
+            // Scroll depth tracking (25%, 50%, 75%, 90%)
+            var scrollMilestones = [25, 50, 75, 90];
+            var milestonesReached = {};
+
+            function getScrollPercent() {
+                var h = document.documentElement;
+                var b = document.body;
+                var st = 'scrollTop';
+                var sh = 'scrollHeight';
+                return Math.round((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100);
+            }
+
+            var scrollHandler = function () {
+                var scrollPercent = getScrollPercent();
+                scrollMilestones.forEach(function (milestone) {
+                    if (scrollPercent >= milestone && !milestonesReached[milestone]) {
+                        milestonesReached[milestone] = true;
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'scroll_depth', {
+                                event_category: 'engagement',
+                                percent_scrolled: milestone,
+                                page_location: window.location.pathname
+                            });
+                        }
+                    }
+                });
+            };
+
+            var scrollTimeout;
+            window.addEventListener('scroll', function () {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(scrollHandler, 100);
+            }, { passive: true });
         });
     </script>
 </body>
