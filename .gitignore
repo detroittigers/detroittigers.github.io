@@ -68,3 +68,4 @@ temp/
 
 # Secrets
 secrets/ .mcp.json
+plans/
