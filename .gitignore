@@ -67,5 +67,7 @@ tmp/
 temp/
 
 # Secrets
-secrets/ .mcp.json
-plans/
+secrets/
+.mcp.json
+rideready.zip
+
