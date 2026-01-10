@@ -1,6 +1,6 @@
 # Ride Ready
 
-> Ride Ready is an iOS app that provides real-time theme park wait times, personalized ride recommendations, and queue alerts for Epic Universe, Universal Orlando, Cedar Point, and other major parks.
+> Ride Ready is an iOS app that provides real-time theme park wait times, personalized ride recommendations, and queue alerts for Epic Universe, Universal Orlando, Cedar Point, and other major parks. Updated for 2026.
 
 ## About This Site
 
@@ -12,8 +12,11 @@ This is the marketing website for Ride Ready. It includes:
 ## Key Pages
 
 - Homepage: https://rideready.app/
-- Epic Universe Holiday Strategy Guide: https://rideready.app/epic-universe/2025-holiday-strategy/
 - Epic Universe Overview: https://rideready.app/universal-orlando/epic-universe/
+- MLK Day Weekend 2026: https://rideready.app/epic-universe/mlk-day-weekend-2026/
+- Presidents Day Weekend 2026: https://rideready.app/epic-universe/presidents-day-weekend-2026/
+- Orlando Spring Break 2026: https://rideready.app/orlando/spring-break-2026/
+- Epic Universe Holiday Strategy 2025 (Retro): https://rideready.app/epic-universe/2025-holiday-strategy/
 
 ## Queue Time Guides
 
