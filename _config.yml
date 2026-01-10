@@ -1,1 +1,1 @@
-exclude: [plans]
+exclude: [plans, CLAUDE.md]
