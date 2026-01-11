@@ -385,24 +385,15 @@
             </div>
         </div>
         <!-- Email Form -->
-        <div class="email-form" id="email-section">
-            <h3 style="color: white; font-size: 1.5rem; margin-bottom: 12px; text-align: center;">Get IOA Crowd
-                Alerts</h3>
+        <div class="email-form" id="download-section" style="text-align: center;">
+            <h3 style="color: white; font-size: 1.5rem; margin-bottom: 12px; text-align: center;">Get IOA Crowd Alerts
+            </h3>
             <p style="text-align: center; color: #aaa; margin-bottom: 24px;">Don't get stuck in Hagrid's line for 2
-                hours. We send alerts when patterns change.</p>
-            <form action="https://formspree.io/f/mrblqqdo" id="waitlist-form" method="POST"
-                onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <input aria-label="Email address" class="email-input" name="email"
-                        placeholder="Enter your email address" required="" type="email" />
-                    <input name="_gotcha" style="display:none" type="text" />
-                    <input name="source" type="hidden" value="ioa-hub" />
-                    <button class="submit-btn" id="submit-btn" type="submit">Notify Me</button>
-                </div>
-            </form>
-            <div class="success-message" id="success-message">
-                <span>Success! You're on the list.</span>
-            </div>
+                hours. We send notifications when patterns change.</p>
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=ioa_hub_body"
+                class="submit-btn" style="display: inline-block; text-decoration: none; text-align: center;">
+                Download the App
+            </a>
         </div>
         <footer>
             <div class="footer">
@@ -413,37 +404,8 @@
         </footer>
     </div>
     <script>
-        // Form handling
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submit-btn');
-            const form = document.getElementById('waitlist-form');
-            const success = document.getElementById('success-message');
-            const originalBtnText = btn.innerText;
+        // Sticky Footer Logic
 
-            btn.disabled = true;
-            btn.innerText = "...";
-
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: form.method,
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    form.style.display = 'none';
-                    success.style.display = 'flex';
-                } else {
-                    alert("Oops! Problem submitting form.");
-                }
-            }).catch(error => {
-                alert("Network error.");
-            }).finally(() => {
-                btn.disabled = false;
-                btn.innerText = originalBtnText;
-            });
-        }
 
         // Sticky Footer Logic
         const observer = new IntersectionObserver((entries) => {
