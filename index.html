@@ -777,12 +777,10 @@
                 width: 100vw;
                 margin-left: -20px;
                 /* Counteract container padding */
-                padding: 0 20px 12px;
-                /* Add padding back to content */
+                padding: 0 40px 12px 20px;
+                /* Add padding back to content (extra right padding for touch target) */
                 scrollbar-width: none;
                 /* Hide scrollbar Firefox */
-                mask-image: linear-gradient(to right, black 90%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
             }
 
             .supported-parks::-webkit-scrollbar {
