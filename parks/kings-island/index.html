@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kings Island Wait Times &amp; Strategy | Ride Ready</title>
-<meta content="Kings Island wait intel and in‑park strategy. Track the biggest coasters and use alerts to avoid wasting peak hours." name="description"/>
-<meta content="Kings Island Wait Times &amp; Strategy | Ride Ready" property="og:title"/>
-<meta content="Kings Island: track waits, get alerts when your rides drop, and ride more in less time." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://rideready.app/parks/kings-island/" property="og:url"/>
-<meta content="https://rideready.app/images/epic-portal-photo.jpg" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<link href="https://rideready.app/parks/kings-island/" rel="canonical"/>
-<!-- Favicons -->
-<link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
-<link href="/site.webmanifest" rel="manifest"/>
-<!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
-<script>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Kings Island Wait Times &amp; Strategy | Ride Ready</title>
+  <meta
+    content="Kings Island wait intel and in‑park strategy. Track the biggest coasters and use alerts to avoid wasting peak hours."
+    name="description" />
+  <meta content="Kings Island Wait Times &amp; Strategy | Ride Ready" property="og:title" />
+  <meta content="Kings Island: track waits, get alerts when your rides drop, and ride more in less time."
+    property="og:description" />
+  <meta content="website" property="og:type" />
+  <meta content="https://rideready.app/parks/kings-island/" property="og:url" />
+  <meta content="https://rideready.app/images/logo.png" property="og:image" />
+  <meta content="summary_large_image" name="twitter:card" />
+  <link href="https://rideready.app/parks/kings-island/" rel="canonical" />
+  <!-- Favicons -->
+  <link href="/favicon.ico" rel="icon" sizes="any" />
+  <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+  <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="/site.webmanifest" rel="manifest" />
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
   </script>
-<style>
+  <style>
     :root {
       --primary-gradient: linear-gradient(45deg, #A855F7, #FF416C);
       --bg-color: #000000;
@@ -35,6 +39,7 @@
       --card-bg: #111;
       --border: #333;
     }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-color);
@@ -45,6 +50,7 @@
       overflow-x: hidden;
       line-height: 1.5;
     }
+
     body::before {
       content: "";
       position: fixed;
@@ -55,11 +61,13 @@
       pointer-events: none;
       z-index: -1;
     }
+
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 40px 24px 90px;
     }
+
     nav {
       display: flex;
       justify-content: space-between;
@@ -67,6 +75,7 @@
       padding: 20px 0;
       margin-bottom: 40px;
     }
+
     .logo {
       display: flex;
       align-items: center;
@@ -76,11 +85,13 @@
       font-weight: 700;
       font-size: 1.2rem;
     }
+
     .logo img {
       width: 34px;
       height: 34px;
       border-radius: 8px;
     }
+
     .btn {
       display: inline-block;
       padding: 14px 22px;
@@ -93,7 +104,11 @@
       transition: transform 0.15s ease;
       white-space: nowrap;
     }
-    .btn:hover { transform: translateY(-2px); }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
     h1 {
       font-size: 3rem;
       margin: 20px 0 10px;
@@ -102,18 +117,21 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .subtitle {
       max-width: 760px;
       margin: 0 auto 28px;
       color: #ccc;
       font-size: 1.1rem;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 18px;
       margin: 26px 0 70px;
     }
+
     .insight-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -123,6 +141,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .insight-card::before {
       content: "";
       position: absolute;
@@ -131,36 +150,47 @@
       opacity: 0.9;
       pointer-events: none;
     }
+
     .insight-title {
       font-weight: 800;
       margin-bottom: 8px;
     }
+
     .insight-body {
       color: #bbb;
       font-size: 0.98rem;
     }
+
     .cta-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 18px;
       padding: 26px;
       max-width: 860px;
       margin: 0 auto;
     }
+
     .sticky-footer {
       position: fixed;
-      left: 0; right: 0; bottom: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
       padding: 12px 16px;
-      background: rgba(0,0,0,0.86);
-      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0, 0, 0, 0.86);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(12px);
       z-index: 999;
     }
-    .sticky-text { color: #ddd; font-weight: 600; }
+
+    .sticky-text {
+      color: #ddd;
+      font-weight: 600;
+    }
+
     .sticky-btn {
       padding: 10px 14px;
       border-radius: 12px;
@@ -171,84 +201,112 @@
       font-size: 0.95rem;
       white-space: nowrap;
     }
+
     footer {
       margin-top: 60px;
       color: #888;
       font-size: 0.95rem;
     }
-    footer a { color: #aaa; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 640px) {
-      h1 { font-size: 2.25rem; }
-      .subtitle { font-size: 1rem; }
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
-<div class="sticky-footer">
-<span class="sticky-text">📱 Track waits live at Kings Island</span>
-<a class="sticky-btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_sticky">Download App</a>
-</div>
-<div class="container">
-<nav>
-<a class="logo" href="/">
-<img alt="Ride Ready Logo" src="/images/logo.png"/>
+  <div class="sticky-footer">
+    <span class="sticky-text">📱 Track waits live at Kings Island</span>
+    <a class="sticky-btn"
+      href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_sticky">Download
+      App</a>
+  </div>
+  <div class="container">
+    <nav>
+      <a class="logo" href="/">
+        <img alt="Ride Ready Logo" src="/images/logo.png" />
         Ride Ready
       </a>
-<div style="display:flex; gap:20px; align-items:center;">
-<a href="/parks/" style="color:white; text-decoration:none; font-weight:600;">Parks</a>
-<a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-weight:600;">Why Us?</a>
-<a class="btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_park_page">Get the App</a>
-</div>
-</nav>
-<h1>Kings Island</h1>
-<p class="subtitle">Kings Island wait intel and in‑park strategy. Track the biggest coasters and use alerts to avoid wasting peak hours.</p>
-<div class="cta-box">
-<h2 style="margin:0 0 10px;">Make your next park day faster</h2>
-<p style="margin:0 0 18px; color:#bbb;">
-        RideReady helps you time your must‑do attractions with live wait intel, drop alerts, and smarter next‑ride picks.
+      <div style="display:flex; gap:20px; align-items:center;">
+        <a href="/parks/" style="color:white; text-decoration:none; font-weight:600;">Parks</a>
+        <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-weight:600;">Why Us?</a>
+        <a class="btn"
+          href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_park_page">Get the
+          App</a>
+      </div>
+    </nav>
+    <h1>Kings Island</h1>
+    <p class="subtitle">Kings Island wait intel and in‑park strategy. Track the biggest coasters and use alerts to avoid
+      wasting peak hours.</p>
+    <div class="cta-box">
+      <h2 style="margin:0 0 10px;">Make your next park day faster</h2>
+      <p style="margin:0 0 18px; color:#bbb;">
+        Ride Ready helps you time your must‑do attractions with live wait intel, drop alerts, and smarter next‑ride
+        picks.
       </p>
-<a class="btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_park_page">Download Ride Ready</a>
-<p style="margin-top:12px; color:#777; font-size:0.95rem;">
-        Tip: set alerts for your top 3 rides before you enter the gates.
+      <a class="btn"
+        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_park_page">Download
+        Ride Ready</a>
+      <p style="margin-top:12px; color:#777; font-size:0.95rem;">
+        Tip: set alerts for your top 3 rides before you enter the gates. <strong style="color: #F97316;">Insider
+          Stat:</strong> The Beast night rides are legendary, but lines spike at dusk. Go late.
       </p>
-</div>
-<h3 style="text-align:center; margin: 48px 0 16px;">Top rides to track</h3>
-<div class="grid">
-<div class="insight-card" style="--card-accent: #FF4B2B;">
-<div class="insight-header">
-<div class="insight-title">Orion</div>
-</div>
-<div class="insight-body">Headliner surges are common—set an alert and hit it when it dips.</div>
-</div>
-<div class="insight-card" style="--card-accent: #FFB400;">
-<div class="insight-header">
-<div class="insight-title">Diamondback</div>
-</div>
-<div class="insight-body">Queues can move steadily; best windows are early/late.</div>
-</div>
-<div class="insight-card" style="--card-accent: #3B82F6;">
-<div class="insight-header">
-<div class="insight-title">Mystic Timbers</div>
-</div>
-<div class="insight-body">A frequent mid‑day spike—alerts help you time it.</div>
-</div>
-<div class="insight-card" style="--card-accent: #10B981;">
-<div class="insight-header">
-<div class="insight-title">Banshee</div>
-</div>
-<div class="insight-body">Often a smart “switch to this now” ride when others are packed.</div>
-</div>
-<div class="insight-card" style="--card-accent: #A855F7;">
-<div class="insight-header">
-<div class="insight-title">The Beast</div>
-</div>
-<div class="insight-body">Night rides are legendary—plan to save it for later.</div>
-</div>
-</div>
-<footer>
-<p>© 2026 Ride Ready • <a href="/privacy/">Privacy</a> • <a href="/terms/">Terms</a></p>
-<p style="margin-top:10px; font-size:0.85rem; color:#666;">Ride Ready is not affiliated with or endorsed by Universal, SeaWorld, Cedar Fair, or any theme park operator.</p></footer>
-</div>
+    </div>
+    <h3 style="text-align:center; margin: 48px 0 16px;">Top rides to track</h3>
+    <div class="grid">
+      <div class="insight-card" style="--card-accent: #FF4B2B;">
+        <div class="insight-header">
+          <div class="insight-title">Orion</div>
+        </div>
+        <div class="insight-body">Headliner surges are common—set an alert and hit it when it dips.</div>
+      </div>
+      <div class="insight-card" style="--card-accent: #FFB400;">
+        <div class="insight-header">
+          <div class="insight-title">Diamondback</div>
+        </div>
+        <div class="insight-body">Queues can move steadily; best windows are early/late.</div>
+      </div>
+      <div class="insight-card" style="--card-accent: #3B82F6;">
+        <div class="insight-header">
+          <div class="insight-title">Mystic Timbers</div>
+        </div>
+        <div class="insight-body">A frequent mid‑day spike—alerts help you time it.</div>
+      </div>
+      <div class="insight-card" style="--card-accent: #10B981;">
+        <div class="insight-header">
+          <div class="insight-title">Banshee</div>
+        </div>
+        <div class="insight-body">Often a smart “switch to this now” ride when others are packed.</div>
+      </div>
+      <div class="insight-card" style="--card-accent: #A855F7;">
+        <div class="insight-header">
+          <div class="insight-title">The Beast</div>
+        </div>
+        <div class="insight-body">Night rides are legendary—plan to save it for later.</div>
+      </div>
+    </div>
+    <footer>
+      <p>© 2026 Ride Ready • <a href="/compare/official-apps/">Why Ride Ready?</a> • <a href="/privacy/">Privacy</a> •
+        <a href="/terms/">Terms</a></p>
+      <p style="margin-top:10px; font-size:0.85rem; color:#666;">Ride Ready is not affiliated with or endorsed by
+        Universal, SeaWorld, Cedar Fair, or any theme park operator.</p>
+    </footer>
+  </div>
 </body>
+
 </html>

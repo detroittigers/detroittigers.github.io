@@ -1,1 +1,1 @@
-exclude: [plans, CLAUDE.md]
+exclude: [plans, CLAUDE.md, __MACOSX, .DS_Store, SITE_RECOMMENDATIONS.md, .mcp.json, generate_redirects.py, .gemini]
