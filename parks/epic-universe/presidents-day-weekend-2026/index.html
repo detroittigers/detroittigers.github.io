@@ -427,6 +427,15 @@ document.getElementById('email-capture-form').addEventListener('submit', async f
             })
         });
         if (response.ok) {
+            // Track in GA4
+            if (typeof gtag === 'function') {
+                gtag('event', 'email_signup', {
+                    event_category: 'engagement',
+                    guide_name: 'presidents-day-weekend-2026',
+                    value: 5,
+                    currency: 'USD'
+                });
+            }
             statusEl.style.display = 'block';
             statusEl.style.color = '#86efac';
             statusEl.innerHTML = '✓ Got it! <a href="/guides/presidents-day-2026-pocket-guide.html" style="color: white; text-decoration: underline;">Download your PDF here</a>';
