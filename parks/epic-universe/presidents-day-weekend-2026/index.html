@@ -387,6 +387,7 @@
 <p style="margin-bottom: 15px; opacity: 0.95;">Take this strategy with you. We'll send you a printable PDF with day-by-day timelines, ride priorities, and the relaxed touring plan.</p>
 <form id="email-capture-form" style="display: flex; gap: 10px; flex-wrap: wrap;">
 <input type="email" id="email-input" placeholder="your@email.com" required style="flex: 1; min-width: 200px; padding: 12px 16px; border: none; border-radius: 8px; font-size: 1rem;">
+<input type="text" id="website" name="website" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
 <button type="submit" style="background: white; color: #059669; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem;">Send me the PDF</button>
 </form>
 <p id="form-status" style="margin-top: 10px; font-size: 0.9rem; display: none;"></p>
@@ -396,8 +397,19 @@
 document.getElementById('email-capture-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const email = document.getElementById('email-input').value;
+    const honeypot = document.getElementById('website').value;
     const statusEl = document.getElementById('form-status');
     const btn = this.querySelector('button');
+
+    if (honeypot) {
+        statusEl.style.display = 'block';
+        statusEl.style.color = '#86efac';
+        statusEl.innerHTML = '✓ Got it! <a href="/guides/presidents-day-2026-pocket-guide.html" style="color: white; text-decoration: underline;">Download your PDF here</a>';
+        btn.textContent = 'Sent!';
+        document.getElementById('email-input').style.display = 'none';
+        return;
+    }
+
     btn.disabled = true;
     btn.textContent = 'Sending...';
     try {
