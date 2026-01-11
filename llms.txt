@@ -13,10 +13,10 @@ This is the marketing website for Ride Ready. It includes:
 
 - Homepage: https://rideready.app/
 - Epic Universe Overview: https://rideready.app/universal-orlando/epic-universe/
-- MLK Day Weekend 2026: https://rideready.app/epic-universe/mlk-day-weekend-2026/
-- Presidents Day Weekend 2026: https://rideready.app/epic-universe/presidents-day-weekend-2026/
+- MLK Day Weekend 2026: https://rideready.app/parks/epic-universe/mlk-day-weekend-2026/
+- Presidents Day Weekend 2026: https://rideready.app/parks/epic-universe/presidents-day-weekend-2026/
 - Orlando Spring Break 2026: https://rideready.app/orlando/spring-break-2026/
-- Epic Universe Holiday Strategy 2025 (Retro): https://rideready.app/epic-universe/2025-holiday-strategy/
+- Epic Universe Holiday Strategy 2025 (Retro): https://rideready.app/parks/epic-universe/2025-holiday-strategy/
 
 ## Queue Time Guides
 

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SeaWorld Orlando Wait Times &amp; Strategy | Ride Ready</title>
+<meta content="Live wait intel, drop alerts, and smarter ride timing for SeaWorld Orlando. Track the headliners and dodge the worst peak lines." name="description"/>
+<meta content="SeaWorld Orlando Wait Times &amp; Strategy | Ride Ready" property="og:title"/>
+<meta content="Track SeaWorld Orlando waits and get alerted when your must‑rides drop below your threshold." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://rideready.app/parks/seaworld-orlando/" property="og:url"/>
+<meta content="https://rideready.app/images/epic-portal-photo.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://rideready.app/parks/seaworld-orlando/" rel="canonical"/>
+<!-- Favicons -->
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KGYGTPMTQ3');
+  </script>
+<style>
+    :root {
+      --primary-gradient: linear-gradient(45deg, #3B82F6, #FF416C);
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --accent-color: #3B82F6;
+      --card-bg: #111;
+      --border: #333;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% -10%, rgba(255, 75, 43, 0.15), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(255, 65, 108, 0.10), transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 90px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      margin-bottom: 40px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .logo img {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 14px;
+      background: var(--primary-gradient);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(255, 75, 43, 0.25);
+      transition: transform 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    h1 {
+      font-size: 3rem;
+      margin: 20px 0 10px;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #ccc;
+      font-size: 1.1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 26px 0 70px;
+    }
+    .insight-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .insight-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-left: 3px solid var(--card-accent, var(--accent-color));
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    .insight-title {
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .insight-body {
+      color: #bbb;
+      font-size: 0.98rem;
+    }
+    .cta-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 26px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .sticky-footer {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(0,0,0,0.86);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+    }
+    .sticky-text { color: #ddd; font-weight: 600; }
+    .sticky-btn {
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--primary-gradient);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+    footer {
+      margin-top: 60px;
+      color: #888;
+      font-size: 0.95rem;
+    }
+    footer a { color: #aaa; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      h1 { font-size: 2.25rem; }
+      .subtitle { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="sticky-footer">
+<span class="sticky-text">📱 Track waits live at SeaWorld Orlando</span>
+<a class="sticky-btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=seaworld-orlando_sticky">Download App</a>
+</div>
+<div class="container">
+<nav>
+<a class="logo" href="/">
+<img alt="Ride Ready Logo" src="/images/logo.png"/>
+        Ride Ready
+      </a>
+<div style="display:flex; gap:20px; align-items:center;">
+<a href="/parks/" style="color:white; text-decoration:none; font-weight:600;">Parks</a>
+<a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-weight:600;">Why Us?</a>
+<a class="btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=seaworld-orlando_park_page">Get the App</a>
+</div>
+</nav>
+<h1>SeaWorld Orlando</h1>
+<p class="subtitle">Live wait intel, drop alerts, and smarter ride timing for SeaWorld Orlando. Track the headliners and dodge the worst peak lines.</p>
+<div class="cta-box">
+<h2 style="margin:0 0 10px;">Make your next park day faster</h2>
+<p style="margin:0 0 18px; color:#bbb;">
+        RideReady helps you time your must‑do attractions with live wait intel, drop alerts, and smarter next‑ride picks.
+      </p>
+<a class="btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=seaworld-orlando_park_page">Download Ride Ready</a>
+<p style="margin-top:12px; color:#777; font-size:0.95rem;">
+        Tip: set alerts for your top 3 rides before you enter the gates.
+      </p>
+</div>
+<h3 style="text-align:center; margin: 48px 0 16px;">Top rides to track</h3>
+<div class="grid">
+<div class="insight-card" style="--card-accent: #FF4B2B;">
+<div class="insight-header">
+<div class="insight-title">Mako</div>
+</div>
+<div class="insight-body">Often spikes mid‑day. Best windows are early and late if you want repeats.</div>
+</div>
+<div class="insight-card" style="--card-accent: #FFB400;">
+<div class="insight-header">
+<div class="insight-title">Manta</div>
+</div>
+<div class="insight-body">Queue can move in bursts. Watch for short dips after show times.</div>
+</div>
+<div class="insight-card" style="--card-accent: #3B82F6;">
+<div class="insight-header">
+<div class="insight-title">Kraken</div>
+</div>
+<div class="insight-body">A solid “fill ride” when the headliners surge.</div>
+</div>
+<div class="insight-card" style="--card-accent: #10B981;">
+<div class="insight-header">
+<div class="insight-title">Infinity Falls</div>
+</div>
+<div class="insight-body">Weather and staffing can swing waits—alerts help you catch the lows.</div>
+</div>
+<div class="insight-card" style="--card-accent: #A855F7;">
+<div class="insight-header">
+<div class="insight-title">Journey to Atlantis</div>
+</div>
+<div class="insight-body">A great “when it’s hot” ride—expect seasonal demand swings.</div>
+</div>
+</div>
+<footer>
+<p>© 2026 Ride Ready • <a href="/privacy/">Privacy</a> • <a href="/terms/">Terms</a></p>
+<p style="margin-top:10px; font-size:0.85rem; color:#666;">Ride Ready is not affiliated with or endorsed by Universal, SeaWorld, Cedar Fair, or any theme park operator.</p></footer>
+</div>
+</body>
+</html>
