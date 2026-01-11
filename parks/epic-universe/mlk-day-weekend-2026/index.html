@@ -440,6 +440,59 @@
 <p><strong>The surprise:</strong> First week of January was the worst, not Christmas. School breaks linger longer than you'd think.</p>
 <p style="margin-top: 10px;"><strong>What this means for MLK:</strong> By mid-January, that chaos is over. Vacation days are spent, kids are back in school, and the "I need a break from my break" exhaustion kicks in. You're looking at crowds closer to Thanksgiving than Christmas.</p>
 </div>
+<div class="card" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white;">
+<h2 style="color: white; border: none; margin-bottom: 10px;">📄 Get the Pocket Guide</h2>
+<p style="margin-bottom: 15px; opacity: 0.95;">Take this strategy with you. We'll send you a printable PDF with day-by-day timelines, ride priorities, and wait time expectations.</p>
+<form id="email-capture-form" style="display: flex; gap: 10px; flex-wrap: wrap;">
+<input type="email" id="email-input" placeholder="your@email.com" required style="flex: 1; min-width: 200px; padding: 12px 16px; border: none; border-radius: 8px; font-size: 1rem;">
+<button type="submit" style="background: white; color: #4f46e5; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem;">Send me the PDF</button>
+</form>
+<p id="form-status" style="margin-top: 10px; font-size: 0.9rem; display: none;"></p>
+<p style="margin-top: 12px; font-size: 0.8rem; opacity: 0.8;">No spam. Just the guide. Unsubscribe anytime.</p>
+</div>
+<script>
+document.getElementById('email-capture-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email-input').value;
+    const statusEl = document.getElementById('form-status');
+    const btn = this.querySelector('button');
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+        const response = await fetch('https://gxlpamlcajddjdzktecf.supabase.co/rest/v1/guide_email_signups', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs'
+            },
+            body: JSON.stringify({
+                email: email,
+                guide_slug: 'mlk-day-weekend-2026',
+                source_url: window.location.href
+            })
+        });
+
+        if (response.ok) {
+            statusEl.style.display = 'block';
+            statusEl.style.color = '#86efac';
+            statusEl.innerHTML = '✓ Got it! <a href="/guides/mlk-day-2026-pocket-guide.html" style="color: white; text-decoration: underline;">Download your PDF here</a>';
+            btn.textContent = 'Sent!';
+            document.getElementById('email-input').style.display = 'none';
+        } else {
+            throw new Error('Failed to save');
+        }
+    } catch (err) {
+        statusEl.style.display = 'block';
+        statusEl.style.color = '#fca5a5';
+        statusEl.textContent = 'Something went wrong. Try again?';
+        btn.disabled = false;
+        btn.textContent = 'Send me the PDF';
+    }
+});
+</script>
 <div class="card">
 <h2>Day-by-Day Breakdown 🗓️</h2>
 <div class="day-breakdown">
