@@ -10,7 +10,6 @@
     <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
     <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
     <link href="/site.webmanifest" rel="manifest" />
-    <link href="/site.webmanifest" rel="manifest" />
     <title>MLK Day Weekend 2026 Pocket Guide | Ride Ready</title>
 
     <!-- Google tag (gtag.js) -->
@@ -50,8 +49,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 11pt;
-            line-height: 1.4;
+            font-size: 10pt;
+            line-height: 1.35;
             color: #1f2937;
             background: #f3f4f6;
         }
@@ -60,7 +59,7 @@
             width: 8.5in;
             min-height: 11in;
             margin: 0 auto 20px;
-            padding: 0.5in;
+            padding: 0.4in;
             background: white;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
@@ -69,7 +68,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #8b5cf6;
+            background: #4f46e5;
             color: white;
             border: none;
             padding: 12px 24px;
@@ -81,114 +80,73 @@
         }
 
         .print-btn:hover {
-            background: #7c3aed;
+            background: #4338ca;
         }
 
-        /* Page 1: Cover */
-        .cover {
+        /* Page 1: One-Page Cheat Sheet */
+        .header-bar {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            height: 100%;
-        }
-
-        .cover h1 {
-            font-size: 28pt;
-            color: #4f46e5;
-            margin-bottom: 8px;
-        }
-
-        .cover .subtitle {
-            font-size: 14pt;
-            color: #6b7280;
-            margin-bottom: 30px;
-        }
-
-        .cover .dates {
-            font-size: 18pt;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 40px;
-        }
-
-        .qr-grid {
-            display: flex;
-            gap: 40px;
-            margin: 30px 0;
-        }
-
-        .qr-box {
-            text-align: center;
-        }
-
-        .qr-placeholder {
-            width: 120px;
-            height: 120px;
-            border: 2px dashed #d1d5db;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 9pt;
-            color: #9ca3af;
-            margin-bottom: 8px;
-        }
-
-        .qr-label {
-            font-size: 9pt;
-            color: #6b7280;
-        }
-
-        .cover .data-badge {
-            background: #f3f4f6;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 10pt;
-            color: #4b5563;
-            margin-top: 30px;
-        }
-
-        .cover .branding {
-            margin-top: auto;
-            padding-top: 40px;
-        }
-
-        .cover .branding img {
-            height: 40px;
-        }
-
-        .cover .branding-text {
-            font-size: 12pt;
-            font-weight: 600;
-            color: #8b5cf6;
-        }
-
-        /* Page 2-4: Content */
-        h2 {
-            font-size: 16pt;
-            color: #4f46e5;
+            padding-bottom: 10px;
             margin-bottom: 12px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #e5e7eb;
+            border-bottom: 3px solid #4f46e5;
+        }
+
+        .header-left h1 {
+            font-size: 20pt;
+            color: #4f46e5;
+            line-height: 1.1;
+        }
+
+        .header-left .dates {
+            font-size: 11pt;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .header-right .branding {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #4f46e5;
+        }
+
+        .header-right .data-badge {
+            font-size: 8pt;
+            color: #6b7280;
+        }
+
+        h2 {
+            font-size: 13pt;
+            color: #1f2937;
+            margin: 14px 0 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
         }
 
         h3 {
-            font-size: 12pt;
-            color: #1f2937;
-            margin: 16px 0 8px;
+            font-size: 10pt;
+            color: #374151;
+            margin: 10px 0 6px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 10px 0 16px;
-            font-size: 10pt;
+            margin: 6px 0 10px;
+            font-size: 9pt;
         }
 
-        th,
-        td {
-            padding: 6px 8px;
+        th, td {
+            padding: 5px 6px;
             text-align: left;
             border-bottom: 1px solid #e5e7eb;
         }
@@ -197,6 +155,8 @@
             background: #f9fafb;
             font-weight: 600;
             color: #374151;
+            font-size: 8pt;
+            text-transform: uppercase;
         }
 
         .highlight-row {
@@ -205,47 +165,95 @@
 
         .best {
             color: #059669;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .worst {
             color: #dc2626;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .tip-box {
             background: #f0fdf4;
-            border-left: 4px solid #10b981;
-            padding: 10px 12px;
-            margin: 12px 0;
-            font-size: 10pt;
+            border-left: 3px solid #10b981;
+            padding: 8px 10px;
+            margin: 6px 0;
+            font-size: 9pt;
         }
 
         .warning-box {
             background: #fef2f2;
-            border-left: 4px solid #ef4444;
-            padding: 10px 12px;
-            margin: 12px 0;
-            font-size: 10pt;
+            border-left: 3px solid #ef4444;
+            padding: 8px 10px;
+            margin: 6px 0;
+            font-size: 9pt;
         }
 
         .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 16px;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .day-card {
+            background: #f9fafb;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .day-card.best-day {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+        }
+
+        .day-card.worst-day {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+        }
+
+        .day-card .day-name {
+            font-weight: 700;
+            font-size: 11pt;
+            color: #1f2937;
+        }
+
+        .day-card .day-date {
+            font-size: 9pt;
+            color: #6b7280;
+        }
+
+        .day-card .day-verdict {
+            font-size: 8pt;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .day-card.best-day .day-verdict {
+            color: #059669;
+        }
+
+        .day-card.worst-day .day-verdict {
+            color: #dc2626;
         }
 
         .timeline {
-            font-size: 10pt;
+            font-size: 9pt;
         }
 
         .timeline-item {
             display: flex;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .timeline-time {
-            width: 70px;
+            width: 60px;
             font-weight: 700;
             color: #4f46e5;
             flex-shrink: 0;
@@ -257,339 +265,508 @@
 
         .footer {
             margin-top: auto;
-            padding-top: 20px;
+            padding-top: 12px;
             text-align: center;
-            font-size: 8pt;
+            font-size: 7pt;
             color: #9ca3af;
         }
 
         ul {
-            margin-left: 20px;
-            margin-bottom: 10px;
+            margin-left: 16px;
+            margin-bottom: 8px;
         }
 
         li {
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
+
+        .qr-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .qr-footer img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .qr-footer-text {
+            font-size: 9pt;
+            color: #6b7280;
+        }
+
+        .qr-footer-text strong {
+            color: #4f46e5;
+            display: block;
+            font-size: 10pt;
+        }
+
+        .big-number {
+            font-size: 24pt;
+            font-weight: 800;
+            color: #4f46e5;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 8pt;
+            color: #6b7280;
+            text-transform: uppercase;
+        }
+
+        .ride-priority {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 7pt;
+            font-weight: 600;
+        }
+
+        .priority-must { background: #fef3c7; color: #92400e; }
+        .priority-flex { background: #e0e7ff; color: #3730a3; }
+        .priority-skip { background: #f3f4f6; color: #6b7280; }
     </style>
 </head>
 
 <body>
     <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
-    <!-- PAGE 1: COVER -->
-    <div class="page cover">
-        <h1>MLK Day Weekend 2026</h1>
-        <p class="subtitle">Epic Universe Pocket Guide</p>
-        <p class="dates">January 17-19, 2026</p>
-        <div class="qr-grid">
-            <div class="qr-box">
-                <img src="../images/qr-web-guide.png" alt="Web Guide QR"
-                    style="width: 120px; height: 120px; display: block; margin: 0 auto 8px;">
-                <p class="qr-label">rideready.app/epic-universe/<br />mlk-day-weekend-2026</p>
-            </div>
-            <div class="qr-box">
-                <img src="../images/qr-app-store.png" alt="App Store QR"
-                    style="width: 120px; height: 120px; display: block; margin: 0 auto 8px;">
-                <p class="qr-label">Download Ride Ready<br />Live waits + drop alerts</p>
-            </div>
-        </div>
-        <p class="data-badge">Data from 519,038 wait time samples</p>
-        <div class="branding">
-            <p class="branding-text">Powered by RideReady.app</p>
-        </div>
-    </div>
-    <!-- PAGE 2: AT-A-GLANCE STRATEGY -->
+
+    <!-- PAGE 1: ONE-PAGE CHEAT SHEET -->
     <div class="page">
-        <h2>At-a-Glance Strategy</h2>
-        <h3>Best Day Rankings</h3>
-        <table>
-            <tr>
-                <th>Rank</th>
-                <th>Day</th>
-                <th>Why</th>
-            </tr>
-            <tr class="highlight-row">
-                <td><strong>#1</strong></td>
-                <td class="best">Sunday, Jan 19</td>
-                <td>28% lighter than Monday. Most locals return to work prep.</td>
-            </tr>
-            <tr>
-                <td>#2</td>
-                <td>Saturday, Jan 18</td>
-                <td>Moderate. Locals spread across 3 days.</td>
-            </tr>
-            <tr>
-                <td>#3</td>
-                <td class="worst">Monday, Jan 20</td>
-                <td>Avoid. Federal holiday = peak crowds. +25% higher waits.</td>
-            </tr>
-        </table>
+        <div class="header-bar">
+            <div class="header-left">
+                <h1>MLK Day Weekend 2026</h1>
+                <div class="dates">Epic Universe · January 17-19</div>
+            </div>
+            <div class="header-right">
+                <div class="branding">RideReady.app</div>
+                <div class="data-badge">523,000+ wait time samples</div>
+            </div>
+        </div>
+
+        <h2>Which Day?</h2>
+        <div class="three-col">
+            <div class="day-card">
+                <div class="day-name">Saturday</div>
+                <div class="day-date">Jan 17</div>
+                <div class="day-verdict" style="color: #d97706;">Moderate</div>
+            </div>
+            <div class="day-card best-day">
+                <div class="day-name">Sunday</div>
+                <div class="day-date">Jan 18</div>
+                <div class="day-verdict">BEST DAY ★</div>
+            </div>
+            <div class="day-card worst-day">
+                <div class="day-name">Monday</div>
+                <div class="day-date">Jan 19 (MLK)</div>
+                <div class="day-verdict">AVOID</div>
+            </div>
+        </div>
+        <p style="font-size: 8pt; color: #6b7280; margin-top: 6px; text-align: center;">Sunday averages 28% shorter waits than Monday. Tourists fly home, locals prep for work.</p>
+
         <div class="two-col">
             <div>
-                <h3>Times to Avoid</h3>
+                <h2>When to Ride</h2>
                 <table>
                     <tr>
                         <th>Time</th>
                         <th>Avg Wait</th>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td>11 AM - 12 PM</td>
-                        <td class="worst">69 min (PEAK)</td>
+                        <th>Verdict</th>
                     </tr>
                     <tr>
-                        <td>1 PM - 4 PM</td>
-                        <td>62-64 min</td>
+                        <td>9 AM (EPA)</td>
+                        <td class="best">35 min</td>
+                        <td class="best">GO</td>
+                    </tr>
+                    <tr>
+                        <td>10-11 AM</td>
+                        <td>55 min</td>
+                        <td>OK</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>11 AM - 1 PM</td>
+                        <td class="worst">69 min</td>
+                        <td class="worst">EAT</td>
+                    </tr>
+                    <tr>
+                        <td>1-4 PM</td>
+                        <td>62 min</td>
+                        <td>Shows</td>
+                    </tr>
+                    <tr>
+                        <td>5-7 PM</td>
+                        <td>52 min</td>
+                        <td>Recovering</td>
+                    </tr>
+                    <tr>
+                        <td class="best">7 PM+</td>
+                        <td class="best">44 min</td>
+                        <td class="best">GO</td>
+                    </tr>
+                    <tr>
+                        <td class="best">9 PM</td>
+                        <td class="best">27 min</td>
+                        <td class="best">BEST</td>
                     </tr>
                 </table>
             </div>
             <div>
-                <h3>Sweet Spots</h3>
+                <h2>Ride Priority</h2>
                 <table>
                     <tr>
-                        <th>Time</th>
-                        <th>Avg Wait</th>
+                        <th>Ride</th>
+                        <th>Avg</th>
+                        <th>Best Time</th>
                     </tr>
                     <tr>
-                        <td>9 AM (Rope Drop)</td>
-                        <td class="best">35 min</td>
+                        <td>Mario Kart</td>
+                        <td>74m</td>
+                        <td class="best">9 AM EPA</td>
                     </tr>
                     <tr>
-                        <td>7 PM+</td>
-                        <td class="best">44 min</td>
+                        <td>Ministry</td>
+                        <td>99m</td>
+                        <td class="best">After 7 PM</td>
                     </tr>
-                    <tr class="highlight-row">
-                        <td>9 PM</td>
-                        <td class="best">27 min (Best!)</td>
+                    <tr>
+                        <td>Mine-Cart</td>
+                        <td>106m</td>
+                        <td>5-6 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Hiccup's</td>
+                        <td>47m</td>
+                        <td>Anytime</td>
+                    </tr>
+                    <tr>
+                        <td>Stardust</td>
+                        <td>30m</td>
+                        <td class="best">9 PM (27m)</td>
+                    </tr>
+                    <tr>
+                        <td>Monsters</td>
+                        <td>24m</td>
+                        <td>Morning</td>
                     </tr>
                 </table>
             </div>
         </div>
-        <h3>Top 3 Tips</h3>
+
+        <h2>The 3 Rules</h2>
         <div class="tip-box">
-            <strong>1. Sunday is your day.</strong> If you can only pick one day, pick Sunday. You'll save 40+ minutes
-            on Ministry alone vs Monday.
+            <strong>1. Pick Sunday.</strong> If you only have one day, Sunday saves you 40+ minutes on Ministry alone vs Monday.
         </div>
         <div class="tip-box">
-            <strong>2. Hit Mario Kart at rope drop.</strong> It opens first during EPA. By 10:30 AM, it's a 90-minute
-            wait.
+            <strong>2. Hit Mario Kart at 9 AM.</strong> It opens first during EPA. By 10:30, it's 90+ minutes. By noon, it's 2 hours.
         </div>
         <div class="tip-box">
-            <strong>3. Ride headliners after 7 PM.</strong> Ministry drops from 126 min average to under 60 min after
-            dinner.
+            <strong>3. Ride headliners after 7 PM.</strong> Ministry drops from 126 min to under 60. Stardust hits 27 min at 9 PM.
         </div>
+
+        <div class="warning-box">
+            <strong>Don't trust Monday.</strong> Federal holiday = schools/banks closed. Waits spike 25%+. The "extra day" isn't worth it.
+        </div>
+
+        <div class="qr-footer">
+            <div class="qr-footer-text">
+                <strong>Get Live Waits</strong>
+                Scan for real-time updates<br/>+ drop alerts at the park
+            </div>
+        </div>
+
         <div class="footer">
-            Data from 519,038 wait time samples | RideReady.app
+            Data from 523,000+ wait time samples · RideReady.app · Not affiliated with Universal
         </div>
     </div>
-    <!-- PAGE 3: OPTIMAL DAY TIMELINE -->
+
+    <!-- PAGE 2: TIMELINE -->
     <div class="page">
-        <h2>Optimal Day Timeline</h2>
-        <p style="margin-bottom: 16px; color: #6b7280;">The Perfect MLK Sunday</p>
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="timeline-time">7:45 AM</span>
-                <span class="timeline-desc"><strong>Arrive at parking.</strong> Queue at gate. Bring layers for chilly
-                    mornings.</span>
+        <div class="header-bar">
+            <div class="header-left">
+                <h1>The Perfect MLK Sunday</h1>
+                <div class="dates">Hour-by-Hour Timeline</div>
             </div>
-            <div class="timeline-item">
+            <div class="header-right">
+                <div class="branding">RideReady.app</div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" style="background: #ecfdf5; padding: 8px; border-radius: 6px; margin-bottom: 10px;">
+                <span class="timeline-time">7:45 AM</span>
+                <span class="timeline-desc"><strong>Arrive at parking.</strong> Queue at gate. Bring layers (50-60°F mornings). You want to be walking in at 8:55.</span>
+            </div>
+            <div class="timeline-item" style="background: #ecfdf5; padding: 8px; border-radius: 6px; margin-bottom: 10px;">
                 <span class="timeline-time">9:00 AM</span>
-                <span class="timeline-desc"><strong>EPA OPENS → Mario Kart.</strong> Head directly there. Expected wait:
-                    45-60 min (vs 90+ later).</span>
+                <span class="timeline-desc"><strong>EPA Opens → Mario Kart.</strong> Walk directly to Super Nintendo World. Don't stop. Expected: 45-60 min (vs 90+ by 10:30).</span>
             </div>
             <div class="timeline-item">
                 <span class="timeline-time">10:15 AM</span>
-                <span class="timeline-desc"><strong>Exit Mario Kart → Ministry of Magic</strong> (if open) or Monsters
-                    Unchained.</span>
+                <span class="timeline-desc"><strong>Exit Mario Kart → Yoshi's Adventure</strong> while you're in Nintendo. 35-40 min wait.</span>
             </div>
             <div class="timeline-item">
+                <span class="timeline-time">11:00 AM</span>
+                <span class="timeline-desc"><strong>Head to Celestial Park.</strong> Grab Starfall Racers or explore. Waits are climbing park-wide.</span>
+            </div>
+            <div class="timeline-item" style="background: #fef3c7; padding: 8px; border-radius: 6px; margin: 10px 0;">
                 <span class="timeline-time">11:30 AM</span>
-                <span class="timeline-desc"><strong>LUNCH BREAK.</strong> Eat during peak wait times. Nintendo World or
-                    Celestial Park.</span>
+                <span class="timeline-desc"><strong>LUNCH BREAK.</strong> This is peak wait time. Eat now. Biscuit Bombs in Nintendo or Three Broomsticks in Dark Universe.</span>
             </div>
             <div class="timeline-item">
                 <span class="timeline-time">12:30 PM</span>
-                <span class="timeline-desc"><strong>Explore.</strong> Shows, light rides. This is NOT the time for
-                    headliners.</span>
+                <span class="timeline-desc"><strong>Shows + Light Rides.</strong> This is NOT the time for headliners. Catch a show in Dark Universe or explore Isle of Berk.</span>
             </div>
             <div class="timeline-item">
                 <span class="timeline-time">1-4 PM</span>
-                <span class="timeline-desc"><strong>Flexible time:</strong> Yoshi's (42 min), Stardust (32 min), Dragon
-                    Racer (38 min), shows.</span>
+                <span class="timeline-desc"><strong>Flexible window.</strong> Dragon Racer (38 min), Hiccup's (47 min), Monsters Unchained (24 min). Or rest at the hotel if multi-day.</span>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item" style="background: #ecfdf5; padding: 8px; border-radius: 6px; margin: 10px 0;">
                 <span class="timeline-time">5:00 PM</span>
-                <span class="timeline-desc"><strong>Mine-Cart Madness.</strong> Evening crowds thinning. Expected: 45-60
-                    min.</span>
+                <span class="timeline-desc"><strong>Mine-Cart Madness.</strong> Crowds thinning. Harry Potter fans leaving. Expected: 50-65 min.</span>
             </div>
             <div class="timeline-item">
                 <span class="timeline-time">6:30 PM</span>
-                <span class="timeline-desc"><strong>Dinner break</strong> (or keep riding during dinner exodus).</span>
+                <span class="timeline-desc"><strong>Dinner decision:</strong> Eat now OR skip dinner and ride during the dinner exodus. Your call.</span>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item" style="background: #ecfdf5; padding: 8px; border-radius: 6px; margin: 10px 0;">
                 <span class="timeline-time">7:30 PM</span>
-                <span class="timeline-desc"><strong>Ministry re-ride.</strong> Waits drop to 60-70 min range.</span>
+                <span class="timeline-desc"><strong>Ministry of Magic.</strong> This is your moment. Waits drop to 60-70 min range. Get in line.</span>
             </div>
             <div class="timeline-item">
                 <span class="timeline-time">8:30 PM</span>
-                <span class="timeline-desc"><strong>Stardust Raceway.</strong> 27 min avg at 9 PM.</span>
+                <span class="timeline-desc"><strong>Stardust Racers re-ride.</strong> 27 min average at 9 PM. One more lap before close.</span>
             </div>
             <div class="timeline-item">
                 <span class="timeline-time">9:00 PM</span>
-                <span class="timeline-desc"><strong>Night photos. Final laps.</strong> The park is beautiful after
-                    dark.</span>
+                <span class="timeline-desc"><strong>Night photos. Final laps.</strong> The park is beautiful after dark. Mario Kart often has short waits now too.</span>
             </div>
         </div>
-        <h3>Meal Timing Strategy</h3>
-        <table>
-            <tr>
-                <th>Meal</th>
-                <th>Time</th>
-                <th>Why</th>
-            </tr>
-            <tr>
-                <td>Breakfast</td>
-                <td>Before arrival</td>
-                <td>Eat at hotel. Don't waste park time.</td>
-            </tr>
-            <tr>
-                <td>Lunch</td>
-                <td>11:30 AM - 12:30 PM</td>
-                <td>Eat during peak wait times.</td>
-            </tr>
-            <tr>
-                <td>Dinner</td>
-                <td>6:30 PM or skip</td>
-                <td>Ride during dinner exodus if you can.</td>
-            </tr>
-        </table>
+
+        <h2>Meal Strategy</h2>
+        <div class="two-col">
+            <div>
+                <table>
+                    <tr>
+                        <th>Meal</th>
+                        <th>When</th>
+                        <th>Why</th>
+                    </tr>
+                    <tr>
+                        <td>Breakfast</td>
+                        <td>Before arrival</td>
+                        <td>Don't waste EPA time</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Lunch</td>
+                        <td>11:30 AM</td>
+                        <td>Eat during peak waits</td>
+                    </tr>
+                    <tr>
+                        <td>Dinner</td>
+                        <td>6:30 PM or skip</td>
+                        <td>Ride during exodus</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>Best Quick Eats</h3>
+                <ul style="font-size: 9pt;">
+                    <li><strong>Biscuit Bombs</strong> - Nintendo (quick)</li>
+                    <li><strong>Three Broomsticks</strong> - Dark Universe (good but busy)</li>
+                    <li><strong>Bigfire</strong> - Celestial Park (table service, longer)</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="footer">
-            Data from 519,038 wait time samples | RideReady.app
+            Data from 523,000+ wait time samples · RideReady.app · Updated January 2026
         </div>
     </div>
-    <!-- PAGE 4: QUICK REFERENCE -->
+
+    <!-- PAGE 3: QUICK REFERENCE -->
     <div class="page">
-        <h2>Quick Reference</h2>
-        <h3>Ride Wait Expectations (Sunday)</h3>
+        <div class="header-bar">
+            <div class="header-left">
+                <h1>Quick Reference</h1>
+                <div class="dates">Keep This Page Handy</div>
+            </div>
+            <div class="header-right">
+                <div class="branding">RideReady.app</div>
+            </div>
+        </div>
+
+        <h2>Sunday vs Monday: The Savings</h2>
         <table>
             <tr>
                 <th>Ride</th>
-                <th>Avg Wait</th>
-                <th>Best Time</th>
-                <th>Priority</th>
-            </tr>
-            <tr>
-                <td>Ministry of Magic</td>
-                <td>99 min</td>
-                <td>7 PM+</td>
-                <td>Must-do</td>
-            </tr>
-            <tr>
-                <td>Mine-Cart Madness</td>
-                <td>106 min</td>
-                <td>5-6 PM</td>
-                <td>Must-do</td>
-            </tr>
-            <tr>
-                <td>Mario Kart: Bowser</td>
-                <td>74 min</td>
-                <td>9 AM EPA</td>
-                <td>Must-do</td>
-            </tr>
-            <tr>
-                <td>Hiccup's Wing Gliders</td>
-                <td>47 min</td>
-                <td>Anytime</td>
-                <td>Flexible</td>
-            </tr>
-            <tr>
-                <td>Yoshi's Adventure</td>
-                <td>42 min</td>
-                <td>Afternoon</td>
-                <td>Flexible</td>
-            </tr>
-            <tr>
-                <td>Dragon Racer</td>
-                <td>38 min</td>
-                <td>Anytime</td>
-                <td>Flexible</td>
-            </tr>
-            <tr>
-                <td>Stardust Raceway</td>
-                <td>30 min</td>
-                <td>9 PM</td>
-                <td>Easy win</td>
-            </tr>
-            <tr>
-                <td>Monsters Unchained</td>
-                <td>24 min</td>
-                <td>Morning</td>
-                <td>Quick hit</td>
-            </tr>
-        </table>
-        <h3>Sunday vs Monday Savings</h3>
-        <table>
-            <tr>
-                <th>Ride</th>
-                <th>Sunday</th>
-                <th>Monday</th>
+                <th>Sunday Wait</th>
+                <th>Monday Wait</th>
                 <th>You Save</th>
             </tr>
             <tr class="highlight-row">
-                <td>Ministry</td>
+                <td><strong>Ministry of Magic</strong></td>
                 <td>99 min</td>
                 <td>139 min</td>
                 <td class="best">40 min</td>
             </tr>
             <tr>
-                <td>Mario Kart</td>
+                <td>Mario Kart: Bowser's Challenge</td>
                 <td>74 min</td>
                 <td>100 min</td>
                 <td class="best">26 min</td>
             </tr>
             <tr>
-                <td>Mine-Cart</td>
+                <td>Mine-Cart Madness</td>
                 <td>106 min</td>
                 <td>121 min</td>
                 <td class="best">15 min</td>
             </tr>
+            <tr>
+                <td>Stardust Racers</td>
+                <td>30 min</td>
+                <td>41 min</td>
+                <td class="best">11 min</td>
+            </tr>
+            <tr>
+                <td><strong>Total Savings (4 rides)</strong></td>
+                <td>309 min</td>
+                <td>401 min</td>
+                <td class="best">92 min</td>
+            </tr>
         </table>
+        <p style="font-size: 8pt; color: #6b7280; margin-bottom: 12px;">That's 1.5 hours saved just by picking the right day.</p>
+
         <div class="two-col">
             <div>
-                <h3>Express Pass Verdict</h3>
-                <p><strong>For MLK Weekend: Consider it.</strong></p>
-                <ul>
-                    <li>Only 1 day → Express Pass saves 2-3 hours</li>
-                    <li>2+ days → Skip it, use smart timing</li>
-                    <li>Have EPA → Less necessary</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Weather Prep</h3>
+                <h2>Express Pass?</h2>
                 <table>
                     <tr>
-                        <td>Cool mornings</td>
+                        <th>Situation</th>
+                        <th>Verdict</th>
+                    </tr>
+                    <tr>
+                        <td>Only 1 day</td>
+                        <td class="best">Yes - saves 2-3 hrs</td>
+                    </tr>
+                    <tr>
+                        <td>2+ days</td>
+                        <td>No - use timing</td>
+                    </tr>
+                    <tr>
+                        <td>Have EPA</td>
+                        <td>Less necessary</td>
+                    </tr>
+                    <tr>
+                        <td>Going Monday</td>
+                        <td class="best">Yes - you'll need it</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h2>Weather Prep</h2>
+                <table>
+                    <tr>
+                        <td>Morning temps</td>
                         <td>50-60°F likely</td>
                     </tr>
                     <tr>
-                        <td>Rain</td>
-                        <td>20% chance</td>
+                        <td>Afternoon</td>
+                        <td>68-72°F</td>
+                    </tr>
+                    <tr>
+                        <td>Rain chance</td>
+                        <td>20%</td>
                     </tr>
                     <tr>
                         <td>Cold snap</td>
                         <td>Possible - check app</td>
                     </tr>
                 </table>
+                <p style="font-size: 8pt; color: #6b7280; margin-top: 6px;">If temps drop below 50°F, water rides may have operational delays.</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <img src="../images/qr-app-store.png" alt="App Store QR"
-                style="width: 100px; height: 100px; display: block; margin: 0 auto;">
-            <p style="font-size: 10pt; color: #6b7280; margin-top: 8px;">Scan for live wait times + drop alerts</p>
-            <p style="font-size: 12pt; font-weight: 600; color: #8b5cf6;">rideready.app</p>
+
+        <h2>All Rides at a Glance</h2>
+        <table>
+            <tr>
+                <th>Ride</th>
+                <th>Land</th>
+                <th>Avg Wait</th>
+                <th>Best Window</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Ministry of Magic</td>
+                <td>Dark Universe</td>
+                <td>99 min</td>
+                <td class="best">7 PM+</td>
+                <td>Drops to 60 min after dinner</td>
+            </tr>
+            <tr>
+                <td>Mine-Cart Madness</td>
+                <td>Dark Universe</td>
+                <td>106 min</td>
+                <td>5-6 PM</td>
+                <td>HP fans leave early</td>
+            </tr>
+            <tr>
+                <td>Mario Kart</td>
+                <td>Nintendo</td>
+                <td>74 min</td>
+                <td class="best">9 AM EPA</td>
+                <td>First ride of the day</td>
+            </tr>
+            <tr>
+                <td>Yoshi's Adventure</td>
+                <td>Nintendo</td>
+                <td>42 min</td>
+                <td>After Mario</td>
+                <td>Do while in Nintendo</td>
+            </tr>
+            <tr>
+                <td>Hiccup's Wing Gliders</td>
+                <td>Berk</td>
+                <td>47 min</td>
+                <td>Anytime</td>
+                <td>Consistent waits</td>
+            </tr>
+            <tr>
+                <td>Dragon Racer</td>
+                <td>Berk</td>
+                <td>38 min</td>
+                <td>Anytime</td>
+                <td>Good afternoon option</td>
+            </tr>
+            <tr>
+                <td>Stardust Racers</td>
+                <td>Celestial</td>
+                <td>30 min</td>
+                <td class="best">9 PM</td>
+                <td>27 min at close</td>
+            </tr>
+            <tr>
+                <td>Monsters Unchained</td>
+                <td>Dark Universe</td>
+                <td>24 min</td>
+                <td>Morning</td>
+                <td>Quick hit after big rides</td>
+            </tr>
+        </table>
+
+        <div style="text-align: center; margin-top: 20px; padding: 16px; background: #f9fafb; border-radius: 8px;">
+            <p style="font-size: 11pt; font-weight: 600; color: #1f2937; margin-bottom: 4px;">Get Live Wait Times at the Park</p>
+            <p style="font-size: 9pt; color: #6b7280; margin-bottom: 8px;">Download Ride Ready for real-time updates + alerts when lines drop</p>
+            <p style="font-size: 12pt; font-weight: 700; color: #4f46e5;">rideready.app</p>
         </div>
+
         <div class="footer">
-            Data from 519,038 wait time samples | Updated January 2026<br />
-            Not affiliated with Universal Destinations &amp; Experiences
+            Data from 523,000+ wait time samples · Updated January 2026<br />
+            Not affiliated with Universal Destinations & Experiences
         </div>
     </div>
 </body>

@@ -10,7 +10,6 @@
     <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
     <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
     <link href="/site.webmanifest" rel="manifest" />
-    <link href="/site.webmanifest" rel="manifest" />
     <title>Presidents Day Weekend 2026 Pocket Guide | Ride Ready</title>
 
     <!-- Google tag (gtag.js) -->
@@ -50,8 +49,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 11pt;
-            line-height: 1.4;
+            font-size: 10pt;
+            line-height: 1.35;
             color: #1f2937;
             background: #f3f4f6;
         }
@@ -60,7 +59,7 @@
             width: 8.5in;
             min-height: 11in;
             margin: 0 auto 20px;
-            padding: 0.5in;
+            padding: 0.4in;
             background: white;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
@@ -84,111 +83,139 @@
             background: #047857;
         }
 
-        .cover {
+        /* Header bar - compact branding */
+        .header-bar {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #059669;
+            margin-bottom: 16px;
         }
 
-        .cover h1 {
-            font-size: 28pt;
+        .header-left h1 {
+            font-size: 20pt;
             color: #059669;
-            margin-bottom: 8px;
+            margin-bottom: 2px;
         }
 
-        .cover .subtitle {
-            font-size: 14pt;
-            color: #6b7280;
-            margin-bottom: 10px;
-        }
-
-        .cover .valentine {
-            font-size: 12pt;
-            color: #ec4899;
-            margin-bottom: 30px;
-        }
-
-        .cover .dates {
-            font-size: 18pt;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 40px;
-        }
-
-        .qr-grid {
-            display: flex;
-            gap: 40px;
-            margin: 30px 0;
-        }
-
-        .qr-box {
-            text-align: center;
-        }
-
-        .qr-placeholder {
-            width: 120px;
-            height: 120px;
-            border: 2px dashed #d1d5db;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 9pt;
-            color: #9ca3af;
-            margin-bottom: 8px;
-        }
-
-        .qr-label {
-            font-size: 9pt;
-            color: #6b7280;
-        }
-
-        .cover .data-badge {
-            background: #f3f4f6;
-            padding: 8px 16px;
-            border-radius: 20px;
+        .header-left .dates {
             font-size: 10pt;
-            color: #4b5563;
-            margin-top: 30px;
+            color: #6b7280;
         }
 
-        .cover .branding {
-            margin-top: auto;
-            padding-top: 40px;
-        }
-
-        .cover .branding-text {
-            font-size: 12pt;
+        .header-left .valentine {
+            font-size: 9pt;
+            color: #ec4899;
             font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .header-right .branding {
+            font-size: 11pt;
+            font-weight: 700;
             color: #059669;
+        }
+
+        .header-right .data-badge {
+            font-size: 8pt;
+            color: #6b7280;
+            margin-top: 2px;
         }
 
         h2 {
-            font-size: 16pt;
+            font-size: 13pt;
             color: #059669;
-            margin-bottom: 12px;
-            padding-bottom: 6px;
+            margin: 14px 0 8px;
+            padding-bottom: 4px;
             border-bottom: 2px solid #e5e7eb;
         }
 
         h3 {
-            font-size: 12pt;
+            font-size: 11pt;
             color: #1f2937;
-            margin: 16px 0 8px;
+            margin: 12px 0 6px;
+        }
+
+        /* Day cards */
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .day-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .day-card .day-name {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .day-card .day-date {
+            font-size: 9pt;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .day-card .day-rating {
+            font-size: 10pt;
+            font-weight: 600;
+        }
+
+        .day-card .day-note {
+            font-size: 8pt;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        .day-card.best-day {
+            border-color: #059669;
+            background: #ecfdf5;
+        }
+
+        .day-card.best-day .day-rating {
+            color: #059669;
+        }
+
+        .day-card.valentine-day {
+            border-color: #ec4899;
+            background: #fdf2f8;
+        }
+
+        .day-card.valentine-day .day-rating {
+            color: #ec4899;
+        }
+
+        .day-card.holiday-day {
+            border-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        .day-card.holiday-day .day-rating {
+            color: #d97706;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 10px 0 16px;
-            font-size: 10pt;
+            margin: 8px 0 12px;
+            font-size: 9pt;
         }
 
         th,
         td {
-            padding: 6px 8px;
+            padding: 5px 6px;
             text-align: left;
             border-bottom: 1px solid #e5e7eb;
         }
@@ -215,59 +242,79 @@
 
         .tip-box {
             background: #f0fdf4;
-            border-left: 4px solid #10b981;
-            padding: 10px 12px;
-            margin: 12px 0;
-            font-size: 10pt;
+            border-left: 3px solid #10b981;
+            padding: 8px 10px;
+            margin: 8px 0;
+            font-size: 9pt;
+        }
+
+        .tip-box strong {
+            color: #059669;
         }
 
         .valentine-box {
             background: #fdf2f8;
-            border-left: 4px solid #ec4899;
+            border-left: 3px solid #ec4899;
+            padding: 8px 10px;
+            margin: 8px 0;
+            font-size: 9pt;
+        }
+
+        .relax-box {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            border-radius: 8px;
             padding: 10px 12px;
             margin: 12px 0;
+            font-size: 9pt;
+        }
+
+        .relax-box h4 {
+            color: #059669;
             font-size: 10pt;
+            margin-bottom: 6px;
         }
 
         .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 16px;
         }
 
         .crowd-bar {
             display: flex;
             align-items: center;
-            margin: 6px 0;
-            font-size: 10pt;
+            margin: 5px 0;
+            font-size: 9pt;
         }
 
         .crowd-bar-label {
-            width: 120px;
+            width: 100px;
+            font-size: 8pt;
         }
 
         .crowd-bar-fill {
-            height: 16px;
-            background: #ef4444;
+            height: 14px;
             border-radius: 4px;
         }
 
         .crowd-bar-value {
             margin-left: 8px;
             font-weight: 600;
+            font-size: 8pt;
         }
 
         .timeline {
-            font-size: 10pt;
+            font-size: 9pt;
         }
 
         .timeline-item {
             display: flex;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .timeline-time {
-            width: 70px;
+            width: 60px;
             font-weight: 700;
             color: #059669;
             flex-shrink: 0;
@@ -279,195 +326,111 @@
 
         .footer {
             margin-top: auto;
-            padding-top: 20px;
+            padding-top: 12px;
             text-align: center;
-            font-size: 8pt;
+            font-size: 7pt;
             color: #9ca3af;
         }
 
         ul {
-            margin-left: 20px;
-            margin-bottom: 10px;
+            margin-left: 16px;
+            margin-bottom: 8px;
         }
 
         li {
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
     </style>
 </head>
 
 <body>
     <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
-    <!-- PAGE 1: COVER -->
-    <div class="page cover">
-        <h1>Presidents Day Weekend 2026</h1>
-        <p class="subtitle">Epic Universe Pocket Guide</p>
-        <p class="valentine">Valentine's Day falls on Saturday</p>
-        <p class="dates">February 14-16, 2026</p>
-        <div class="qr-grid">
-            <div class="qr-box">
-                <img src="../images/qr-web-guide.png" alt="Web Guide QR"
-                    style="width: 120px; height: 120px; display: block; margin: 0 auto 8px;">
-                <p class="qr-label">rideready.app/epic-universe/<br />presidents-day-weekend-2026</p>
-            </div>
-            <div class="qr-box">
-                <img src="../images/qr-app-store.png" alt="App Store QR"
-                    style="width: 120px; height: 120px; display: block; margin: 0 auto 8px;">
-                <p class="qr-label">Download Ride Ready<br />Live waits + drop alerts</p>
-            </div>
-        </div>
-        <p class="data-badge">The February Sweet Spot: Post-holiday calm. Pre-spring break window.</p>
-        <div class="branding">
-            <p class="branding-text">Powered by RideReady.app</p>
-        </div>
-    </div>
-    <!-- PAGE 2: AT-A-GLANCE STRATEGY -->
+    <!-- PAGE 1: ONE-PAGE CHEAT SHEET -->
     <div class="page">
-        <h2>At-a-Glance Strategy</h2>
-        <h3>Why February Works</h3>
-        <ul>
-            <li><strong>Holiday exhaustion cleared</strong> - New Year's crowds long gone</li>
-            <li><strong>Park maturity</strong> - 7+ months of operations, smoother than opening</li>
-            <li><strong>Weather perfection</strong> - 70s, low humidity, all rides operational</li>
-            <li><strong>Pre-spring break</strong> - The March/April rush hasn't started</li>
-        </ul>
-        <h3>Crowd Comparison</h3>
-        <div style="margin: 16px 0;">
-            <div class="crowd-bar">
-                <span class="crowd-bar-label">Christmas Week</span>
-                <div class="crowd-bar-fill" style="width: 200px; background: #dc2626;"></div>
-                <span class="crowd-bar-value">100%</span>
+        <div class="header-bar">
+            <div class="header-left">
+                <h1>Presidents Day Weekend 2026</h1>
+                <div class="dates">Epic Universe · February 14-16</div>
+                <div class="valentine">Valentine's Day is Saturday</div>
             </div>
-            <div class="crowd-bar">
-                <span class="crowd-bar-label">Thanksgiving</span>
-                <div class="crowd-bar-fill" style="width: 170px; background: #f97316;"></div>
-                <span class="crowd-bar-value">85%</span>
-            </div>
-            <div class="crowd-bar">
-                <span class="crowd-bar-label">MLK Weekend</span>
-                <div class="crowd-bar-fill" style="width: 100px; background: #eab308;"></div>
-                <span class="crowd-bar-value">50%</span>
-            </div>
-            <div class="crowd-bar">
-                <span class="crowd-bar-label" style="font-weight: 700;">Presidents Day</span>
-                <div class="crowd-bar-fill" style="width: 80px; background: #10b981;"></div>
-                <span class="crowd-bar-value best">40% ← You</span>
+            <div class="header-right">
+                <div class="branding">RideReady.app</div>
+                <div class="data-badge">523,000+ wait time samples</div>
             </div>
         </div>
-        <h3>Best Day Rankings</h3>
+
+        <h2>Which Day?</h2>
+        <div class="three-col">
+            <div class="day-card valentine-day">
+                <div class="day-name">Saturday</div>
+                <div class="day-date">Feb 14</div>
+                <div class="day-rating">Valentine's Day</div>
+                <div class="day-note">More couples, fewer families</div>
+            </div>
+            <div class="day-card best-day">
+                <div class="day-name">Sunday</div>
+                <div class="day-date">Feb 15</div>
+                <div class="day-rating">BEST DAY ★</div>
+                <div class="day-note">Lightest of the weekend</div>
+            </div>
+            <div class="day-card holiday-day">
+                <div class="day-name">Monday</div>
+                <div class="day-date">Feb 16</div>
+                <div class="day-rating">Federal Holiday</div>
+                <div class="day-note">Still manageable</div>
+            </div>
+        </div>
+
+        <div class="relax-box">
+            <h4>The February Sweet Spot</h4>
+            <p>Presidents Day is the <strong>lightest major weekend</strong> of the year. Christmas crowds are gone, spring break hasn't started. You can actually sleep in. Arrive by 9:30 AM and still have a great day.</p>
+        </div>
+
+        <h2>When to Ride (February Pattern)</h2>
         <table>
             <tr>
-                <th>Rank</th>
-                <th>Day</th>
-                <th>Notes</th>
+                <th>Time</th>
+                <th>Avg Wait</th>
+                <th>What to Do</th>
             </tr>
             <tr class="highlight-row">
-                <td>#1</td>
-                <td class="best">Sunday, Feb 15</td>
-                <td>Lightest of the weekend</td>
+                <td class="best">9:30 AM</td>
+                <td class="best">25-35 min</td>
+                <td>Arrive. Yes, really. Skip the 7 AM rope drop crush.</td>
             </tr>
             <tr>
-                <td>#2</td>
-                <td>Saturday, Feb 14</td>
-                <td>Valentine's Day. More couples, fewer families.</td>
+                <td>10-11 AM</td>
+                <td>40-50 min</td>
+                <td>Hit second-tier rides: Yoshi's, Dragon Racer, Monsters</td>
             </tr>
             <tr>
-                <td>#3</td>
-                <td>Monday, Feb 16</td>
-                <td>Federal holiday. Still manageable.</td>
+                <td>12-1 PM</td>
+                <td>60-75 min</td>
+                <td>Headliner #1. Mario Kart or Mine-Cart.</td>
+            </tr>
+            <tr>
+                <td>1-2 PM</td>
+                <td>50-60 min</td>
+                <td>LUNCH. Opposite of peak-day strategy.</td>
+            </tr>
+            <tr>
+                <td>2-5 PM</td>
+                <td>45-55 min</td>
+                <td>Explore. Shows. Character meets. Re-rides.</td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="best">6-7 PM</td>
+                <td class="best">35-45 min</td>
+                <td>Headliner #2. Valentine's dinner exodus.</td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="best">8 PM+</td>
+                <td class="best">20-30 min</td>
+                <td>Re-rides and night photos. Park is beautiful.</td>
             </tr>
         </table>
-        <h3>Top 3 Tips</h3>
-        <div class="tip-box">
-            <strong>1. Sleep in.</strong> You don't need 7:30 AM rope drop for Presidents Day. Arrive by 9:30 AM.
-        </div>
-        <div class="tip-box">
-            <strong>2. Ride during dinner.</strong> Valentine's Day = packed 6-8 PM dinner reservations. Lines shrink.
-        </div>
-        <div class="tip-box">
-            <strong>3. Skip Express Pass.</strong> February crowds don't justify $160-250. Smart timing wins.
-        </div>
-        <div class="footer">Data from 519,038 wait time samples | RideReady.app</div>
-    </div>
-    <!-- PAGE 3: THE RELAXED STRATEGY -->
-    <div class="page">
-        <h2>The Relaxed Strategy</h2>
-        <p style="margin-bottom: 16px; color: #6b7280;">Unlike Christmas "commando touring," February allows a relaxed
-            approach.</p>
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="timeline-time">9:30 AM</span>
-                <span class="timeline-desc"><strong>Arrive.</strong> Yes, really. Skip the rope drop crush.</span>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-time">10:00 AM</span>
-                <span class="timeline-desc"><strong>Second-tier rides.</strong> Yoshi's, Dragon Racer, Monsters. Lines
-                    are short.</span>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-time">12:00 PM</span>
-                <span class="timeline-desc"><strong>Headliner #1.</strong> Mario Kart or Mine-Cart. Expected: 60-75
-                    min.</span>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-time">1:00 PM</span>
-                <span class="timeline-desc"><strong>LUNCH.</strong> Eat while others ride. Opposite of peak-day
-                    strategy.</span>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-time">2-5 PM</span>
-                <span class="timeline-desc"><strong>Explore freely.</strong> Shows, hidden details, character meets,
-                    re-rides.</span>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-time">6:00 PM</span>
-                <span class="timeline-desc"><strong>Headliner #2.</strong> Ministry or Mario Kart. Valentine's dinner
-                    exodus starts.</span>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-time">8:00 PM</span>
-                <span class="timeline-desc"><strong>Re-rides and night photos.</strong> Park is beautiful after
-                    dark.</span>
-            </div>
-        </div>
-        <div class="valentine-box">
-            <h3 style="color: #ec4899; margin: 0 0 8px;">Valentine's Day Bonus (Saturday, Feb 14)</h3>
-            <p><strong>Who's there:</strong> More couples, fewer families with young kids. Romantic evening atmosphere.
-            </p>
-            <p style="margin-top: 8px;"><strong>The advantage:</strong> Dinner reservations at 6-8 PM = shorter ride
-                lines.</p>
-            <p style="margin-top: 8px;"><strong>Pro tip:</strong> Book dinner for 7 PM. Ride headliners 5-7 PM while
-                others eat.</p>
-        </div>
-        <h3>Competition Calendar</h3>
-        <table>
-            <tr>
-                <th>Group</th>
-                <th>Volume</th>
-            </tr>
-            <tr>
-                <td>Florida Locals</td>
-                <td>Moderate - many wait for Spring Break</td>
-            </tr>
-            <tr>
-                <td>Northeast Families</td>
-                <td>Low-Moderate - some choosing sun over ski</td>
-            </tr>
-            <tr>
-                <td>International</td>
-                <td>Low - off-season</td>
-            </tr>
-            <tr>
-                <td>School Groups</td>
-                <td>Very Low - no major breaks</td>
-            </tr>
-        </table>
-        <div class="footer">Data from 519,038 wait time samples | RideReady.app</div>
-    </div>
-    <!-- PAGE 4: QUICK REFERENCE -->
-    <div class="page">
-        <h2>Quick Reference</h2>
-        <h3>Ride Wait Expectations (Presidents Day Weekend)</h3>
+
+        <h2>Ride Priority</h2>
         <table>
             <tr>
                 <th>Ride</th>
@@ -477,7 +440,7 @@
             <tr>
                 <td>Ministry of Magic</td>
                 <td>70-90 min</td>
-                <td>6 PM+</td>
+                <td>6 PM+ (dinner rush)</td>
             </tr>
             <tr>
                 <td>Mine-Cart Madness</td>
@@ -495,35 +458,161 @@
                 <td>Anytime</td>
             </tr>
             <tr>
-                <td>Yoshi's Adventure</td>
-                <td>30-40 min</td>
-                <td>Morning</td>
-            </tr>
-            <tr>
-                <td>Dragon Racer</td>
-                <td>25-35 min</td>
-                <td>Anytime</td>
-            </tr>
-            <tr>
-                <td>Stardust Raceway</td>
-                <td>20-30 min</td>
-                <td>8 PM+</td>
-            </tr>
-            <tr>
-                <td>Monsters Unchained</td>
-                <td>15-25 min</td>
+                <td>Yoshi / Dragon Racer / Monsters</td>
+                <td>15-35 min</td>
                 <td>Morning</td>
             </tr>
         </table>
+
+        <h2>3 Rules for Presidents Day</h2>
+        <div class="tip-box">
+            <strong>1. Sleep in.</strong> You don't need 7:30 AM rope drop. February crowds are manageable. Arrive 9:30 AM.
+        </div>
+        <div class="tip-box">
+            <strong>2. Ride during dinner.</strong> Valentine's Day = packed 6-8 PM dinner reservations. Lines shrink.
+        </div>
+        <div class="tip-box">
+            <strong>3. Skip Express Pass.</strong> February crowds don't justify $160-250. Smart timing wins.
+        </div>
+
+        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
+    </div>
+
+    <!-- PAGE 2: STRATEGIES & VALENTINE'S -->
+    <div class="page">
+        <h2>Why February Works</h2>
+        <div class="two-col">
+            <div>
+                <h3>The Data</h3>
+                <div style="margin: 10px 0;">
+                    <div class="crowd-bar">
+                        <span class="crowd-bar-label">Christmas</span>
+                        <div class="crowd-bar-fill" style="width: 180px; background: #dc2626;"></div>
+                        <span class="crowd-bar-value">100%</span>
+                    </div>
+                    <div class="crowd-bar">
+                        <span class="crowd-bar-label">Thanksgiving</span>
+                        <div class="crowd-bar-fill" style="width: 153px; background: #f97316;"></div>
+                        <span class="crowd-bar-value">85%</span>
+                    </div>
+                    <div class="crowd-bar">
+                        <span class="crowd-bar-label">MLK Weekend</span>
+                        <div class="crowd-bar-fill" style="width: 90px; background: #eab308;"></div>
+                        <span class="crowd-bar-value">50%</span>
+                    </div>
+                    <div class="crowd-bar">
+                        <span class="crowd-bar-label" style="font-weight: 700;">Presidents Day</span>
+                        <div class="crowd-bar-fill" style="width: 72px; background: #10b981;"></div>
+                        <span class="crowd-bar-value best">40% ← You</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Why It's Quiet</h3>
+                <ul style="font-size: 9pt;">
+                    <li><strong>Holiday exhaustion</strong> - New Year's crowds long gone</li>
+                    <li><strong>Park maturity</strong> - 7+ months of operations</li>
+                    <li><strong>Weather perfection</strong> - 70s, low humidity</li>
+                    <li><strong>Pre-spring break</strong> - March rush hasn't started</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="valentine-box">
+            <h3 style="color: #ec4899; margin: 0 0 8px;">Valentine's Day Advantage (Saturday, Feb 14)</h3>
+            <div class="two-col">
+                <div>
+                    <p><strong>Who's there:</strong> More couples, fewer families with young kids. Romantic evening atmosphere.</p>
+                    <p style="margin-top: 6px;"><strong>The hidden edge:</strong> Everyone has 6-8 PM dinner reservations. Ride lines shrink during dinner rush.</p>
+                </div>
+                <div>
+                    <p><strong>Pro tip:</strong> Book YOUR dinner for 7:30 PM. Ride headliners 5-7 PM while everyone else eats.</p>
+                    <p style="margin-top: 6px;"><strong>Romantic rides:</strong> Stardust Raceway at sunset. Ministry of Magic after dark.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>The Relaxed Timeline</h2>
+        <p style="margin-bottom: 10px; color: #6b7280; font-size: 9pt;">Unlike Christmas "commando touring," February allows a different approach.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-time">9:30 AM</span>
+                <span class="timeline-desc"><strong>Arrive.</strong> Yes, really. Skip the rope drop crush.</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">10:00 AM</span>
+                <span class="timeline-desc"><strong>Second-tier rides.</strong> Yoshi's, Dragon Racer, Monsters. Lines are short.</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">12:00 PM</span>
+                <span class="timeline-desc"><strong>Headliner #1.</strong> Mario Kart or Mine-Cart. Expected: 60-75 min.</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">1:00 PM</span>
+                <span class="timeline-desc"><strong>LUNCH.</strong> Eat while others ride. Opposite of peak-day strategy.</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">2-5 PM</span>
+                <span class="timeline-desc"><strong>Explore freely.</strong> Shows, hidden details, character meets, re-rides.</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">6:00 PM</span>
+                <span class="timeline-desc"><strong>Headliner #2.</strong> Ministry or Mario Kart. Valentine's dinner exodus.</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">8:00 PM</span>
+                <span class="timeline-desc"><strong>Night mode.</strong> Re-rides and photos. Park is beautiful after dark.</span>
+            </div>
+        </div>
+
+        <h2>Who's Competing for Rides?</h2>
+        <table>
+            <tr>
+                <th>Group</th>
+                <th>Volume</th>
+                <th>Impact</th>
+            </tr>
+            <tr>
+                <td>Florida Locals</td>
+                <td>Moderate</td>
+                <td>Many wait for Spring Break</td>
+            </tr>
+            <tr>
+                <td>Northeast Families</td>
+                <td>Low-Moderate</td>
+                <td>Some choosing sun over ski</td>
+            </tr>
+            <tr>
+                <td>International</td>
+                <td>Low</td>
+                <td>Off-season</td>
+            </tr>
+            <tr>
+                <td>School Groups</td>
+                <td>Very Low</td>
+                <td>No major breaks</td>
+            </tr>
+        </table>
+
+        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
+    </div>
+
+    <!-- PAGE 3: QUICK REFERENCE -->
+    <div class="page">
+        <h2>Quick Reference</h2>
+
         <div class="two-col">
             <div>
                 <h3>Express Pass Verdict</h3>
-                <p><strong>Skip it.</strong> February crowds don't justify $160-250.</p>
-                <p style="margin-top: 8px;"><strong>Only consider if:</strong></p>
-                <ul>
+                <div class="relax-box" style="background: #f0fdf4;">
+                    <p style="font-size: 10pt;"><strong>Skip it.</strong></p>
+                    <p style="margin-top: 6px;">February crowds don't justify $160-250. Smart timing gets you the same result for free.</p>
+                </div>
+                <p style="font-size: 9pt; margin-top: 8px;"><strong>Only consider if:</strong></p>
+                <ul style="font-size: 9pt;">
                     <li>Less than 6 hours in park</li>
                     <li>Mobility limitations</li>
-                    <li>Money is no object</li>
+                    <li>Money is truly no object</li>
                 </ul>
             </div>
             <div>
@@ -543,19 +632,90 @@
                     </tr>
                     <tr>
                         <td>Cold snaps</td>
-                        <td>Rare</td>
+                        <td>Rare but possible</td>
                     </tr>
                 </table>
+                <div class="tip-box">
+                    <strong>Layer up:</strong> Mornings can be cool (60s). Afternoons warm up. Light jacket recommended.
+                </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <img src="../images/qr-app-store.png" alt="App Store QR"
-                style="width: 100px; height: 100px; display: block; margin: 0 auto;">
-            <p style="font-size: 10pt; color: #6b7280; margin-top: 8px;">Scan for live wait times + drop alerts</p>
-            <p style="font-size: 12pt; font-weight: 600; color: #059669;">rideready.app</p>
+
+        <h3>Complete Ride Table</h3>
+        <table>
+            <tr>
+                <th>Ride</th>
+                <th>Expected</th>
+                <th>Best Time</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Ministry of Magic</td>
+                <td>70-90 min</td>
+                <td>6 PM+</td>
+                <td>Still the longest wait</td>
+            </tr>
+            <tr>
+                <td>Mine-Cart Madness</td>
+                <td>60-80 min</td>
+                <td>5-6 PM</td>
+                <td>Evening is key</td>
+            </tr>
+            <tr>
+                <td>Mario Kart: Bowser</td>
+                <td>50-70 min</td>
+                <td>10 AM or 7 PM</td>
+                <td>Two windows work</td>
+            </tr>
+            <tr>
+                <td>Hiccup's Wing Gliders</td>
+                <td>35-45 min</td>
+                <td>Anytime</td>
+                <td>Consistent all day</td>
+            </tr>
+            <tr>
+                <td>Yoshi's Adventure</td>
+                <td>30-40 min</td>
+                <td>Morning</td>
+                <td>Family favorite</td>
+            </tr>
+            <tr>
+                <td>Dragon Racer</td>
+                <td>25-35 min</td>
+                <td>Anytime</td>
+                <td>Usually quick</td>
+            </tr>
+            <tr>
+                <td>Stardust Raceway</td>
+                <td>20-30 min</td>
+                <td>8 PM+</td>
+                <td>Beautiful at night</td>
+            </tr>
+            <tr>
+                <td>Monsters Unchained</td>
+                <td>15-25 min</td>
+                <td>Morning</td>
+                <td>Often walk-on</td>
+            </tr>
+        </table>
+
+        <h3>Key Takeaways</h3>
+        <div class="two-col">
+            <div class="tip-box">
+                <strong>Best day:</strong> Sunday, Feb 15. Lightest crowds of the weekend.
+            </div>
+            <div class="tip-box">
+                <strong>Best time:</strong> 6-8 PM when Valentine's dinner reservations thin the lines.
+            </div>
         </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="font-size: 12pt; font-weight: 700; color: #059669;">rideready.app</p>
+            <p style="font-size: 9pt; color: #6b7280;">Live wait times + drop alerts in your pocket</p>
+        </div>
+
         <div class="footer">
-            Data from 519,038 wait time samples | Updated January 2026<br />
+            Data from 523,000+ wait time samples | Updated January 2026<br />
             Not affiliated with Universal Destinations &amp; Experiences
         </div>
     </div>

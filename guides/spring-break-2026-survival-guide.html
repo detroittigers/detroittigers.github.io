@@ -10,7 +10,6 @@
     <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
     <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
     <link href="/site.webmanifest" rel="manifest" />
-    <link href="/site.webmanifest" rel="manifest" />
     <title>Spring Break 2026 Survival Guide | Ride Ready</title>
 
     <!-- Google tag (gtag.js) -->
@@ -50,8 +49,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 10pt;
-            line-height: 1.35;
+            font-size: 9pt;
+            line-height: 1.3;
             color: #1f2937;
             background: #f3f4f6;
         }
@@ -60,7 +59,7 @@
             width: 8.5in;
             min-height: 11in;
             margin: 0 auto 20px;
-            padding: 0.4in;
+            padding: 0.35in;
             background: white;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
@@ -84,92 +83,73 @@
             background: #e11d48;
         }
 
-        .cover {
+        /* Header bar - compact branding */
+        .header-bar {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f43f5e;
+            margin-bottom: 12px;
         }
 
-        .cover h1 {
-            font-size: 32pt;
+        .header-left h1 {
+            font-size: 20pt;
             color: #f43f5e;
-            margin-bottom: 8px;
+            margin-bottom: 2px;
         }
 
-        .cover .subtitle {
-            font-size: 16pt;
+        .header-left .dates {
+            font-size: 9pt;
             color: #6b7280;
-            margin-bottom: 30px;
         }
 
-        .cover .dates {
-            font-size: 18pt;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 40px;
-        }
-
-        .qr-grid {
-            display: flex;
-            gap: 40px;
-            margin: 30px 0;
-        }
-
-        .qr-box {
-            text-align: center;
-        }
-
-
-
-        .qr-label {
+        .header-left .tagline {
             font-size: 8pt;
-            color: #6b7280;
+            color: #9ca3af;
+            margin-top: 2px;
         }
 
-        .cover .tagline {
+        .header-right {
+            text-align: right;
+        }
+
+        .header-right .branding {
             font-size: 11pt;
-            color: #4b5563;
-            margin-top: 20px;
-        }
-
-        .cover .branding {
-            margin-top: auto;
-            padding-top: 30px;
-        }
-
-        .cover .branding-text {
-            font-size: 12pt;
-            font-weight: 600;
+            font-weight: 700;
             color: #f43f5e;
+        }
+
+        .header-right .data-badge {
+            font-size: 7pt;
+            color: #6b7280;
+            margin-top: 2px;
         }
 
         h2 {
-            font-size: 14pt;
+            font-size: 12pt;
             color: #f43f5e;
-            margin-bottom: 10px;
-            padding-bottom: 4px;
+            margin: 12px 0 6px;
+            padding-bottom: 3px;
             border-bottom: 2px solid #fecdd3;
         }
 
         h3 {
-            font-size: 11pt;
+            font-size: 10pt;
             color: #1f2937;
-            margin: 12px 0 6px;
+            margin: 10px 0 5px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 8px 0 12px;
-            font-size: 9pt;
+            margin: 6px 0 10px;
+            font-size: 8pt;
         }
 
         th,
         td {
-            padding: 4px 6px;
+            padding: 4px 5px;
             text-align: left;
             border-bottom: 1px solid #e5e7eb;
         }
@@ -224,112 +204,133 @@
         .tip-box {
             background: #f0fdf4;
             border-left: 3px solid #10b981;
-            padding: 8px 10px;
-            margin: 8px 0;
-            font-size: 9pt;
+            padding: 6px 8px;
+            margin: 6px 0;
+            font-size: 8pt;
         }
 
         .warning-box {
             background: #fef2f2;
             border-left: 3px solid #ef4444;
-            padding: 8px 10px;
-            margin: 8px 0;
-            font-size: 9pt;
+            padding: 6px 8px;
+            margin: 6px 0;
+            font-size: 8pt;
         }
 
         .easter-box {
             background: #fdf4ff;
             border-left: 3px solid #a855f7;
-            padding: 8px 10px;
-            margin: 8px 0;
-            font-size: 9pt;
+            padding: 6px 8px;
+            margin: 6px 0;
+            font-size: 8pt;
         }
 
         .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 12px;
         }
 
         .three-col {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
+            gap: 8px;
         }
 
         .week-card {
             border: 1px solid #e5e7eb;
             border-radius: 6px;
-            padding: 8px;
-            font-size: 9pt;
+            padding: 6px;
+            font-size: 8pt;
         }
 
         .week-card h4 {
+            font-size: 9pt;
+            margin-bottom: 3px;
+        }
+
+        .week-card.week-bad {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+
+        .week-card.week-easter {
+            background: #fdf4ff;
+            border-color: #e9d5ff;
+        }
+
+        .week-card.week-good {
+            background: #ecfdf5;
+            border-color: #a7f3d0;
+        }
+
+        /* Quick decision box */
+        .decision-box {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            border: 2px solid #f43f5e;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .decision-box h4 {
+            color: #f43f5e;
             font-size: 10pt;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .footer {
             margin-top: auto;
-            padding-top: 12px;
+            padding-top: 8px;
             text-align: center;
-            font-size: 7pt;
+            font-size: 6pt;
             color: #9ca3af;
         }
 
         ul {
-            margin-left: 16px;
-            margin-bottom: 8px;
+            margin-left: 14px;
+            margin-bottom: 6px;
         }
 
         li {
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
     </style>
 </head>
 
 <body>
     <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
-    <!-- PAGE 1: COVER -->
-    <div class="page cover">
-        <h1>Spring Break 2026</h1>
-        <p class="subtitle">The 7-Week Orlando Survival Guide</p>
-        <p class="dates">March 9 - April 24, 2026</p>
-        <div class="qr-grid">
-            <div class="qr-box">
-                <img src="../images/qr-web-guide.png" alt="Web Guide QR"
-                    style="width: 100px; height: 100px; margin-bottom: 6px;">
-                <p class="qr-label">rideready.app/orlando/<br />spring-break-2026</p>
-            </div>
-            <div class="qr-box">
-                <img src="../images/qr-app-store.png" alt="App Store QR"
-                    style="width: 100px; height: 100px; margin-bottom: 6px;">
-                <p class="qr-label">Download Ride Ready<br />Live waits + alerts</p>
-            </div>
-        </div>
-        <p class="tagline">7 Weeks. 50 States. 10 Provinces. One Guide.</p>
-        <div class="branding">
-            <p class="branding-text">Powered by RideReady.app</p>
-            <p style="font-size: 9pt; color: #6b7280; margin-top: 8px;">Data from 519,038 wait time samples</p>
-        </div>
-    </div>
-    <!-- PAGE 2: 7-WEEK OVERVIEW -->
+
+    <!-- PAGE 1: ONE-PAGE CHEAT SHEET -->
     <div class="page">
-        <h2>The 7-Week Overview</h2>
-        <h3>Week-by-Week Crowd Scores</h3>
+        <div class="header-bar">
+            <div class="header-left">
+                <h1>Spring Break 2026</h1>
+                <div class="dates">Orlando Theme Parks · March 9 - April 24</div>
+                <div class="tagline">7 Weeks. 50 States. 10 Provinces. One Guide.</div>
+            </div>
+            <div class="header-right">
+                <div class="branding">RideReady.app</div>
+                <div class="data-badge">523,000+ wait time samples</div>
+            </div>
+        </div>
+
+        <h2>Find Your Week (The Only Chart You Need)</h2>
         <table>
             <tr>
                 <th>Week</th>
                 <th>Dates</th>
                 <th>Score</th>
                 <th>Who's There</th>
+                <th>Express?</th>
                 <th>Best Day</th>
             </tr>
             <tr>
                 <td>1</td>
                 <td>Mar 9-15</td>
                 <td class="score-6">6/10</td>
-                <td>Texas, parts of Midwest</td>
+                <td>Texas, early Midwest</td>
+                <td class="best">Skip</td>
                 <td>Sunday</td>
             </tr>
             <tr style="background: #fef2f2;">
@@ -337,6 +338,7 @@
                 <td>Mar 16-22</td>
                 <td class="score-10">10/10</td>
                 <td><strong>EVERYONE. Florida + Dallas + Ontario.</strong></td>
+                <td class="worst"><strong>YES</strong></td>
                 <td class="worst">None good</td>
             </tr>
             <tr>
@@ -344,76 +346,176 @@
                 <td>Mar 23-29</td>
                 <td class="score-8">8/10</td>
                 <td>Northeast, Chicago, Cincinnati</td>
+                <td>Maybe</td>
                 <td>Sunday</td>
             </tr>
             <tr style="background: #fdf4ff;">
                 <td><strong>4</strong></td>
                 <td>Mar 30 - Apr 5</td>
                 <td class="score-9">9/10</td>
-                <td><strong>EASTER WEEK (Apr 5) + Detroit + NJ</strong></td>
+                <td><strong>EASTER (Apr 5) + Michigan + NJ</strong></td>
+                <td class="worst"><strong>YES</strong></td>
                 <td>Mon/Tue</td>
             </tr>
-            <tr>
+            <tr style="background: #ecfdf5;">
                 <td>5</td>
                 <td>Apr 6-12</td>
                 <td class="score-5">5/10</td>
                 <td>Post-Easter lull. Best week.</td>
+                <td class="best">Skip</td>
                 <td class="best">Any day</td>
             </tr>
-            <tr>
+            <tr style="background: #ecfdf5;">
                 <td>6</td>
                 <td>Apr 13-19</td>
                 <td class="score-4">4/10</td>
                 <td>Late season stragglers</td>
+                <td class="best">Skip</td>
                 <td class="best">Any day</td>
             </tr>
-            <tr>
+            <tr style="background: #ecfdf5;">
                 <td>7</td>
                 <td>Apr 20-24</td>
                 <td class="score-4">4/10</td>
                 <td>Wind-down, mostly locals</td>
+                <td class="best">Skip</td>
                 <td class="best">Any day</td>
             </tr>
         </table>
-        <div class="warning-box">
-            <strong>The Week 2 Collision (Mar 16-22):</strong> ALL Florida public schools + Dallas-Fort Worth (1M
-            students) + Ontario Canada (2M students) + most major universities (UF, FSU, Ohio State, UT Austin). This is
-            the absolute worst week. Express Pass strongly recommended.
+
+        <div class="decision-box">
+            <h4>Quick Decision</h4>
+            <div class="two-col">
+                <div>
+                    <p><strong>Can choose dates?</strong> → Pick Week 5, 6, or 7. Post-Easter is golden.</p>
+                    <p><strong>Stuck with Week 2?</strong> → Express Pass. No question. $250 saves your sanity.</p>
+                </div>
+                <div>
+                    <p><strong>Week 3?</strong> → Smart timing works. Sunday is best. Express optional.</p>
+                    <p><strong>Week 4 (Easter)?</strong> → Express recommended. Mon/Tue are your friends.</p>
+                </div>
+            </div>
         </div>
-        <div class="easter-box">
-            <strong>Easter Week (Week 4):</strong> Easter Sunday is April 5, 2026. Good Friday is April 3. Easter
-            travelers nationwide flood in. Michigan families (spring break) overlap. Crowds jump to 9/10.
+
+        <div class="two-col">
+            <div>
+                <div class="warning-box">
+                    <strong>Week 2 Collision (Mar 16-22):</strong> ALL Florida public schools + Dallas-Fort Worth (1M students) + Ontario Canada (2M students) + major universities. This is the absolute worst week.
+                </div>
+            </div>
+            <div>
+                <div class="easter-box">
+                    <strong>Easter Week (Week 4):</strong> Easter Sunday is April 5. Good Friday is April 3. Easter travelers + Michigan spring break overlap. Crowds jump to 9/10.
+                </div>
+            </div>
         </div>
-        <h3>Quick Decision Matrix</h3>
+
+        <h2>Hourly Pattern (Use Every Day)</h2>
+        <div class="two-col">
+            <div>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>Avg</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr style="background: #ecfdf5;">
+                        <td class="best">9 AM</td>
+                        <td class="best">35</td>
+                        <td>ROPE DROP - Get headliners</td>
+                    </tr>
+                    <tr>
+                        <td>10 AM</td>
+                        <td>53</td>
+                        <td>Keep moving fast</td>
+                    </tr>
+                    <tr style="background: #fef2f2;">
+                        <td class="worst">11-12</td>
+                        <td class="worst">69</td>
+                        <td>PEAK - Eat lunch now</td>
+                    </tr>
+                    <tr>
+                        <td>1-4 PM</td>
+                        <td>62-64</td>
+                        <td>Shows, second-tier rides</td>
+                    </tr>
+                    <tr style="background: #ecfdf5;">
+                        <td class="best">7-9 PM</td>
+                        <td class="best">27-44</td>
+                        <td>EVENING WINDOW - Re-ride headliners</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>Day-of-Week Pattern</h3>
+                <table>
+                    <tr>
+                        <th>Day</th>
+                        <th>Avg</th>
+                        <th>Verdict</th>
+                    </tr>
+                    <tr style="background: #ecfdf5;">
+                        <td class="best">Sunday</td>
+                        <td class="best">49</td>
+                        <td>Best day</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>51</td>
+                        <td>Second best</td>
+                    </tr>
+                    <tr>
+                        <td>Wed-Sat</td>
+                        <td>53-54</td>
+                        <td>Moderate</td>
+                    </tr>
+                    <tr style="background: #fef2f2;">
+                        <td class="worst">Monday</td>
+                        <td class="worst">62</td>
+                        <td>Worst day</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Epic Universe Priority</h2>
         <table>
             <tr>
-                <th>Your Situation</th>
-                <th>Recommendation</th>
+                <th>Priority</th>
+                <th>Ride</th>
+                <th>When</th>
+                <th>Spring Break Wait</th>
             </tr>
             <tr>
-                <td>Can choose dates?</td>
-                <td class="best">Pick Week 5, 6, or 7 (post-Easter is golden)</td>
+                <td>1</td>
+                <td>Mario Kart: Bowser</td>
+                <td>Rope drop (EPA guests: 8 AM)</td>
+                <td>90-150 min by 10 AM</td>
             </tr>
             <tr>
-                <td>Stuck with Week 2?</td>
-                <td class="worst">Express Pass. No question.</td>
+                <td>2</td>
+                <td>Ministry of Magic</td>
+                <td>10:30 AM or 7 PM+</td>
+                <td>120-180 min peak</td>
             </tr>
             <tr>
-                <td>Week 3?</td>
-                <td>Smart timing works. Sunday best.</td>
+                <td>3</td>
+                <td>Mine-Cart Madness</td>
+                <td>Evening (5-7 PM)</td>
+                <td>90-120 min peak</td>
             </tr>
             <tr>
-                <td>Week 4 (Easter)?</td>
-                <td class="caution">Express Pass recommended.</td>
-            </tr>
-            <tr>
-                <td>Week 5-7?</td>
-                <td class="best">You lucked out. No special tactics needed.</td>
+                <td>4+</td>
+                <td>Everything else</td>
+                <td>As time allows</td>
+                <td>30-60 min</td>
             </tr>
         </table>
-        <div class="footer">Data from 519,038 wait time samples | RideReady.app</div>
+
+        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
     </div>
-    <!-- PAGE 3: FIND YOUR WEEK -->
+
+    <!-- PAGE 2: FIND YOUR REGION -->
     <div class="page">
         <h2>Find Your Week by Region</h2>
         <div class="two-col">
@@ -433,6 +535,7 @@
                         <td>Week 1 (Mar 10-14)</td>
                     </tr>
                 </table>
+
                 <h3>Florida</h3>
                 <table>
                     <tr>
@@ -444,6 +547,7 @@
                         <td>Varies - check school</td>
                     </tr>
                 </table>
+
                 <h3>Northeast</h3>
                 <table>
                     <tr>
@@ -480,6 +584,7 @@
                         <td>Varies by district</td>
                     </tr>
                 </table>
+
                 <h3>Canada</h3>
                 <table>
                     <tr>
@@ -495,6 +600,7 @@
                         <td>Varies</td>
                     </tr>
                 </table>
+
                 <h3>California</h3>
                 <table>
                     <tr>
@@ -508,18 +614,13 @@
                 </table>
             </div>
         </div>
-        <div class="warning-box" style="margin-top: 16px;">
-            <strong>Michigan Families: Easter Week Heads Up</strong><br />
-            Wayne County (Detroit): Mar 30 - Apr 3 (Week 4). Your break overlaps with Easter (Apr 5). Easter travelers
-            boost crowds to 9/10. Consider Express Pass. Best days: Monday, Tuesday.
-            <br /><br />
-            <strong>U of M Students:</strong> Your break (Feb 28 - Mar 8) is BEFORE chaos. Week 0 crowds. Enjoy it.
+
+        <div class="warning-box">
+            <strong>Michigan Families: Easter Week Warning</strong><br />
+            Wayne County (Detroit): Mar 30 - Apr 3 (Week 4). Your break overlaps with Easter (Apr 5). Easter travelers boost crowds to 9/10. Consider Express Pass. Best days: Monday, Tuesday.
         </div>
-        <div class="footer">Data from 519,038 wait time samples | RideReady.app</div>
-    </div>
-    <!-- PAGE 4: WEEK-BY-WEEK STRATEGIES -->
-    <div class="page">
-        <h2>Week-by-Week Strategies</h2>
+
+        <h2>Week-by-Week Strategy Cards</h2>
         <div class="three-col">
             <div class="week-card">
                 <h4>Week 1: Soft Open</h4>
@@ -528,11 +629,11 @@
                 <p><strong>Strategy:</strong> Normal timing works. Rope drop optional. Skip Express.</p>
                 <p><strong>Best:</strong> Sun, Tue, Wed</p>
             </div>
-            <div class="week-card" style="background: #fef2f2;">
+            <div class="week-card week-bad">
                 <h4>Week 2: THE GAUNTLET</h4>
                 <p><strong>Score:</strong> <span class="score-10">10/10</span></p>
                 <p><strong>Who:</strong> EVERYONE</p>
-                <p><strong>Strategy:</strong> Rope drop mandatory. Express Pass YES. Book dining 30+ days out.</p>
+                <p><strong>Strategy:</strong> Rope drop mandatory. Express YES. Book dining 30+ days.</p>
                 <p><strong>Best:</strong> <span class="worst">None</span></p>
             </div>
             <div class="week-card">
@@ -543,22 +644,22 @@
                 <p><strong>Best:</strong> Sun, Mon, Tue</p>
             </div>
         </div>
-        <div class="three-col" style="margin-top: 12px;">
-            <div class="week-card" style="background: #fdf4ff;">
+        <div class="three-col" style="margin-top: 8px;">
+            <div class="week-card week-easter">
                 <h4>Week 4: EASTER</h4>
                 <p><strong>Score:</strong> <span class="score-9">9/10</span></p>
                 <p><strong>Who:</strong> Easter + Michigan</p>
                 <p><strong>Strategy:</strong> Rope drop essential. Express recommended. Book dining 45+ days.</p>
                 <p><strong>Best:</strong> Mon, Tue</p>
             </div>
-            <div class="week-card" style="background: #ecfdf5;">
+            <div class="week-card week-good">
                 <h4>Week 5: Post-Easter</h4>
                 <p><strong>Score:</strong> <span class="score-5">5/10</span></p>
                 <p><strong>Who:</strong> Lingering visitors</p>
                 <p><strong>Strategy:</strong> Best week! No special tactics. Skip Express.</p>
                 <p><strong>Best:</strong> <span class="best">Any day</span></p>
             </div>
-            <div class="week-card" style="background: #ecfdf5;">
+            <div class="week-card week-good">
                 <h4>Weeks 6-7: Wind Down</h4>
                 <p><strong>Score:</strong> <span class="score-4">4/10</span></p>
                 <p><strong>Who:</strong> Stragglers, locals</p>
@@ -566,59 +667,69 @@
                 <p><strong>Best:</strong> <span class="best">Any day</span></p>
             </div>
         </div>
-        <h3>Express Pass Decision Matrix</h3>
+
+        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
+    </div>
+
+    <!-- PAGE 3: EXPRESS PASS & PARK TIPS -->
+    <div class="page">
+        <h2>Express Pass Decision Matrix</h2>
         <table>
             <tr>
                 <th>Your Situation</th>
                 <th>Recommendation</th>
+                <th>Reasoning</th>
             </tr>
             <tr style="background: #fef2f2;">
                 <td>Week 2, any day</td>
-                <td class="worst"><strong>BUY IT.</strong> No question.</td>
+                <td class="worst"><strong>BUY IT.</strong></td>
+                <td>Peak of peak. 3+ hour waits without it.</td>
             </tr>
             <tr style="background: #fdf4ff;">
                 <td>Week 4 (Easter), any day</td>
-                <td class="caution"><strong>BUY IT.</strong> Easter crowds are real.</td>
+                <td class="worst"><strong>BUY IT.</strong></td>
+                <td>Easter crowds are real. Don't gamble.</td>
             </tr>
             <tr>
                 <td>Week 3, Saturday</td>
-                <td>Strong yes</td>
+                <td class="caution">Strong yes</td>
+                <td>Saturday + Northeast = crowded</td>
             </tr>
             <tr>
                 <td>Week 3, weekday</td>
-                <td>Optional, smart timing works</td>
+                <td>Optional</td>
+                <td>Smart timing works without it</td>
             </tr>
             <tr>
                 <td>Week 1</td>
                 <td class="best">Skip it</td>
+                <td>Manageable crowds</td>
             </tr>
             <tr style="background: #ecfdf5;">
                 <td>Week 5, 6, or 7</td>
-                <td class="best">Skip it (post-Easter lull)</td>
+                <td class="best">Skip it</td>
+                <td>Post-Easter lull. Lowest crowds.</td>
             </tr>
             <tr>
                 <td>Only 1 day at parks</td>
-                <td>Buy it regardless of week</td>
+                <td class="caution">Buy it</td>
+                <td>Regardless of week - maximize limited time</td>
             </tr>
         </table>
-        <div class="footer">Data from 519,038 wait time samples | RideReady.app</div>
-    </div>
-    <!-- PAGE 5: PARK-SPECIFIC TIPS -->
-    <div class="page">
-        <h2>Park-Specific Tips</h2>
+
+        <h2>Park-by-Park Tips</h2>
         <div class="two-col">
             <div>
                 <h3>Epic Universe</h3>
-                <p><strong>Early Park Admission (EPA):</strong> Hotel guests get 1 hour early. Mario Kart opens first.
-                </p>
-                <p style="margin-top: 8px;"><strong>Ride Priority:</strong></p>
-                <ol style="margin-left: 20px; font-size: 9pt;">
+                <p><strong>EPA (Hotel guests):</strong> 1 hour early. Mario Kart opens first.</p>
+                <p style="margin-top: 4px;"><strong>Ride Priority:</strong></p>
+                <ol style="margin-left: 16px; font-size: 8pt;">
                     <li>Mario Kart: Bowser (rope drop)</li>
                     <li>Ministry of Magic (10:30 AM or 7 PM+)</li>
                     <li>Mine-Cart Madness (evening)</li>
                     <li>Everything else as time allows</li>
                 </ol>
-                <p style="margin-top: 8px;"><strong>Evening Strategy:</strong></p>
+                <p style="margin-top: 4px;"><strong>Evening Strategy:</strong></p>
                 <table>
                     <tr>
                         <td>5 PM</td>
@@ -635,23 +746,25 @@
                 </table>
             </div>
             <div>
-                <h3>Universal Orlando</h3>
-                <p><strong>Hagrid's Strategy:</strong> Rope drop or ride during lunch. Backup: single rider.</p>
-                <p style="margin-top: 8px;"><strong>Islands of Adventure Priority:</strong></p>
-                <ol style="margin-left: 20px; font-size: 9pt;">
-                    <li>Hagrid's Motorbike Adventure</li>
+                <h3>Islands of Adventure</h3>
+                <p><strong>Priority Order:</strong></p>
+                <ol style="margin-left: 16px; font-size: 8pt;">
+                    <li>Hagrid's Motorbike (rope drop or lunch)</li>
                     <li>VelociCoaster</li>
                     <li>Forbidden Journey</li>
                 </ol>
-                <p style="margin-top: 8px;"><strong>Universal Studios Priority:</strong></p>
-                <ol style="margin-left: 20px; font-size: 9pt;">
-                    <li>Revenge of the Mummy</li>
+                <p style="margin-top: 4px;"><strong>Hagrid's tip:</strong> Single rider line often 30 min when standby is 120+</p>
 
+                <h3>Universal Studios</h3>
+                <p><strong>Priority Order:</strong></p>
+                <ol style="margin-left: 16px; font-size: 8pt;">
+                    <li>Revenge of the Mummy</li>
                     <li>Transformers</li>
                 </ol>
             </div>
         </div>
-        <div class="two-col" style="margin-top: 16px;">
+
+        <div class="two-col" style="margin-top: 10px;">
             <div>
                 <h3>Disney World</h3>
                 <p><strong>Genie+ vs Universal Express:</strong></p>
@@ -672,114 +785,17 @@
                         <td>Unlimited skips</td>
                     </tr>
                 </table>
-                <p style="margin-top: 8px;"><strong>Park Hopping:</strong> Can't hop until 2 PM. Plan accordingly.</p>
+                <p style="margin-top: 4px;"><strong>Park hopping:</strong> Can't hop until 2 PM. Plan accordingly.</p>
             </div>
             <div>
                 <h3>SeaWorld Orlando</h3>
                 <div class="tip-box">
-                    <strong>The Hidden Gem:</strong> Usually 30-40% lighter than Disney/Universal. Quick Queue rarely
-                    needed except Week 2. Even Week 2 is manageable here.
+                    <strong>The Hidden Gem:</strong> Usually 30-40% lighter than Disney/Universal. Quick Queue rarely needed except Week 2. Even Week 2 is manageable here.
                 </div>
             </div>
         </div>
-        <div class="footer">Data from 519,038 wait time samples | RideReady.app</div>
-    </div>
-    <!-- PAGE 6: QUICK REFERENCE TABLES -->
-    <div class="page">
-        <h2>Quick Reference Tables</h2>
-        <div class="two-col">
-            <div>
-                <h3>Day-of-Week Patterns (All Weeks)</h3>
-                <table>
-                    <tr>
-                        <th>Day</th>
-                        <th>Avg Wait</th>
-                        <th>Notes</th>
-                    </tr>
-                    <tr style="background: #ecfdf5;">
-                        <td class="best">Sunday</td>
-                        <td class="best">49 min</td>
-                        <td>Best day</td>
-                    </tr>
-                    <tr style="background: #fef2f2;">
-                        <td class="worst">Monday</td>
-                        <td class="worst">62 min</td>
-                        <td>Worst day</td>
-                    </tr>
-                    <tr>
-                        <td>Tuesday</td>
-                        <td>51 min</td>
-                        <td>Second best</td>
-                    </tr>
-                    <tr>
-                        <td>Wednesday</td>
-                        <td>54 min</td>
-                        <td>Moderate</td>
-                    </tr>
-                    <tr>
-                        <td>Thursday</td>
-                        <td>53 min</td>
-                        <td>Moderate</td>
-                    </tr>
-                    <tr>
-                        <td>Friday</td>
-                        <td>54 min</td>
-                        <td>Moderate</td>
-                    </tr>
-                    <tr>
-                        <td>Saturday</td>
-                        <td>54 min</td>
-                        <td>Not worst!</td>
-                    </tr>
-                </table>
-            </div>
-            <div>
-                <h3>Hourly Pattern (Use Every Day)</h3>
-                <table>
-                    <tr>
-                        <th>Time</th>
-                        <th>Avg</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr style="background: #ecfdf5;">
-                        <td>9 AM</td>
-                        <td class="best">35</td>
-                        <td>ROPE DROP</td>
-                    </tr>
-                    <tr>
-                        <td>10 AM</td>
-                        <td>53</td>
-                        <td>Keep moving</td>
-                    </tr>
-                    <tr style="background: #fef2f2;">
-                        <td>11-12</td>
-                        <td class="worst">69</td>
-                        <td>PEAK - Eat lunch</td>
-                    </tr>
-                    <tr>
-                        <td>1-4 PM</td>
-                        <td>62-64</td>
-                        <td>Shows, 2nd tier</td>
-                    </tr>
-                    <tr>
-                        <td>5-6 PM</td>
-                        <td>51-57</td>
-                        <td>Crowds ease</td>
-                    </tr>
-                    <tr style="background: #ecfdf5;">
-                        <td>7-8 PM</td>
-                        <td class="best">37-44</td>
-                        <td>Evening window</td>
-                    </tr>
-                    <tr style="background: #ecfdf5;">
-                        <td>9 PM</td>
-                        <td class="best">27</td>
-                        <td>BEST TIME</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <h3>Dining Reservations</h3>
+
+        <h2>Dining Reservations</h2>
         <table>
             <tr>
                 <th>Week</th>
@@ -789,7 +805,7 @@
             <tr style="background: #fef2f2;">
                 <td>Week 2</td>
                 <td>60 days out</td>
-                <td class="worst">Scarce</td>
+                <td class="worst">Scarce - book now</td>
             </tr>
             <tr style="background: #fdf4ff;">
                 <td>Week 4 (Easter)</td>
@@ -807,110 +823,144 @@
                 <td class="best">Good</td>
             </tr>
         </table>
+
         <div class="tip-box">
-            <strong>Best Strategy:</strong> Book sit-down dinner for 7 PM (ride during dinner exodus). Eat
-            counter-service lunch at 11:30 AM (during peak waits). Skip in-park breakfast entirely.
+            <strong>Best Strategy:</strong> Book sit-down dinner for 7 PM (ride during dinner exodus). Counter-service lunch at 11:30 AM (during peak waits). Skip in-park breakfast.
         </div>
-        <div class="footer">Data from 519,038 wait time samples | RideReady.app</div>
+
+        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
     </div>
-    <!-- PAGE 7: WEATHER & FINAL -->
+
+    <!-- PAGE 4: WEATHER & PACKING -->
     <div class="page">
-        <h2>Weather &amp; Packing</h2>
-        <h3>Weather by Week</h3>
+        <h2>Weather by Week</h2>
         <table>
             <tr>
                 <th>Week</th>
                 <th>Dates</th>
                 <th>Temp Range</th>
                 <th>Rain</th>
+                <th>Notes</th>
             </tr>
             <tr>
                 <td>1</td>
                 <td>Mar 9-15</td>
                 <td>65-80°F</td>
                 <td>20%</td>
+                <td>Comfortable, layerable</td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>Mar 16-22</td>
                 <td>68-82°F</td>
                 <td>25%</td>
+                <td>Warming up</td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>Mar 23-29</td>
                 <td>70-84°F</td>
                 <td>25%</td>
+                <td>Getting hot</td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>Mar 30 - Apr 5</td>
                 <td>72-85°F</td>
                 <td>30%</td>
+                <td>Sunscreen essential</td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>Apr 6-12</td>
                 <td>74-86°F</td>
                 <td>30%</td>
+                <td>Summer preview</td>
             </tr>
             <tr>
                 <td>6</td>
                 <td>Apr 13-19</td>
                 <td>75-88°F</td>
                 <td>35%</td>
+                <td>Afternoon storms possible</td>
             </tr>
             <tr>
                 <td>7</td>
                 <td>Apr 20-24</td>
                 <td>76-88°F</td>
                 <td>35%</td>
+                <td>Hot + humid</td>
             </tr>
         </table>
+
         <div class="two-col">
             <div>
                 <h3>Packing Checklist</h3>
                 <p><strong>Must-Have:</strong></p>
                 <ul>
-                    <li>Portable phone charger</li>
-                    <li>Comfortable walking shoes</li>
-                    <li>Sunscreen (Florida sun!)</li>
+                    <li>Portable phone charger (you'll use apps all day)</li>
+                    <li>Comfortable walking shoes (10+ miles/day)</li>
+                    <li>Sunscreen SPF 50 (Florida sun is brutal)</li>
                     <li>Light rain jacket/poncho</li>
                     <li>Refillable water bottle</li>
                 </ul>
                 <p><strong>Nice-to-Have:</strong></p>
                 <ul>
                     <li>Small backpack</li>
-                    <li>Cooling towel (April)</li>
+                    <li>Cooling towel (April weeks)</li>
                     <li>Portable fan</li>
-                    <li>Change of socks</li>
+                    <li>Change of socks (water rides)</li>
                 </ul>
             </div>
             <div>
                 <h3>Key Takeaways</h3>
                 <div class="warning-box">
-                    <strong>Avoid:</strong> Week 2 (Mar 16-22) unless you have Express Pass.
+                    <strong>AVOID:</strong> Week 2 (Mar 16-22) unless you have Express Pass.
                 </div>
                 <div class="easter-box">
-                    <strong>Watch Out:</strong> Week 4 is Easter. Higher crowds than expected.
+                    <strong>WATCH OUT:</strong> Week 4 is Easter. Higher crowds than expected.
                 </div>
                 <div class="tip-box">
-                    <strong>Best Value:</strong> Weeks 5-7 (post-Easter). Low crowds, great weather.
+                    <strong>BEST VALUE:</strong> Weeks 5-7 (post-Easter). Low crowds, great weather, no Express needed.
+                </div>
+                <div class="tip-box">
+                    <strong>EVERY DAY:</strong> Rope drop + dinner strategy. Get headliners at 9 AM and 7 PM.
                 </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 24px;">
-            <img src="../images/qr-app-store.png" alt="Ride Ready App QR"
-                style="margin: 0 auto; width: 100px; height: 100px; display: block;">
-            <p style="font-size: 9pt; color: #6b7280; margin-top: 6px;">Scan for live wait times + drop alerts during
-                your trip</p>
-            <p style="font-size: 11pt; font-weight: 600; color: #f43f5e;">rideready.app</p>
+
+        <h2>Final Checklist</h2>
+        <div class="two-col">
+            <div>
+                <h3>Before You Go</h3>
+                <ul>
+                    <li>Check your week's crowd score (page 1)</li>
+                    <li>Decide on Express Pass based on week</li>
+                    <li>Book dining reservations (see timing above)</li>
+                    <li>Download park apps</li>
+                    <li>Book EPA hotel if Epic Universe is priority</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Day-Of</h3>
+                <ul>
+                    <li>Rope drop: Arrive 30 min before open</li>
+                    <li>Morning: Hit headliners</li>
+                    <li>11:30 AM: Counter-service lunch</li>
+                    <li>1-5 PM: Shows, second-tier, pool</li>
+                    <li>7-9 PM: Re-ride headliners</li>
+                </ul>
+            </div>
         </div>
-        <div class="footer" style="margin-top: 20px;">
-            Data from 519,038 wait time samples | Regional calendar data from 50 state DOEs + 10 provincial
-            ministries<br />
-            Updated January 2026 | Not affiliated with Universal, Disney, or SeaWorld<br /><br />
-            <strong style="color: #f43f5e;">Created by RideReady.app - Your theme park data companion</strong>
+
+        <div style="text-align: center; margin-top: 16px;">
+            <p style="font-size: 11pt; font-weight: 700; color: #f43f5e;">rideready.app</p>
+            <p style="font-size: 8pt; color: #6b7280;">Live wait times + drop alerts in your pocket</p>
+        </div>
+
+        <div class="footer">
+            Data from 523,000+ wait time samples | Regional calendar data from 50 state DOEs + 10 provincial ministries<br />
+            Updated January 2026 | Not affiliated with Universal, Disney, or SeaWorld
         </div>
     </div>
 </body>
