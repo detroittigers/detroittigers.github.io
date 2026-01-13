@@ -66,6 +66,9 @@ logs
 tmp/
 temp/
 
+# Analytics reports
+reports/
+
 # Secrets
 secrets/
 .mcp.json
