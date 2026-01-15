@@ -1,313 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Canada's Wonderland Wait Times &amp; Strategy | Ride Ready</title>
-  <meta
-    content="Canada's Wonderland strategy and wait intel. Track your must‑rides and catch low-wait windows with Ride Ready."
-    name="description" />
-  <meta content="Canada's Wonderland Wait Times &amp; Strategy | Ride Ready" property="og:title" />
-  <meta content="Canada's Wonderland wait times + drop alerts to help you ride more with less waiting."
-    property="og:description" />
-  <meta content="website" property="og:type" />
-  <meta content="https://rideready.app/parks/canadas-wonderland/" property="og:url" />
-  <meta content="https://rideready.app/images/logo.png" property="og:image" />
-  <meta content="summary_large_image" name="twitter:card" />
-  <link href="https://rideready.app/parks/canadas-wonderland/" rel="canonical" />
-  <!-- Favicons -->
+  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-park-canadas-wonderland">
   <link href="/favicon.ico" rel="icon" sizes="any" />
   <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
   <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
   <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
   <link href="/site.webmanifest" rel="manifest" />
-  <!-- Google tag (gtag.js) -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
   </script>
+
+  <title>Canada&#x27;s Wonderland Wait Times &amp; Ride Strategy | Ride Ready</title>
+  <meta name="description" content="Track Canada&#x27;s Wonderland wait times with Ride Ready. Set alerts for Leviathan, Yukon Striker, Behemoth, and more so you can ride big coasters when lines dip." />
+  <link rel="canonical" href="https://rideready.app/parks/canadas-wonderland/" />
+  <meta property="og:title" content="Canada&#x27;s Wonderland Wait Times &amp; Ride Strategy | Ride Ready" />
+  <meta property="og:description" content="Track Canada&#x27;s Wonderland wait times with Ride Ready. Set alerts for Leviathan, Yukon Striker, Behemoth, and more so you can ride big coasters when lines dip." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rideready.app/parks/canadas-wonderland/" />
+  <meta property="og:image" content="https://rideready.app/images/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
-    :root {
-      --primary-gradient: linear-gradient(45deg, #EF4444, #FF416C);
-      --bg-color: #000000;
-      --text-color: #ffffff;
-      --accent-color: #EF4444;
-      --card-bg: #111;
-      --border: #333;
-    }
+:root {
+  --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --muted: rgba(255,255,255,0.72);
+  --accent-color: #F97316;
+  --card-bg: #111;
+  --border: #333;
+  --soft-border: rgba(255,255,255,0.08);
+  --shadow: 0 20px 50px rgba(0,0,0,0.55);
+  --radius: 18px;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
+* { box-sizing: border-box; }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% -10%, rgba(255, 75, 43, 0.15), transparent 55%),
-        radial-gradient(circle at 80% 0%, rgba(255, 65, 108, 0.10), transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: hidden;
+  line-height: 1.55;
+  padding-bottom: 92px; /* space for sticky footer */
+}
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 24px 90px;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.20) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255,65,108,0.16) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-      margin-bottom: 40px;
-    }
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px 0;
+}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
 
-    .logo img {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-    }
+nav .left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 14px;
-      background: var(--primary-gradient);
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 10px 30px rgba(255, 75, 43, 0.25);
-      transition: transform 0.15s ease;
-      white-space: nowrap;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+nav a:hover { opacity: 1; }
 
-    h1 {
-      font-size: 3rem;
-      margin: 20px 0 10px;
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
 
-    .subtitle {
-      max-width: 760px;
-      margin: 0 auto 28px;
-      color: #ccc;
-      font-size: 1.1rem;
-    }
+.logo img { width: 32px; height: 32px; border-radius: 8px; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin: 26px 0 70px;
-    }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
 
-    .insight-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      text-align: left;
-      position: relative;
-      overflow: hidden;
-    }
+.nav-cta {
+  background: var(--primary-gradient);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
+}
 
-    .insight-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-left: 3px solid var(--card-accent, var(--accent-color));
-      opacity: 0.9;
-      pointer-events: none;
-    }
+.hero {
+  padding: 26px 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid var(--soft-border);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
 
-    .insight-title {
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.1;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    .insight-body {
-      color: #bbb;
-      font-size: 0.98rem;
-    }
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 70ch;
+}
 
-    .cta-box {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 26px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
+.section {
+  margin-top: 34px;
+  text-align: left;
+}
 
-    .sticky-footer {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: rgba(0, 0, 0, 0.86);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      z-index: 999;
-    }
+.section h2 {
+  margin: 0 0 14px;
+  font-size: 1.35rem;
+}
 
-    .sticky-text {
-      color: #ddd;
-      font-weight: 600;
-    }
+.kicker {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 10px;
+}
 
-    .sticky-btn {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: var(--primary-gradient);
-      color: white;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.95rem;
-      white-space: nowrap;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
 
-    footer {
-      margin-top: 60px;
-      color: #888;
-      font-size: 0.95rem;
-    }
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
 
-    footer a {
-      color: #aaa;
-      text-decoration: none;
-    }
+.fact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+.fact {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
 
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 2.25rem;
-      }
+.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
+.fact span { color: var(--muted); }
 
-      .subtitle {
-        font-size: 1rem;
-      }
-    }
-  </style>
+.ride-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.ride-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.80);
+  margin-bottom: 10px;
+}
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
+
+.chip {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.86);
+  background: rgba(255,255,255,0.03);
+}
+
+.ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
+.ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
+
+.inline-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.inline-link:hover { text-decoration: underline; }
+
+.alert-grid .card b { color: rgba(255,255,255,0.92); }
+
+.plan {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.82);
+}
+
+.plan li { margin: 8px 0; }
+
+details {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+details + details { margin-top: 10px; }
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  outline: none;
+}
+
+details p {
+  margin: 10px 0 0;
+  color: rgba(255,255,255,0.78);
+}
+
+footer {
+  margin: 34px 0 22px;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.sources a { word-break: break-word; }
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding: 12px 14px;
+  z-index: 1000;
+}
+
+.sticky-footer .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sticky-footer .text {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.82);
+}
+
+.sticky-footer a {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 11px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  nav { align-items: flex-start; }
+  .nav-links { justify-content: flex-start; }
+  .hero { padding: 22px 16px; }
+  .sticky-footer .text { display: none; }
+}
+</style>
 </head>
 
 <body>
   <div class="sticky-footer">
-    <span class="sticky-text">📱 Track waits live at Canada's Wonderland</span>
-    <a class="sticky-btn"
-      href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=canadas-wonderland_sticky">Download
-      App</a>
+    <div class="inner">
+      <div class="text">Canada's Wonderland: track the big three coasters — and grab windows when the park shifts.</div>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-canadas-wonderland-sticky" data-ref="park-canadas-wonderland-sticky">Download Free</a>
+    </div>
   </div>
+
   <div class="container">
     <nav>
-      <a class="logo" href="/">
-        <img alt="Ride Ready Logo" src="/images/logo.png" />
-        Ride Ready
-      </a>
-      <div style="display:flex; gap:20px; align-items:center;">
-        <a href="/parks/" style="color:white; text-decoration:none; font-weight:600;">Parks</a>
-        <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-weight:600;">Why Us?</a>
-        <a class="btn"
-          href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=canadas-wonderland_park_page">Get
-          the App</a>
+      <div class="left">
+        <a class="logo" href="/">
+          <img src="/images/logo.png" alt="Ride Ready Logo" />
+          <span>Ride Ready</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="/parks/">Parks</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-canadas-wonderland-nav" data-ref="park-canadas-wonderland-nav">Download Free</a>
       </div>
     </nav>
-    <h1>Canada's Wonderland</h1>
-    <p class="subtitle">Canada's Wonderland strategy and wait intel. Track your must‑rides and catch low-wait windows
-      with Ride Ready.</p>
-    <div class="cta-box">
-      <h2 style="margin:0 0 10px;">Make your next park day faster</h2>
-      <p style="margin:0 0 18px; color:#bbb;">
-        Ride Ready helps you time your must‑do attractions with live wait intel, drop alerts, and smarter next‑ride
-        picks.
-      </p>
-      <a class="btn"
-        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=canadas-wonderland_park_page">Download
-        Ride Ready</a>
-      <p style="margin-top:12px; color:#777; font-size:0.95rem;">
-        Tip: set an alert for your top ride before you enter the gates. <strong style="color: #F97316;">Insider
-          Stat:</strong> Leviathan has the best throughput; the line moves faster than Behemoth.
-      </p>
+
+    <div class="hero">
+      <div class="kicker">Canada&#x27;s Wonderland | Wait times + smarter timing</div>
+      <h1>Canada&#x27;s Wonderland: Ride More, Wait Less</h1>
+      <p>Track Canada&#x27;s Wonderland wait times with Ride Ready. Set alerts for Leviathan, Yukon Striker, Behemoth, and more so you can ride big coasters when lines dip.</p>
     </div>
-    <h3 style="text-align:center; margin: 48px 0 16px;">Top rides to track</h3>
-    <div class="grid">
-      <div class="insight-card" style="--card-accent: #FF4B2B;">
-        <div class="insight-header">
-          <div class="insight-title">Leviathan</div>
-        </div>
-        <div class="insight-body">Headliner wait swings are big—alerts are the fastest way to catch drops.</div>
+
+    <section class="section">
+      <h2>Quick park facts</h2>
+      <div class="grid">
+        <div class="card"><div class="fact"><b>Location</b><span>Vaughan, Ontario (near Toronto)</span></div></div>
+<div class="card"><div class="fact"><b>Best for</b><span>Big B&amp;M coasters + quick 'bonus' rides between them</span></div></div>
+<div class="card"><div class="fact"><b>What to track</b><span>Leviathan, Yukon Striker, Behemoth (plus a couple family favorites)</span></div></div>
+<div class="card"><div class="fact"><b>The trick</b><span>Your day is won by timing the big three, not by walking laps hoping they're shorter.</span></div></div>
       </div>
-      <div class="insight-card" style="--card-accent: #FFB400;">
-        <div class="insight-header">
-          <div class="insight-title">Yukon Striker</div>
+    </section>
+
+    <section class="section">
+      <h2>Rides worth setting alerts for</h2>
+      <div class="grid">
+
+        <div class="card ride-card">
+          <h3>Leviathan</h3>
+          <div class="ride-tag">Giga coaster | fastest/tallest vibe</div>
+          <div class="chips"><span class="chip">306 ft</span><span class="chip">92 mph</span><span class="chip">5,486 ft</span></div>
+          <p class="ride-why">It's an anchor attraction. Alerts help you ride it when it's actually moving instead of committing blind.</p>
+          <p class="ride-fact"><b>Fun fact:</b> The speed + lake of airtime makes it a 'do it again' coaster if you can catch a second window.</p>
         </div>
-        <div class="insight-body">Capacity helps, but peak surges happen—watch for timing windows.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #3B82F6;">
-        <div class="insight-header">
-          <div class="insight-title">Behemoth</div>
+
+
+        <div class="card ride-card">
+          <h3>Yukon Striker</h3>
+          <div class="ride-tag">Dive coaster | straight down first drop</div>
+          <div class="chips"><span class="chip">223 ft</span><span class="chip">80 mph</span></div>
+          <p class="ride-why">This one draws a line fast. A drop alert is the easiest way to turn it into a win without burning an hour.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A signature dive coaster with a dramatic hold before the drop.</p>
         </div>
-        <div class="insight-body">Often a solid pick when the newest ride spikes.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #10B981;">
-        <div class="insight-header">
-          <div class="insight-title">Vortex</div>
+
+
+        <div class="card ride-card">
+          <h3>Behemoth</h3>
+          <div class="ride-tag">Hyper coaster | smooth &amp; fast</div>
+          <div class="chips"><span class="chip">230 ft</span><span class="chip">77 mph</span><span class="chip">4,259 ft</span></div>
+          <p class="ride-why">It's often the best 'midday big ride' if you catch it during a lull.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A classic hyper coaster that's usually worth a re-ride if you time it right.</p>
         </div>
-        <div class="insight-body">A classic that can be a low‑wait win on busy days.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #A855F7;">
-        <div class="insight-header">
-          <div class="insight-title">Wonder Mountain's Guardian</div>
+
+
+        <div class="card ride-card">
+          <h3>Wonder Mountain's Guardian</h3>
+          <div class="ride-tag">Indoor/outdoor coaster + shooting elements</div>
+          <div class="chips"><span class="chip">Indoor sections</span><span class="chip">Family-friendly thrill</span></div>
+          <p class="ride-why">A great 'heat / rain' pivot ride while you're waiting for a coaster alert to fire.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A hybrid dark-ride style coaster built into the mountain.</p>
         </div>
-        <div class="insight-body">Family favorite; waits can inflate mid‑day.</div>
+
+
+        <div class="card ride-card">
+          <h3>Vortex</h3>
+          <div class="ride-tag">Suspended coaster | soaring turns</div>
+          <div class="chips"><span class="chip">Fast swinging turns</span></div>
+          <p class="ride-why">Easy to slot in between headliners when you want something fun with a typically quicker line.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A classic suspended coaster that still holds up.</p>
+        </div>
+
       </div>
-    </div>
+    </section>
+
+    <section class="section alert-grid">
+      <h2>Good default alert presets</h2>
+      <div class="grid">
+        <div class="card"><b>Leviathan</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 40 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">If you want a second ride, this threshold makes it possible.</div></div>
+<div class="card"><b>Yukon Striker</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">You'll feel great about it at this point.</div></div>
+<div class="card"><b>Behemoth</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">A perfect 'hit it now' coaster when the park shifts.</div></div>
+<div class="card"><b>Wonder Mountain's Guardian</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Good backup when the big coasters are peaking.</div></div>
+<div class="card"><b>Vortex</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 20 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">A reliable filler ride you can chain quickly.</div></div>
+      </div>
+      <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
+        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>If you only have one day</h2>
+      <ol class="plan">
+        <li>Do one big coaster early, then set alerts for the other two.</li>
+<li>Use family rides / indoor attractions as your 'pivot' while you wait for dips.</li>
+<li>When an alert fires, go — don't 'finish one more thing' first.</li>
+<li>After lunch, re-check your favorites and tighten thresholds if you're getting too many pings.</li>
+<li>Last hour: grab your re-rides on whichever coaster is running shortest.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>More planning help</h2>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="/parks/">All supported parks</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+
+    <details>
+      <summary>Does Ride Ready use the park's official wait times?</summary>
+      <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
+    </details>
+    <details>
+      <summary>What's the fastest way to get value on a one-day visit?</summary>
+      <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot — that's where you claw back time without buying a line-skip add-on.</p>
+    </details>
+    <details>
+      <summary>Is this affiliated with Canada&#x27;s Wonderland?</summary>
+      <p>No. Ride Ready is an independent app.</p>
+    </details>
+
+    </section>
+
+    <section class="section sources">
+      <h2>Sources</h2>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Canada%27s_Wonderland" rel="noopener noreferrer" target="_blank">Canada&#x27;s Wonderland (park overview) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Leviathan_(roller_coaster)" rel="noopener noreferrer" target="_blank">Leviathan (roller coaster) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Yukon_Striker" rel="noopener noreferrer" target="_blank">Yukon Striker — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Behemoth_(roller_coaster)" rel="noopener noreferrer" target="_blank">Behemoth (roller coaster) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Wonder_Mountain%27s_Guardian" rel="noopener noreferrer" target="_blank">Wonder Mountain&#x27;s Guardian — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Vortex_(Canada%27s_Wonderland)" rel="noopener noreferrer" target="_blank">Vortex (Canada&#x27;s Wonderland) — Wikipedia</a></li>
+      </ul>
+    </section>
+
     <footer>
-      <p>© 2026 Ride Ready • <a href="/compare/official-apps/">Why Ride Ready?</a> • <a href="/privacy/">Privacy</a> •
-        <a href="/terms/">Terms</a>
-      </p>
-      <p style="margin-top:10px; font-size:0.85rem; color:#666;">Ride Ready is not affiliated with or endorsed by
-        Universal, SeaWorld, Cedar Fair, or any theme park operator.</p>
+      © 2026 Ride Ready. Not affiliated with Canada&#x27;s Wonderland or its operators.
     </footer>
   </div>
+<script>
+document.querySelectorAll('[data-ref]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'app_store_click', { source: this.dataset.ref, page: window.location.pathname });
+    }
+  });
+});
+</script>
 </body>
-
 </html>

@@ -1,1359 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link href="/favicon.ico" rel="icon" sizes="any" />
-    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
-    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
-    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
-    <link href="/site.webmanifest" rel="manifest" />
-    <!-- Google tag (gtag.js) -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-KGYGTPMTQ3');
-    </script>
-    <meta
-        content="Epic Universe strategy, wait time tools, and free pocket guides. Get live wait intel, drop alerts, and personalized 'what to ride next' recommendations with Ride Ready."
-        name="description" />
-    <meta content="Epic Universe Strategy Guide | Ride Ready" property="og:title" />
-    <meta
-        content="Skip the worst lines with real-time wait intel, drop &amp; reopen alerts, and a free Epic Universe pocket strategy guide."
-        property="og:description" />
-    <meta content="https://rideready.app/images/epic_landing/epic-portal.jpg" property="og:image" />
-    <meta content="https://rideready.app/parks/epic-universe/" property="og:url" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <link href="https://rideready.app/parks/epic-universe/" rel="canonical" />
-    <title>Epic Universe Strategy Guide | Ride Ready</title>
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(45deg, #FF416C, #FF4B2B);
-            --bg-color: #000000;
-            --text-color: #ffffff;
-            --accent-color: #FF4B2B;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            overflow-x: hidden;
-            line-height: 1.5;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(circle at 20% -10%, rgba(255, 75, 43, 0.15), transparent 55%),
-                radial-gradient(circle at 80% 0%, rgba(255, 65, 108, 0.1), transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 24px 90px;
-        }
-
-        /* Nav */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            margin-bottom: 60px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-        }
-
-        .back-link {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover {
-            color: white;
-        }
-
-        /* Hero */
-        .hero {
-            max-width: 800px;
-            margin: 0 auto 100px;
-            padding-top: 40px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(255, 75, 43, 0.15);
-            border: 1px solid rgba(255, 75, 43, 0.3);
-            border-radius: 99px;
-            color: #FF9A8B;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 0 0 24px;
-            background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .highlight {
-            background: var(--primary-gradient);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: #cccccc;
-            margin: 0 auto 40px;
-            max-width: 600px;
-        }
-
-
-
-        /* Form */
-        .email-form {
-            max-width: 480px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .form-group {
-            display: flex;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 6px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: border-color 0.2s;
-        }
-
-        .form-group:focus-within {
-            border-color: var(--accent-color);
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .email-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.05rem;
-            padding: 12px 16px;
-            outline: none;
-            min-width: 0;
-        }
-
-        .email-input::placeholder {
-            color: #888;
-        }
-
-        .submit-btn {
-            background: var(--primary-gradient);
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            white-space: nowrap;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3);
-        }
-
-        .success-message {
-            display: none;
-            margin-top: 16px;
-            color: #4CAF50;
-            font-weight: 500;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        /* Teaser Grid */
-        .teaser-section {
-            margin-bottom: 100px;
-        }
-
-        .teaser-header {
-            margin-bottom: 40px;
-        }
-
-        .teaser-header h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .teaser-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .teaser-card {
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .teaser-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 75, 43, 0.2);
-        }
-
-        .card-image {
-            width: 100%;
-            aspect-ratio: 4/5;
-            object-fit: cover;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .card-content {
-            padding: 24px;
-            text-align: left;
-        }
-
-        .card-content h3 {
-            margin: 0 0 8px;
-            font-size: 1.25rem;
-            color: white;
-        }
-
-        .card-content p {
-            margin: 0;
-            color: #aaa;
-            font-size: 0.95rem;
-        }
-
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 0;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .countdown-container {
-                gap: 10px;
-                padding: 16px;
-            }
-
-            .countdown-value {
-                font-size: 1.8rem;
-            }
-
-            .form-group {
-                flex-direction: column;
-                padding: 12px;
-                background: transparent;
-                border: none;
-            }
-
-            /* Remove price comparison border on mobile */
-            .price-comparison>div>div:last-child {
-                border-left: none !important;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
-                padding-top: 20px;
-            }
-
-            .email-input {
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 12px;
-                padding: 16px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            .submit-btn {
-                width: 100%;
-                padding: 16px;
-                margin-top: 10px;
-            }
-        }
-
-        /* Insight Cards */
-        .insight-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px 24px 24px 30px;
-            /* Left padding for accent bar */
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /* The floating accent pill */
-        .insight-card::before {
-            content: "";
-            position: absolute;
-            left: 10px;
-            top: 15px;
-            bottom: 15px;
-            width: 4px;
-            border-radius: 4px;
-            background: var(--card-accent, #4CAF50);
-        }
-
-        .insight-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            gap: 12px;
-        }
-
-        .insight-title {
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
-            line-height: 1.3;
-        }
-
-        .insight-stat {
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-align: right;
-            white-space: nowrap;
-            /* Prevent "24 min avg" splitting */
-            color: var(--card-accent);
-        }
-
-        .insight-body {
-            color: #aaa;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* Clickable Card Hover */
-        .insight-card-link {
-            transition: transform 0.2s ease;
-        }
-
-        .insight-card-link:hover {
-            transform: translateY(-4px);
-        }
-
-        .insight-card-link:hover .insight-card {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.25);
-        }
-
-        /* Best Day Grid Styles */
-        .best-day-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-bottom: 60px;
-        }
-
-        .bd-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .bd-card.highlight-green {
-            border-color: rgba(0, 204, 102, 0.3);
-            background: rgba(0, 204, 102, 0.05);
-        }
-
-        .bd-card.highlight-red {
-            border-color: rgba(255, 68, 68, 0.3);
-            background: rgba(255, 68, 68, 0.05);
-        }
-
-        .bd-day {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .bd-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 4px 8px;
-            border-radius: 4px;
-            width: fit-content;
-        }
-
-        .bd-badge.green {
-            background: #00cc66;
-            color: #000;
-        }
-
-        .bd-badge.red {
-            background: #ff4444;
-            color: #fff;
-        }
-
-        .bd-stat {
-            text-align: right;
-        }
-
-        .bd-time {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .bd-label {
-            font-size: 0.7rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        @media (min-width: 600px) {
-            .best-day-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .best-day-grid>.bd-card:first-child {
-                grid-column: span 2;
-            }
-        }
-
-
-
-        /* Sticky Footer */
-        .sticky-footer {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: rgba(20, 20, 20, 0.9);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 12px 20px;
-            border-radius: 99px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            width: 90%;
-            max-width: 400px;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .sticky-footer.visible {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .sticky-text {
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-            flex: 1;
-            white-space: nowrap;
-        }
-
-        .sticky-btn {
-            background: white;
-            color: black;
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        /* Hub Actions */
-        .hub-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            align-items: center;
-            margin: 30px 0 10px;
-        }
-
-        .action-btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-            border: none;
-            font-family: inherit;
-            cursor: pointer;
-        }
-
-        .action-btn.primary {
-            background: var(--primary-gradient);
-            color: white;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
-        }
-
-        .action-btn.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 75, 43, 0.4);
-        }
-
-        .action-btn.secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .action-btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .disclaimer-text {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 30px;
-        }
-
-        #email-section {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Social Icons */
-        .social-links {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0 18px;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 999px;
-            background: #111111;
-            border: 1px solid #333333;
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.05);
-            border-color: #555555;
-            box-shadow: 0 0 12px rgba(255, 75, 43, 0.25);
-        }
-
-        .social-icon {
-            width: 20px;
-            height: 20px;
-            fill: #dddddd;
-        }
-
-        .social-links a:hover .social-icon {
-            fill: #eeeeee;
-        }
-    </style>
-    <script type="application/ld+json">
-    [
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Ride Ready",
-      "applicationCategory": "TravelApplication",
-      "operatingSystem": "iOS",
-      "offers": {
-        "@type": "Offer",
-        "price": "6.99",
-        "priceCurrency": "USD",
-        "priceValidUntil": "2026-12-31"
-      },
-      "description": "The ultimate companion for Universal's Epic Universe. Skip the lines with AI-powered wait time forecasting and crowd intelligence.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "ratingCount": "5"
-      }
-    },
-    {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the best time to ride Stardust Racers at Epic Universe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Stardust Racers averages just 22 minutes and never exceeds 60 minutes thanks to its dual-track high-capacity design. You can ride anytime without significant waits—don't waste Express Pass here."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Express Pass worth it at Epic Universe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Express Pass costs $200-400 per person. Based on hundreds of thousands of wait samples, it's valuable for Mine-Cart Madness (67 min avg) and Battle at the Ministry (79 min avg), but wasted on Stardust Racers (22 min avg) and Monsters Unchained (15 min avg). Ride Ready tells you exactly which rides need it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What are the longest waits at Epic Universe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Based on hundreds of thousands of wait time samples: Battle at the Ministry averages 79 minutes (peaks at 195 min at 10 AM), Mine-Cart Madness averages 67 minutes (peaks at 185 min at 11 AM), and Mario Kart averages 52 minutes. Rope drop is critical for Mine-Cart; save Mario Kart for evening."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the best rope drop strategy for Epic Universe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Priority #1: Mine-Cart Madness (25 min at 8 AM vs 185 min by 11 AM). Priority #2: Queue for Battle at the Ministry at 6-7 PM (queue closes early at night!). Save Mario Kart for evening (33 min at 9 PM). Stardust Racers and Monsters Unchained are walk-ons all day."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which Epic Universe rides have the shortest waits?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Monsters Unchained averages just 15 minutes despite being the park's most intense dark ride—its KUKA robot arm system has exceptional throughput. Stardust Racers averages 22 minutes. Fyre Drill averages 11 minutes. All three are essentially walk-ons."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does Skip's AI Plan work for Epic Universe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Skip's AI Plan builds a personalized touring strategy for your entire day. You tell Skip your group type (thrill seeker, family with kids, first-timer), and it creates an optimized route using ML predictions trained on huge datasets. The plan factors in walking distances between rides, your avoid list, height restrictions, and real-time crowd patterns. As you complete rides or conditions change (rain, ride breakdowns), Skip recalculates instantly."
-        }
-      }
-    ]
-    }
-    ]
-    </script>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-park-epic-universe">
+  <link href="/favicon.ico" rel="icon" sizes="any" />
+  <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+  <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="/site.webmanifest" rel="manifest" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KGYGTPMTQ3');
+  </script>
+
+  <title>Epic Universe Wait Times &amp; Ride Strategy | Ride Ready</title>
+  <meta name="description" content="Track Epic Universe wait times and set alerts for Stardust Racers, Mario Kart, Battle at the Ministry, Monsters Unchained, Mine‑Cart Madness, and more. Ride the headliners when lines dip." />
+  <link rel="canonical" href="https://rideready.app/parks/epic-universe/" />
+  <meta property="og:title" content="Epic Universe Wait Times &amp; Ride Strategy | Ride Ready" />
+  <meta property="og:description" content="Track Epic Universe wait times and set alerts for Stardust Racers, Mario Kart, Battle at the Ministry, Monsters Unchained, Mine‑Cart Madness, and more. Ride the headliners when lines dip." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rideready.app/parks/epic-universe/" />
+  <meta property="og:image" content="https://rideready.app/images/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+:root {
+  --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --muted: rgba(255,255,255,0.72);
+  --accent-color: #F97316;
+  --card-bg: #111;
+  --border: #333;
+  --soft-border: rgba(255,255,255,0.08);
+  --shadow: 0 20px 50px rgba(0,0,0,0.55);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: hidden;
+  line-height: 1.55;
+  padding-bottom: 92px; /* space for sticky footer */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.20) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255,65,108,0.16) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+nav .left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+nav a:hover { opacity: 1; }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.logo img { width: 32px; height: 32px; border-radius: 8px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-cta {
+  background: var(--primary-gradient);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
+}
+
+.hero {
+  padding: 26px 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid var(--soft-border);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.1;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 70ch;
+}
+
+.section {
+  margin-top: 34px;
+  text-align: left;
+}
+
+.section h2 {
+  margin: 0 0 14px;
+  font-size: 1.35rem;
+}
+
+.kicker {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.fact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.fact {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
+.fact span { color: var(--muted); }
+
+.ride-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.ride-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.80);
+  margin-bottom: 10px;
+}
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
+
+.chip {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.86);
+  background: rgba(255,255,255,0.03);
+}
+
+.ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
+.ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
+
+.inline-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.inline-link:hover { text-decoration: underline; }
+
+.alert-grid .card b { color: rgba(255,255,255,0.92); }
+
+.plan {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.82);
+}
+
+.plan li { margin: 8px 0; }
+
+details {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+details + details { margin-top: 10px; }
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  outline: none;
+}
+
+details p {
+  margin: 10px 0 0;
+  color: rgba(255,255,255,0.78);
+}
+
+footer {
+  margin: 34px 0 22px;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.sources a { word-break: break-word; }
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding: 12px 14px;
+  z-index: 1000;
+}
+
+.sticky-footer .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sticky-footer .text {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.82);
+}
+
+.sticky-footer a {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 11px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  nav { align-items: flex-start; }
+  .nav-links { justify-content: flex-start; }
+  .hero { padding: 22px 16px; }
+  .sticky-footer .text { display: none; }
+}
+</style>
 </head>
 
 <body>
-    <!-- Sticky Footer -->
-    <div class="sticky-footer" id="sticky-footer">
-        <span class="sticky-text">📱 Track waits live</span>
-        <a class="sticky-btn"
-            href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=epic-hub">Download App</a>
+  <div class="sticky-footer">
+    <div class="inner">
+      <div class="text">Epic Universe: pick your must-dos, set drop alerts, and let the day come to you.</div>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-epic-universe-sticky" data-ref="park-epic-universe-sticky">Download Free</a>
     </div>
-    <div class="container">
-        <nav>
-            <a class="logo" href="/">
-                <img alt="Ride Ready Logo" src="../../images/logo.png" />
-                Ride Ready
-            </a>
-            <a class="back-link" href="/">Return Home</a>
-        </nav>
-        <section class="hero">
-            <span class="badge">🚀 App Now Live</span>
-            <h1>Skip the $300 <span class="highlight">Express Pass</span></h1>
-            <p class="subtitle" style="margin-bottom: 20px;">Get the strategy guide before you go. Track live waits
-                while
-                you're there.</p>
-            <p style="color: #4CAF50; font-weight: 700; font-size: 1.05rem; margin-bottom: 30px;">Express Pass:
-                ~$300/person. Ride Ready: $6.99/day.</p>
-            <!-- Hub Actions -->
-            <div class="hub-actions">
-                <a class="action-btn primary" href="./2025-holiday-strategy/">Read the full Holiday Strategy (no
-                    email required)</a>
-                <button class="action-btn secondary" onclick="toggleEmailForm()">📧 Get Printable PDF + Christmas Week
-                    Updates</button>
-                <div
-                    style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 0; color: #aaa; font-size: 0.85rem;">
-                    <span style="color: #FFB400;">★★★★★</span>
-                    <span>"Saved us 2 hours on Ministry of Magic. The drop alerts are real."</span>
-                </div>
-            </div>
-            <div class="seasonal-nav"
-                style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 24px 0 30px;">
-                <a href="../../orlando/spring-break-2026/"
-                    style="display: inline-flex; align-items: center; gap: 6px; background: rgba(52, 211, 153, 0.15); border: 1px solid rgba(52, 211, 153, 0.4); color: #6ee7b7; text-decoration: none; padding: 10px 20px; border-radius: 99px; font-size: 0.9rem; font-weight: 600; transition: all 0.2s;">
-                    🌴 Spring Break
-                </a>
-                <a href="./mlk-day-weekend-2026/"
-                    style="display: inline-flex; align-items: center; gap: 6px; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.4); color: #a5b4fc; text-decoration: none; padding: 10px 20px; border-radius: 99px; font-size: 0.9rem; font-weight: 600; transition: all 0.2s;">
-                    📅 MLK Weekend
-                </a>
-                <a href="./presidents-day-weekend-2026/"
-                    style="display: inline-flex; align-items: center; gap: 6px; background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4); color: #fda4af; text-decoration: none; padding: 10px 20px; border-radius: 99px; font-size: 0.9rem; font-weight: 600; transition: all 0.2s;">
-                    🇺🇸 Presidents Day
-                </a>
-            </div>
-            <p class="disclaimer-text">Read free below • Email gets you updates when patterns change</p>
-            <!-- Email Form (Hidden by default) -->
-            <div class="email-form" id="email-section" style="max-width: 520px; margin: 0 auto 20px;">
-                <h3 style="color: white; font-size: 1.1rem; margin-bottom: 12px;">📧 Get the Holiday Crowd Guide
-                    (Free)</h3>
-                <form id="waitlist-form" onsubmit="handleFormSubmit(event)">
-                    <div class="form-group"
-                        style="gap: 12px; background: rgba(255,255,255,0.08); padding: 8px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);">
-                        <input aria-label="Email address" class="email-input" name="email"
-                            placeholder="Enter your email address" required=""
-                            style="font-size: 1.1rem; padding: 14px 20px; border: none; background: transparent; color: white;"
-                            type="email" />
-                        <input name="_gotcha" style="display:none" type="text" />
-                        <input name="source" type="hidden" value="hub-page" />
-                        <button class="submit-btn" id="submit-btn" style="font-size: 1.1rem; padding: 14px 28px;"
-                            type="submit">Send Me the PDF</button>
-                    </div>
-                </form>
-                <div class="success-message" id="success-message"
-                    style="display: none; flex-direction: column; gap: 20px; margin-top: 20px;">
-                    <div
-                        style="display: flex; align-items: center; justify-content: center; gap: 8px; color: #4CAF50; font-weight: 500;">
-                        <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"
-                            width="20">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                        <span>Success! Check your inbox!</span>
-                    </div>
-                    <!-- Post-Signup App Upsell -->
-                    <div
-                        style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: left;">
-                        <p style="color: white; font-weight: 600; margin: 0 0 8px; font-size: 0.95rem;">While you wait:
-                        </p>
-                        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
-                            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=epic-hub"
-                                style="background: white; color: black; font-weight: 700; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-size: 0.85rem;"
-                                target="_blank">Download
-                                App</a>
-                            <span style="color: #aaa; font-size: 0.85rem;">Free to try</span>
-                        </div>
-                        <p style="color: #bbb; font-size: 0.85rem; line-height: 1.4; margin: 0;">
-                            <strong>How to start:</strong> Open App → Choose "Epic Universe" → Set a Drop Alert for
-                            Mine-Cart at 45 min.
-                        </p>
-                    </div>
-                </div>
-                <p style="color: #666; font-size: 0.75rem; margin-top: 12px; text-align: center;">No spam. One PDF +
-                    occasional big updates.</p>
-            </div>
-            <div class="data-hooks" style="margin-bottom: 50px; text-align: left;">
-                <!-- The Real Strategy: Rope Drop + Alerts -->
-                <div
-                    style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px;">
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                        <h3 style="margin: 0; color: white; font-size: 1.2rem;">Mine-Cart Madness</h3>
-                        <span
-                            style="background: rgba(255,75,43,0.2); color: #ff9a8b; padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 600;">ROPE
-                            DROP OR REGRET IT</span>
-                    </div>
-                    <div style="margin-bottom: 12px;">
-                        <div
-                            style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem;">
-                            <span style="color: #4CAF50; font-weight: 600;">9:00 AM (Rope Drop)</span>
-                            <span style="color: #4CAF50; font-weight: 700;">28 min</span>
-                        </div>
-                        <div
-                            style="height: 12px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;">
-                            <div
-                                style="height: 100%; width: 23%; background: #4CAF50; border-radius: 6px; box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);">
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div
-                            style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem;">
-                            <span style="color: #aaa;">12:00 PM (Everyone Else)</span>
-                            <span style="color: #ff6b6b; font-weight: 700;">120 min</span>
-                        </div>
-                        <div
-                            style="height: 12px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;">
-                            <div style="height: 100%; width: 100%; background: #ff6b6b; border-radius: 6px;"></div>
-                        </div>
-                    </div>
-                    <p style="color: #aaa; font-size: 0.85rem; margin-top: 12px;">
-                        Miss rope drop? Skip alerts you when it dips—so you don't have to gamble on "maybe tonight."
-                    </p>
-                </div>
-                <!-- Skip Knows Section -->
-                <h3 style="text-align: center; margin: 40px 0 20px; color: white;">Skip Knows Every Ride</h3>
-                <p style="text-align: center; color: #888; margin-bottom: 24px; font-size: 0.9rem;">Meet Skip, your AI
-                    crowd strategist. Based on 400k+
-                    actual wait time samples from Epic Universe</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                    <!-- Stardust -->
-                    <a class="insight-card-link"
-                        href="../../universal-orlando/epic-universe/stardust-racers-queue-times/"
-                        style="text-decoration: none; display: block;">
-                        <div class="insight-card" style="--card-accent: #4CAF50; height: 100%;">
-                            <div class="insight-header">
-                                <div class="insight-title">Stardust Racers</div>
-                                <div class="insight-stat">22 min avg</div>
-                            </div>
-                            <div class="insight-body">
-                                62 mph dueling coaster. Never tops 60 min even on busiest days. <span
-                                    style="color: #4CAF50; font-weight: 600;">Ride anytime.</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Monsters -->
-                    <a class="insight-card-link"
-                        href="../../universal-orlando/epic-universe/monsters-unchained-queue-times/"
-                        style="text-decoration: none; display: block;">
-                        <div class="insight-card" style="--card-accent: #4CAF50; height: 100%;">
-                            <div class="insight-header">
-                                <div class="insight-title">Monsters Unchained</div>
-                                <div class="insight-stat">15 min avg</div>
-                            </div>
-                            <div class="insight-body">
-                                High-throughput KUKA system. Scariest ride, shortest wait. <span
-                                    style="color: #4CAF50; font-weight: 600;">Walk-on machine.</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Mario -->
-                    <a class="insight-card-link" href="../../universal-orlando/epic-universe/mario-kart-queue-times/"
-                        style="text-decoration: none; display: block;">
-                        <div class="insight-card" style="--card-accent: #FFB400; height: 100%;">
-                            <div class="insight-header">
-                                <div class="insight-title">Mario Kart</div>
-                                <div class="insight-stat">52 min avg</div>
-                            </div>
-                            <div class="insight-body">
-                                68 min at open → 151 min by 11 AM. <span style="color: #FFB400; font-weight: 600;">Save
-                                    for
-                                    evening (33 min at 9 PM).</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Mine-Cart -->
-                    <a class="insight-card-link"
-                        href="../../universal-orlando/epic-universe/mine-cart-madness-queue-times/"
-                        style="text-decoration: none; display: block;">
-                        <div class="insight-card" style="--card-accent: #ff6b6b; height: 100%;">
-                            <div class="insight-header">
-                                <div class="insight-title">Mine-Cart Madness</div>
-                                <div class="insight-stat">67 min avg</div>
-                            </div>
-                            <div class="insight-body">
-                                25 min at 8 AM → 185 min by 11 AM. <span style="color: #ff6b6b; font-weight: 600;">Rope
-                                    drop
-                                    priority #1.</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Ministry -->
-                    <a class="insight-card-link" href="../../universal-orlando/epic-universe/ministry-queue-times/"
-                        style="text-decoration: none; display: block;">
-                        <div class="insight-card" style="--card-accent: #ff6b6b; height: 100%;">
-                            <div class="insight-header">
-                                <div class="insight-title">Battle at the Ministry</div>
-                                <div class="insight-stat">79 min avg</div>
-                            </div>
-                            <div class="insight-body">
-                                Peaks 195 min at 10 AM. Queue at 7 PM (125 min), but <span
-                                    style="color: var(--accent-color); font-weight: 600;">9 PM queue often
-                                    closed!</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Hiccup's Wing Gliders -->
-                    <a class="insight-card-link"
-                        href="../../universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/"
-                        style="text-decoration: none; display: block;">
-                        <div class="insight-card" style="--card-accent: #ff6b6b; height: 100%;">
-                            <div class="insight-header">
-                                <div class="insight-title">Hiccup's Wing Gliders</div>
-                                <div class="insight-stat">75+ min avg</div>
-                            </div>
-                            <div class="insight-body">
-                                Slow loader. Outdoor queue (hot!). <span style="color: #ff6b6b; font-weight: 600;">Don't
-                                    save for last (capacity
-                                    closes).</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- Best Day to Visit Section -->
-            <div style="margin-top: 60px; margin-bottom: 60px;">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                    <span style="font-size: 1.8rem;">📅</span>
-                    <h2 style="margin: 0; font-size: 1.8rem;">Best Day to Visit</h2>
-                </div>
-                <p style="color: #aaa; margin-bottom: 30px; font-size: 1rem;">Based on <strong
-                        style="color: white;">110,000+ wait time samples</strong> from the last 30 days. Plan your trip
-                    to avoid the mid-week spikes.</p>
-                <div class="best-day-grid">
-                    <!-- Sunday -->
-                    <div class="bd-card highlight-green">
-                        <div class="bd-day">
-                            Sunday
-                            <span class="bd-badge green">GOOD</span>
-                        </div>
-                        <div class="bd-stat">
-                            <div class="bd-time">38 min</div>
-                            <div class="bd-label">Avg Wait</div>
-                        </div>
-                    </div>
-                    <!-- Monday (Avoid) -->
-                    <div class="bd-card highlight-red">
-                        <div class="bd-day">
-                            Monday
-                            <span class="bd-badge red">BUSY</span>
-                        </div>
-                        <div class="bd-stat">
-                            <div class="bd-time">60 min</div>
-                            <div class="bd-label">Avg Wait</div>
-                        </div>
-                    </div>
-                    <!-- Tuesday (Best) -->
-                    <div class="bd-card highlight-green">
-                        <div class="bd-day">
-                            Tuesday
-                            <span class="bd-badge green">BEST BET</span>
-                        </div>
-                        <div class="bd-stat">
-                            <div class="bd-time">36 min</div>
-                            <div class="bd-label">Avg Wait</div>
-                        </div>
-                    </div>
-                    <!-- Wednesday (Avoid) -->
-                    <div class="bd-card highlight-red">
-                        <div class="bd-day">
-                            Wednesday
-                            <span class="bd-badge red">BUSY</span>
-                        </div>
-                        <div class="bd-stat">
-                            <div class="bd-time">59 min</div>
-                            <div class="bd-label">Avg Wait</div>
-                        </div>
-                    </div>
-                    <!-- Thursday (Good) -->
-                    <div class="bd-card highlight-green">
-                        <div class="bd-day">
-                            Thursday
-                            <span class="bd-badge green">GOOD</span>
-                        </div>
-                        <div class="bd-stat">
-                            <div class="bd-time">41 min</div>
-                            <div class="bd-label">Avg Wait</div>
-                        </div>
-                    </div>
-                    <!-- Friday -->
-                    <div class="bd-card">
-                        <div class="bd-day">Friday</div>
-                        <div class="bd-stat">
-                            <div class="bd-time">44 min</div>
-                            <div class="bd-label">Avg Wait</div>
-                        </div>
-                    </div>
-                    <!-- Saturday -->
-                    <div class="bd-card">
-                        <div class="bd-day">Saturday</div>
-                        <div class="bd-stat">
-                            <div class="bd-time">41 min</div>
-                            <div class="bd-label">Avg Wait</div>
-                        </div>
-                    </div>
-                </div>
-                <p style="font-size: 0.85rem; color: #666; font-style: italic;">*Data represents the average wait time
-                    across all major attractions. "Avg Wait" accounts for outliers; median waits are typically lower
-                    (e.g., Tuesday median is 25 min).</p>
-            </div>
-            <!-- Blurred Guide Preview Section -->
-            <div
-                style="margin-top: 60px; background: linear-gradient(180deg, rgba(255,75,43,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(255,75,43,0.2); border-radius: 20px; padding: 30px; position: relative; overflow: hidden;">
-                <div style="text-align: center; margin-bottom: 24px;">
-                    <span
-                        style="background: rgba(255,75,43,0.2); color: #ff9a8b; padding: 6px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Sneak
-                        Peek</span>
-                    <h3 style="margin: 16px 0 8px; color: white; font-size: 1.4rem;">The Holiday Strategy Guide</h3>
-                    <p style="color: #888; font-size: 0.9rem; margin: 0;">400k+ wait samples. 69 days of data. One
-                        winning playbook.</p>
-                </div>
-                <!-- Visible Content -->
-                <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
-                    <div
-                        style="font-weight: 700; color: #4CAF50; font-size: 0.85rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
-                        Counter-Intuitive Finding #1</div>
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-                        <div>
-                            <div style="color: white; font-size: 1.1rem; font-weight: 600;">Best Day: <span
-                                    style="color: #4CAF50;">Tuesday</span> (36 min avg)</div>
-                            <div style="color: #888; font-size: 0.85rem; margin-top: 4px;">Families travel over weekend,
-                                start vacation Monday</div>
-                        </div>
-                        <div>
-                            <div style="color: white; font-size: 1.1rem; font-weight: 600;">Worst Day: <span
-                                    style="color: #ff6b6b;">Monday</span> (60 min avg)</div>
-                            <div style="color: #888; font-size: 0.85rem; margin-top: 4px;">40% longer waits vs
-                                Sunday—avoid!</div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
-                    <div
-                        style="font-weight: 700; color: #FFB400; font-size: 0.85rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
-                        The 5 Golden Rules</div>
-                    <div style="color: white; font-size: 0.95rem;">
-                        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;">
-                            <span style="color: #4CAF50; font-weight: 700;">✓</span>
-                            <span><strong>#1:</strong> Rope drop Mine-Cart (25 min at 8 AM → 185 min by 11 AM)</span>
-                        </div>
-                        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;">
-                            <span style="color: #4CAF50; font-weight: 700;">✓</span>
-                            <span><strong>#2:</strong> Queue for Ministry at 6-7 PM, NOT 9 PM (queue closes
-                                early!)</span>
-                        </div>
-                        <!-- Blurred rules -->
-                        <div style="filter: blur(4px); user-select: none; pointer-events: none;">
-                            <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;">
-                                <span style="color: #888; font-weight: 700;">✓</span>
-                                <span><strong>#3:</strong> Skip Mario Kart at open—ride evening instead</span>
-                            </div>
-                            <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;">
-                                <span style="color: #888; font-weight: 700;">✓</span>
-                                <span><strong>#4:</strong> Never wait for Stardust/Monsters—walk-ons all day</span>
-                            </div>
-                            <div style="display: flex; align-items: flex-start; gap: 10px;">
-                                <span style="color: #888; font-weight: 700;">✓</span>
-                                <span><strong>#5:</strong> The optimal 3-hour gauntlet sequence revealed</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Heavily blurred teaser -->
-                <div style="filter: blur(6px); user-select: none; pointer-events: none; opacity: 0.7;">
-                    <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 20px; margin-bottom: 12px;">
-                        <div style="font-weight: 700; color: #ff6b6b; font-size: 0.85rem; margin-bottom: 12px;">HOURLY
-                            BREAKDOWN: WHEN TO RIDE EACH HEADLINER</div>
-                        <div style="color: white; font-size: 0.9rem; line-height: 1.8;">
-                            Battle at Ministry: Best at 7 PM (125 min), Peak 10 AM (195 min)<br />
-                            Mine-Cart Madness: Best at 8 AM (25 min), Peak 12 PM (137 min)<br />
-                            Mario Kart: Best at 9 PM (33 min), Peak 11 AM (151 min)
-                        </div>
-                    </div>
-                    <div style="background: rgba(139,92,246,0.2); border-radius: 12px; padding: 20px;">
-                        <div style="font-weight: 700; color: #a78bfa; font-size: 0.85rem; margin-bottom: 8px;">HIDDEN
-                            SECRETS &amp; EASTER EGGS</div>
-                        <div style="color: white; font-size: 0.9rem;">
-                            Bowser portrait signed by Miyamoto • Flux Capacitors on Stardust • Vampire well glow...
-                        </div>
-                    </div>
-                </div>
-                <!-- CTA Overlay -->
-                <div
-                    style="text-align: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <p style="color: #ccc; font-size: 1rem; margin-bottom: 16px;">Get the complete guide + printable
-                        cheat sheet now</p>
-                    <a href="#waitlist-form"
-                        onclick="const es=document.getElementById('email-section'); es.style.display='block'; es.style.animation='fadeIn 0.4s ease'; document.getElementById('waitlist-form').scrollIntoView({behavior:'smooth'}); return false;"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
-                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(255,75,43,0.3)';"
-                        style="display: inline-block; background: var(--primary-gradient); color: white; padding: 14px 32px; border-radius: 12px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;">Get
-                        the Full
-                        Strategy</a>
-                </div>
-            </div>
-        </section>
-        <!-- What Skip Does In-Park -->
-        <section class="teaser-section" style="margin-bottom: 80px;">
-            <div class="teaser-header">
-                <h2>In the Park, Skip Works in Real-Time</h2>
-            </div>
-            <div class="teaser-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div class="teaser-card">
-                    <div
-                        style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
-                        <img alt="Wait time forecast graph" loading="lazy"
-                            src="../../images/epic_landing/epic-waittime-graph.png"
-                            style="max-width: 95%; max-height: 95%; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" />
-                    </div>
-                    <div class="card-content">
-                        <h3>Live Forecasts</h3>
-                        <p>Know what wait times will be in 30 and 60 minutes—not just right now. Stay one step ahead of
-                            the crowds.</p>
-                    </div>
-                </div>
-                <div class="teaser-card">
-                    <div
-                        style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
-                        <img alt="Ride drop alert notification" loading="lazy"
-                            src="../../images/epic_landing/epic-notification.png"
-                            style="max-width: 95%; max-height: 95%; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" />
-                    </div>
-                    <div class="card-content">
-                        <h3>Drop Alerts</h3>
-                        <p>Pick a ride, set a target wait. Skip pings you the instant it hits. No more refreshing—just
-                            ride.</p>
-                    </div>
-                </div>
-                <div class="teaser-card">
-                    <div
-                        style="background: #111; display: flex; align-items: center; justify-content: center; height: 320px;">
-                        <img alt="Ride Ready app ride list" loading="lazy"
-                            src="../../images/epic_landing/epic-ride-list.png"
-                            style="max-width: 95%; max-height: 95%; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" />
-                    </div>
-                    <div class="card-content">
-                        <h3>AI Day Plans</h3>
-                        <p>Tell Skip your group—thrill seekers, families, first-timers. It builds your route and adapts
-                            when plans change.</p>
-                    </div>
-                </div>
-            </div>
-            <p style="text-align: center; color: #888; font-size: 0.95rem; margin-top: 30px;">The email gets you ready.
-                Skip keeps you ahead all day.</p>
-        </section>
-        <section class="price-comparison"
-            style="margin: 0 auto 100px; max-width: 800px; background: rgba(255, 75, 43, 0.1); border: 1px solid rgba(255, 75, 43, 0.3); border-radius: 20px; padding: 40px; text-align: center;">
-            <h2 style="font-size: 2rem; margin-bottom: 30px;">The Math is Simple</h2>
-            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
-                <div style="flex: 1; min-width: 250px;">
-                    <p style="color: #aaa; font-size: 1.1rem; margin-bottom: 5px;">Express Pass Family of 4</p>
-                    <p style="font-size: 2.5rem; font-weight: 800; color: #ff6b6b; margin: 0;">$1,200</p>
-                </div>
-                <div style="flex: 1; min-width: 250px; border-left: 1px solid rgba(255,255,255,0.1);">
-                    <p style="color: #aaa; font-size: 1.1rem; margin-bottom: 5px;">Ride Ready Day Pass</p>
-                    <p style="font-size: 2.5rem; font-weight: 800; color: #4CAF50; margin: 0;">$6.99<span
-                            style="font-size: 1rem; color: #888; font-weight: normal;">/day</span></p>
-                    <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">Prices in USD. Subject to change.</p>
-                    <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">Prices in USD. Subject to change.</p>
-                </div>
-            </div>
-            <p style="font-size: 1.2rem; font-weight: 500; color: white; max-width: 600px; margin: 0 auto;">
-                You're not paying to skip the line.<br />
-                You're paying to know when there <span style="color: var(--accent-color); font-weight: 700;">IS</span>
-                no line.
-            </p>
-            <p style="font-size: 0.8rem; color: #888; margin-top: 20px; font-style: italic;">
-                *Prices for Express Pass vary by date. Express Pass is often wasted on high-capacity rides like Stardust
-                Racers (22 min avg) and Monsters Unchained (15 min avg). Skip tells you where it actually matters.
-            </p>
-        </section>
-        <section class="social-proof" style="margin-bottom: 80px; text-align: center;">
-            <p
-                style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem;">
-                Trusted by Theme Park Families</p>
-            <blockquote
-                style="font-size: 1.5rem; font-weight: 500; font-style: italic; max-width: 700px; margin: 30px auto; line-height: 1.4;">
-                "Helped me get onto Top Thrill 2 with less than a fifteen minute wait. By far my favourite app I've used
-                for queue times."</blockquote>
-            <p style="color: #aaa; font-style: normal; font-weight: 400; margin-top: -10px;">— Lizzylyn0, App Store
-                Review</p>
-            <div style="color: #ddd; font-weight: 600; margin-top: 20px;">
-                Rated <span style="color: #FFB400;">★★★★★</span> on the App Store
-            </div>
-        </section>
-        <footer>
-            <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">*Wait times based on 400k+ actual
-                samples
-                from Epic Universe (Oct-Dec 2025). Patterns may vary by day.</p>
-            <p style="margin-bottom: 15px;"><a
-                    href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=epic-hub"
-                    style="color: #aaa; text-decoration: underline;">Visiting Universal Studios or Islands of Adventure?
-                    Download Ride Ready now.</a></p>
-            <div aria-label="Follow Ride Ready" class="social-links">
-                <a aria-label="X (formerly Twitter)" href="https://x.com/RideReadyApp" rel="noopener noreferrer"
-                    target="_blank">
-                    <svg aria-hidden="true" class="social-icon" role="img" viewbox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18.244 2H21.5l-7.59 8.743L22.682 22h-6.5l-5.107-6.337L5.15 22H1.885l8.19-9.43L1.318 2h6.5l4.948 6.14L18.244 2z">
-                        </path>
-                    </svg>
-                </a>
-                <a aria-label="Instagram" href="https://www.instagram.com/ridereadyapp" rel="noopener noreferrer"
-                    target="_blank">
-                    <svg aria-hidden="true" class="social-icon" role="img" viewbox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.35 3.608 1.325.975.975 1.263 2.242 1.325 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.35 2.633-1.325 3.608-.975.975-2.242 1.263-3.608 1.325-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.35-3.608-1.325-.975-.975-1.263-2.242-1.325-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.35-2.633 1.325-3.608C4.533 2.567 5.8 2.279 7.166 2.217 8.432 2.159 8.812 2.163 12 2.163zm0 1.534c-3.17 0-3.552.012-4.806.07-1.074.049-1.66.223-2.047.372-.516.201-.885.44-1.272.827-.387.387-.626.756-.827 1.272-.149.387-.323.973-.372 2.047-.058 1.254-.07 1.636-.07 4.806s.012 3.552.07 4.806c.049 1.074.223 1.66.372 2.047.201.516.44.885.827 1.272.387.387.756.626 1.272.827.387.149.973.323 2.047.372 1.254.058 1.636.07-4.806.07zm0 3.905a5.932 5.932 0 110 11.864 5.932 5.932 0 010-11.864zm0 1.534a4.398 4.398 0 100 8.796 4.398 4.398 0 000-8.796zm6.406-2.845a1.44 1.44 0 110 2.881 1.44 1.44 0 010-2.881z">
-                        </path>
-                    </svg>
-                </a>
-            </div>
-            <p>© 2026 Ride Ready. Not affiliated with Universal Destinations &amp; Experiences.</p>
-        </footer>
+  </div>
+
+  <div class="container">
+    <nav>
+      <div class="left">
+        <a class="logo" href="/">
+          <img src="/images/logo.png" alt="Ride Ready Logo" />
+          <span>Ride Ready</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="/parks/">Parks</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-epic-universe-nav" data-ref="park-epic-universe-nav">Download Free</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="kicker">Universal Epic Universe - Wait times + smarter timing</div>
+      <h1>Universal Epic Universe: Ride More, Wait Less</h1>
+      <p>Track Epic Universe wait times and set alerts for Stardust Racers, Mario Kart, Battle at the Ministry, Monsters Unchained, Mine-Cart Madness, and more. Ride the headliners when lines dip.</p>
     </div>
-    <script>
+
+    <section class="section">
+      <h2>Quick park facts</h2>
+      <div class="grid">
+        <div class="card"><div class="fact"><b>Location</b><span>Universal Orlando Resort (Orlando, Florida)</span></div></div>
+<div class="card"><div class="fact"><b>Opened</b><span>May 22, 2025</span></div></div>
+<div class="card"><div class="fact"><b>Most time saved on</b><span>Stardust Racers, Battle at the Ministry, Mario Kart, Mine-Cart Madness</span></div></div>
+<div class="card"><div class="fact"><b>The trick</b><span>New parks have 'everyone does the same thing' crowds - alerts help you dodge the stampede.</span></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Rides worth setting alerts for</h2>
+      <div class="grid">
+
+        <div class="card ride-card">
+          <h3>Stardust Racers</h3>
+          <div class="ride-tag">Dual-launch racing coaster - Celestial Park</div>
+          <div class="chips"><span class="chip">133 ft</span><span class="chip">62 mph</span><span class="chip">5,000 ft</span><span class="chip">Dueling</span></div>
+          <p class="ride-why">It's the flagship coaster. When it dips, it's worth moving across the park for.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Two racing tracks launch to 62 mph and hit 133 ft.</p>
+        </div>
 
 
-        // Form handling
-        function toggleEmailForm() {
-            const emailSection = document.getElementById('email-section');
-            if (emailSection.style.display === 'none' || !emailSection.style.display) {
-                emailSection.style.display = 'block';
-                emailSection.style.animation = 'fadeIn 0.4s ease';
-            } else {
-                emailSection.style.display = 'none';
-            }
-        }
+        <div class="card ride-card">
+          <h3>Harry Potter and the Battle at the Ministry</h3>
+          <div class="ride-tag">Wizarding World - mega headliner</div>
+          <div class="chips"><span class="chip">Indoor</span><span class="chip">Story-heavy</span><span class="chip">High demand</span></div>
+          <p class="ride-why">This is the kind of ride that quietly becomes a 90+ minute line. Alerts help you grab a better window.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A Ministry-of-Magic-scale attraction that's built to be a top wait-time driver.</p>
+        </div>
 
-        async function handleFormSubmit(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submit-btn');
-            const form = document.getElementById('waitlist-form');
-            const success = document.getElementById('success-message');
-            const formData = new FormData(form);
-            const email = formData.get('email');
-            const honeypot = formData.get('_gotcha');
 
-            if (honeypot) {
-                // Silent success for bots
-                form.style.display = 'none';
-                success.style.display = 'flex';
-                return;
-            }
+        <div class="card ride-card">
+          <h3>Mario Kart: Bowser's Challenge</h3>
+          <div class="ride-tag">Super Nintendo World - interactive</div>
+          <div class="chips"><span class="chip">Indoor</span><span class="chip">AR-style experience</span><span class="chip">High demand</span></div>
+          <p class="ride-why">Families gravitate here. Track it and ride when it's not absorbing half your morning.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A game-like attraction that's best tackled at a smart time, not a popular time.</p>
+        </div>
 
-            const originalBtnText = btn.innerText;
-            btn.disabled = true;
-            btn.innerText = "Sending...";
 
-            try {
-                const response = await fetch('https://gxlpamlcajddjdzktecf.supabase.co/rest/v1/guide_email_signups', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs',
-                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs'
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        guide_slug: 'epic-universe-hub',
-                        source_url: window.location.href
-                    })
-                });
+        <div class="card ride-card">
+          <h3>Mine-Cart Madness</h3>
+          <div class="ride-tag">Donkey Kong - "boom coaster" style</div>
+          <div class="chips"><span class="chip">Family thrill</span><span class="chip">Low capacity risk</span></div>
+          <p class="ride-why">New concept rides tend to run long lines early. Alerts help you avoid the worst of it.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Expect demand early in the day - it's a headline Nintendo draw.</p>
+        </div>
 
-                if (response.ok) {
-                    // Track in GA4
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'email_signup', {
-                            event_category: 'engagement',
-                            guide_name: 'epic-universe-hub',
-                            value: 5,
-                            currency: 'USD'
-                        });
-                    }
-                    form.style.display = 'none';
-                    success.style.display = 'flex';
-                } else {
-                    alert("Oops! Problem submitting form. Please try again.");
-                }
-            } catch (error) {
-                console.error('Submission error:', error);
-                alert("Network error. Please try again.");
-            } finally {
-                btn.disabled = false;
-                if (btn.innerText !== 'Success') { // distinct from success state logic if we changed it
-                    // Actually we hid the form on success, so this only matters for error
-                    if (form.style.display !== 'none') {
-                        btn.innerText = originalBtnText;
-                    }
-                }
-            }
-        }
-    </script>
-    <script>
-        // Sticky Footer Logic
-        const observer = new IntersectionObserver((entries) => {
-            const footer = document.getElementById('sticky-footer');
-            entries.forEach(entry => {
-                // If hero is NOT intersecting (scrolled past), show footer
-                if (!entry.isIntersecting) {
-                    footer.classList.add('visible');
-                } else {
-                    footer.classList.remove('visible');
-                }
-            });
-        }, { threshold: 0 });
 
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            observer.observe(hero);
-        }
-    </script>
+        <div class="card ride-card">
+          <h3>Monsters Unchained: The Frankenstein Experiment</h3>
+          <div class="ride-tag">Dark Universe - big indoor headliner</div>
+          <div class="chips"><span class="chip">Indoor</span><span class="chip">Scary-fun</span><span class="chip">High demand</span></div>
+          <p class="ride-why">These marquee indoor rides are easy to underestimate. Track it so you don't get stuck in a surprise mega-queue.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Dark Universe's flagship ride - plan it like a headliner.</p>
+        </div>
+
+
+        <div class="card ride-card">
+          <h3>Hiccup's Wing Gliders</h3>
+          <div class="ride-tag">Isle of Berk - family coaster</div>
+          <div class="chips"><span class="chip">Family coaster</span><span class="chip">40&quot; height min</span></div>
+          <p class="ride-why">Family coasters can be line traps because everyone can ride them. Alerts help you ride it without the slow crawl.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A family coaster that's designed to be re-rideable (and popular).</p>
+        </div>
+
+
+        <div class="card ride-card">
+          <h3>Curse of the Werewolf</h3>
+          <div class="ride-tag">Dark Universe - spinning coaster</div>
+          <div class="chips"><span class="chip">Spinning</span><span class="chip">40&quot; height min</span></div>
+          <p class="ride-why">Spinning coasters can bottleneck. Track it and go when the wait is reasonable.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A Dark Universe coaster with a spinning twist.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section alert-grid">
+      <h2>Good default alert presets</h2>
+      <div class="grid">
+        <div class="card"><b>Stardust Racers</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 55 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Flagship ride - if it dips, take it.</div></div>
+<div class="card"><b>Battle at the Ministry</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 60 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Treat it like a top headliner; don't 'wing it.'</div></div>
+<div class="card"><b>Mario Kart</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 50 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Good threshold for a high-demand interactive ride.</div></div>
+<div class="card"><b>Mine-Cart Madness</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 55 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Low-capacity risk; wait for a real dip.</div></div>
+<div class="card"><b>Monsters Unchained</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 50 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Indoor headliner that can surprise you if you ignore it.</div></div>
+<div class="card"><b>Hiccup's Wing Gliders</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Family crowd magnet - a dip is your best friend.</div></div>
+<div class="card"><b>Curse of the Werewolf</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Spinning coasters feel best when you avoid the long line.</div></div>
+      </div>
+      <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
+        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>If you only have one day</h2>
+      <ol class="plan">
+        <li>Pick your must-dos in each land (don't try to do everything first).</li>
+<li>Set drop alerts for 3-5 headliners so the app can watch while you explore.</li>
+<li>Start with one big ride early, then pivot to a different land when crowds stack.</li>
+<li>Use shows / meals as buffer time while you wait for a high-value alert.</li>
+<li>Re-check your favorites around mid-afternoon and tighten thresholds based on your pace.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>More planning help</h2>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="/orlando/spring-break-2026/">Spring Break 2026 Survival Guide (Orlando)</a></li>
+<li><a class="inline-link" href="/parks/">All supported parks</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+
+    <details>
+      <summary>Does Ride Ready use the park's official wait times?</summary>
+      <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
+    </details>
+    <details>
+      <summary>What's the fastest way to get value on a one-day visit?</summary>
+      <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot - that's where you claw back time without buying a line-skip add-on.</p>
+    </details>
+    <details>
+      <summary>Is this affiliated with Universal Epic Universe?</summary>
+      <p>No. Ride Ready is an independent app.</p>
+    </details>
+
+    </section>
+
+    <section class="section sources">
+      <h2>Sources</h2>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Universal_Epic_Universe" rel="noopener noreferrer" target="_blank">Universal Epic Universe (park overview) - Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Stardust_Racers" rel="noopener noreferrer" target="_blank">Stardust Racers - Wikipedia (incl. RCDB stats)</a></li>
+<li><a class="inline-link" href="https://www.universalorlando.com/web/en/us/things-to-do/rides-attractions/hiccups-wing-gliders" rel="noopener noreferrer" target="_blank">Universal Orlando: Hiccup's Wing Gliders - official page</a></li>
+<li><a class="inline-link" href="https://www.universalorlando.com/web/en/us/things-to-do/rides-attractions/mine-cart-madness" rel="noopener noreferrer" target="_blank">Universal Orlando: Mine-Cart Madness - official page</a></li>
+<li><a class="inline-link" href="https://www.universalorlando.com/web/en/us/things-to-do/rides-attractions/curse-of-the-werewolf" rel="noopener noreferrer" target="_blank">Universal Orlando: Curse of the Werewolf - official page</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      © 2026 Ride Ready. Not affiliated with Universal Epic Universe or its operators.
+    </footer>
+  </div>
+
+<script>
+document.querySelectorAll('[data-ref]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'app_store_click', { source: this.dataset.ref, page: window.location.pathname });
+    }
+  });
+});
+</script>
 </body>
-
 </html>
