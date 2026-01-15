@@ -2,19 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>Redirecting... | Ride Ready</title>
   <link rel="canonical" href="https://rideready.app/parks/epic-universe/strategy/">
+  <meta http-equiv="refresh" content="2;url=/parks/epic-universe/strategy/">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
-    gtag('event', 'shortlink', { ref: 'epic-guide' });
   </script>
-  <meta http-equiv="refresh" content="0;url=/parks/epic-universe/strategy/">
+  <script>
+    const dest = "/parks/epic-universe/strategy/" + window.location.search + window.location.hash;
+
+    function redirect() {
+      window.location.replace(dest);
+    }
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'shortlink', {
+        ref: 'epic-guide',
+        destination: '/parks/epic-universe/strategy/',
+        event_callback: redirect,
+        event_timeout: 200
+      });
+    }
+
+    setTimeout(redirect, 250);
+  </script>
 </head>
 <body>
-  <p>Redirecting to <a href="/parks/epic-universe/strategy/">Epic Universe Strategy Guide</a>...</p>
+  <p>Redirecting… If you’re not redirected, <a href="/parks/epic-universe/strategy/">tap here</a>.</p>
 </body>
 </html>

@@ -6,6 +6,7 @@
 <title>Ride Ready vs Official Park Apps - Meaningful Differences</title>
 <meta content="Why do you need Ride Ready if you have the official app? See the breakdown of features: Forecasts, Alerts vs. Just Wait Times." name="description"/>
 <link href="https://rideready.app/compare/official-apps/" rel="canonical"/>
+<meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-compare-official-apps" />
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
 <script>
@@ -124,6 +125,31 @@
         .cta-btn:hover {
             transform: scale(1.05);
         }
+    
+        .partial {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .table-wrap {
+            margin-bottom: 40px;
+            border-radius: 16px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            background: #111;
+        }
+
+        /* Keep the table readable on small screens */
+        .comparison-table {
+            min-width: 680px;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 720px) {
+            .comparison-table { min-width: 620px; }
+        }
     </style>
 </head>
 <body>
@@ -138,14 +164,15 @@
 <div style="display: flex; gap: 20px; align-items: center;">
 <a href="/parks/" style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Parks</a>
 <a href="/compare/official-apps/" style="color: white; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Why Us?</a>
-<a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=compare_official_apps_cta4" style="background: rgba(255,255,255,0.1); color: white; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">Get
+<a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=compare-official-apps-nav" data-ref="compare-official-apps-nav" style="background: rgba(255,255,255,0.1); color: white; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">Get
                     App</a>
 </div>
 </nav>
 <h1>Ride Ready vs. Official Apps</h1>
 <p class="subtitle">Official apps are essential for tickets, maps, and dining. Ride Ready is built for one
             thing: <strong>saving you time.</strong></p>
-<table class="comparison-table">
+<div class="table-wrap">
+  <table class="comparison-table">
 <thead>
 <tr>
 <th style="width: 40%;">Feature</th>
@@ -154,51 +181,70 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="feature-col">Current Wait Times</td>
-<td><span class="check">✔</span></td>
-<td class="highlight-col"><span class="check">✔</span></td>
-</tr>
-<tr>
-<td class="feature-col">Wait Time Forecasts (30-60m out)</td>
-<td><span class="cross">✘</span></td>
-<td class="highlight-col"><span class="check">✔</span></td>
-</tr>
-<tr>
-<td class="feature-col">Personalized "Go Now" Strategy</td>
-<td><span class="cross">✘</span></td>
-<td class="highlight-col"><span class="check">✔</span></td>
-</tr>
-<tr>
-<td class="feature-col">Crowd Drop Alerts</td>
-<td><span class="cross">✘</span></td>
-<td class="highlight-col"><span class="check">✔</span></td>
-</tr>
-<tr>
-<td class="feature-col">Multi-Park Dashboard (Single View)</td>
-<td><span class="cross">✘</span></td>
-<td class="highlight-col"><span class="check">✔</span></td>
-</tr>
-<tr>
-<td class="feature-col">Mobile Ticket Wallet</td>
-<td><span class="check">✔</span></td>
-<td class="highlight-col"><span class="cross">✘</span></td>
-</tr>
-<tr>
-<td class="feature-col">Mobile Food Ordering</td>
-<td><span class="check">✔</span></td>
-<td class="highlight-col"><span class="cross">✘</span></td>
-</tr>
+    <tr>
+        <td class="feature-col">Live wait times</td>
+        <td class="check">✅</td>
+        <td class="check">✅</td>
+    </tr>
+    <tr>
+        <td class="feature-col">Maps, tickets, dining &amp; reservations</td>
+        <td class="check">✅</td>
+        <td class="cross">—</td>
+    </tr>
+    <tr>
+        <td class="feature-col">Per-ride drop alerts (ex: “&lt; 45 min”)</td>
+        <td class="partial">◐</td>
+        <td class="check">✅</td>
+    </tr>
+    <tr>
+        <td class="feature-col">Trend alerts + ride reopening alerts</td>
+        <td class="partial">◐</td>
+        <td class="check">✅ <span style="color:#aaa; font-size:0.85rem;">(Premium)</span></td>
+    </tr>
+    <tr>
+        <td class="feature-col">Wait-time forecasts (30–60 min ahead)</td>
+        <td class="partial">◐</td>
+        <td class="check">✅ <span style="color:#aaa; font-size:0.85rem;">(Premium)</span></td>
+    </tr>
+    <tr>
+        <td class="feature-col">“What should I ride next?” recommendations</td>
+        <td class="partial">◐</td>
+        <td class="check">✅</td>
+    </tr>
+    <tr>
+        <td class="feature-col">Multi-park dashboard</td>
+        <td class="cross">—</td>
+        <td class="check">✅</td>
+    </tr>
+    <tr>
+        <td class="feature-col">Strategy guides + queue tips</td>
+        <td class="partial">◐</td>
+        <td class="check">✅</td>
+    </tr>
 </tbody>
 </table>
+</div>
+<p style="margin-top: 18px; color: #bbb; font-size: 0.95rem; line-height: 1.6;">Note: official apps vary by park and features change over time. This comparison reflects what most guests typically use day-to-day.</p>
 <div class="cta-section">
 <h2 style="font-size: 1.8rem; margin-bottom: 10px;">The Verdict? You need both.</h2>
 <p style="color: #aaa; margin-bottom: 0;">Use the official app for entry and burgers. Use Ride Ready to
                 dodge 2-hour lines.</p>
-<a class="cta-btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=compare_official_apps_cta5">Download Ride Ready Free</a>
+<a class="cta-btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=compare-official-apps-hero" data-ref="compare-official-apps-hero">Download Ride Ready Free</a>
 </div>
-<p style="text-align: center; font-size: 0.8rem; color: #555; margin-top: 40px;">Ride Ready is an independent
-            app not affiliated with Universal Destinations &amp; Experiences or Disney.</p>
+<p style="text-align: center; font-size: 0.8rem; color: #555; margin-top: 40px;">Ride Ready is an independent app and is not affiliated with Universal, Disney, or any park operator.</p>
 </div>
+<script>
+  // Global App Store click tracking via data-ref attribute
+  document.querySelectorAll('[data-ref]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'app_store_click', {
+          source: this.dataset.ref,
+          page: window.location.pathname
+        });
+      }
+    });
+  });
+</script>
 </body>
 </html>
