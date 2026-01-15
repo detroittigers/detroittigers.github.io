@@ -1,8 +1,8 @@
 # Website Conversion Optimization Plan
 
-**Date:** January 14, 2026
+**Date:** January 14, 2026 (Updated with 2026 research)
 **Goal:** Increase app downloads from website visitors
-**Scope:** Moderate updates to existing pages + new landing pages
+**Scope:** Moderate updates to existing pages + new landing pages + strategic additions
 
 ---
 
@@ -10,28 +10,104 @@
 
 Based on Google Analytics data from January 1-14, 2026:
 - 407 sessions, 283 users, 16 app store clicks (5.7% conversion)
-- Queue time pages have 80-94% engagement but lack app CTAs
+- Queue time pages have 80-94% engagement but lack strong app CTAs
 - Social traffic bounces at 53-83%
 - Holiday strategy page lost 96% traffic (outdated content)
+- **SEO traffic has 67% engagement but only 11% of visits** - biggest opportunity
 
-This plan addresses these issues with targeted changes to convert engaged visitors into app downloads.
+### Research Findings (2026 Best Practices)
 
----
-
-## Changes Overview
-
-| Change | Impact | Effort |
-|--------|--------|--------|
-| Queue page CTAs | High | Low |
-| Holiday → Evergreen guide | Medium | Medium |
-| Homepage comparison section | Medium | Low |
-| Social landing page `/go/` | High | Medium |
-| Vanity redirect system | Medium | Low |
-| Clean tracking system | Low | Low |
+- iOS Smart App Banners can drive **33% of total installs** when optimized
+- Landing pages with single CTA convert **2-3x better** than cluttered pages
+- Median landing page conversion: 4.3%, top 10%: 11.5%+
+- Reducing bounce: fast load times (✓ we have 0.15s), relevant content, clear CTA hierarchy
+- Industry trend: deep linking from social to in-app content increases conversions
 
 ---
 
-## 1. Queue Time Page CTAs
+## Impact Tier Overview
+
+### Tier 1: High Impact / Quick Wins (Sections 1-2)
+| # | Change | Why | Effort |
+|---|--------|-----|--------|
+| 1 | Smart App Banner Optimization | Can drive 33% of installs | Low |
+| 2 | Queue page CTAs (improve existing) | 80-94% engagement, warm traffic | Low |
+
+### Tier 2: Medium Impact (Sections 3-6)
+| # | Change | Why | Effort |
+|---|--------|-----|--------|
+| 3 | SEO Content Strategy | 67% engagement, only 11% traffic | High |
+| 4 | Holiday → Evergreen guide | Recapture lost traffic | Medium |
+| 5 | Homepage comparison section | Clarify value prop | Low |
+| 6 | Social landing page `/go/` | Convert 23% of traffic from social | Medium |
+
+### Tier 3: Foundation/Support (Sections 7-9)
+| # | Change | Why | Effort |
+|---|--------|-----|--------|
+| 7 | Vanity redirect system | Clean social sharing | Low |
+| 8 | Clean tracking system | Measure what works | Low |
+| 9 | A/B Testing Framework | Validate changes | Medium |
+
+### Tier 4: Future Investment (Sections 10-11)
+| # | Change | Why | Effort |
+|---|--------|-----|--------|
+| 10 | Deep Linking Setup | Social → app content | High |
+| 11 | Seasonal Content Calendar | Recurring traffic peaks | Ongoing |
+
+---
+
+# TIER 1: HIGH IMPACT / QUICK WINS
+
+---
+
+## 1. Smart App Banner Optimization
+
+**Impact:** Can drive up to 33% of total installs with zero friction
+**Current State:** Meta tag exists on 12 pages, but may not be optimized
+
+### Current Implementation
+```html
+<meta name="apple-itunes-app" content="app-id=6748330847">
+```
+
+### Optimized Implementation
+Add `app-argument` to pass context to the app and `affiliate-data` for tracking:
+
+```html
+<meta name="apple-itunes-app"
+      content="app-id=6748330847, app-argument=rideready://page/{page-id}, affiliate-data=ct=smartbanner-{page}">
+```
+
+### Page-Specific Arguments
+
+| Page | app-argument | affiliate-data |
+|------|--------------|----------------|
+| Homepage | `rideready://home` | `ct=smartbanner-home` |
+| Queue pages | `rideready://ride/{ride-slug}` | `ct=smartbanner-queue-{ride}` |
+| Epic Hub | `rideready://park/epic` | `ct=smartbanner-hub` |
+| Strategy Guide | `rideready://park/epic` | `ct=smartbanner-guide` |
+
+### Files to Update
+All pages currently have the basic meta tag. Update these 12 files with optimized version:
+- `index.html`
+- `parks/epic-universe/index.html`
+- `parks/epic-universe/strategy/index.html` (new)
+- All 6 queue pages
+- `parks/epic-universe/mlk-day-weekend-2026/index.html`
+- `universal-orlando/epic-universe/index.html`
+- `go/index.html` (new)
+
+### Why This Matters
+Smart App Banners:
+- Only appear to iOS users who don't have the app
+- Show when user scrolls (not intrusive)
+- Pre-fill the App Store page (one tap install)
+- Can track via `affiliate-data` in App Store Connect
+- No friction vs manual banner clicks
+
+---
+
+## 2. Queue Time Page CTAs
 
 **Problem:** Queue pages have 80-94% engagement but no clear path to app download.
 
@@ -124,7 +200,60 @@ Insert after main queue content, before footer:
 
 ---
 
-## 2. Holiday → Evergreen Guide Conversion
+# TIER 2: MEDIUM IMPACT
+
+---
+
+## 3. SEO Content Strategy
+
+**Problem:** SEO traffic has 67% engagement rate but represents only 11% of total traffic. This is your biggest missed opportunity.
+
+### Current SEO State (Jan 1-14, 2026)
+- 45 sessions from organic search (11% of total)
+- 67% engagement rate (highest of all channels)
+- Ranking for: "epic universe queue times", ride-specific searches
+
+### High-Value Content Opportunities
+
+Based on search volume and your competitive advantage (real wait time data):
+
+| Topic | Search Intent | Content Type |
+|-------|---------------|--------------|
+| "Epic Universe wait times" | Real-time info | Interactive page (have it) |
+| "Best time to visit Epic Universe" | Planning | Strategy guide (converting) |
+| "Epic Universe crowd calendar 2026" | Planning | **New content needed** |
+| "Epic Universe tips" | Planning | Roundup of existing content |
+| "Spring break crowd predictions" | Seasonal | **Seasonal content** |
+
+### Priority Content to Create
+
+**1. Crowd Calendar Page** `/parks/epic-universe/crowd-calendar/`
+- Use your wait time data to show historical patterns
+- Include: best days, worst days, seasonal patterns
+- Update monthly with fresh data
+- This is your unique competitive advantage
+
+**2. "Tips" Aggregation Page** `/parks/epic-universe/tips/`
+- Link to queue guides, strategy, seasonal content
+- Optimize for "Epic Universe tips" searches
+- Acts as internal linking hub for SEO
+
+### Why SEO Matters
+- Organic traffic is **free** (vs paid)
+- Users actively searching have **high intent**
+- 67% engagement proves content quality
+- Each ranking page is a permanent traffic source
+- Compounds over time
+
+### Effort vs Impact
+This is marked "High effort" because good SEO content takes time. But the ROI is excellent:
+- Crowd calendar: 2-3 hours to build, ranks for years
+- Tips page: 1 hour, improves internal linking
+- Strategy guide (already planned): helps all SEO
+
+---
+
+## 4. Holiday → Evergreen Guide Conversion
 
 **Problem:** `/parks/epic-universe/2025-holiday-strategy/` traffic dropped 96% after Jan 3, and the URL looks dated.
 
@@ -220,7 +349,7 @@ Convert `/parks/epic-universe/2025-holiday-strategy/index.html` to a redirect:
 
 ---
 
-## 3. Homepage "App vs Website" Section
+## 5. Homepage "App vs Website" Section
 
 **Problem:** Visitors may not understand why to download app when website has guides.
 
@@ -261,7 +390,7 @@ Convert `/parks/epic-universe/2025-holiday-strategy/index.html` to a redirect:
 
 ---
 
-## 4. Social Landing Page (`/go/`)
+## 6. Social Landing Page (`/go/`)
 
 **Problem:** Social traffic bounces at 53-83%. Different intent than organic search.
 
@@ -360,7 +489,11 @@ Convert `/parks/epic-universe/2025-holiday-strategy/index.html` to a redirect:
 
 ---
 
-## 5. Vanity Redirect System
+# TIER 3: FOUNDATION / SUPPORT
+
+---
+
+## 7. Vanity Redirect System
 
 **Purpose:** Clean, memorable URLs for social sharing. No platform variants needed - GA4 automatically captures referrer source.
 
@@ -435,7 +568,7 @@ APP:
 
 ---
 
-## 6. Tracking System
+## 8. Tracking System
 
 ### Parameter Convention
 
@@ -474,24 +607,148 @@ document.querySelectorAll('[data-ref]').forEach(link => {
 
 ---
 
+## 9. A/B Testing Framework
+
+**Purpose:** Validate that changes actually improve conversions before rolling out everywhere.
+
+### Recommended Tool
+Use Google Optimize (free) or simple manual A/B via GA4 events.
+
+### Manual A/B Testing Approach
+Since this is a static site, use URL parameters to test variations:
+
+```javascript
+// Check for variant parameter
+const urlParams = new URLSearchParams(window.location.search);
+const variant = urlParams.get('v') || 'a'; // default to variant A
+
+// Show different CTAs based on variant
+if (variant === 'b') {
+  document.querySelector('.cta-button').innerHTML = 'Download Free App';
+} else {
+  document.querySelector('.cta-button').innerHTML = 'Get Ride Ready - Free';
+}
+
+// Track which variant was shown
+gtag('event', 'variant_shown', {
+  variant: variant,
+  page: window.location.pathname
+});
+```
+
+### What to Test First
+Priority tests based on impact:
+
+1. **CTA Copy** - "Download Free" vs "Get the App" vs "Skip the Lines"
+2. **CTA Color** - Gradient vs Solid vs White
+3. **Sticky Bar Timing** - 25% scroll vs 50% scroll vs exit intent
+4. **Social Landing** - Features list vs Social proof vs Minimal
+
+### How to Run Tests
+1. Send 50% of traffic to `?v=a`, 50% to `?v=b`
+2. Track clicks per variant in GA4
+3. Run for 100+ sessions per variant minimum
+4. Winner becomes the default
+
+### Success Criteria
+A variant wins if it has:
+- 20%+ better conversion rate
+- Statistical significance (100+ sessions)
+- No negative impact on engagement
+
+---
+
+# TIER 4: FUTURE INVESTMENT
+
+---
+
+## 10. Deep Linking Setup
+
+**Purpose:** Let social posts link directly to relevant content *inside* the app, not just the App Store.
+
+### How Deep Linking Works
+1. User clicks social link → Landing page
+2. If app installed → Opens specific screen in app
+3. If not installed → App Store, then opens specific screen after install (deferred deep linking)
+
+### URL Scheme (Already Defined in App?)
+```
+rideready://home
+rideready://park/epic
+rideready://ride/ministry-of-magic
+rideready://alerts
+```
+
+### Implementation Options
+
+**Option A: Smart App Banner + Universal Links (Recommended)**
+- Uses your existing `apple-itunes-app` meta tags
+- Add `app-argument` with deep link URL
+- Apple handles the rest
+
+**Option B: Branch.io / Firebase Dynamic Links**
+- More control but requires SDK integration
+- Better analytics
+- Handles deferred deep links
+- **Consider for future**
+
+### When to Implement
+This is Tier 4 because:
+- Requires app-side work (Universal Links entitlement)
+- Smart App Banners already provide 80% of the benefit
+- ROI increases as app install base grows
+
+**Recommendation:** Start with optimized Smart App Banners (Tier 1). Add full deep linking when app has 1,000+ installs and deferred deep link value is higher.
+
+---
+
+## 11. Seasonal Content Calendar
+
+**Purpose:** Capture recurring traffic peaks instead of scrambling to create content.
+
+### Identified Opportunities
+
+| Event | Content Needed | Create By |
+|-------|----------------|-----------|
+| MLK Weekend | Guide | Done ✓ |
+| Presidents Day | Guide | Feb 1 |
+| Spring Break | Guide + Predictions | March 1 |
+| Summer Peak | Strategy update | May 15 |
+| Halloween | Horror Nights guide | Sept 1 |
+| Thanksgiving | Crowd predictions | Nov 1 |
+| Christmas/New Year | Strategy update | Nov 15 |
+
+### Template Structure
+Each seasonal guide should include:
+1. Crowd prediction (using your data)
+2. Ride strategy for that period
+3. App CTA section
+4. Smart App Banner with context
+
+### Why This Matters
+Your holiday strategy page got traffic because it was **timely**. But it died because it was **dated**.
+
+Solution: Create evergreen templates, update dates/specifics each year.
+
+---
+
 ## Implementation Checklist
 
-### Phase 1: Foundation
+### Phase 1: Quick Wins (Tier 1) - Do First
+- [ ] Optimize Smart App Banner meta tags on all 12 pages
 - [ ] Add tracking code to all pages
-- [ ] Create `/go/` landing page
+- [ ] Add sticky bottom CTA to 6 queue pages
+- [ ] Add inline CTA block to 6 queue pages
 
-### Phase 2: Content Updates
-- [ ] Create new `/parks/epic-universe/strategy/` page (evergreen guide)
+### Phase 2: Social Optimization (Tier 2)
+- [ ] Create `/go/` landing page
+- [ ] Create `/parks/epic-universe/strategy/` page (evergreen guide)
 - [ ] Convert old `/parks/epic-universe/2025-holiday-strategy/` to redirect
+- [ ] Add "App vs Website" section to homepage
 - [ ] Update homepage "Trending Strategies" chip to new URL
 - [ ] Update FAQ link text and href
 
-### Phase 3: CTA Additions
-- [ ] Add sticky bottom CTA to 6 queue pages
-- [ ] Add inline CTA block to 6 queue pages
-- [ ] Add "App vs Website" section to homepage
-
-### Phase 4: Vanity Redirects
+### Phase 3: Infrastructure (Tier 3)
 - [ ] Create `/epic-guide/` redirect
 - [ ] Create `/mlk/` redirect
 - [ ] Create `/pres/` redirect
@@ -499,11 +756,21 @@ document.querySelectorAll('[data-ref]').forEach(link => {
 - [ ] Create `/queues/` redirect
 - [ ] Create `/app/` redirect
 
-### Phase 5: Verification
+### Phase 4: Verification
 - [ ] Test all new pages on mobile
 - [ ] Verify GA4 events firing correctly
 - [ ] Check App Store Connect for `ct` parameter tracking
 - [ ] Update social bios with new vanity URLs
+
+### Phase 5: SEO Investment (Tier 2 - High Effort)
+- [ ] Create `/parks/epic-universe/crowd-calendar/` page
+- [ ] Create `/parks/epic-universe/tips/` aggregation page
+- [ ] Add internal links between all content pages
+
+### Phase 6: Future (Tier 4 - When Ready)
+- [ ] Research Universal Links implementation for deep linking
+- [ ] Create Presidents Day weekend guide
+- [ ] Create Spring Break guide
 
 ---
 
@@ -511,17 +778,27 @@ document.querySelectorAll('[data-ref]').forEach(link => {
 
 Track these weekly after implementation:
 
-| Metric | Current (Jan 1-14) | Target |
-|--------|-------------------|--------|
-| App Store clicks | 16 | 30+ |
-| Conversion rate | 5.7% | 10%+ |
-| Queue page → App clicks | ~0 | 5+ per page |
-| Social bounce rate | 53-83% | <50% |
+| Metric | Current (Jan 1-14) | 30-Day Target | 90-Day Target |
+|--------|-------------------|---------------|---------------|
+| App Store clicks | 16 | 30+ | 75+ |
+| Conversion rate | 5.7% | 8%+ | 12%+ |
+| Queue page → App clicks | ~0 | 5+ per page | 10+ per page |
+| Social bounce rate | 53-83% | <50% | <40% |
+| SEO traffic share | 11% | 15% | 25% |
+| Smart Banner installs | Unknown | Track | 33% of installs |
+
+### How to Measure
+- **App Store clicks:** GA4 > Events > `app_store_click`
+- **Conversion rate:** App Store clicks ÷ Sessions
+- **Social bounce:** GA4 > Acquisition > filter by Social
+- **SEO share:** GA4 > Acquisition > Organic Search %
+- **Smart Banner installs:** App Store Connect > Analytics > by Campaign Token
 
 ---
 
 ## Files to Create
 
+### Core (Phases 1-3)
 ```
 /parks/epic-universe/strategy/index.html   ← New evergreen strategy guide
 /go/index.html                             ← Social landing page
@@ -532,13 +809,31 @@ Track these weekly after implementation:
 /queues/index.html                         ← Queue Guides redirect
 /app/index.html                            ← App Store redirect
 ```
+**Core files: 8**
 
-**Total: 8 files**
+### SEO Content (Phase 5)
+```
+/parks/epic-universe/crowd-calendar/index.html  ← Crowd calendar with data
+/parks/epic-universe/tips/index.html            ← Tips aggregation/hub page
+```
+**SEO files: 2**
+
+**Total new files: 10**
 
 ## Files to Modify
 
+### Smart App Banner Updates (12 files)
 ```
-/index.html (homepage - add comparison section, update chip link)
+/index.html (add optimized meta tag)
+/parks/epic-universe/index.html (add optimized meta tag)
+/parks/epic-universe/mlk-day-weekend-2026/index.html (add optimized meta tag)
+/universal-orlando/epic-universe/index.html (add optimized meta tag)
++ All 6 queue pages below (add optimized meta tag)
+```
+
+### Content/CTA Updates (8 files)
+```
+/index.html (add comparison section, update chip link)
 /parks/epic-universe/2025-holiday-strategy/index.html (convert to redirect)
 /universal-orlando/epic-universe/ministry-queue-times/index.html (add CTAs)
 /universal-orlando/epic-universe/mario-kart-queue-times/index.html (add CTAs)
@@ -547,3 +842,5 @@ Track these weekly after implementation:
 /universal-orlando/epic-universe/monsters-unchained-queue-times/index.html (add CTAs)
 /universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/index.html (add CTAs)
 ```
+
+**Total files to modify: 12 unique files** (some overlap between lists)
