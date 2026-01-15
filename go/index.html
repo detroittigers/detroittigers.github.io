@@ -71,17 +71,124 @@
   </ul>
 
   <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=social"
-     class="cta-button" data-ref="social"
-     onclick="gtag('event', 'app_store_click', {source: 'social'});">
-    Download Free on iPhone
+     data-ref="social">
+    <img src="/images/app-store-badge.svg" alt="Download on the App Store" style="height: 50px;">
   </a>
 
-  <p class="android-note">
-    Android coming soon · <a href="mailto:support@rideready.app?subject=Android%20Waitlist">Join waitlist</a>
-  </p>
+  <div class="android-waitlist" style="margin-bottom: 40px;">
+    <p style="color: #888; font-size: 0.9rem; margin-bottom: 12px;">Android coming soon</p>
+    <form id="android-waitlist" style="display: flex; gap: 8px; max-width: 320px; margin: 0 auto;">
+      <input type="email" name="email" placeholder="your@email.com" required
+             style="flex: 1; padding: 12px 16px; border-radius: 8px; border: 1px solid #333; background: #111; color: #fff; font-size: 1rem;">
+      <button type="submit"
+              style="padding: 12px 20px; border-radius: 8px; border: none; background: #FF416C; color: #fff; font-weight: 600; cursor: pointer;">
+        Notify Me
+      </button>
+    </form>
+    <p id="waitlist-success" style="display: none; color: #4ade80; margin-top: 12px;">✓ We'll notify you when Android launches!</p>
+    <p id="waitlist-error" style="display: none; color: #f87171; margin-top: 12px;">Something went wrong. Try again?</p>
+  </div>
 
   <p class="escape-link">
     Want to plan first? <a href="/">Browse our guides →</a>
   </p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://lmmgnkqvcnbwtxpgxwrg.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtbWdua3F2Y25id3R4cGd4d3JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ2MzY2NDEsImV4cCI6MjA1MDIxMjY0MX0.PXz5l2Zl1Ec6El9EY9lP-wOKQseXE0K8dFBTNFKuaOM';
+
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.getElementById('android-waitlist').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.email.value;
+      const button = form.querySelector('button');
+
+      button.disabled = true;
+      button.textContent = 'Saving...';
+
+      try {
+        const { error } = await supabase
+          .from('android_waitlist')
+          .insert({
+            email: email,
+            source: 'go-page',
+            created_at: new Date().toISOString()
+          });
+
+        if (error) throw error;
+
+        form.style.display = 'none';
+        document.getElementById('waitlist-success').style.display = 'block';
+        gtag('event', 'android_waitlist_signup', { source: 'go-page' });
+      } catch (err) {
+        console.error('Waitlist error:', err);
+        document.getElementById('waitlist-error').style.display = 'block';
+        button.disabled = false;
+        button.textContent = 'Notify Me';
+      }
+    });
+  </script>
+
+<!-- Exit Intent Modal -->
+<div id="exit-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center;">
+  <div style="background: #111; border-radius: 20px; padding: 32px; max-width: 340px; margin: 20px; text-align: center; border: 1px solid #333; position: relative;">
+    <button onclick="document.getElementById('exit-modal').style.display='none'"
+            style="position: absolute; top: 12px; right: 12px; background: none; border: none; color: #666; font-size: 24px; cursor: pointer; padding: 4px;">×</button>
+    <h3 style="color: #fff; font-size: 1.4rem; margin-bottom: 12px;">Wait! Before you go...</h3>
+    <p style="color: #aaa; margin-bottom: 24px; font-size: 1rem;">Get live wait times and alerts - free</p>
+    <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=exit-intent"
+       data-ref="exit-intent"
+       style="display: inline-block; background: linear-gradient(100deg, #FF416C, #FF4B2B); color: #fff; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem;">
+      Download Free
+    </a>
+    <p style="color: #555; font-size: 0.8rem; margin-top: 16px;">
+      <a href="#" onclick="document.getElementById('exit-modal').style.display='none'; return false;" style="color: #555;">No thanks, I'll figure it out</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  // Exit intent detection
+  let exitShown = false;
+
+  document.addEventListener('mouseout', function(e) {
+    // Only trigger when cursor leaves toward top of viewport (close button area)
+    if (e.clientY < 10 && !exitShown && !sessionStorage.getItem('exitModalShown')) {
+      document.getElementById('exit-modal').style.display = 'flex';
+      exitShown = true;
+      sessionStorage.setItem('exitModalShown', 'true');
+      gtag('event', 'exit_intent_shown', { page: '/go/' });
+    }
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('exit-modal').style.display = 'none';
+    }
+  });
+
+  // Close on background click
+  document.getElementById('exit-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+    }
+  });
+
+  // Global App Store click tracking via data-ref attribute
+  document.querySelectorAll('[data-ref]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'app_store_click', {
+          source: this.dataset.ref,
+          page: window.location.pathname
+        });
+      }
+    });
+  });
+</script>
 </body>
 </html>

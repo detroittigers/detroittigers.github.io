@@ -655,7 +655,8 @@
                 <p style="margin: 0; color: #aaa; font-size: 0.85rem;">Get real-time drop alerts and 30-min forecasts
                     for this queue.</p>
             </div>
-            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&ct=queue_upsell"
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-upsell"
+                data-ref="queue-ministry-upsell"
                 style="background: #fff; color: #000; font-weight: 700; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-size: 0.9rem; white-space: nowrap;">Get
                 App</a>
         </div>
@@ -845,7 +846,8 @@
                     style="background: rgba(255, 75, 43, 0.15); padding: 12px; margin-bottom: 30px; border-radius: 12px; border: 1px solid rgba(255, 75, 43, 0.3); display: flex; align-items: center; gap: 12px;">
                     <div style="font-size: 24px;">📱</div>
                     <div>
-                        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=universal_orlando_epic_universe_ministry_queue_times_cta2"
+                        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-banner"
+                            data-ref="queue-ministry-banner"
                             style="text-decoration: none; color: inherit; display: block;" target="_blank">
                             <strong style="color: #ffb6a3; display: block; margin-bottom: 2px;">Available on
                                 iPhone</strong>
@@ -855,8 +857,8 @@
                     </div>
                 </div>
                 <p>Don't get stuck without data.</p>
-                <a class="primary-button"
-                    href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=ministry_page_queue_guide_cta">Download
+                <a class="primary-button" data-ref="queue-ministry-cta"
+                    href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-cta">Download
                     Ride Ready App</a>
             </div>
         </div>
@@ -864,7 +866,8 @@
             style="margin: 40px auto; text-align: center; background: rgba(255, 75, 43, 0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 75, 43, 0.3);">
             <p style="color: #fff; font-weight: 600; margin-bottom: 12px; font-size: 0.95rem;">Don't want to refresh
                 constantly?</p>
-            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=queue_mid&amp;ct=cta"
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-mid"
+                data-ref="queue-ministry-mid"
                 style="display: inline-block; background: linear-gradient(100deg, #FF416C, #FF4B2B); color: #fff; text-decoration: none; padding: 10px 24px; border-radius: 99px; font-weight: 700; font-size: 0.9rem;">Get
                 Pull-to-Refresh &amp; Alerts App</a>
         </div>
@@ -1337,7 +1340,8 @@
         style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; color: #000; padding: 12px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 9999; text-align: center; display: none;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
             <span style="font-weight: 700; font-size: 0.9rem;">Set a drop alert?</span>
-            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=queue_mobile&amp;ct=sticky"
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-sticky"
+                data-ref="queue-ministry-sticky"
                 style="background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">Open
                 App</a>
         </div>
@@ -1349,6 +1353,19 @@
             }
         }
     </style>
+    <script>
+        // Global App Store click tracking via data-ref attribute
+        document.querySelectorAll('[data-ref]').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'app_store_click', {
+                        source: this.dataset.ref,
+                        page: window.location.pathname
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
