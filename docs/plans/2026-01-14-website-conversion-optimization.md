@@ -325,30 +325,16 @@ Insert after strategy content:
 </html>
 ```
 
-### 4b. Platform-Specific Variants
-
-Create these with same template, different tracking:
-
-| File | Tracks as |
-|------|-----------|
-| `/go/index.html` | `ct=social` |
-| `/go/fb/index.html` | `ct=fb` |
-| `/go/x/index.html` | `ct=x` |
-| `/go/ig/index.html` | `ct=ig` |
-
 ---
 
 ## 5. Vanity Redirect System
 
-**Purpose:** Clean, memorable URLs for social sharing.
+**Purpose:** Clean, memorable URLs for social sharing. No platform variants needed - GA4 automatically captures referrer source.
 
 ### URL Structure
 
 ```
 /mlk           → /parks/epic-universe/mlk-day-weekend-2026/
-/mlk/fb        → same, tracks as mlk-fb
-/mlk/x         → same, tracks as mlk-x
-
 /pres          → /parks/epic-universe/presidents-day-weekend-2026/
 /spring        → /orlando/spring-break-2026/
 /guide         → /parks/epic-universe/2025-holiday-strategy/
@@ -384,7 +370,7 @@ Create these with same template, different tracking:
 
 ### Adding New Redirects
 
-1. Create folder: `mkdir -p {shortname}/fb {shortname}/x`
+1. Create folder: `mkdir {shortname}`
 2. Copy template to `{shortname}/index.html`
 3. Change 3 things:
    - `ref: '{shortname}'`
@@ -403,12 +389,10 @@ GUIDES:
 
 APP:
   rideready.app/app       - Download page
-
-ADD PLATFORM (optional):
-  /mlk/fb    - posting on Facebook
-  /mlk/x     - posting on X
-  /mlk/ig    - posting on Instagram
+  rideready.app/go        - Social landing page
 ```
+
+**Note:** No need for /mlk/fb or /mlk/x variants. GA4 automatically tracks the referrer source (facebook.com, t.co, etc.) so you'll still see where traffic came from.
 
 ---
 
@@ -447,7 +431,7 @@ document.querySelectorAll('[data-ref]').forEach(link => {
 | Pages | `page-name` | `home`, `guide`, `social` |
 | Queue pages | `queue-ridename` | `queue-ministry`, `queue-mario` |
 | Sections | `section` | `sticky`, `premium`, `footer`, `compare` |
-| Vanity links | `shortname` or `shortname-platform` | `mlk`, `mlk-fb`, `spring-x` |
+| Vanity links | `shortname` | `mlk`, `pres`, `spring` |
 
 ---
 
@@ -456,7 +440,6 @@ document.querySelectorAll('[data-ref]').forEach(link => {
 ### Phase 1: Foundation
 - [ ] Add tracking code to all pages
 - [ ] Create `/go/` landing page
-- [ ] Create `/go/fb/`, `/go/x/`, `/go/ig/` variants
 
 ### Phase 2: Content Updates
 - [ ] Convert holiday strategy to evergreen guide
@@ -469,11 +452,11 @@ document.querySelectorAll('[data-ref]').forEach(link => {
 - [ ] Add "App vs Website" section to homepage
 
 ### Phase 4: Vanity Redirects
-- [ ] Create `/mlk/` redirect (+ fb, x, ig variants)
-- [ ] Create `/pres/` redirect (+ variants)
-- [ ] Create `/spring/` redirect (+ variants)
-- [ ] Create `/guide/` redirect (+ variants)
-- [ ] Create `/queues/` redirect (+ variants)
+- [ ] Create `/mlk/` redirect
+- [ ] Create `/pres/` redirect
+- [ ] Create `/spring/` redirect
+- [ ] Create `/guide/` redirect
+- [ ] Create `/queues/` redirect
 - [ ] Create `/app/` redirect
 
 ### Phase 5: Verification
@@ -500,23 +483,16 @@ Track these weekly after implementation:
 ## Files to Create
 
 ```
-/go/index.html
-/go/fb/index.html
-/go/x/index.html
-/go/ig/index.html
-/mlk/index.html
-/mlk/fb/index.html
-/mlk/x/index.html
-/pres/index.html
-/pres/fb/index.html
-/pres/x/index.html
-/spring/index.html
-/spring/fb/index.html
-/spring/x/index.html
-/guide/index.html
-/queues/index.html
-/app/index.html
+/go/index.html       ← Social landing page
+/mlk/index.html      ← MLK Weekend redirect
+/pres/index.html     ← Presidents Day redirect
+/spring/index.html   ← Spring Break redirect
+/guide/index.html    ← Strategy Guide redirect
+/queues/index.html   ← Queue Guides redirect
+/app/index.html      ← App Store redirect
 ```
+
+**Total: 7 files** (down from 16+ with platform variants)
 
 ## Files to Modify
 
