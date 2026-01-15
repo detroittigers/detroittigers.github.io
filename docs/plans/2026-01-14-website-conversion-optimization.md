@@ -126,19 +126,30 @@ Insert after main queue content, before footer:
 
 ## 2. Holiday → Evergreen Guide Conversion
 
-**Problem:** `/parks/epic-universe/2025-holiday-strategy/` traffic dropped 96% after Jan 3.
+**Problem:** `/parks/epic-universe/2025-holiday-strategy/` traffic dropped 96% after Jan 3, and the URL looks dated.
 
-**Solution:** Convert to evergreen "Epic Universe Strategy Guide" while preserving URL for SEO.
+**Solution:** Create evergreen guide at new clean URL, redirect old URL to preserve SEO.
 
-### 2a. Meta Changes
+### 2a. URL Structure
+
+```
+OLD (redirect):  /parks/epic-universe/2025-holiday-strategy/  →  301 to new URL
+NEW (content):   /parks/epic-universe/strategy/
+VANITY:          /epic-guide  →  /parks/epic-universe/strategy/
+```
+
+This sets up for future guides: `/usf-guide`, `/ioa-guide`, `/cedar-point-guide`, etc.
+
+### 2b. Meta Tags (New Page)
 
 ```html
 <title>Epic Universe Strategy Guide: Data-Driven Tips | Ride Ready</title>
 <meta name="description"
       content="Beat the crowds at Epic Universe. Based on 400,000+ wait time samples - see the best days, times, and ride order strategies.">
+<link rel="canonical" href="https://rideready.app/parks/epic-universe/strategy/">
 ```
 
-### 2b. Content Changes
+### 2c. Content Changes
 
 | Current | New |
 |---------|-----|
@@ -147,7 +158,7 @@ Insert after main queue content, before footer:
 | "Christmas crowds" | "Peak vs Off-Peak patterns" |
 | Snowflake animations | Remove |
 
-### 2c. Add App CTA Section
+### 2d. Add App CTA Section
 
 Insert after strategy content:
 
@@ -168,7 +179,7 @@ Insert after strategy content:
 </div>
 ```
 
-### 2d. Update Internal Links
+### 2e. Update Internal Links
 
 **Homepage "Trending Strategies" chip:**
 ```html
@@ -178,12 +189,34 @@ Insert after strategy content:
 </a>
 
 <!-- To -->
-<a class="chip" href="/parks/epic-universe/2025-holiday-strategy/">
+<a class="chip" href="/parks/epic-universe/strategy/">
   📊 Epic Strategy Guide
 </a>
 ```
 
-**FAQ link:** Update "Epic Universe Holiday Strategy Guide" → "Epic Universe Strategy Guide"
+**FAQ link:** Update href to `/parks/epic-universe/strategy/` and text to "Epic Universe Strategy Guide"
+
+### 2f. Redirect Old URL
+
+Convert `/parks/epic-universe/2025-holiday-strategy/index.html` to a redirect:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting... | Ride Ready</title>
+  <link rel="canonical" href="https://rideready.app/parks/epic-universe/strategy/">
+  <meta http-equiv="refresh" content="0;url=/parks/epic-universe/strategy/">
+  <script>
+    window.location.replace("/parks/epic-universe/strategy/" + window.location.search);
+  </script>
+</head>
+<body>
+  <p>Moved to <a href="/parks/epic-universe/strategy/">Epic Universe Strategy Guide</a></p>
+</body>
+</html>
+```
 
 ---
 
@@ -334,13 +367,15 @@ Insert after strategy content:
 ### URL Structure
 
 ```
+/epic-guide    → /parks/epic-universe/strategy/
 /mlk           → /parks/epic-universe/mlk-day-weekend-2026/
 /pres          → /parks/epic-universe/presidents-day-weekend-2026/
 /spring        → /orlando/spring-break-2026/
-/guide         → /parks/epic-universe/2025-holiday-strategy/
 /queues        → /universal-orlando/epic-universe/
 /app           → App Store
 ```
+
+Future-proof for more guides: `/usf-guide`, `/ioa-guide`, `/cedar-point-guide`, etc.
 
 ### Redirect Template
 
@@ -380,19 +415,23 @@ Insert after strategy content:
 ### Cheat Sheet for Social Team
 
 ```
-GUIDES:
-  rideready.app/mlk       - MLK Weekend
-  rideready.app/pres      - Presidents Day
-  rideready.app/spring    - Spring Break
-  rideready.app/guide     - Epic Strategy Guide
-  rideready.app/queues    - All Queue Guides
+STRATEGY GUIDES:
+  rideready.app/epic-guide   - Epic Universe Strategy
+  rideready.app/queues       - All Queue Guides
+
+EVENT GUIDES:
+  rideready.app/mlk          - MLK Weekend
+  rideready.app/pres         - Presidents Day
+  rideready.app/spring       - Spring Break
 
 APP:
-  rideready.app/app       - Download page
-  rideready.app/go        - Social landing page
+  rideready.app/app          - Download page
+  rideready.app/go           - Social landing page
 ```
 
 **Note:** No need for /mlk/fb or /mlk/x variants. GA4 automatically tracks the referrer source (facebook.com, t.co, etc.) so you'll still see where traffic came from.
+
+**Future guides:** Follow the pattern `/[park]-guide` (e.g., `/usf-guide`, `/ioa-guide`)
 
 ---
 
@@ -442,9 +481,10 @@ document.querySelectorAll('[data-ref]').forEach(link => {
 - [ ] Create `/go/` landing page
 
 ### Phase 2: Content Updates
-- [ ] Convert holiday strategy to evergreen guide
-- [ ] Update homepage "Trending Strategies" chip
-- [ ] Update FAQ link text
+- [ ] Create new `/parks/epic-universe/strategy/` page (evergreen guide)
+- [ ] Convert old `/parks/epic-universe/2025-holiday-strategy/` to redirect
+- [ ] Update homepage "Trending Strategies" chip to new URL
+- [ ] Update FAQ link text and href
 
 ### Phase 3: CTA Additions
 - [ ] Add sticky bottom CTA to 6 queue pages
@@ -452,10 +492,10 @@ document.querySelectorAll('[data-ref]').forEach(link => {
 - [ ] Add "App vs Website" section to homepage
 
 ### Phase 4: Vanity Redirects
+- [ ] Create `/epic-guide/` redirect
 - [ ] Create `/mlk/` redirect
 - [ ] Create `/pres/` redirect
 - [ ] Create `/spring/` redirect
-- [ ] Create `/guide/` redirect
 - [ ] Create `/queues/` redirect
 - [ ] Create `/app/` redirect
 
@@ -483,26 +523,27 @@ Track these weekly after implementation:
 ## Files to Create
 
 ```
-/go/index.html       ← Social landing page
-/mlk/index.html      ← MLK Weekend redirect
-/pres/index.html     ← Presidents Day redirect
-/spring/index.html   ← Spring Break redirect
-/guide/index.html    ← Strategy Guide redirect
-/queues/index.html   ← Queue Guides redirect
-/app/index.html      ← App Store redirect
+/parks/epic-universe/strategy/index.html   ← New evergreen strategy guide
+/go/index.html                             ← Social landing page
+/epic-guide/index.html                     ← Strategy Guide redirect
+/mlk/index.html                            ← MLK Weekend redirect
+/pres/index.html                           ← Presidents Day redirect
+/spring/index.html                         ← Spring Break redirect
+/queues/index.html                         ← Queue Guides redirect
+/app/index.html                            ← App Store redirect
 ```
 
-**Total: 7 files** (down from 16+ with platform variants)
+**Total: 8 files**
 
 ## Files to Modify
 
 ```
-/index.html (homepage)
-/parks/epic-universe/2025-holiday-strategy/index.html
-/universal-orlando/epic-universe/ministry-queue-times/index.html
-/universal-orlando/epic-universe/mario-kart-queue-times/index.html
-/universal-orlando/epic-universe/mine-cart-madness-queue-times/index.html
-/universal-orlando/epic-universe/stardust-racers-queue-times/index.html
-/universal-orlando/epic-universe/monsters-unchained-queue-times/index.html
-/universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/index.html
+/index.html (homepage - add comparison section, update chip link)
+/parks/epic-universe/2025-holiday-strategy/index.html (convert to redirect)
+/universal-orlando/epic-universe/ministry-queue-times/index.html (add CTAs)
+/universal-orlando/epic-universe/mario-kart-queue-times/index.html (add CTAs)
+/universal-orlando/epic-universe/mine-cart-madness-queue-times/index.html (add CTAs)
+/universal-orlando/epic-universe/stardust-racers-queue-times/index.html (add CTAs)
+/universal-orlando/epic-universe/monsters-unchained-queue-times/index.html (add CTAs)
+/universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/index.html (add CTAs)
 ```
