@@ -281,7 +281,7 @@ footer {
   background: rgba(0,0,0,0.92);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255,255,255,0.10);
-  padding: 12px 14px;
+  padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
   z-index: 1000;
 }
 

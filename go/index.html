@@ -169,7 +169,7 @@
       Download Free
     </a>
     <p style="color: #555; font-size: 0.8rem; margin-top: 16px;">
-      <a href="#" id="exit-modal-nothanks" style="color: #555;">No thanks, I'll figure it out</a>
+      <button id="exit-modal-nothanks" style="background: none; border: none; color: #555; cursor: pointer; font-size: 0.8rem; padding: 0;">No thanks, I'll figure it out</button>
     </p>
   </div>
 </div>
@@ -248,8 +248,10 @@
   }
 
   document.getElementById('exit-modal-close')?.addEventListener('click', closeExitModal);
-  document.getElementById('exit-modal-nothanks')?.addEventListener('click', function(e) {
-    e.preventDefault();
+  document.getElementById('exit-modal-nothanks')?.addEventListener('click', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'exit_intent_dismissed', { page: window.location.pathname });
+    }
     closeExitModal();
   });
 
