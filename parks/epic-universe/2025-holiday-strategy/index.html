@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>Redirecting... | Ride Ready</title>
   <link rel="canonical" href="https://rideready.app/parks/epic-universe/strategy/">
-  <meta http-equiv="refresh" content="0;url=/parks/epic-universe/strategy/">
-  <script>window.location.replace("/parks/epic-universe/strategy/" + window.location.search);</script>
+  <meta http-equiv="refresh" content="2; url=/parks/epic-universe/strategy/">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KGYGTPMTQ3');
+  </script>
 </head>
 <body>
-  <p>Moved to <a href="/parks/epic-universe/strategy/">Epic Universe Strategy Guide</a></p>
+  <p>Redirecting to the updated guide...</p>
+  <script>
+    var dest = "/parks/epic-universe/strategy/" + window.location.search + window.location.hash;
+    if (typeof gtag === 'function') {
+      gtag('event', 'legacy_redirect', {
+        from: window.location.pathname,
+        to: '/parks/epic-universe/strategy/'
+      });
+    }
+    setTimeout(function() { window.location.replace(dest); }, 250);
+  </script>
 </body>
 </html>
