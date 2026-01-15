@@ -93,13 +93,7 @@
     Want to plan first? <a href="/">Browse our guides →</a>
   </p>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const SUPABASE_URL = 'https://lmmgnkqvcnbwtxpgxwrg.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtbWdua3F2Y25id3R4cGd4d3JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ2MzY2NDEsImV4cCI6MjA1MDIxMjY0MX0.PXz5l2Zl1Ec6El9EY9lP-wOKQseXE0K8dFBTNFKuaOM';
-
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
     document.getElementById('android-waitlist').addEventListener('submit', async (e) => {
       e.preventDefault();
       const form = e.target;
@@ -110,15 +104,21 @@
       button.textContent = 'Saving...';
 
       try {
-        const { error } = await supabase
-          .from('android_waitlist')
-          .insert({
+        const response = await fetch('https://gxlpamlcajddjdzktecf.supabase.co/rest/v1/guide_email_signups', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs'
+          },
+          body: JSON.stringify({
             email: email,
-            source: 'go-page',
-            created_at: new Date().toISOString()
-          });
+            guide_slug: 'android-waitlist',
+            source_url: window.location.href
+          })
+        });
 
-        if (error) throw error;
+        if (!response.ok) throw new Error('Failed to save');
 
         form.style.display = 'none';
         document.getElementById('waitlist-success').style.display = 'block';
