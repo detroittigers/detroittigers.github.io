@@ -1,313 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Kings Island Wait Times &amp; Strategy | Ride Ready</title>
-  <meta
-    content="Kings Island wait intel and in‑park strategy. Track the biggest coasters and use alerts to avoid wasting peak hours."
-    name="description" />
-  <meta content="Kings Island Wait Times &amp; Strategy | Ride Ready" property="og:title" />
-  <meta content="Kings Island: track waits, get alerts when your rides drop, and ride more in less time."
-    property="og:description" />
-  <meta content="website" property="og:type" />
-  <meta content="https://rideready.app/parks/kings-island/" property="og:url" />
-  <meta content="https://rideready.app/images/logo.png" property="og:image" />
-  <meta content="summary_large_image" name="twitter:card" />
-  <link href="https://rideready.app/parks/kings-island/" rel="canonical" />
-  <!-- Favicons -->
+  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-park-kings-island">
   <link href="/favicon.ico" rel="icon" sizes="any" />
   <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
   <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
   <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
   <link href="/site.webmanifest" rel="manifest" />
-  <!-- Google tag (gtag.js) -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
   </script>
+
+  <title>Kings Island Wait Times &amp; Ride Strategy | Ride Ready</title>
+  <meta name="description" content="Use Ride Ready to time Kings Island headliners like Orion, Diamondback, Banshee, Mystic Timbers, and The Beast — with alerts that help you ride when lines dip." />
+  <link rel="canonical" href="https://rideready.app/parks/kings-island/" />
+  <meta property="og:title" content="Kings Island Wait Times &amp; Ride Strategy | Ride Ready" />
+  <meta property="og:description" content="Use Ride Ready to time Kings Island headliners like Orion, Diamondback, Banshee, Mystic Timbers, and The Beast — with alerts that help you ride when lines dip." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rideready.app/parks/kings-island/" />
+  <meta property="og:image" content="https://rideready.app/images/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
-    :root {
-      --primary-gradient: linear-gradient(45deg, #A855F7, #FF416C);
-      --bg-color: #000000;
-      --text-color: #ffffff;
-      --accent-color: #A855F7;
-      --card-bg: #111;
-      --border: #333;
-    }
+:root {
+  --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --muted: rgba(255,255,255,0.72);
+  --accent-color: #F97316;
+  --card-bg: #111;
+  --border: #333;
+  --soft-border: rgba(255,255,255,0.08);
+  --shadow: 0 20px 50px rgba(0,0,0,0.55);
+  --radius: 18px;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
+* { box-sizing: border-box; }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% -10%, rgba(255, 75, 43, 0.15), transparent 55%),
-        radial-gradient(circle at 80% 0%, rgba(255, 65, 108, 0.10), transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: hidden;
+  line-height: 1.55;
+  padding-bottom: 92px; /* space for sticky footer */
+}
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 24px 90px;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.20) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255,65,108,0.16) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-      margin-bottom: 40px;
-    }
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px 0;
+}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
 
-    .logo img {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-    }
+nav .left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 14px;
-      background: var(--primary-gradient);
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 10px 30px rgba(255, 75, 43, 0.25);
-      transition: transform 0.15s ease;
-      white-space: nowrap;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+nav a:hover { opacity: 1; }
 
-    h1 {
-      font-size: 3rem;
-      margin: 20px 0 10px;
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
 
-    .subtitle {
-      max-width: 760px;
-      margin: 0 auto 28px;
-      color: #ccc;
-      font-size: 1.1rem;
-    }
+.logo img { width: 32px; height: 32px; border-radius: 8px; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin: 26px 0 70px;
-    }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
 
-    .insight-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      text-align: left;
-      position: relative;
-      overflow: hidden;
-    }
+.nav-cta {
+  background: var(--primary-gradient);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
+}
 
-    .insight-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-left: 3px solid var(--card-accent, var(--accent-color));
-      opacity: 0.9;
-      pointer-events: none;
-    }
+.hero {
+  padding: 26px 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid var(--soft-border);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
 
-    .insight-title {
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.1;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    .insight-body {
-      color: #bbb;
-      font-size: 0.98rem;
-    }
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 70ch;
+}
 
-    .cta-box {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 26px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
+.section {
+  margin-top: 34px;
+  text-align: left;
+}
 
-    .sticky-footer {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: rgba(0, 0, 0, 0.86);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      z-index: 999;
-    }
+.section h2 {
+  margin: 0 0 14px;
+  font-size: 1.35rem;
+}
 
-    .sticky-text {
-      color: #ddd;
-      font-weight: 600;
-    }
+.kicker {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 10px;
+}
 
-    .sticky-btn {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: var(--primary-gradient);
-      color: white;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.95rem;
-      white-space: nowrap;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
 
-    footer {
-      margin-top: 60px;
-      color: #888;
-      font-size: 0.95rem;
-    }
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
 
-    footer a {
-      color: #aaa;
-      text-decoration: none;
-    }
+.fact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+.fact {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
 
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 2.25rem;
-      }
+.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
+.fact span { color: var(--muted); }
 
-      .subtitle {
-        font-size: 1rem;
-      }
-    }
-  </style>
+.ride-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.ride-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.80);
+  margin-bottom: 10px;
+}
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
+
+.chip {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.86);
+  background: rgba(255,255,255,0.03);
+}
+
+.ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
+.ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
+
+.inline-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.inline-link:hover { text-decoration: underline; }
+
+.alert-grid .card b { color: rgba(255,255,255,0.92); }
+
+.plan {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.82);
+}
+
+.plan li { margin: 8px 0; }
+
+details {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+details + details { margin-top: 10px; }
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  outline: none;
+}
+
+details p {
+  margin: 10px 0 0;
+  color: rgba(255,255,255,0.78);
+}
+
+footer {
+  margin: 34px 0 22px;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.sources a { word-break: break-word; }
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding: 12px 14px;
+  z-index: 1000;
+}
+
+.sticky-footer .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sticky-footer .text {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.82);
+}
+
+.sticky-footer a {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 11px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  nav { align-items: flex-start; }
+  .nav-links { justify-content: flex-start; }
+  .hero { padding: 22px 16px; }
+  .sticky-footer .text { display: none; }
+}
+</style>
 </head>
 
 <body>
   <div class="sticky-footer">
-    <span class="sticky-text">📱 Track waits live at Kings Island</span>
-    <a class="sticky-btn"
-      href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_sticky">Download
-      App</a>
+    <div class="inner">
+      <div class="text">Kings Island: set alerts for the big five and chase the dips — not the crowds.</div>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-kings-island-sticky" data-ref="park-kings-island-sticky">Download Free</a>
+    </div>
   </div>
+
   <div class="container">
     <nav>
-      <a class="logo" href="/">
-        <img alt="Ride Ready Logo" src="/images/logo.png" />
-        Ride Ready
-      </a>
-      <div style="display:flex; gap:20px; align-items:center;">
-        <a href="/parks/" style="color:white; text-decoration:none; font-weight:600;">Parks</a>
-        <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-weight:600;">Why Us?</a>
-        <a class="btn"
-          href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_park_page">Get the
-          App</a>
+      <div class="left">
+        <a class="logo" href="/">
+          <img src="/images/logo.png" alt="Ride Ready Logo" />
+          <span>Ride Ready</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="/parks/">Parks</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-kings-island-nav" data-ref="park-kings-island-nav">Download Free</a>
       </div>
     </nav>
-    <h1>Kings Island</h1>
-    <p class="subtitle">Kings Island wait intel and in‑park strategy. Track the biggest coasters and use alerts to avoid
-      wasting peak hours.</p>
-    <div class="cta-box">
-      <h2 style="margin:0 0 10px;">Make your next park day faster</h2>
-      <p style="margin:0 0 18px; color:#bbb;">
-        Ride Ready helps you time your must‑do attractions with live wait intel, drop alerts, and smarter next‑ride
-        picks.
-      </p>
-      <a class="btn"
-        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=kings-island_park_page">Download
-        Ride Ready</a>
-      <p style="margin-top:12px; color:#777; font-size:0.95rem;">
-        Tip: set an alert for your top ride before you enter the gates. <strong style="color: #F97316;">Insider
-          Stat:</strong> The Beast night rides are legendary, but lines spike at dusk. Go late.
-      </p>
+
+    <div class="hero">
+      <div class="kicker">Kings Island - Wait times + smarter timing</div>
+      <h1>Kings Island: Ride More, Wait Less</h1>
+      <p>Use Ride Ready to time Kings Island headliners like Orion, Diamondback, Banshee, Mystic Timbers, and The Beast — with alerts that help you ride when lines dip.</p>
     </div>
-    <h3 style="text-align:center; margin: 48px 0 16px;">Top rides to track</h3>
-    <div class="grid">
-      <div class="insight-card" style="--card-accent: #FF4B2B;">
-        <div class="insight-header">
-          <div class="insight-title">Orion</div>
-        </div>
-        <div class="insight-body">Headliner surges are common—set an alert and hit it when it dips.</div>
+
+    <section class="section">
+      <h2>Quick park facts</h2>
+      <div class="grid">
+        <div class="card"><div class="fact"><b>Location</b><span>Mason, Ohio</span></div></div>
+<div class="card"><div class="fact"><b>Best for</b><span>Big coasters + easy re-rides if you time it right</span></div></div>
+<div class="card"><div class="fact"><b>Most time saved on</b><span>Orion, Diamondback, Banshee, Mystic Timbers, The Beast</span></div></div>
+<div class="card"><div class="fact"><b>The trick</b><span>Don't guess. Favorite your targets, set drop alerts, and keep moving.</span></div></div>
       </div>
-      <div class="insight-card" style="--card-accent: #FFB400;">
-        <div class="insight-header">
-          <div class="insight-title">Diamondback</div>
+    </section>
+
+    <section class="section">
+      <h2>Rides worth setting alerts for</h2>
+      <div class="grid">
+
+        <div class="card ride-card">
+          <h3>Orion</h3>
+          <div class="ride-tag">Giga coaster - huge drop, huge demand</div>
+          <div class="chips"><span class="chip">287 ft</span><span class="chip">91 mph</span><span class="chip">5,321 ft</span></div>
+          <p class="ride-why">It's a centerpiece coaster — wait times are rarely 'accidentally short.' Alerts keep you from hovering nearby.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A true giga coaster that's worth building your day around.</p>
         </div>
-        <div class="insight-body">Queues can move steadily; best windows are early/late.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #3B82F6;">
-        <div class="insight-header">
-          <div class="insight-title">Mystic Timbers</div>
+
+
+        <div class="card ride-card">
+          <h3>Diamondback</h3>
+          <div class="ride-tag">Hyper coaster - smooth + high capacity</div>
+          <div class="chips"><span class="chip">230 ft</span><span class="chip">80 mph</span><span class="chip">5,282 ft</span></div>
+          <p class="ride-why">It can be a perfect mid-day win if you catch it right. Track it and ride it when it's moving fast.</p>
+          <p class="ride-fact"><b>Fun fact:</b> One of the best "big coaster" values in the park when the line is flowing.</p>
         </div>
-        <div class="insight-body">A frequent mid‑day spike—alerts help you time it.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #10B981;">
-        <div class="insight-header">
-          <div class="insight-title">Banshee</div>
+
+
+        <div class="card ride-card">
+          <h3>Banshee</h3>
+          <div class="ride-tag">Inverted coaster - 7 inversions</div>
+          <div class="chips"><span class="chip">167 ft</span><span class="chip">68 mph</span><span class="chip">7 inversions</span></div>
+          <p class="ride-why">The line can build quickly. A drop alert helps you sneak in a ride without burning your prime hours.</p>
+          <p class="ride-fact"><b>Fun fact:</b> That first drop hits different on an inverted train.</p>
         </div>
-        <div class="insight-body">Often a smart “switch to this now” ride when others are packed.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #A855F7;">
-        <div class="insight-header">
-          <div class="insight-title">The Beast</div>
+
+
+        <div class="card ride-card">
+          <h3>Mystic Timbers</h3>
+          <div class="ride-tag">Wood coaster - fast turns + airtime</div>
+          <div class="chips"><span class="chip">109 ft</span><span class="chip">53 mph</span><span class="chip">3,265 ft</span></div>
+          <p class="ride-why">It's a crowd-pleaser, and it's easy to ride twice if you avoid the worst windows.</p>
+          <p class="ride-fact"><b>Fun fact:</b> One of the park's most re-rideable coasters.</p>
         </div>
-        <div class="insight-body">Night rides are legendary—plan to save it for later.</div>
+
+
+        <div class="card ride-card">
+          <h3>The Beast</h3>
+          <div class="ride-tag">Legendary wood coaster - night ride icon</div>
+          <div class="chips"><span class="chip">7,361 ft</span><span class="chip">64.8 mph</span></div>
+          <p class="ride-why">If you want a night ride, you need timing. Track it so you're not stuck in a line when the sun drops.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Famous for its massive layout and 'longest-wood-coaster' reputation.</p>
+        </div>
+
       </div>
-    </div>
+    </section>
+
+    <section class="section alert-grid">
+      <h2>Good default alert presets</h2>
+      <div class="grid">
+        <div class="card"><b>Orion</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 45 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Great target for a 'go now' ping rather than waiting it out.</div></div>
+<div class="card"><b>Diamondback</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">It's usually worth it at this point.</div></div>
+<div class="card"><b>Banshee</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Catch the dip and keep your day rolling.</div></div>
+<div class="card"><b>Mystic Timbers</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Perfect 'bonus coaster' you can stack between headliners.</div></div>
+<div class="card"><b>The Beast</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">If you're chasing a night ride, watch for late-day drops.</div></div>
+      </div>
+      <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
+        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>If you only have one day</h2>
+      <ol class="plan">
+        <li>Start with one marquee coaster early, before the park warms up.</li>
+<li>Set drop alerts for 3-4 headliners, plus one 'easy win' coaster as backup.</li>
+<li>If you're doing The Beast at night, plan it — don't accidentally spend that hour in a different queue.</li>
+<li>Midday: grab food + indoor breaks while waits peak, then bounce when alerts fire.</li>
+<li>Last hour: re-ride favorites (especially if the park clears).</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>More planning help</h2>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="/parks/">All supported parks</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+
+    <details>
+      <summary>Does Ride Ready use the park's official wait times?</summary>
+      <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
+    </details>
+    <details>
+      <summary>What's the fastest way to get value on a one-day visit?</summary>
+      <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot — that's where you claw back time without buying a line-skip add-on.</p>
+    </details>
+    <details>
+      <summary>Is this affiliated with Kings Island?</summary>
+      <p>No. Ride Ready is an independent app.</p>
+    </details>
+
+    </section>
+
+    <section class="section sources">
+      <h2>Sources</h2>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Kings_Island" rel="noopener noreferrer" target="_blank">Kings Island (park overview) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Orion_(roller_coaster)" rel="noopener noreferrer" target="_blank">Orion (roller coaster) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Diamondback_(Kings_Island)" rel="noopener noreferrer" target="_blank">Diamondback (Kings Island) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Banshee_(roller_coaster)" rel="noopener noreferrer" target="_blank">Banshee (roller coaster) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Mystic_Timbers" rel="noopener noreferrer" target="_blank">Mystic Timbers — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/The_Beast_(roller_coaster)" rel="noopener noreferrer" target="_blank">The Beast (roller coaster) — Wikipedia</a></li>
+      </ul>
+    </section>
+
     <footer>
-      <p>© 2026 Ride Ready • <a href="/compare/official-apps/">Why Ride Ready?</a> • <a href="/privacy/">Privacy</a> •
-        <a href="/terms/">Terms</a>
-      </p>
-      <p style="margin-top:10px; font-size:0.85rem; color:#666;">Ride Ready is not affiliated with or endorsed by
-        Universal, SeaWorld, Cedar Fair, or any theme park operator.</p>
+      © 2026 Ride Ready. Not affiliated with Kings Island or its operators.
     </footer>
   </div>
+<script>
+document.querySelectorAll('[data-ref]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'app_store_click', { source: this.dataset.ref, page: window.location.pathname });
+    }
+  });
+});
+</script>
 </body>
-
 </html>

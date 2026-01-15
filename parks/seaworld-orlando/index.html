@@ -1,313 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>SeaWorld Orlando Wait Times &amp; Strategy | Ride Ready</title>
-  <meta
-    content="Live wait intel, drop alerts, and smarter ride timing for SeaWorld Orlando. Track the headliners and dodge the worst peak lines."
-    name="description" />
-  <meta content="SeaWorld Orlando Wait Times &amp; Strategy | Ride Ready" property="og:title" />
-  <meta content="Track SeaWorld Orlando waits and get alerted when your must‑rides drop below your threshold."
-    property="og:description" />
-  <meta content="website" property="og:type" />
-  <meta content="https://rideready.app/parks/seaworld-orlando/" property="og:url" />
-  <meta content="https://rideready.app/images/logo.png" property="og:image" />
-  <meta content="summary_large_image" name="twitter:card" />
-  <link href="https://rideready.app/parks/seaworld-orlando/" rel="canonical" />
-  <!-- Favicons -->
+  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-park-seaworld">
   <link href="/favicon.ico" rel="icon" sizes="any" />
   <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
   <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
   <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
   <link href="/site.webmanifest" rel="manifest" />
-  <!-- Google tag (gtag.js) -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
   </script>
+
+  <title>SeaWorld Orlando Wait Times &amp; Ride Strategy | Ride Ready</title>
+  <meta name="description" content="Track SeaWorld Orlando wait times and set Ride Ready alerts for Mako, Kraken, Manta, Pipeline, Ice Breaker, and more — ride the coasters when the waits are actually worth it." />
+  <link rel="canonical" href="https://rideready.app/parks/seaworld-orlando/" />
+  <meta property="og:title" content="SeaWorld Orlando Wait Times &amp; Ride Strategy | Ride Ready" />
+  <meta property="og:description" content="Track SeaWorld Orlando wait times and set Ride Ready alerts for Mako, Kraken, Manta, Pipeline, Ice Breaker, and more — ride the coasters when the waits are actually worth it." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rideready.app/parks/seaworld-orlando/" />
+  <meta property="og:image" content="https://rideready.app/images/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
-    :root {
-      --primary-gradient: linear-gradient(45deg, #3B82F6, #FF416C);
-      --bg-color: #000000;
-      --text-color: #ffffff;
-      --accent-color: #3B82F6;
-      --card-bg: #111;
-      --border: #333;
-    }
+:root {
+  --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --muted: rgba(255,255,255,0.72);
+  --accent-color: #F97316;
+  --card-bg: #111;
+  --border: #333;
+  --soft-border: rgba(255,255,255,0.08);
+  --shadow: 0 20px 50px rgba(0,0,0,0.55);
+  --radius: 18px;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
+* { box-sizing: border-box; }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% -10%, rgba(255, 75, 43, 0.15), transparent 55%),
-        radial-gradient(circle at 80% 0%, rgba(255, 65, 108, 0.10), transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: hidden;
+  line-height: 1.55;
+  padding-bottom: 92px; /* space for sticky footer */
+}
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 24px 90px;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.20) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255,65,108,0.16) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-      margin-bottom: 40px;
-    }
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px 0;
+}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
 
-    .logo img {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-    }
+nav .left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 14px;
-      background: var(--primary-gradient);
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 10px 30px rgba(255, 75, 43, 0.25);
-      transition: transform 0.15s ease;
-      white-space: nowrap;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+nav a:hover { opacity: 1; }
 
-    h1 {
-      font-size: 3rem;
-      margin: 20px 0 10px;
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
 
-    .subtitle {
-      max-width: 760px;
-      margin: 0 auto 28px;
-      color: #ccc;
-      font-size: 1.1rem;
-    }
+.logo img { width: 32px; height: 32px; border-radius: 8px; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin: 26px 0 70px;
-    }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
 
-    .insight-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      text-align: left;
-      position: relative;
-      overflow: hidden;
-    }
+.nav-cta {
+  background: var(--primary-gradient);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
+}
 
-    .insight-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-left: 3px solid var(--card-accent, var(--accent-color));
-      opacity: 0.9;
-      pointer-events: none;
-    }
+.hero {
+  padding: 26px 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid var(--soft-border);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
 
-    .insight-title {
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.1;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    .insight-body {
-      color: #bbb;
-      font-size: 0.98rem;
-    }
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 70ch;
+}
 
-    .cta-box {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 26px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
+.section {
+  margin-top: 34px;
+  text-align: left;
+}
 
-    .sticky-footer {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: rgba(0, 0, 0, 0.86);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      z-index: 999;
-    }
+.section h2 {
+  margin: 0 0 14px;
+  font-size: 1.35rem;
+}
 
-    .sticky-text {
-      color: #ddd;
-      font-weight: 600;
-    }
+.kicker {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 10px;
+}
 
-    .sticky-btn {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: var(--primary-gradient);
-      color: white;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.95rem;
-      white-space: nowrap;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
 
-    footer {
-      margin-top: 60px;
-      color: #888;
-      font-size: 0.95rem;
-    }
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
 
-    footer a {
-      color: #aaa;
-      text-decoration: none;
-    }
+.fact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+.fact {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
 
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 2.25rem;
-      }
+.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
+.fact span { color: var(--muted); }
 
-      .subtitle {
-        font-size: 1rem;
-      }
-    }
-  </style>
+.ride-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.ride-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.80);
+  margin-bottom: 10px;
+}
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
+
+.chip {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.86);
+  background: rgba(255,255,255,0.03);
+}
+
+.ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
+.ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
+
+.inline-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.inline-link:hover { text-decoration: underline; }
+
+.alert-grid .card b { color: rgba(255,255,255,0.92); }
+
+.plan {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.82);
+}
+
+.plan li { margin: 8px 0; }
+
+details {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+details + details { margin-top: 10px; }
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  outline: none;
+}
+
+details p {
+  margin: 10px 0 0;
+  color: rgba(255,255,255,0.78);
+}
+
+footer {
+  margin: 34px 0 22px;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.sources a { word-break: break-word; }
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding: 12px 14px;
+  z-index: 1000;
+}
+
+.sticky-footer .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sticky-footer .text {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.82);
+}
+
+.sticky-footer a {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 11px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  nav { align-items: flex-start; }
+  .nav-links { justify-content: flex-start; }
+  .hero { padding: 22px 16px; }
+  .sticky-footer .text { display: none; }
+}
+</style>
 </head>
 
 <body>
   <div class="sticky-footer">
-    <span class="sticky-text">📱 Track waits live at SeaWorld Orlando</span>
-    <a class="sticky-btn"
-      href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=seaworld-orlando_sticky">Download
-      App</a>
+    <div class="inner">
+      <div class="text">SeaWorld Orlando: coasters + shows = timing matters. Let alerts do the watching.</div>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-seaworld-sticky" data-ref="park-seaworld-sticky">Download Free</a>
+    </div>
   </div>
+
   <div class="container">
     <nav>
-      <a class="logo" href="/">
-        <img alt="Ride Ready Logo" src="/images/logo.png" />
-        Ride Ready
-      </a>
-      <div style="display:flex; gap:20px; align-items:center;">
-        <a href="/parks/" style="color:white; text-decoration:none; font-weight:600;">Parks</a>
-        <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-weight:600;">Why Us?</a>
-        <a class="btn"
-          href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=seaworld-orlando_park_page">Get
-          the App</a>
+      <div class="left">
+        <a class="logo" href="/">
+          <img src="/images/logo.png" alt="Ride Ready Logo" />
+          <span>Ride Ready</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="/parks/">Parks</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-seaworld-nav" data-ref="park-seaworld-nav">Download Free</a>
       </div>
     </nav>
-    <h1>SeaWorld Orlando</h1>
-    <p class="subtitle">Live wait intel, drop alerts, and smarter ride timing for SeaWorld Orlando. Track the headliners
-      and dodge the worst peak lines.</p>
-    <div class="cta-box">
-      <h2 style="margin:0 0 10px;">Make your next park day faster</h2>
-      <p style="margin:0 0 18px; color:#bbb;">
-        Ride Ready helps you time your must‑do attractions with live wait intel, drop alerts, and smarter next‑ride
-        picks.
-      </p>
-      <a class="btn"
-        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=seaworld-orlando_park_page">Download
-        Ride Ready</a>
-      <p style="margin-top:12px; color:#777; font-size:0.95rem;">
-        Tip: set an alert for your top ride before you enter the gates. <strong style="color: #F97316;">Insider
-          Stat:</strong> Pipeline is best ridden at sunset for lower waits and better views.
-      </p>
+
+    <div class="hero">
+      <div class="kicker">🎢 SeaWorld Orlando • Wait times + smarter timing</div>
+      <h1>SeaWorld Orlando: Ride More, Wait Less</h1>
+      <p>Track SeaWorld Orlando wait times and set Ride Ready alerts for Mako, Kraken, Manta, Pipeline, Ice Breaker, and more — ride the coasters when the waits are actually worth it.</p>
     </div>
-    <h3 style="text-align:center; margin: 48px 0 16px;">Top rides to track</h3>
-    <div class="grid">
-      <div class="insight-card" style="--card-accent: #FF4B2B;">
-        <div class="insight-header">
-          <div class="insight-title">Mako</div>
-        </div>
-        <div class="insight-body">Often spikes mid‑day. Best windows are early and late if you want repeats.</div>
+
+    <section class="section">
+      <h2>Quick park facts</h2>
+      <div class="grid">
+        <div class="card"><div class="fact"><b>Location</b><span>Orlando, Florida</span></div></div>
+<div class="card"><div class="fact"><b>Best for</b><span>Coaster laps between shows (and not getting trapped in a long standby)</span></div></div>
+<div class="card"><div class="fact"><b>What to track</b><span>Mako, Kraken, Manta, Pipeline, Ice Breaker</span></div></div>
+<div class="card"><div class="fact"><b>The trick</b><span>Use Ride Ready to bounce between coasters when they dip — especially mid‑afternoon.</span></div></div>
       </div>
-      <div class="insight-card" style="--card-accent: #FFB400;">
-        <div class="insight-header">
-          <div class="insight-title">Manta</div>
+    </section>
+
+    <section class="section">
+      <h2>Rides worth setting alerts for</h2>
+      <div class="grid">
+
+        <div class="card ride-card">
+          <h3>Mako</h3>
+          <div class="ride-tag">Hyper coaster • biggest thrills in the park</div>
+          <div class="chips"><span class="chip">200 ft</span><span class="chip">73 mph</span><span class="chip">4,760 ft</span></div>
+          <p class="ride-why">It's the headliner. Track it so you can grab a ride when it's flowing — then go do something else when it spikes.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A tall, fast hyper coaster that's worth riding more than once if you can catch a lull.</p>
         </div>
-        <div class="insight-body">Queue can move in bursts. Watch for short dips after show times.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #3B82F6;">
-        <div class="insight-header">
-          <div class="insight-title">Kraken</div>
+
+
+        <div class="card ride-card">
+          <h3>Kraken</h3>
+          <div class="ride-tag">Floorless coaster • 7 inversions</div>
+          <div class="chips"><span class="chip">153 ft</span><span class="chip">65 mph</span><span class="chip">7 inversions</span></div>
+          <p class="ride-why">A great 'next up' coaster when Mako is slammed. Alerts help you chain rides instead of standing still.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Seven inversions makes it one of the most intense loops-per-minute options in Orlando.</p>
         </div>
-        <div class="insight-body">A solid “fill ride” when the headliners surge.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #10B981;">
-        <div class="insight-header">
-          <div class="insight-title">Pipeline: The Surf Coaster</div>
+
+
+        <div class="card ride-card">
+          <h3>Manta</h3>
+          <div class="ride-tag">Flying coaster • smooth and unique</div>
+          <div class="chips"><span class="chip">140 ft</span><span class="chip">56 mph</span><span class="chip">4 inversions</span></div>
+          <p class="ride-why">It's a different experience (flying position) and can swing from walk‑on to long line fast.</p>
+          <p class="ride-fact"><b>Fun fact:</b> That pretzel loop hits hard — in a good way.</p>
         </div>
-        <div class="insight-body">Unique standing coaster. Best windows are early morning or late evening.</div>
-      </div>
-      <div class="insight-card" style="--card-accent: #0EA5E9;">
-        <div class="insight-header">
-          <div class="insight-title">Penguin Trek</div>
+
+
+        <div class="card ride-card">
+          <h3>Pipeline: The Surf Coaster</h3>
+          <div class="ride-tag">Stand‑up surf coaster</div>
+          <div class="chips"><span class="chip">Stand‑up style</span><span class="chip">Newer coaster</span></div>
+          <p class="ride-why">Newer rides pull lines. Set a drop alert so you can ride it without committing to the worst queue window.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A modern 'surf' take on stand‑up coaster riding.</p>
         </div>
-        <div class="insight-body">New family coaster with A/C queue. Draws crowds—watch for lunch dips.</div>
+
+
+        <div class="card ride-card">
+          <h3>Ice Breaker</h3>
+          <div class="ride-tag">Launch coaster • compact and fun</div>
+          <div class="chips"><span class="chip">Launches</span><span class="chip">Quick ride</span></div>
+          <p class="ride-why">Perfect filler coaster between bigger waits — and a nice 'backup alert' while you wait for Mako/Kraken dips.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A launch coaster that doesn't need huge height to feel punchy.</p>
+        </div>
+
       </div>
-    </div>
+    </section>
+
+    <section class="section alert-grid">
+      <h2>Good default alert presets</h2>
+      <div class="grid">
+        <div class="card"><b>Mako</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">That's usually a great value for a headliner hyper coaster.</div></div>
+<div class="card"><b>Kraken</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Easy way to stack thrills while other rides peak.</div></div>
+<div class="card"><b>Manta</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Flying coasters feel like a bigger win when you avoid the long queue.</div></div>
+<div class="card"><b>Pipeline</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Newer rides: wait for a dip and jump.</div></div>
+<div class="card"><b>Ice Breaker</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Use it as a filler ride when you're nearby.</div></div>
+      </div>
+      <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
+        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>If you only have one day</h2>
+      <ol class="plan">
+        <li>Set alerts for Mako + 2 backups (Kraken/Manta).</li>
+<li>Watch show times as 'built-in breaks' — then use alerts to fill gaps efficiently.</li>
+<li>If one coaster spikes, don't fight it. Pivot to another and come back when it dips.</li>
+<li>Use a second alert tier for a 'bonus' coaster so you always have a move.</li>
+<li>Late day: re-ride Mako if you can catch a shorter window.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>More planning help</h2>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="/orlando/spring-break-2026/">Orlando Spring Break 2026 Survival Guide</a></li>
+<li><a class="inline-link" href="/parks/">All supported parks</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+
+    <details>
+      <summary>Does Ride Ready use the park's official wait times?</summary>
+      <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
+    </details>
+    <details>
+      <summary>What's the fastest way to get value on a one‑day visit?</summary>
+      <p>Pick 4–6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot — that's where you claw back time without buying a line‑skip add‑on.</p>
+    </details>
+    <details>
+      <summary>Is this affiliated with SeaWorld Orlando?</summary>
+      <p>No. Ride Ready is an independent app.</p>
+    </details>
+
+    </section>
+
+    <section class="section sources">
+      <h2>Sources</h2>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/SeaWorld_Orlando" rel="noopener noreferrer" target="_blank">SeaWorld Orlando (park overview) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Mako_(roller_coaster)" rel="noopener noreferrer" target="_blank">Mako (roller coaster) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Kraken_(roller_coaster)" rel="noopener noreferrer" target="_blank">Kraken (roller coaster) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Manta_(SeaWorld_Orlando)" rel="noopener noreferrer" target="_blank">Manta (SeaWorld Orlando) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Ice_Breaker_(roller_coaster)" rel="noopener noreferrer" target="_blank">Ice Breaker (roller coaster) — Wikipedia</a></li>
+<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Pipeline:_The_Surf_Coaster" rel="noopener noreferrer" target="_blank">Pipeline: The Surf Coaster — Wikipedia</a></li>
+      </ul>
+    </section>
+
     <footer>
-      <p>© 2026 Ride Ready • <a href="/compare/official-apps/">Why Ride Ready?</a> • <a href="/privacy/">Privacy</a> •
-        <a href="/terms/">Terms</a>
-      </p>
-      <p style="margin-top:10px; font-size:0.85rem; color:#666;">Ride Ready is not affiliated with or endorsed by
-        Universal, SeaWorld, Cedar Fair, or any theme park operator.</p>
+      © 2026 Ride Ready. Not affiliated with SeaWorld Orlando or its operators.
     </footer>
   </div>
-</body>
 
+<script>
+document.querySelectorAll('[data-ref]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'app_store_click', { source: this.dataset.ref, page: window.location.pathname });
+    }
+  });
+});
+</script>
+</body>
 </html>
