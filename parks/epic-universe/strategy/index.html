@@ -677,7 +677,7 @@
 <body>
     <div class="sticky-top-cta" id="sticky-cta">
         <span>Track wait times live in the park</span>
-        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=strategy_guide_nav&amp;ct=sticky">Download
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-epic-strategy-sticky" data-ref="guide-epic-strategy-sticky">Download
             Ride Ready</a>
         <button aria-label="Dismiss" onclick="dismissSticky()"
             style="background:none; border:none; color:rgba(255,255,255,0.7); font-size:1.2rem; cursor:pointer; padding:0 0 0 10px; line-height: 1;">x</button>
@@ -854,7 +854,7 @@
                 <p style="margin: 0; color: var(--text); font-size: 0.95rem;">
                     <strong style="color: #059669;">Waits change by the hour.</strong>
                     Track wait times live in the park with Ride Ready.
-                    <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=strategy_drop_alert_cta"
+                    <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-epic-strategy-drop-alert" data-ref="guide-epic-strategy-drop-alert"
                         style="color: #059669; font-weight: 600; margin-left: 4px;">Get the app</a>
                 </p>
             </div>
@@ -987,7 +987,7 @@
                 style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 14px 18px; border-radius: 8px; margin-top: 20px; font-size: 0.9rem; border-left: 4px solid #f59e0b;">
                 <strong>Can't pick your day?</strong> Skip's AI Plan finds the fastest route no matter the crowds
                 and adapts in real-time when things change.
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=strategy_ai_plan_cta"
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-epic-strategy-ai-plan" data-ref="guide-epic-strategy-ai-plan"
                     style="color: #92400e; font-weight: 600;">See how it works</a>
             </p>
         </div>
@@ -1100,7 +1100,7 @@
         <div class="app-cta-section">
             <h2>You've got the strategy. Now get the live intel.</h2>
             <p>Skip tracks wait times minute-by-minute and pings you when it's time to move. No more guessing, just ride.</p>
-            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=strategy_main_cta"
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-epic-strategy-main" data-ref="guide-epic-strategy-main"
                 class="app-cta-button">
                 Get Ride Ready - Free to Try
             </a>
@@ -1115,7 +1115,7 @@
             <h2 style="color: white; margin-bottom: 10px;"><span class="emoji">In the park right now?</span></h2>
             <p style="color: #ddd; margin-bottom: 20px;">
                 Use the queue guides below to estimate your wait, or
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=strategy_queue_inline"
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-epic-strategy-queue-inline" data-ref="guide-epic-strategy-queue-inline"
                     style="color: #10b981; font-weight: 600;">
                     track live in the app with drop alerts
                 </a>
@@ -1189,7 +1189,7 @@
         </div>
         <div class="footer">
             <a class="footer-cta"
-                href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=strategy-guide">Get Ride
+                href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-epic-strategy-bottom" data-ref="guide-epic-strategy-bottom">Get Ride
                 Ready for Live Updates</a>
             <div class="footer-logo">Ride Ready</div>
             <p>Real-time wait times | AI-powered recommendations | $6.99/day</p>
@@ -1259,6 +1259,19 @@
             }, 3000);
         }
     </script>
+<script>
+  // Global App Store click tracking via data-ref attribute
+  document.querySelectorAll('[data-ref]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'app_store_click', {
+          source: this.dataset.ref,
+          page: window.location.pathname
+        });
+      }
+    });
+  });
+</script>
 </body>
 
 </html>

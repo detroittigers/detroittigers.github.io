@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found | Ride Ready</title>
+  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-404">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KGYGTPMTQ3');
+      gtag('event', 'page_404', { path: window.location.pathname });
+    </script>
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -89,7 +99,20 @@
       </a>
     </div>
 
-    <a class="btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&ct=404_download">Download the App</a>
+    <a class="btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=404-download" data-ref="404-download">Download the App</a>
   </div>
+<script>
+      // Global App Store click tracking via data-ref attribute
+      document.querySelectorAll('[data-ref]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', 'app_store_click', {
+              source: this.dataset.ref,
+              page: window.location.pathname
+            });
+          }
+        });
+      });
+    </script>
 </body>
 </html>

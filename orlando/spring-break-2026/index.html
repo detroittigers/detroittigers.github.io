@@ -20,6 +20,7 @@
     <meta content="https://rideready.app/images/epic-portal-photo.jpg" property="og:image" />
     <meta content="https://rideready.app/orlando/spring-break-2026/" property="og:url" />
     <link href="https://rideready.app/orlando/spring-break-2026/" rel="canonical" />
+    <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-guide-spring-break-2026" />
     <meta content="summary_large_image" name="twitter:card" />
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
@@ -353,7 +354,7 @@
     <div class="sticky-top-cta">
         <span class="emoji">📲</span>
         <span><strong> visiting soon?</strong> Track waits live + get drop alerts.</span>
-        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=spring_sticky&amp;ct=sticky">Download free</a>
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-spring-break-2026-sticky" data-ref="guide-spring-break-2026-sticky">Download free</a>
     </div>
     <div class="container">
         <a class="back-link" href="../../parks/">
@@ -521,7 +522,8 @@
             <p style="margin-bottom: 15px; opacity: 0.95;">7 pages of week-by-week strategy, printable timelines, and
                 the data you need to survive spring break crowds.</p>
             <form id="email-capture-form" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <input type="email" id="email-input" placeholder="your@email.com" required
+                <label for="email-input" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">Email address</label>
+            <input type="email" id="email-input" name="email" aria-label="Email address" autocomplete="email" inputmode="email" placeholder="your@email.com" required
                     style="flex: 1; min-width: 200px; padding: 12px 16px; border: none; border-radius: 8px; font-size: 1rem;">
                 <input type="text" id="website" name="website" style="position: absolute; left: -9999px;" tabindex="-1"
                     autocomplete="off">
@@ -557,6 +559,7 @@
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
+            'Prefer': 'return=minimal',
                             'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs',
                             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs'
                         },
@@ -613,12 +616,25 @@
             </div>
         </div>
         <a class="cta-button"
-            href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=spring_break_guide&amp;ct=bottom_cta">Survive
+            href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-spring-break-2026-bottom" data-ref="guide-spring-break-2026-bottom">Survive
             the Chaos with Ride Ready 📲</a>
         <div class="footer">
             <p>© 2026 Ride Ready. Not affiliated with Walt Disney World, Universal, or SeaWorld.</p>
         </div>
     </div>
+<script>
+  // Global App Store click tracking via data-ref attribute
+  document.querySelectorAll('[data-ref]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'app_store_click', {
+          source: this.dataset.ref,
+          page: window.location.pathname
+        });
+      }
+    });
+  });
+</script>
 </body>
 
 </html>

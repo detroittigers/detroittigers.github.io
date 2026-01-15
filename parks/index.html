@@ -12,6 +12,7 @@
     <title>Theme Parks Supported by Ride Ready</title>
     <meta content="Explore wait time guides, strategy, and tools for Epic Universe, Universal Orlando, and more."
         name="description" />
+    <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-parks" />
     <meta content="Ride Ready Park Hub" property="og:title" />
     <meta content="Your central command for theme park strategy. Select a park to get started."
         property="og:description" />
@@ -146,7 +147,7 @@
                 <a href="/compare/official-apps/"
                     style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Why
                     Us?</a>
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ch=website&amp;ct=parks_cta4"
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=parks-nav" data-ref="parks-nav"
                     style="background: rgba(255,255,255,0.1); color: white; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">Get
                     App</a>
             </div>
@@ -227,7 +228,29 @@
                 </div>
             </a>
         </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <h2 style="font-size: 1.6rem; margin-bottom: 10px;">Know when to go.</h2>
+            <p style="color: #aaa; max-width: 520px; margin: 0 auto 18px; line-height: 1.6;">Download Ride Ready for free and get live wait times + 3 drop alerts per day. Upgrade anytime for forecasts and unlimited alerts.</p>
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=parks-bottom" data-ref="parks-bottom">
+                <img src="/images/app-store-badge.svg" alt="Download on the App Store" style="height: 50px;">
+            </a>
+        </div>
     </div>
+
+    <script>
+        // Global App Store click tracking via data-ref attribute
+        document.querySelectorAll('[data-ref]').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'app_store_click', {
+                        source: this.dataset.ref,
+                        page: window.location.pathname
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
