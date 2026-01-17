@@ -21,6 +21,8 @@
     <meta content="https://rideready.app/" property="og:url" />
     <link href="https://rideready.app/" rel="canonical" />
     <meta content="summary_large_image" name="twitter:card" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link as="image" fetchpriority="high" href="/images/logo.png" rel="preload" />
     <title>Ride Ready - Smart Theme Park Companion</title>
     <!-- FAQ Schema for SEO and LLMs -->
@@ -153,6 +155,10 @@
         .sticky-top-cta a:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        html {
+            background-color: #000000;
         }
 
         body {
@@ -811,7 +817,7 @@
                 height: auto;
             }
 
-            .comparison-section > div:first-of-type {
+            .comparison-section>div:first-of-type {
                 grid-template-columns: 1fr;
             }
         }
@@ -984,6 +990,7 @@
             .comparison-grid {
                 grid-template-columns: 1fr !important;
             }
+
             .sticky-top-cta {
                 flex-direction: column;
                 align-items: stretch;
@@ -995,12 +1002,15 @@
                 font-size: 0.9rem;
                 top: -200px;
             }
+
             .sticky-top-cta.visible {
                 top: 0;
             }
+
             .sticky-top-cta .emoji {
                 display: none;
             }
+
             .sticky-top-cta a {
                 padding: 14px 20px;
             }
@@ -1021,18 +1031,16 @@
     <div class="sticky-top-cta">
         <span class="emoji">📲</span>
         <span><strong>Visiting soon?</strong> Track waits live + get drop alerts.</span>
-        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-sticky"
-            data-ref="home-sticky">Download
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-sticky" data-ref="home-sticky">Download
             Free</a>
     </div>
     <div class="container">
         <!-- Top Nav -->
         <nav
             style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding: 10px 0;">
-            <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                <img alt="Ride Ready" src="images/logo.png" style="height: 32px; width: auto;" />
-                <span style="color: white; font-weight: 700; font-size: 1.1rem; letter-spacing: -0.5px;">Ride
-                    Ready</span>
+            <a href="/"
+                style="display: flex; align-items: center; gap: 10px; text-decoration: none; transition: transform 0.2s ease;">
+                <img alt="Ride Ready" src="images/logo.png" style="height: 38px; width: auto;" />
             </a>
             <div style="display: flex; gap: 20px; align-items: center;">
                 <a href="/parks/"
@@ -1040,9 +1048,9 @@
                 <a href="/compare/official-apps/"
                     style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Why
                     Us?</a>
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-nav"
-                    data-ref="home-nav"
-                    style="background: rgba(255,255,255,0.1); color: white; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">Download Free</a>
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-nav" data-ref="home-nav"
+                    style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); color: white; padding: 10px 20px; border-radius: 99px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 12px rgba(0,0,0,0.1); backdrop-filter: blur(10px); transition: all 0.2s ease;">Download
+                    Free</a>
             </div>
         </nav>
         <section class="hero" id="top">
@@ -1058,8 +1066,8 @@
             </div>
             <div class="hero-cta">
                 <a class="primary-button hero-button" data-ref="home-hero"
-                    href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-hero"
-                    rel="noopener noreferrer" target="_blank">Download for iPhone</a>
+                    href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-hero" rel="noopener noreferrer"
+                    target="_blank">Download for iPhone</a>
                 <p class="platform-note">Available now on the App Store for iPhone. Android support coming soon.</p>
                 <div class="social-proof-hero">
                     <span>★★★★★</span> Built from hundreds of thousands of wait-time samples
@@ -1246,37 +1254,42 @@
         </div>
         <!-- App vs Website Comparison -->
         <section class="comparison-section" style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-          <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 30px; color: #fff;">Website vs App: What You Get</h2>
-          <div class="comparison-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
-            <div style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.1);">
-              <h3 style="color: #aaa; font-size: 1.1rem; margin-bottom: 8px;">📖 Website</h3>
-              <p style="color: #666; font-size: 0.9rem; margin-bottom: 16px;">You're here now</p>
-              <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
-                <li style="padding: 6px 0; color: #ccc;">✓ Queue guides</li>
-                <li style="padding: 6px 0; color: #ccc;">✓ Strategy articles</li>
-                <li style="padding: 6px 0; color: #ccc;">✓ Planning tips</li>
-              </ul>
-              <p style="color: #666; font-size: 0.85rem; line-height: 1.4;">Static content<br>Plan before you go</p>
+            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 30px; color: #fff;">Website vs App: What
+                You Get</h2>
+            <div class="comparison-grid"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                <div
+                    style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="color: #aaa; font-size: 1.1rem; margin-bottom: 8px;">📖 Website</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 16px;">You're here now</p>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
+                        <li style="padding: 6px 0; color: #ccc;">✓ Queue guides</li>
+                        <li style="padding: 6px 0; color: #ccc;">✓ Strategy articles</li>
+                        <li style="padding: 6px 0; color: #ccc;">✓ Planning tips</li>
+                    </ul>
+                    <p style="color: #666; font-size: 0.85rem; line-height: 1.4;">Static content<br>Plan before you go
+                    </p>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, rgba(255,65,108,0.15), rgba(255,75,43,0.15)); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,65,108,0.3);">
+                    <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">📱 App</h3>
+                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 16px;">Free download</p>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
+                        <li style="padding: 6px 0; color: #fff;">✓ Everything here, plus:</li>
+                        <li style="padding: 6px 0; color: #fff;">✓ LIVE wait times</li>
+                        <li style="padding: 6px 0; color: #fff;">✓ Drop alerts</li>
+                        <li style="padding: 6px 0; color: #fff;">✓ "Ride next" picks</li>
+                    </ul>
+                    <p style="color: #aaa; font-size: 0.85rem; line-height: 1.4;">Updates realtime<br>Use IN the park
+                    </p>
+                </div>
             </div>
-            <div style="background: linear-gradient(135deg, rgba(255,65,108,0.15), rgba(255,75,43,0.15)); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,65,108,0.3);">
-              <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">📱 App</h3>
-              <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 16px;">Free download</p>
-              <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
-                <li style="padding: 6px 0; color: #fff;">✓ Everything here, plus:</li>
-                <li style="padding: 6px 0; color: #fff;">✓ LIVE wait times</li>
-                <li style="padding: 6px 0; color: #fff;">✓ Drop alerts</li>
-                <li style="padding: 6px 0; color: #fff;">✓ "Ride next" picks</li>
-              </ul>
-              <p style="color: #aaa; font-size: 0.85rem; line-height: 1.4;">Updates realtime<br>Use IN the park</p>
+            <div style="text-align: center;">
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-compare" data-ref="home-compare"
+                    style="display: inline-block; background: linear-gradient(100deg, #FF416C, #FF4B2B); color: #fff; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem;">
+                    Get the App - It's Free
+                </a>
             </div>
-          </div>
-          <div style="text-align: center;">
-            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-compare"
-               data-ref="home-compare"
-               style="display: inline-block; background: linear-gradient(100deg, #FF416C, #FF4B2B); color: #fff; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem;">
-              Get the App - It's Free
-            </a>
-          </div>
         </section>
         <!-- Premium Section -->
         <div class="premium-section">
@@ -1286,7 +1299,8 @@
             <div class="premium-features">
                 <div class="premium-feature">
                     <h4>Alert Capacity</h4>
-                    <p>Free includes <strong>3 alerts per day</strong>. Premium unlocks <strong>unlimited alerts</strong> (including trend + reopening alerts) that can persist for your whole trip.
+                    <p>Free includes <strong>3 alerts per day</strong>. Premium unlocks <strong>unlimited
+                            alerts</strong> (including trend + reopening alerts) that can persist for your whole trip.
                     </p>
                 </div>
                 <div class="premium-feature">
@@ -1334,7 +1348,11 @@
             <div class="faq-item">
                 <button class="faq-question">Is Ride Ready free?</button>
                 <div class="faq-answer">
-                    <p>Yes — Ride Ready is free to download and use. Free includes real-time wait times, AI ride picks, and <strong>3 alerts per day</strong>. Premium upgrades unlock wait time forecasts, <strong>unlimited alerts</strong> (including trend + reopening alerts), and more recommendations per day.</p>
+                    <p>Yes — Ride Ready is free to download and use. Free includes real-time wait times, AI ride picks,
+                        and <strong>3 alerts per day</strong>. Premium upgrades unlock wait time forecasts,
+                        <strong>unlimited alerts</strong> (including trend + reopening alerts), and more recommendations
+                        per day.
+                    </p>
                 </div>
             </div>
             <div class="faq-item">
@@ -1398,8 +1416,7 @@
         </div>
         <p class="cta-lead">Ready to skip the lines?</p>
         <div class="cta-bottom">
-            <a data-ref="home-footer"
-                href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-footer"
+            <a data-ref="home-footer" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-footer"
                 rel="noopener noreferrer" target="_blank" aria-label="Download Ride Ready on the App Store">
                 <img src="/images/app-store-badge.svg" alt="Download on the App Store" style="height: 54px;">
             </a>
