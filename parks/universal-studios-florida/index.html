@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -12,318 +13,369 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
   </script>
 
   <title>Universal Studios Florida Wait Times &amp; Strategy | Ride Ready</title>
-  <meta name="description" content="Get Universal Studios Florida wait time alerts and smarter timing with Ride Ready. Track Gringotts, Revenge of the Mummy, Minion rides, and more — ride when lines dip." />
+  <meta name="description"
+    content="Get Universal Studios Florida wait time alerts and smarter timing with Ride Ready. Track Gringotts, Revenge of the Mummy, Minion rides, and more — ride when lines dip." />
   <link rel="canonical" href="https://rideready.app/parks/universal-studios-florida/" />
   <meta property="og:title" content="Universal Studios Florida Wait Times &amp; Strategy | Ride Ready" />
-  <meta property="og:description" content="Get Universal Studios Florida wait time alerts and smarter timing with Ride Ready. Track Gringotts, Revenge of the Mummy, Minion rides, and more — ride when lines dip." />
+  <meta property="og:description"
+    content="Get Universal Studios Florida wait time alerts and smarter timing with Ride Ready. Track Gringotts, Revenge of the Mummy, Minion rides, and more — ride when lines dip." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/universal-studios-florida/" />
   <meta property="og:image" content="https://rideready.app/images/logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-:root {
-  --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --muted: rgba(255,255,255,0.72);
-  --accent-color: #F97316;
-  --card-bg: #111;
-  --border: #333;
-  --soft-border: rgba(255,255,255,0.08);
-  --shadow: 0 20px 50px rgba(0,0,0,0.55);
-  --radius: 18px;
-}
+    :root {
+      --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --accent-color: #F97316;
+      --card-bg: #111;
+      --border: #333;
+      --soft-border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --radius: 18px;
+    }
 
-* { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  overflow-x: hidden;
-  line-height: 1.55;
-  padding-bottom: 92px; /* space for sticky footer */
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+      line-height: 1.55;
+      padding-bottom: 92px;
+      /* space for sticky footer */
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.20) 0%, transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(255,65,108,0.16) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -1;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.20) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255, 65, 108, 0.16) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 32px 20px 0;
-}
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 0;
+    }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 26px;
-}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
 
-nav .left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
+    nav .left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
 
-nav a:hover { opacity: 1; }
+    nav a:hover {
+      opacity: 1;
+    }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
 
-.logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-.nav-cta {
-  background: var(--primary-gradient);
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 700;
-  color: white;
-  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
-}
+    .nav-cta {
+      background: var(--primary-gradient);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.20);
+    }
 
-.hero {
-  padding: 26px 18px;
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  border: 1px solid var(--soft-border);
-  box-shadow: var(--shadow);
-  text-align: left;
-}
+    .hero {
+      padding: 26px 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--soft-border);
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
 
-.hero h1 {
-  margin: 0 0 8px;
-  font-size: clamp(28px, 5vw, 42px);
-  line-height: 1.1;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.1;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.hero p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 70ch;
-}
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 70ch;
+    }
 
-.section {
-  margin-top: 34px;
-  text-align: left;
-}
+    .section {
+      margin-top: 34px;
+      text-align: left;
+    }
 
-.section h2 {
-  margin: 0 0 14px;
-  font-size: 1.35rem;
-}
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+    }
 
-.kicker {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 10px;
-}
+    .kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 10px;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
 
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-}
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
 
-.fact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-}
+    .fact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
 
-.fact {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
+    .fact {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
 
-.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
-.fact span { color: var(--muted); }
+    .fact b {
+      min-width: 120px;
+      color: rgba(255, 255, 255, 0.92);
+    }
 
-.ride-card h3 {
-  margin: 0 0 6px;
-  font-size: 1.05rem;
-  line-height: 1.2;
-}
+    .fact span {
+      color: var(--muted);
+    }
 
-.ride-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.80);
-  margin-bottom: 10px;
-}
+    .ride-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
 
-.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
+    .ride-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.80);
+      margin-bottom: 10px;
+    }
 
-.chip {
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.86);
-  background: rgba(255,255,255,0.03);
-}
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0 10px;
+    }
 
-.ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
-.ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
+    .chip {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.03);
+    }
 
-.inline-link {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 700;
-}
+    .ride-why {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.80);
+    }
 
-.inline-link:hover { text-decoration: underline; }
+    .ride-fact {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.70);
+    }
 
-.alert-grid .card b { color: rgba(255,255,255,0.92); }
+    .inline-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+    }
 
-.plan {
-  margin: 0;
-  padding-left: 18px;
-  color: rgba(255,255,255,0.82);
-}
+    .inline-link:hover {
+      text-decoration: underline;
+    }
 
-.plan li { margin: 8px 0; }
+    .alert-grid .card b {
+      color: rgba(255, 255, 255, 0.92);
+    }
 
-details {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 14px;
-  padding: 12px 14px;
-}
+    .plan {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255, 255, 255, 0.82);
+    }
 
-details + details { margin-top: 10px; }
+    .plan li {
+      margin: 8px 0;
+    }
 
-summary {
-  cursor: pointer;
-  font-weight: 700;
-  outline: none;
-}
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
 
-details p {
-  margin: 10px 0 0;
-  color: rgba(255,255,255,0.78);
-}
+    details+details {
+      margin-top: 10px;
+    }
 
-footer {
-  margin: 34px 0 22px;
-  color: rgba(255,255,255,0.55);
-  font-size: 0.9rem;
-  text-align: center;
-}
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      outline: none;
+    }
 
-.sources a { word-break: break-word; }
+    details p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
 
-.sticky-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255,255,255,0.10);
-  padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
-  z-index: 1000;
-}
+    footer {
+      margin: 34px 0 22px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.9rem;
+      text-align: center;
+    }
 
-.sticky-footer .inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-}
+    .sources a {
+      word-break: break-word;
+    }
 
-.sticky-footer .text {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.82);
-}
+    .sticky-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
+      z-index: 1000;
+    }
 
-.sticky-footer a {
-  background: var(--primary-gradient);
-  color: white;
-  padding: 11px 16px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
+    .sticky-footer .inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-@media (max-width: 640px) {
-  nav { align-items: flex-start; }
-  .nav-links { justify-content: flex-start; }
-  .hero { padding: 22px 16px; }
-  .sticky-footer .text { display: none; }
-}
-</style>
+    .sticky-footer .text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .sticky-footer a {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 22px 16px;
+      }
+
+      .sticky-footer .text {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="sticky-footer">
     <div class="inner">
       <div class="text">Universal Studios Florida: track the headliners and skip the 'wander and hope' strategy.</div>
-      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-usf-sticky" data-ref="park-usf-sticky">Download Free</a>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-usf-sticky"
+        data-ref="park-usf-sticky">Download Free</a>
     </div>
   </div>
 
@@ -337,23 +389,35 @@ footer {
       </div>
       <div class="nav-links">
         <a href="/parks/">Parks</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-usf-nav" data-ref="park-usf-nav">Download Free</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-usf-nav"
+          data-ref="park-usf-nav">Download Free</a>
       </div>
     </nav>
 
     <div class="hero">
       <div class="kicker">Universal Studios Florida - Wait times + smarter timing</div>
       <h1>Universal Studios Florida: Know When to Go</h1>
-      <p>Get Universal Studios Florida wait time alerts and smarter timing with Ride Ready. Track Gringotts, Revenge of the Mummy, Minion rides, and more - ride when lines dip.</p>
+      <p>Get Universal Studios Florida wait time alerts and smarter timing with Ride Ready. Track Gringotts, Revenge of
+        the Mummy, Minion rides, and more - ride when lines dip.</p>
     </div>
 
     <section class="section">
       <h2>Quick park facts</h2>
       <div class="grid">
-        <div class="card"><div class="fact"><b>Location</b><span>Universal Orlando Resort (Orlando, Florida)</span></div></div>
-<div class="card"><div class="fact"><b>Best for</b><span>One-day visits where timing matters more than perfection</span></div></div>
-<div class="card"><div class="fact"><b>Top time-savers</b><span>Gringotts + Mummy (plus Minion rides that build long lines fast)</span></div></div>
-<div class="card"><div class="fact"><b>Reality check</b><span>The park changes - keep your "favorites" list current before you walk in.</span></div></div>
+        <div class="card">
+          <div class="fact"><b>Location</b><span>Universal Orlando Resort (Orlando, Florida)</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>Best for</b><span>One-day visits where timing matters more than perfection</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>Top time-savers</b><span>Gringotts + Mummy (plus Minion rides that build long lines
+              fast)</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>Reality check</b><span>The park changes - keep your "favorites" list current before you
+              walk in.</span></div>
+        </div>
       </div>
     </section>
 
@@ -364,8 +428,10 @@ footer {
         <div class="card ride-card">
           <h3>Harry Potter and the Escape from Gringotts</h3>
           <div class="ride-tag">Diagon Alley - dark ride + coaster</div>
-          <div class="chips"><span class="chip">Indoor</span><span class="chip">Story-heavy</span><span class="chip">High demand</span></div>
-          <p class="ride-why">When this spikes, it eats your day. Alerts help you ride it when the queue is actually manageable.</p>
+          <div class="chips"><span class="chip">Indoor</span><span class="chip">Story-heavy</span><span
+              class="chip">High demand</span></div>
+          <p class="ride-why">When this spikes, it eats your day. Alerts help you ride it when the queue is actually
+            manageable.</p>
           <p class="ride-fact"><b>Fun fact:</b> A hybrid dark ride/coaster experience set inside Gringotts Bank.</p>
         </div>
 
@@ -373,26 +439,33 @@ footer {
         <div class="card ride-card">
           <h3>Revenge of the Mummy</h3>
           <div class="ride-tag">Indoor coaster - fast and re-rideable</div>
-          <div class="chips"><span class="chip">Indoor</span><span class="chip">Coaster</span><span class="chip">Great re-ride</span></div>
+          <div class="chips"><span class="chip">Indoor</span><span class="chip">Coaster</span><span class="chip">Great
+              re-ride</span></div>
           <p class="ride-why">It's one of the best 'do it twice' rides - but only if you avoid peak waits. Track it.</p>
-          <p class="ride-fact"><b>Fun fact:</b> A classic indoor coaster that feels even better when you catch it under 30-40 minutes.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A classic indoor coaster that feels even better when you catch it under
+            30-40 minutes.</p>
         </div>
 
 
         <div class="card ride-card">
           <h3>Illumination's Villain-Con Minion Blast</h3>
           <div class="ride-tag">Interactive shooter - newer crowd magnet</div>
-          <div class="chips"><span class="chip">Interactive</span><span class="chip">High capacity</span><span class="chip">Still gets lines</span></div>
-          <p class="ride-why">Newer attractions can build lines fast. A drop alert helps you slide in when it calms down.</p>
-          <p class="ride-fact"><b>Fun fact:</b> An interactive blaster-style attraction themed to the Minion universe.</p>
+          <div class="chips"><span class="chip">Interactive</span><span class="chip">High capacity</span><span
+              class="chip">Still gets lines</span></div>
+          <p class="ride-why">Newer attractions can build lines fast. A drop alert helps you slide in when it calms
+            down.</p>
+          <p class="ride-fact"><b>Fun fact:</b> An interactive blaster-style attraction themed to the Minion universe.
+          </p>
         </div>
 
 
         <div class="card ride-card">
           <h3>Despicable Me Minion Mayhem</h3>
           <div class="ride-tag">Motion simulator - family headliner</div>
-          <div class="chips"><span class="chip">Indoor</span><span class="chip">Family</span><span class="chip">Lines spike midday</span></div>
-          <p class="ride-why">It's an easy 'surprise 60 minutes' if you hit it wrong. Alerts help you avoid that trap.</p>
+          <div class="chips"><span class="chip">Indoor</span><span class="chip">Family</span><span class="chip">Lines
+              spike midday</span></div>
+          <p class="ride-why">It's an easy 'surprise 60 minutes' if you hit it wrong. Alerts help you avoid that trap.
+          </p>
           <p class="ride-fact"><b>Fun fact:</b> A popular family simulator that's best tackled early or on a lull.</p>
         </div>
 
@@ -401,24 +474,59 @@ footer {
           <h3>MEN IN BLACK: Alien Attack</h3>
           <div class="ride-tag">Interactive shooter - low-stress win</div>
           <div class="chips"><span class="chip">Interactive</span><span class="chip">Air-conditioned</span></div>
-          <p class="ride-why">Perfect 'pivot ride' while you wait for a big alert. It's also a great break from the heat.</p>
+          <p class="ride-why">Perfect 'pivot ride' while you wait for a big alert. It's also a great break from the
+            heat.</p>
           <p class="ride-fact"><b>Fun fact:</b> Your score becomes the game - and makes it a fun repeat ride.</p>
         </div>
 
       </div>
     </section>
 
+    <div class="mid-page-cta"
+      style="margin: 40px 0; text-align: center; background: rgba(255, 75, 43, 0.1); padding: 24px; border-radius: 12px; border: 1px solid rgba(255, 75, 43, 0.3);">
+      <p style="color: #fff; font-weight: 700; margin-bottom: 8px; font-size: 1.1rem;">Want to track these live?</p>
+      <p style="color: rgba(255,255,255,0.8); margin: 0 0 16px; font-size: 0.95rem;">Ride Ready gives you live alerts
+        when Gringotts and Mummy drop.</p>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-usf-mid" data-ref="park-usf-mid"
+        style="display: inline-block; background: linear-gradient(100deg, #FF416C, #FF4B2B); color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 99px; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);">Download
+        Free (iPhone)</a>
+    </div>
+
     <section class="section alert-grid">
       <h2>Good default alert presets</h2>
       <div class="grid">
-        <div class="card"><b>Gringotts</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 45 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">A strong 'go now' threshold for a top-tier headliner.</div></div>
-<div class="card"><b>Mummy</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">If you want a re-ride, this makes it possible.</div></div>
-<div class="card"><b>Minion Blast</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Worth it when it dips - otherwise it can steal time.</div></div>
-<div class="card"><b>Minion Mayhem</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Best to treat as an early/late-day target.</div></div>
-<div class="card"><b>Men in Black</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">A great filler ride if you're nearby.</div></div>
+        <div class="card"><b>Gringotts</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 45 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">A strong 'go now' threshold for a top-tier
+            headliner.</div>
+        </div>
+        <div class="card"><b>Mummy</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">If you want a re-ride, this makes it possible.
+          </div>
+        </div>
+        <div class="card"><b>Minion Blast</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Worth it when it dips - otherwise it can steal
+            time.</div>
+        </div>
+        <div class="card"><b>Minion Mayhem</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Best to treat as an early/late-day target.</div>
+        </div>
+        <div class="card"><b>Men in Black</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">A great filler ride if you're nearby.</div>
+        </div>
       </div>
       <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
-        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
+        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth
+        moving for.
       </p>
     </section>
 
@@ -426,10 +534,10 @@ footer {
       <h2>If you only have one day</h2>
       <ol class="plan">
         <li>Before you enter: favorite your top 4-6 rides and set drop alerts.</li>
-<li>Start with one headliner early, then use alerts to pick the next move.</li>
-<li>Use indoor shows/food as your 'buffer' while you wait for a big alert.</li>
-<li>If a headliner spikes, don't chase it. Pivot, then come back when the app pings.</li>
-<li>Last stretch: squeeze in re-rides on Mummy or your favorite Minion ride if waits drop.</li>
+        <li>Start with one headliner early, then use alerts to pick the next move.</li>
+        <li>Use indoor shows/food as your 'buffer' while you wait for a big alert.</li>
+        <li>If a headliner spikes, don't chase it. Pivot, then come back when the app pings.</li>
+        <li>Last stretch: squeeze in re-rides on Mummy or your favorite Minion ride if waits drop.</li>
       </ol>
     </section>
 
@@ -437,40 +545,51 @@ footer {
       <h2>More planning help</h2>
       <ul class="plan" style="list-style: disc;">
         <li><a class="inline-link" href="/orlando/spring-break-2026/">Orlando Spring Break 2026 Survival Guide</a></li>
-<li><a class="inline-link" href="/parks/epic-universe/">Universal Epic Universe strategy</a></li>
-<li><a class="inline-link" href="/parks/">All supported parks</a></li>
+        <li><a class="inline-link" href="/parks/epic-universe/">Universal Epic Universe strategy</a></li>
+        <li><a class="inline-link" href="/parks/">All supported parks</a></li>
       </ul>
     </section>
 
     <section class="section">
       <h2>FAQ</h2>
 
-    <details>
-      <summary>Does Ride Ready use the park's official wait times?</summary>
-      <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
-    </details>
-    <details>
-      <summary>What's the fastest way to get value on a one-day visit?</summary>
-      <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot - that's where you claw back time without buying a line-skip add-on.</p>
-    </details>
-    <details>
-      <summary>Is this affiliated with Universal Studios Florida?</summary>
-      <p>No. Ride Ready is an independent app.</p>
-    </details>
+      <details>
+        <summary>Does Ride Ready use the park's official wait times?</summary>
+        <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has
+          downtime, your alerts may be delayed or temporarily less accurate.</p>
+      </details>
+      <details>
+        <summary>What's the fastest way to get value on a one-day visit?</summary>
+        <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot - that's
+          where you claw back time without buying a line-skip add-on.</p>
+      </details>
+      <details>
+        <summary>Is this affiliated with Universal Studios Florida?</summary>
+        <p>No. Ride Ready is an independent app.</p>
+      </details>
 
     </section>
 
     <section class="section sources">
       <h2>Sources</h2>
-      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official
+        attraction pages and public ride databases.</p>
       <ul class="plan" style="list-style: disc;">
-        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Universal_Studios_Florida" rel="noopener noreferrer" target="_blank">Universal Studios Florida (park overview) - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Harry_Potter_and_the_Escape_from_Gringotts" rel="noopener noreferrer" target="_blank">Escape from Gringotts - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Revenge_of_the_Mummy" rel="noopener noreferrer" target="_blank">Revenge of the Mummy (Universal Orlando) - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Villain-Con_Minion_Blast" rel="noopener noreferrer" target="_blank">Villain-Con Minion Blast - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Despicable_Me_Minion_Mayhem" rel="noopener noreferrer" target="_blank">Despicable Me Minion Mayhem - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Men_in_Black:_Alien_Attack" rel="noopener noreferrer" target="_blank">MEN IN BLACK: Alien Attack - Wikipedia</a></li>
-<li><a class="inline-link" href="https://orlandoinformer.com/blog/rip-ride-rockit-closing/" rel="noopener noreferrer" target="_blank">Hollywood Rip Ride Rockit closure (context) - Orlando Informer</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Universal_Studios_Florida"
+            rel="noopener noreferrer" target="_blank">Universal Studios Florida (park overview) - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Harry_Potter_and_the_Escape_from_Gringotts"
+            rel="noopener noreferrer" target="_blank">Escape from Gringotts - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Revenge_of_the_Mummy" rel="noopener noreferrer"
+            target="_blank">Revenge of the Mummy (Universal Orlando) - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Villain-Con_Minion_Blast"
+            rel="noopener noreferrer" target="_blank">Villain-Con Minion Blast - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Despicable_Me_Minion_Mayhem"
+            rel="noopener noreferrer" target="_blank">Despicable Me Minion Mayhem - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Men_in_Black:_Alien_Attack"
+            rel="noopener noreferrer" target="_blank">MEN IN BLACK: Alien Attack - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://orlandoinformer.com/blog/rip-ride-rockit-closing/"
+            rel="noopener noreferrer" target="_blank">Hollywood Rip Ride Rockit closure (context) - Orlando Informer</a>
+        </li>
       </ul>
     </section>
 
@@ -479,14 +598,15 @@ footer {
     </footer>
   </div>
 
-<script>
-document.querySelectorAll('[data-ref]').forEach(function(link) {
-  link.addEventListener('click', function() {
-    if (typeof gtag === 'function') {
-      gtag('event', 'app_store_click', { source: this.dataset.ref, page: window.location.pathname });
-    }
-  });
-});
-</script>
+  <script>
+    document.querySelectorAll('[data-ref]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'app_store_click', { source: this.dataset.ref, page: window.location.pathname });
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>
