@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found | Ride Ready</title>
   <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-404">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-KGYGTPMTQ3');
-      gtag('event', 'page_404', { path: window.location.pathname });
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KGYGTPMTQ3');
+    gtag('event', 'page_404', {
+      path: window.location.pathname,
+      attempted_url: window.location.href,
+      referrer: document.referrer
+    });
+  </script>
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -29,11 +34,13 @@
       color: #fff;
       text-align: center;
     }
+
     .wrap {
       max-width: 860px;
       margin: 0 auto;
       padding: 80px 24px;
     }
+
     h1 {
       font-size: 2.6rem;
       margin: 0 0 10px;
@@ -42,27 +49,45 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    p { color: #bbb; font-size: 1.05rem; }
+
+    p {
+      color: #bbb;
+      font-size: 1.05rem;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 14px;
       margin-top: 28px;
     }
+
     a.card {
       display: block;
       padding: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 16px;
       text-decoration: none;
       color: white;
       text-align: left;
       transition: transform 0.15s ease;
     }
-    a.card:hover { transform: translateY(-2px); }
-    .title { font-weight: 800; margin-bottom: 6px; }
-    .desc { color: #bbb; font-size: 0.95rem; }
+
+    a.card:hover {
+      transform: translateY(-2px);
+    }
+
+    .title {
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .desc {
+      color: #bbb;
+      font-size: 0.95rem;
+    }
+
     .btn {
       display: inline-block;
       margin-top: 22px;
@@ -75,10 +100,12 @@
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <h1>That page doesn’t exist</h1>
-    <p>If you followed an old link, we’re probably in the middle of moving things around. Here are the best places to go next:</p>
+    <p>If you followed an old link, we’re probably in the middle of moving things around. Here are the best places to go
+      next:</p>
 
     <div class="grid">
       <a class="card" href="/">
@@ -99,20 +126,22 @@
       </a>
     </div>
 
-    <a class="btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=404-download" data-ref="404-download">Download the App</a>
+    <a class="btn" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=404-download"
+      data-ref="404-download">Download the App</a>
   </div>
-<script>
-      // Global App Store click tracking via data-ref attribute
-      document.querySelectorAll('[data-ref]').forEach(function (link) {
-        link.addEventListener('click', function () {
-          if (typeof gtag === 'function') {
-            gtag('event', 'app_store_click', {
-              source: this.dataset.ref,
-              page: window.location.pathname
-            });
-          }
-        });
+  <script>
+    // Global App Store click tracking via data-ref attribute
+    document.querySelectorAll('[data-ref]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'app_store_click', {
+            source: this.dataset.ref,
+            page: window.location.pathname
+          });
+        }
       });
-    </script>
+    });
+  </script>
 </body>
+
 </html>
