@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/favicon.ico" rel="icon" sizes="any" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="/site.webmanifest" rel="manifest" />
+    <title>Ride Ready for Android - Join the Waitlist</title>
+    <meta
+        content="Be the first to know when Ride Ready launches on Android. Real-time wait times, AI plans, and queue alerts coming in 2026."
+        name="description" />
+    <meta content="Ride Ready for Android - Join the Waitlist" property="og:title" />
+    <meta content="Skip the lines. Coming to Android in 2026." property="og:description" />
+    <meta content="https://rideready.app/images/epic-portal-photo.jpg" property="og:image" />
+    <meta content="https://rideready.app/waitlist/android/" property="og:url" />
+    <link href="https://rideready.app/waitlist/android/" rel="canonical" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KGYGTPMTQ3');
+    </script>
+    <style>
+        :root {
+            --primary: #3ddc84;
+            /* Android Green-ish */
+            --primary-dark: #32b46c;
+            --success: #10b981;
+            --dark: #000000;
+            --text: #ffffff;
+            --text-light: #a3a3a3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Background Gradient similar to main site */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% -10%, rgba(61, 220, 132, 0.15), transparent 55%),
+                radial-gradient(circle at 80% 80%, rgba(61, 220, 132, 0.1), transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fff, #a3a3a3);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 400px;
+        }
+
+        .robot-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 480px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        input[type="email"]:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(61, 220, 132, 0.3);
+            background: var(--primary-dark);
+        }
+
+        button[type="submit"]:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .features-grid {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: left;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.4;
+        }
+
+        .back-link {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        #form-status {
+            margin-top: 15px;
+            min-height: 24px;
+            font-size: 0.95rem;
+        }
+
+        .success-message {
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        .error-message {
+            color: #ef4444;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Optional Logo Placeholder -->
+        <!-- <img src="/images/logo.png" alt="Ride Ready Logo" class="logo"> -->
+
+        <span class="robot-icon">🤖</span>
+
+        <h1>Ride Ready for Android</h1>
+        <p class="subtitle">We're finally crossing the platform divide. Get real-time waits, AI plans, and queue alerts
+            on your Android device in 2026.</p>
+
+        <div class="card">
+            <h3 style="margin-bottom: 20px; font-size: 1.2rem;">Join the Waitlist</h3>
+            <form id="email-capture-form">
+                <div class="form-group">
+                    <label for="email-input" style="position:absolute; left:-9999px;">Email address</label>
+                    <input type="email" id="email-input" name="email" placeholder="name@example.com" required
+                        autocomplete="email">
+                    <input type="text" id="website" name="website" style="position: absolute; left: -9999px;"
+                        tabindex="-1" autocomplete="off">
+                    <button type="submit">Notify Me</button>
+                </div>
+            </form>
+            <div id="form-status"></div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">⚡️</span>
+                <div class="feature-text">Real-time wait times & forecasts</div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🧠</span>
+                <div class="feature-text">AI-powered touring plans</div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🔔</span>
+                <div class="feature-text">Smart queue alerts</div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🎢</span>
+                <div class="feature-text">Epic Universe ready</div>
+            </div>
+        </div>
+
+        <a href="/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5" />
+                <path d="M12 19l-7-7 7-7" />
+            </svg>
+            Back to Home
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('email-capture-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+            const honeypot = document.getElementById('website').value;
+            const statusEl = document.getElementById('form-status');
+            const btn = this.querySelector('button');
+
+            if (honeypot) {
+                // Silently fail for bots
+                statusEl.innerHTML = '<span class="success-message">You\'re on the list! We\'ll be in touch.</span>';
+                btn.textContent = 'Joined!';
+                btn.disabled = true;
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Adding you...';
+
+            try {
+                const response = await fetch('https://gxlpamlcajddjdzktecf.supabase.co/rest/v1/guide_email_signups', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=minimal',
+                        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs',
+                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        guide_slug: 'android-waitlist',
+                        source_url: window.location.href
+                    })
+                });
+
+                if (response.ok) {
+                    // Track in GA4
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'lead_generation', {
+                            event_category: 'Android Waitlist',
+                            event_label: 'Signup',
+                            value: 10 // Arbitrary value for high intent
+                        });
+                    }
+
+                    statusEl.innerHTML = '<span class="success-message">✓ You\'re on the list! We\'ll notify you when beta testing begins.</span>';
+                    btn.textContent = 'Joined!';
+                    document.getElementById('email-input').value = '';
+                } else {
+                    throw new Error('Failed to save');
+                }
+            } catch (err) {
+                console.error(err);
+                statusEl.innerHTML = '<span class="error-message">Something went wrong. Please try again.</span>';
+                btn.disabled = false;
+                btn.textContent = 'Notify Me';
+            }
+        });
+    </script>
+</body>
+
+</html>
