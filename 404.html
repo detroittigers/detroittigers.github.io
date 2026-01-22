@@ -18,6 +18,40 @@
       attempted_url: window.location.href,
       referrer: document.referrer
     });
+
+    // Smart redirects for known 404 patterns
+    (function() {
+      var path = window.location.pathname;
+      var redirects = {
+        '/2025-holiday-strategy/': '/parks/epic-universe/strategy/',
+        '/2025-holiday-strategy': '/parks/epic-universe/strategy/',
+        '/epic-universe/2025-holiday-strategy/': '/parks/epic-universe/strategy/',
+        '/epic-universe/2025-holiday-strategy': '/parks/epic-universe/strategy/'
+      };
+
+      // Check direct redirects first
+      if (redirects[path]) {
+        gtag('event', 'legacy_redirect', { from: path, to: redirects[path] });
+        window.location.replace(redirects[path]);
+        return;
+      }
+
+      // Handle .html suffix (remove it)
+      if (path.endsWith('.html')) {
+        var newPath = path.replace(/\.html$/, '/');
+        gtag('event', 'legacy_redirect', { from: path, to: newPath });
+        window.location.replace(newPath);
+        return;
+      }
+
+      // Handle trailing special characters (apostrophe, quote)
+      if (/['"]\/?$/.test(path)) {
+        var cleanPath = path.replace(/['"]\/?$/, '/');
+        gtag('event', 'legacy_redirect', { from: path, to: cleanPath });
+        window.location.replace(cleanPath);
+        return;
+      }
+    })();
   </script>
   <meta name="robots" content="noindex, nofollow">
 
