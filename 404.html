@@ -13,13 +13,8 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
-    gtag('event', 'page_404', {
-      path: window.location.pathname,
-      attempted_url: window.location.href,
-      referrer: document.referrer
-    });
 
-    // Smart redirects for known 404 patterns
+    // Smart redirects for known 404 patterns (check before firing 404 event)
     (function() {
       var path = window.location.pathname;
       var redirects = {
@@ -51,6 +46,13 @@
         window.location.replace(cleanPath);
         return;
       }
+
+      // Only fire page_404 if no redirect matched
+      gtag('event', 'page_404', {
+        path: window.location.pathname,
+        attempted_url: window.location.href,
+        referrer: document.referrer
+      });
     })();
   </script>
   <meta name="robots" content="noindex, nofollow">
