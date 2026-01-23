@@ -1080,21 +1080,7 @@
                     </p>
                 </div>
                 <!-- Desktop fallback CTA (hidden by default, shown via JS) -->
-                <div id="desktop-cta" style="display: none;">
-                    <a class="primary-button hero-button" data-ref="home-desktop-guide"
-                        href="/parks/epic-universe/strategy/"
-                        style="background: linear-gradient(45deg, #6366f1, #8b5cf6);">View Epic Universe Strategy
-                        Guide</a>
-                    <p class="platform-note" style="margin-top: 12px;">
-                        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-desktop"
-                            data-ref="home-desktop-appstore"
-                            style="color: #aaaaaa; text-decoration: underline; font-size: 0.9rem;" target="_blank"
-                            rel="noopener noreferrer">Get
-                            the app on iPhone</a> ·
-                        <a href="/waitlist/android/" data-ref="home-desktop-android"
-                            style="color: #aaaaaa; text-decoration: underline; font-size: 0.9rem;">Android waitlist</a>
-                    </p>
-                </div>
+
                 <div class="social-proof-hero">
                     <span>★★★★★</span> Built from hundreds of thousands of wait-time samples
                 </div>
@@ -1489,25 +1475,7 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Platform detection: Show desktop CTA for non-mobile users
-            (function () {
-                var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                if (!isMobile) {
-                    var mobileCta = document.getElementById('mobile-cta');
-                    var desktopCta = document.getElementById('desktop-cta');
-                    if (mobileCta && desktopCta) {
-                        mobileCta.style.display = 'none';
-                        desktopCta.style.display = 'block';
-                        // Track desktop CTA view
-                        if (typeof gtag === 'function') {
-                            gtag('event', 'desktop_cta_shown', {
-                                event_category: 'ux',
-                                platform: navigator.platform
-                            });
-                        }
-                    }
-                }
-            })();
+
 
             // Global App Store click tracking via data-ref attribute
             document.querySelectorAll('[data-ref]').forEach(function (link) {
