@@ -10,13 +10,13 @@
     <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
     <link href="/site.webmanifest" rel="manifest" />
     <title>Orlando Spring Break 2026: The Complete Survival Guide | Ride Ready</title>
-    <meta
-        content="7 weeks of spring break chaos at Disney, Universal, and SeaWorld, decoded. Week-by-week patterns, regional calendars, and strategies that actually work."
-        name="description" />
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When is Spring Break busiest in Orlando (2026)?", "acceptedAnswer": {"@type": "Answer", "text": "Easter week (Mar 30–Apr 5, 2026) is THE peak at 10/10 crowds. Week 2 (Mar 16–20) and Week 3 (Mar 23–27) tie at 8/10. If you can choose dates, Week 7 (Apr 20–24) is the lightest at 3/10. Best day of the week varies by park: Sunday is best for Epic Universe, while Wed/Thu are best for IOA, USF, and SeaWorld."}}, {"@type": "Question", "name": "Is Universal Express worth it during Spring Break?", "acceptedAnswer": {"@type": "Answer", "text": "Strategy often beats payment, but Easter week (Week 4) is the exception — BUY IT. Week 2 is also a strong yes. If you only have one park day, Express can also help you maximize limited time."}}, {"@type": "Question", "name": "What's the best time of day to ride headliners?", "acceptedAnswer": {"@type": "Answer", "text": "The first 60–90 minutes after park opening (avg 24–26 min waits) and the last 2 hours before close (avg 26–31 min waits) are the best windows for headliners. Peak hours (11 AM–4 PM) average 37–39 minutes — best used for indoor rides, shows, and meals."}}, {"@type": "Question", "name": "Does Ride Ready work at Disney World?", "acceptedAnswer": {"@type": "Answer", "text": "Live wait times, drop alerts, and next-ride picks in Ride Ready are currently built for Universal Orlando parks and SeaWorld Orlando. This crowd calendar still helps with Disney trip timing."}}]}
+    </script>
+
+    <meta content="Orlando Spring Break 2026 crowd calendar (March 9–April 24). Pick the best week, decide on Universal Express, and use Ride Ready wait-time alerts + next-ride picks in the park." name="description" />
     <meta content="Orlando Spring Break 2026: The Complete Survival Guide" property="og:title" />
-    <meta
-        content="Week 2 is a nightmare. Week 6 is a hidden gem. The 7-week breakdown for Universal Orlando and SeaWorld."
-        property="og:description" />
+    <meta content="Orlando Spring Break 2026 decoded: the 7-week crowd calendar + Express Pass verdicts. Then win in-park with live wait times, drop alerts, and next-ride picks from Ride Ready." property="og:description" />
     <meta content="https://rideready.app/images/logo.png" property="og:image" />
     <meta content="https://rideready.app/orlando/spring-break-2026/" property="og:url" />
     <link href="https://rideready.app/orlando/spring-break-2026/" rel="canonical" />
@@ -123,17 +123,49 @@
         }
 
         .applies-to {
-            text-align: center;
-            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
         }
 
-        .applies-to span {
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .park-pill {
+            background: rgba(255, 255, 255, 0.10);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.15s, background 0.15s, color 0.15s;
+        }
+
+        a.park-pill:hover {
+            background: rgba(255, 255, 255, 0.16);
+            color: rgba(255, 255, 255, 0.92);
+            transform: translateY(-1px);
+        }
+
+        .park-pill.disabled {
+            opacity: 0.55;
+            cursor: default;
+        }
+
+        .applies-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin: -4px 0 30px;
+        }
+
+        .applies-note a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
 
         .card {
@@ -226,7 +258,58 @@
             margin-top: 20px;
         }
 
-        .callout {
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .feature {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .feature h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .feature p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .cta-row .cta-button {
+            width: auto;
+            min-width: 240px;
+            margin-top: 0;
+        }
+
+        .cta-button.secondary {
+            background: rgba(17, 24, 39, 0.06);
+            color: var(--dark);
+            border: 1px solid #e5e7eb;
+        }
+
+        .cta-button.secondary:hover {
+            opacity: 1;
+        }
+.callout {
             background: #f8fafc;
             border-radius: 12px;
             padding: 20px;
@@ -348,13 +431,49 @@
             transform: translateY(-1px);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
+    
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 14px 16px;
+            background: #ffffff;
+            margin-top: 12px;
+        }
+
+        .faq-item summary {
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary:after {
+            content: '+';
+            float: right;
+            font-weight: 800;
+            color: var(--text-light);
+        }
+
+        .faq-item[open] summary:after {
+            content: '–';
+        }
+
+        .faq-item p {
+            margin-top: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
     </style>
 </head>
 
 <body>
     <div class="sticky-top-cta">
         <span class="emoji">📲</span>
-        <span><strong>Visiting this spring?</strong> See live wait times in the park.</span>
+        <span><strong>Visiting this spring?</strong> See live wait times + drop alerts in the park.</span>
         <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-spring-break-2026-sticky"
             data-ref="guide-spring-break-2026-sticky">Get free app →</a>
     </div>
@@ -373,11 +492,14 @@
             <span class="data-badge" style="background: rgba(16,185,129,0.2); color: #6ee7b7; margin-left: 8px;">Updated
                 Jan 2026</span>
         </div>
-        <div class="applies-to">
-            <span>Walt Disney World</span>
-            <span>Universal Orlando Resort</span>
-            <span>SeaWorld</span>
+        <div class="applies-to" aria-label="Applies to these parks">
+            <span class="park-pill disabled" aria-disabled="true" title="Live tracking not yet available">Walt Disney World</span>
+            <a class="park-pill" href="/parks/epic-universe/">Epic Universe</a>
+            <a class="park-pill" href="/parks/islands-of-adventure/">Islands of Adventure</a>
+            <a class="park-pill" href="/parks/universal-studios-florida/">Universal Studios Florida</a>
+            <a class="park-pill" href="/parks/seaworld-orlando/">SeaWorld Orlando</a>
         </div>
+        <p class="applies-note">Crowd calendar covers <strong>all</strong> Orlando parks. Live wait times + drop alerts work in the Ride Ready app for <strong>Universal &amp; SeaWorld</strong>.</p>
         <div class="card">
             <h2><span class="emoji-icon">📅</span> The 7-Week Breakdown</h2>
             <p style="margin-bottom: 20px;">We analyzed over 100 school district calendars to build this master crowd
@@ -399,35 +521,35 @@
                             <td>Mar 9-13</td>
                             <td><span class="crowd-score score-5">5/10</span></td>
                             <td>Houston, Texas</td>
-                            <td>Sun / Wed</td>
+                            <td>Sun (EU) / Wed*</td>
                         </tr>
-                        <tr style="background-color: #fef2f2;">
+                        <tr style="background-color: #fff7ed;">
                             <td class="week-num">2</td>
                             <td><strong>Mar 16-20</strong></td>
-                            <td><span class="crowd-score score-10">10/10 🔥</span></td>
-                            <td><strong>FL Residents + Dallas + Ontario + Indy</strong></td>
-                            <td><strong>None good</strong></td>
+                            <td><span class="crowd-score score-8">8/10</span></td>
+                            <td>FL Residents + Dallas + Ontario overlap</td>
+                            <td>Sun (EU) / Wed*</td>
                         </tr>
                         <tr>
                             <td class="week-num">3</td>
                             <td>Mar 23-27</td>
                             <td><span class="crowd-score score-8">8/10</span></td>
                             <td>Miami + Chicago + Cincinnati</td>
-                            <td>Sunday</td>
+                            <td>Sun (EU) / Wed*</td>
                         </tr>
                         <tr style="background-color: #fef2f2;">
                             <td class="week-num">4</td>
-                            <td>Mar 30 - Apr 5</td>
-                            <td><span class="crowd-score score-9">9/10</span></td>
-                            <td>EASTER WEEK (Apr 5) + Detroit + NJ</td>
-                            <td>Mon / Tue</td>
+                            <td><strong>Mar 30 - Apr 5</strong></td>
+                            <td><span class="crowd-score score-10">10/10</span></td>
+                            <td><strong>EASTER PEAK</strong> + Detroit + NJ</td>
+                            <td>None Good</td>
                         </tr>
                         <tr>
                             <td class="week-num">5</td>
                             <td>Apr 6-10</td>
-                            <td><span class="crowd-score score-6">6/10</span></td>
-                            <td>Atlanta + Charlotte + Columbus</td>
-                            <td>Sun / Tue</td>
+                            <td><span class="crowd-score score-7">7/10</span></td>
+                            <td>Atlanta + Charlotte (lull starts mid-week)</td>
+                            <td>Thu+ best</td>
                         </tr>
                         <tr>
                             <td class="week-num">6</td>
@@ -439,112 +561,33 @@
                         <tr>
                             <td class="week-num">7</td>
                             <td>Apr 20-24</td>
-                            <td><span class="crowd-score score-4">4/10 ⭐</span></td>
-                            <td>Boston Only</td>
+                            <td><span class="crowd-score score-4">3/10 ⭐</span></td>
+                            <td>Boston Only — Lightest crowds</td>
                             <td>Any Day</td>
                         </tr>
                     </tbody>
                 </table>
+                <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 12px; padding: 10px; background: #f8fafc; border-radius: 8px;">
+                    <strong>*Best Day varies by park:</strong> Epic Universe → <strong>Sunday</strong> is best (49 min avg), Monday is worst (61 min). IOA/USF/SeaWorld → <strong>Wed/Thu</strong> are best, Saturday is worst. Based on 2.3M+ wait time samples (Jan 2026).
+                </p>
             </div>
             <!-- Mid-page CTA -->
             <div
                 style="margin-top: 24px; padding: 20px; background: linear-gradient(135deg, rgba(244,63,94,0.1) 0%, rgba(249,115,22,0.1) 100%); border-radius: 12px; text-align: center; border: 1px solid rgba(244,63,94,0.2);">
-                <p style="margin: 0 0 12px; font-weight: 600; color: var(--dark);">Know exactly when to queue</p>
+                <p style="margin: 0 0 12px; font-weight: 600; color: var(--dark);">Know exactly when to move (without staring at your phone)</p>
                 <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-spring-break-2026-mid"
                     data-ref="guide-spring-break-2026-mid"
                     style="display: inline-block; background: linear-gradient(135deg, #f43f5e 0%, #f97316 100%); color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
-                    Get Live Wait Times (Free)
+                    Get Live Waits + Alerts (Free)
                 </a>
                 <p style="margin: 10px 0 0; font-size: 0.85rem; color: var(--text-light);">iPhone app · Universal &
                     SeaWorld</p>
             </div>
         </div>
-        <div class="card">
-            <h2><span class="emoji-icon">📍</span> Regional Guides</h2>
-            <div class="regional-callouts">
-                <div class="callout mi">
-                    <h3>Michigan Families 🟡</h3>
-                    <p>Heads up: Your break (Week 4) overlaps with Easter (April 5). Easter travelers boost crowds to
-                        9/10. Consider Express Pass or strategic timing. Monday/Tuesday are your best days.</p>
-                </div>
-                <div class="callout fl">
-                    <h3>Florida Residents 🔴</h3>
-                    <p>Your break (Week 2) is ground zero. It is the absolute worst week. If you have passes, consider
-                        skipping and going Week 1 or 3.</p>
-                </div>
-                <div class="callout ca">
-                    <h3>Canadian Families 🟡</h3>
-                    <p>Ontario March Break (Week 2) hits the peak collision. Expect max waits. Fly down Week 1 if
-                        possible.</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <h2><span class="emoji-icon">⚡</span> Express Pass Decision Matrix</h2>
-            <p style="margin-bottom: 5px;">Should you drop the extra cash? Here's our verdict based on crowd levels.</p>
-            <p style="margin-bottom: 15px; font-size: 0.85rem; color: var(--text-light);">* Applies to Universal Orlando
-                Parks (Universal Express). Disney Genie+ / Lightning Lane prices vary by demand.</p>
 
-            <div
-                style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <strong style="color: #1d4ed8;">Pricing Confirms the Pattern</strong>
-                <p style="margin: 8px 0 0; font-size: 0.9rem;">Universal's own Express Pass pricing matches our crowd
-                    predictions. Week 2 and Easter week (Week 4) hit their highest price tier. Week 1 and Week 7 sit in
-                    lower tiers. They're seeing the same data we are.</p>
-            </div>
-            <div class="week-table-container">
-                <table class="week-table">
-                    <thead>
-                        <tr>
-                            <th>Week</th>
-                            <th>Crowd</th>
-                            <th>Express Verdict</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="week-num">1</td>
-                            <td>5/10</td>
-                            <td><strong>No</strong> - Strategy beats payment</td>
-                        </tr>
-                        <tr style="background-color: #fef2f2;">
-                            <td class="week-num">2</td>
-                            <td>10/10</td>
-                            <td><strong>YES - Strongly Consider</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="week-num">3</td>
-                            <td>8/10</td>
-                            <td>Maybe - if only 1 day</td>
-                        </tr>
-                        <tr style="background-color: #fef2f2;">
-                            <td class="week-num">4</td>
-                            <td>9/10</td>
-                            <td><strong>YES - Easter Week</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="week-num">5</td>
-                            <td>6/10</td>
-                            <td>No - Strategy works</td>
-                        </tr>
-                        <tr>
-                            <td class="week-num">6</td>
-                            <td>5/10</td>
-                            <td>No</td>
-                        </tr>
-                        <tr>
-                            <td class="week-num">7</td>
-                            <td>4/10</td>
-                            <td>No</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
         <div class="card" style="background: linear-gradient(135deg, #f43f5e 0%, #f97316 100%); color: white;">
             <h2 style="color: white; border: none; margin-bottom: 10px;">📄 Get the Survival Guide PDF</h2>
-            <p style="margin-bottom: 15px; opacity: 0.95;">7 pages of week-by-week strategy, printable timelines, and
-                the data you need to survive spring break crowds.</p>
+            <p style="margin-bottom: 15px; opacity: 0.95;">4 printable pages of week-by-week strategy, timing patterns, and park-by-park tips — built to help you survive spring break crowds.</p>
             <form id="email-capture-form" style="display: flex; gap: 10px; flex-wrap: wrap;">
                 <label for="email-input"
                     style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">Email
@@ -559,7 +602,7 @@
                     me the PDF</button>
             </form>
             <p id="form-status" style="margin-top: 10px; font-size: 0.9rem; display: none;"></p>
-            <p style="margin-top: 12px; font-size: 0.8rem; opacity: 0.8;">No spam. Just the guide. Unsubscribe anytime.
+            <p style="margin-top: 12px; font-size: 0.8rem; opacity: 0.8;">No spam. Unsubscribe anytime.
             </p>
         </div>
         <script>
@@ -623,6 +666,141 @@
                 }
             });
         </script>
+
+        <div class="card">
+            <h2><span class="emoji-icon">🎯</span> Survive the Chaos with Ride Ready</h2>
+            <p style="margin-bottom: 10px;">This page tells you <em>when</em> crowds hit. Ride Ready helps you win <em>inside</em> the park — like following that one friend who always knows the move.</p>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>⚡ Drop Alerts</h3>
+                    <p>Set a threshold (ex: “Under 45 min”) for your must‑do rides. We’ll ping you the second the line dips. Free includes <strong>3 alerts/day</strong>.</p>
+                </div>
+                <div class="feature">
+                    <h3>🧭 “Ride Next” Picks</h3>
+                    <p><strong>Skip</strong> (our AI agent) recommends what to do next based on live waits, walking time, and your priorities — so you stop wandering and hoping.</p>
+                </div>
+                <div class="feature">
+                    <h3>📊 Multi‑Park Dashboard</h3>
+                    <p>Track Epic Universe, Islands, Universal Studios Florida, and SeaWorld in one place — perfect for park hopping or comparing crowds.</p>
+                </div>
+            </div>
+            <div class="cta-row">
+                <a class="cta-button" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-spring-break-2026-survive"
+                    data-ref="guide-spring-break-2026-survive">Get the App — Free (iPhone)</a>
+                <a class="cta-button secondary" href="/compare/official-apps/">Website vs Official Park Apps</a>
+            </div>
+            <p style="margin-top: 14px; font-size: 0.85rem; color: var(--text-light); text-align: center;">Tip: download before your trip and favorite 4–6 rides so alerts are ready on day one.</p>
+        </div>
+<div class="card">
+            <h2><span class="emoji-icon">📍</span> Regional Guides</h2>
+            <div class="regional-callouts">
+                <div class="callout mi">
+                    <h3>Michigan Families 🟡</h3>
+                    <p>Heads up: Your break (Week 4) overlaps with Easter (April 5). Easter travelers boost crowds to
+                        9/10. Consider Express Pass or strategic timing. Wednesday/Thursday are your best days — data shows Mon/Sat are actually the worst.</p>
+                </div>
+                <div class="callout fl">
+                    <h3>Florida Residents 🔴</h3>
+                    <p>Your break (Week 2) overlaps with Dallas + Ontario — 8/10 crowds. Heavy but not the absolute worst. If you have passes, consider Week 1 or skip to Week 6-7.</p>
+                </div>
+                <div class="callout ca">
+                    <h3>Canadian Families 🟡</h3>
+                    <p>Ontario March Break (Week 2) is 8/10 — heavy but not peak. The real crush is Easter (Week 4). Fly down Week 1 if flexibility allows.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h2><span class="emoji-icon">⚡</span> Express Pass Decision Matrix</h2>
+            <p style="margin-bottom: 5px;">Should you drop the extra cash? Here's our verdict based on crowd levels.</p>
+            <p style="margin-bottom: 15px; font-size: 0.85rem; color: var(--text-light);">* Applies to Universal Orlando Parks (Universal Express). Disney line-skip pricing varies by date.</p>
+
+            <div
+                style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <strong style="color: #1d4ed8;">Pricing Confirms the Pattern</strong>
+                <p style="margin: 8px 0 0; font-size: 0.9rem;">Universal's own Express Pass pricing matches our crowd
+                    predictions. <strong>Easter week (Week 4)</strong> hits the absolute highest price tier — that's your tell it's the real peak. Week 2 is also elevated. Week 1 and Week 7 sit in lower tiers. They're seeing the same data we are.</p>
+            </div>
+            <div class="week-table-container">
+                <table class="week-table">
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Dates</th>
+                            <th>Crowd</th>
+                            <th>Express Verdict</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="week-num">1</td>
+                            <td>Mar 9–13</td>
+                            <td>5/10</td>
+                            <td><strong>No</strong> — strategy beats payment</td>
+                        </tr>
+                        <tr style="background-color: #fff7ed;">
+                            <td class="week-num">2</td>
+                            <td><strong>Mar 16–20</strong></td>
+                            <td>8/10</td>
+                            <td><strong>Strong Yes</strong> — heavy crowds, strategy alone may not cut it</td>
+                        </tr>
+                        <tr>
+                            <td class="week-num">3</td>
+                            <td>Mar 23–27</td>
+                            <td>8/10</td>
+                            <td>Optional — consider if you only have 1 day</td>
+                        </tr>
+                        <tr style="background-color: #fef2f2;">
+                            <td class="week-num">4</td>
+                            <td><strong>Mar 30–Apr 5</strong></td>
+                            <td>10/10</td>
+                            <td><strong>BUY IT</strong> — Easter is THE peak. No shortcuts.</td>
+                        </tr>
+                        <tr>
+                            <td class="week-num">5</td>
+                            <td>Apr 6–10</td>
+                            <td>7/10</td>
+                            <td>Maybe — Thu+ timing helps, but crowds linger early week</td>
+                        </tr>
+                        <tr>
+                            <td class="week-num">6</td>
+                            <td>Apr 13–17</td>
+                            <td>5/10</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td class="week-num">7</td>
+                            <td>Apr 20–24</td>
+                            <td>3/10</td>
+                            <td>No — lightest week of spring break</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <h2><span class="emoji-icon">❓</span> FAQ</h2>
+
+            <details class="faq-item">
+                <summary>When is Spring Break busiest in Orlando (2026)?</summary>
+                <p><strong>Easter week (Mar 30–Apr 5)</strong> is THE peak — 10/10 crowds. <strong>Week 2 (Mar 16–20)</strong> and <strong>Week 3 (Mar 23–27)</strong> tie at 8/10 with overlapping school breaks. If you can choose dates, <strong>Week 7 (Apr 20–24)</strong> is the lightest at 3/10. Best day of the week varies by park: <strong>Sunday</strong> is best for Epic Universe, while <strong>Wed/Thu</strong> are best for IOA, USF, and SeaWorld.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Is Universal Express worth it during Spring Break?</summary>
+                <p>Most of the time, strategy beats payment — but <strong>Easter week (Week 4)</strong> is the exception: BUY IT. <strong>Week 2</strong> is a strong yes too. If you only have one park day, Express can also make the trip feel "doable."</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>What's the best time of day to ride headliners?</summary>
+                <p>Two windows consistently outperform the rest: <strong>rope drop</strong> (the first 60–90 minutes after opening — avg 24–26 min waits) and the <strong>last 2 hours before close</strong> (avg 26–31 min waits). Peak hours (11 AM–4 PM) average 37–39 minutes — best spent on indoor rides, shows, and food.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Does Ride Ready work at Disney World?</summary>
+                <p>Right now, live tracking + drop alerts are built for <strong>Universal Orlando parks</strong> and <strong>SeaWorld Orlando</strong>. This crowd calendar is still useful for Disney trip timing.</p>
+            </details>
+        </div>
+
         <div class="card" style="background: transparent; border: none; box-shadow: none; padding: 0;">
             <h2 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--text);">More Seasonal Guides</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
