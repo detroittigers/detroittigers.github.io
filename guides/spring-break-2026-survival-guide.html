@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta content="noindex, nofollow" name="robots" />
+    <meta content="noindex, follow" name="robots" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
     <meta content="Spring Break 2026 Survival Guide | Ride Ready" property="og:title" />
-    <meta content="7 Weeks. 50 States. One Guide. Find your week and dodge the crowds at Universal Orlando."
+    <meta
+        content="Printable Spring Break 2026 survival guide for Orlando theme parks. Pick the best week, master daily timing, and get park-by-park tips — powered by Ride Ready."
         property="og:description" />
     <meta content="https://rideready.app/images/logo.png" property="og:image" />
     <meta content="summary_large_image" name="twitter:card" />
@@ -16,6 +17,9 @@
     <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
     <link href="/site.webmanifest" rel="manifest" />
     <title>Spring Break 2026 Survival Guide | Ride Ready</title>
+    <meta name="description"
+        content="Printable Spring Break 2026 survival guide for Orlando theme parks. Week-by-week crowd levels, daily timing patterns, and park-by-park tips — powered by Ride Ready." />
+    <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-guide-spring-break-2026" />
 
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
@@ -33,12 +37,40 @@
             }
 
             .page {
-                page-break-after: always;
-                height: 100vh;
+                page-break-after: auto;
+                height: auto;
+                min-height: auto;
+                width: 100%;
+                margin: 0;
+                padding: 0 0.35in;
+                border: none;
+                box-shadow: none;
             }
 
-            .page:last-child {
-                page-break-after: avoid;
+            /* Only force break after page 1 (the one-page cheat sheet) */
+            .page:first-child {
+                page-break-after: always;
+            }
+
+            .no-break {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Prevent elements from being cut in half */
+            table,
+            .week-card,
+            .decision-box,
+            .tip-box {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Allow multi-column layouts to break across pages */
+            .two-col,
+            .three-col {
+                page-break-inside: auto;
+                break-inside: auto;
             }
 
             .no-print {
@@ -113,6 +145,19 @@
             font-size: 8pt;
             color: #9ca3af;
             margin-top: 2px;
+        }
+
+        .mission {
+            font-size: 8pt;
+            color: #9ca3af;
+            margin-top: 2px;
+            line-height: 1.2;
+        }
+
+        .small-note {
+            font-size: 7.5pt;
+            color: #6b7280;
+            margin: -2px 0 8px;
         }
 
         .header-right {
@@ -313,14 +358,16 @@
                 <h1>Spring Break 2026</h1>
                 <div class="dates">Orlando Theme Parks · March 9 - April 24</div>
                 <div class="tagline">7 Weeks. 50 States. 10 Provinces. One Guide.</div>
+                <div class="mission">Brought to you by Ride Ready — the friend who always knows what to do next.</div>
             </div>
             <div class="header-right">
                 <div class="branding">RideReady.app</div>
-                <div class="data-badge">523,000+ wait time samples</div>
+                <div class="data-badge">2,300,000+ wait time samples</div>
+                <div class="data-badge">Updated January 2026</div>
             </div>
         </div>
 
-        <h2>Find Your Week (The Only Chart You Need)</h2>
+        <h2>Find Your Week (Quick Reference)</h2>
         <table>
             <tr>
                 <th>Week</th>
@@ -336,15 +383,15 @@
                 <td class="score-6">6/10</td>
                 <td>Texas, early Midwest</td>
                 <td class="best">Skip</td>
-                <td>Sunday</td>
+                <td>Sun (EU) / Wed (other)</td>
             </tr>
-            <tr style="background: #fef2f2;">
+            <tr style="background: #fff7ed;">
                 <td><strong>2</strong></td>
                 <td>Mar 16-22</td>
-                <td class="score-10">10/10</td>
-                <td><strong>EVERYONE. Florida + Dallas + Ontario.</strong></td>
-                <td class="worst"><strong>YES</strong></td>
-                <td class="worst">None good</td>
+                <td class="score-8">8/10</td>
+                <td>Florida + Dallas + Ontario overlap</td>
+                <td class="caution">Strong yes</td>
+                <td>Sun (EU) / Wed (other)</td>
             </tr>
             <tr>
                 <td>3</td>
@@ -352,23 +399,23 @@
                 <td class="score-8">8/10</td>
                 <td>Northeast, Chicago, Cincinnati</td>
                 <td>Maybe</td>
-                <td>Sunday</td>
+                <td>Sun (EU) / Wed (other)</td>
             </tr>
-            <tr style="background: #fdf4ff;">
+            <tr style="background: #fef2f2;">
                 <td><strong>4</strong></td>
                 <td>Mar 30 - Apr 5</td>
-                <td class="score-9">9/10</td>
-                <td><strong>EASTER (Apr 5) + Michigan + NJ</strong></td>
-                <td class="worst"><strong>YES</strong></td>
-                <td>Mon/Tue</td>
+                <td class="score-10">10/10</td>
+                <td><strong>EASTER PEAK. The busiest week.</strong></td>
+                <td class="worst"><strong>BUY IT</strong></td>
+                <td class="worst">None good</td>
             </tr>
-            <tr style="background: #ecfdf5;">
+            <tr>
                 <td>5</td>
                 <td>Apr 6-12</td>
-                <td class="score-5">5/10</td>
-                <td>Post-Easter lull. Best week.</td>
-                <td class="best">Skip</td>
-                <td class="best">Any day</td>
+                <td class="score-7">7/10</td>
+                <td>Lull starts mid-week (Apr 9+)</td>
+                <td>Maybe</td>
+                <td>Wed-Sat best</td>
             </tr>
             <tr style="background: #ecfdf5;">
                 <td>6</td>
@@ -381,8 +428,8 @@
             <tr style="background: #ecfdf5;">
                 <td>7</td>
                 <td>Apr 20-24</td>
-                <td class="score-4">4/10</td>
-                <td>Wind-down, mostly locals</td>
+                <td class="score-4">3/10</td>
+                <td>Near-normal. Best week.</td>
                 <td class="best">Skip</td>
                 <td class="best">Any day</td>
             </tr>
@@ -392,294 +439,126 @@
             <h4>Quick Decision</h4>
             <div class="two-col">
                 <div>
-                    <p><strong>Can choose dates?</strong> → Pick Week 5, 6, or 7. Post-Easter is golden.</p>
-                    <p><strong>Stuck with Week 2?</strong> → Express Pass. No question. $250 saves your sanity.</p>
+                    <p><strong>Can choose dates?</strong> → Weeks <strong>6–7</strong> are the real sweet spot. Week 5 improves mid-week.
+                    </p>
+                    <p><strong>Stuck with Week 4 (Easter)?</strong> → Express Pass is mandatory. This is THE peak.</p>
                 </div>
                 <div>
-                    <p><strong>Week 3?</strong> → Smart timing works. Sunday is best. Express optional.</p>
-                    <p><strong>Week 4 (Easter)?</strong> → Express recommended. Mon/Tue are your friends.</p>
+                    <p><strong>Epic Universe day?</strong> → <strong>Sunday</strong> is best. Avoid Monday.
+                    </p>
+                    <p><strong>IOA/USF/SeaWorld day?</strong> → <strong>Wed/Thu</strong> are best. Avoid Sat.</p>
                 </div>
             </div>
         </div>
 
-        <div class="two-col">
-            <div>
-                <div class="warning-box">
-                    <strong>Week 2 Collision (Mar 16-22):</strong> ALL Florida public schools + Dallas-Fort Worth (1M
-                    students) + Ontario Canada (2M students) + major universities. This is the absolute worst week.
-                </div>
-            </div>
-            <div>
-                <div class="easter-box">
-                    <strong>Easter Week (Week 4):</strong> Easter Sunday is April 5. Good Friday is April 3. Easter
-                    travelers + Michigan spring break overlap. Crowds jump to 9/10.
-                </div>
-            </div>
-        </div>
-
-        <h2>Hourly Pattern (Use Every Day)</h2>
+        <h2>Daily Timing Pattern (Use Every Day)</h2>
+        <p class="small-note">Works even if your park opens earlier/later. "Avg" = typical posted wait (minutes) from
+            Ride Ready samples (numbers vary by park).</p>
         <div class="two-col">
             <div>
                 <table>
                     <tr>
-                        <th>Time</th>
-                        <th>Avg</th>
+                        <th>Window</th>
+                        <th>Avg*</th>
                         <th>Action</th>
                     </tr>
                     <tr style="background: #ecfdf5;">
-                        <td class="best">9 AM</td>
-                        <td class="best">35</td>
-                        <td>ROPE DROP - Get headliners</td>
-                    </tr>
-                    <tr>
-                        <td>10 AM</td>
-                        <td>53</td>
-                        <td>Keep moving fast</td>
-                    </tr>
-                    <tr style="background: #fef2f2;">
-                        <td class="worst">11-12</td>
-                        <td class="worst">69</td>
-                        <td>PEAK - Eat lunch now</td>
-                    </tr>
-                    <tr>
-                        <td>1-4 PM</td>
-                        <td>62-64</td>
-                        <td>Shows, second-tier rides</td>
+                        <td class="best">Arrive early</td>
+                        <td class="best">—</td>
+                        <td>Be at the gate 60–90 min before open (security takes time)</td>
                     </tr>
                     <tr style="background: #ecfdf5;">
-                        <td class="best">7-9 PM</td>
-                        <td class="best">27-44</td>
-                        <td>EVENING WINDOW - Re-ride headliners</td>
+                        <td class="best">Open → +90 min</td>
+                        <td class="best">24–26</td>
+                        <td><strong>ROPE DROP</strong> — hit 1–2 headliners before the crowd stacks</td>
+                    </tr>
+                    <tr>
+                        <td>+90 min → lunch</td>
+                        <td>33–38</td>
+                        <td>Keep moving fast; stack medium waits while they're still reasonable</td>
+                    </tr>
+                    <tr style="background: #fef2f2;">
+                        <td class="worst">11 AM–4 PM</td>
+                        <td class="worst">37–39</td>
+                        <td><strong>PEAK</strong> — eat early lunch + pivot to indoor/shows</td>
+                    </tr>
+                    <tr>
+                        <td>4–6 PM</td>
+                        <td>35–38</td>
+                        <td>Shows, second-tier rides, and higher-throughput attractions</td>
+                    </tr>
+                    <tr>
+                        <td>6–7 PM</td>
+                        <td>33–35</td>
+                        <td>Early dinner + recharge (set alerts; plan your evening move)</td>
+                    </tr>
+                    <tr style="background: #ecfdf5;">
+                        <td class="best">Last 2 hours</td>
+                        <td class="best">26–31</td>
+                        <td><strong>EVENING WINDOW</strong> — re-ride headliners. Get in line before close.</td>
                     </tr>
                 </table>
             </div>
             <div>
                 <h3>Day-of-Week Pattern</h3>
+                <p class="small-note" style="margin-top:-2px;"><strong>Epic Universe:</strong> Sun best (49), Mon worst (61).<br/><strong>IOA/USF/SeaWorld:</strong> Wed/Thu best, Sat worst.
+                </p>
                 <table>
                     <tr>
                         <th>Day</th>
-                        <th>Avg</th>
-                        <th>Verdict</th>
+                        <th>Epic</th>
+                        <th>IOA/USF</th>
                     </tr>
                     <tr style="background: #ecfdf5;">
-                        <td class="best">Sunday</td>
-                        <td class="best">49</td>
-                        <td>Best day</td>
+                        <td class="best">Sun</td>
+                        <td class="best">49 ✓</td>
+                        <td>29</td>
                     </tr>
                     <tr>
-                        <td>Tuesday</td>
-                        <td>51</td>
-                        <td>Second best</td>
+                        <td>Tue</td>
+                        <td>52</td>
+                        <td>27</td>
+                    </tr>
+                    <tr style="background: #ecfdf5;">
+                        <td class="best">Wed</td>
+                        <td>54</td>
+                        <td class="best">24 ✓</td>
+                    </tr>
+                    <tr style="background: #ecfdf5;">
+                        <td class="best">Thu</td>
+                        <td>52</td>
+                        <td class="best">25 ✓</td>
                     </tr>
                     <tr>
-                        <td>Wed-Sat</td>
-                        <td>53-54</td>
-                        <td>Moderate</td>
+                        <td>Fri</td>
+                        <td>55</td>
+                        <td>30</td>
                     </tr>
                     <tr style="background: #fef2f2;">
-                        <td class="worst">Monday</td>
-                        <td class="worst">62</td>
-                        <td>Worst day</td>
+                        <td class="worst">Sat</td>
+                        <td>54</td>
+                        <td class="worst">35</td>
+                    </tr>
+                    <tr style="background: #fef2f2;">
+                        <td class="worst">Mon</td>
+                        <td class="worst">61 ✗</td>
+                        <td>31</td>
                     </tr>
                 </table>
             </div>
         </div>
 
-        <h2>Epic Universe Priority</h2>
-        <table>
-            <tr>
-                <th>Priority</th>
-                <th>Ride</th>
-                <th>When</th>
-                <th>Spring Break Wait</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Mario Kart: Bowser</td>
-                <td>Rope drop (EPA guests: 8 AM)</td>
-                <td>90-150 min by 10 AM</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Ministry of Magic</td>
-                <td>10:30 AM or 7 PM+</td>
-                <td>120-180 min peak</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Mine-Cart Madness</td>
-                <td>Evening (5-7 PM)</td>
-                <td>90-120 min peak</td>
-            </tr>
-            <tr>
-                <td>4+</td>
-                <td>Everything else</td>
-                <td>As time allows</td>
-                <td>30-60 min</td>
-            </tr>
-        </table>
+        <div class="tip-box">
+            <strong>Ride Ready Quick Start:</strong> Favorite 4–6 rides → set drop alerts → let <strong>Skip</strong>
+            (our AI agent) tell you when to move. Free includes 3 alerts/day. <span style="color:#1d4ed8;">Live tracking
+                supports Universal Orlando + SeaWorld.</span>
+        </div>
 
-        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
+
+        <div class="footer">Data from 2,300,000+ wait time samples | RideReady.app</div>
     </div>
 
-    <!-- PAGE 2: FIND YOUR REGION -->
-    <div class="page">
-        <h2>Find Your Week by Region</h2>
-        <div class="two-col">
-            <div>
-                <h3>Texas</h3>
-                <table>
-                    <tr>
-                        <td>Houston ISD</td>
-                        <td>Week 1 (Mar 9-13)</td>
-                    </tr>
-                    <tr>
-                        <td>Dallas ISD</td>
-                        <td class="worst">Week 2 (Mar 16-20)</td>
-                    </tr>
-                    <tr>
-                        <td>Austin ISD</td>
-                        <td>Week 1 (Mar 10-14)</td>
-                    </tr>
-                </table>
-
-                <h3>Florida</h3>
-                <table>
-                    <tr>
-                        <td>ALL public schools</td>
-                        <td class="worst">Week 2 (Mar 16-20)</td>
-                    </tr>
-                    <tr>
-                        <td>Private schools</td>
-                        <td>Varies - check school</td>
-                    </tr>
-                </table>
-
-                <h3>Northeast</h3>
-                <table>
-                    <tr>
-                        <td>New York</td>
-                        <td>Week 3 or 4</td>
-                    </tr>
-                    <tr>
-                        <td>New Jersey</td>
-                        <td>Week 3 or 4</td>
-                    </tr>
-                    <tr>
-                        <td>Massachusetts</td>
-                        <td>Week 3 (Mar 23-27)</td>
-                    </tr>
-                    <tr>
-                        <td>Connecticut</td>
-                        <td>Week 3 (Mar 23-27)</td>
-                    </tr>
-                </table>
-            </div>
-            <div>
-                <h3>Midwest</h3>
-                <table>
-                    <tr>
-                        <td>Chicago</td>
-                        <td>Week 3 (Mar 23-27)</td>
-                    </tr>
-                    <tr>
-                        <td>Detroit/Michigan</td>
-                        <td class="caution">Week 4 (Easter!)</td>
-                    </tr>
-                    <tr>
-                        <td>Ohio</td>
-                        <td>Varies by district</td>
-                    </tr>
-                </table>
-
-                <h3>Canada</h3>
-                <table>
-                    <tr>
-                        <td>Ontario</td>
-                        <td class="worst">Week 2 (Mar 16-20)</td>
-                    </tr>
-                    <tr>
-                        <td>Quebec</td>
-                        <td class="best">Before Week 1!</td>
-                    </tr>
-                    <tr>
-                        <td>Alberta</td>
-                        <td>Varies</td>
-                    </tr>
-                </table>
-
-                <h3>California</h3>
-                <table>
-                    <tr>
-                        <td>LA Unified</td>
-                        <td>Week 3 or 4</td>
-                    </tr>
-                    <tr>
-                        <td>San Diego</td>
-                        <td>Week 3 or 4</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="warning-box">
-            <strong>Michigan Families: Easter Week Warning</strong><br />
-            Wayne County (Detroit): Mar 30 - Apr 3 (Week 4). Your break overlaps with Easter (Apr 5). Easter travelers
-            boost crowds to 9/10. Consider Express Pass. Best days: Monday, Tuesday.
-        </div>
-
-        <h2>Week-by-Week Strategy Cards</h2>
-        <div class="three-col">
-            <div class="week-card">
-                <h4>Week 1: Soft Open</h4>
-                <p><strong>Score:</strong> <span class="score-6">6/10</span></p>
-                <p><strong>Who:</strong> Texas, early Midwest</p>
-                <p><strong>Strategy:</strong> Normal timing works. Rope drop optional. Skip Express.</p>
-                <p><strong>Best:</strong> Sun, Tue, Wed</p>
-            </div>
-            <div class="week-card week-bad">
-                <h4>Week 2: THE GAUNTLET</h4>
-                <p><strong>Score:</strong> <span class="score-10">10/10</span></p>
-                <p><strong>Who:</strong> EVERYONE</p>
-                <p><strong>Strategy:</strong> Rope drop mandatory. Express YES. Book dining 30+ days.</p>
-                <p><strong>Best:</strong> <span class="worst">None</span></p>
-            </div>
-            <div class="week-card">
-                <h4>Week 3: Northeast</h4>
-                <p><strong>Score:</strong> <span class="score-8">8/10</span></p>
-                <p><strong>Who:</strong> NY, NJ, Chicago</p>
-                <p><strong>Strategy:</strong> Rope drop helpful. Express optional. Evening strategy works.</p>
-                <p><strong>Best:</strong> Sun, Mon, Tue</p>
-            </div>
-        </div>
-        <div class="three-col" style="margin-top: 8px;">
-            <div class="week-card week-easter">
-                <h4>Week 4: EASTER</h4>
-                <p><strong>Score:</strong> <span class="score-9">9/10</span></p>
-                <p><strong>Who:</strong> Easter + Michigan</p>
-                <p><strong>Strategy:</strong> Rope drop essential. Express recommended. Book dining 45+ days.</p>
-                <p><strong>Best:</strong> Mon, Tue</p>
-            </div>
-            <div class="week-card week-good">
-                <h4>Week 5: Post-Easter</h4>
-                <p><strong>Score:</strong> <span class="score-5">5/10</span></p>
-                <p><strong>Who:</strong> Lingering visitors</p>
-                <p><strong>Strategy:</strong> Best week! No special tactics. Skip Express.</p>
-                <p><strong>Best:</strong> <span class="best">Any day</span></p>
-            </div>
-            <div class="week-card week-good">
-                <h4>Weeks 6-7: Wind Down</h4>
-                <p><strong>Score:</strong> <span class="score-4">4/10</span></p>
-                <p><strong>Who:</strong> Stragglers, locals</p>
-                <p><strong>Strategy:</strong> Near-normal operations. Great value. Skip Express.</p>
-                <p><strong>Best:</strong> <span class="best">Any day</span></p>
-            </div>
-        </div>
-
-        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
-    </div>
-
-    <!-- PAGE 3: EXPRESS PASS & PARK TIPS -->
+    <!-- PAGE 2: EXPRESS PASS & PARK TIPS -->
     <div class="page">
         <h2>Express Pass Decision Matrix</h2>
         <table>
@@ -689,14 +568,14 @@
                 <th>Reasoning</th>
             </tr>
             <tr style="background: #fef2f2;">
-                <td>Week 2, any day</td>
-                <td class="worst"><strong>BUY IT.</strong></td>
-                <td>Peak of peak. 3+ hour waits without it.</td>
-            </tr>
-            <tr style="background: #fdf4ff;">
                 <td>Week 4 (Easter), any day</td>
                 <td class="worst"><strong>BUY IT.</strong></td>
-                <td>Easter crowds are real. Don't gamble.</td>
+                <td>THE peak week. 3+ hour waits without it.</td>
+            </tr>
+            <tr style="background: #fff7ed;">
+                <td>Week 2, any day</td>
+                <td class="caution"><strong>Strong yes</strong></td>
+                <td>Heavy overlap week. Strategy helps but Express is safer.</td>
             </tr>
             <tr>
                 <td>Week 3, Saturday</td>
@@ -713,10 +592,15 @@
                 <td class="best">Skip it</td>
                 <td>Manageable crowds</td>
             </tr>
+            <tr>
+                <td>Week 5 (Apr 6-8)</td>
+                <td>Optional</td>
+                <td>Easter lingerers. Crowds drop mid-week.</td>
+            </tr>
             <tr style="background: #ecfdf5;">
-                <td>Week 5, 6, or 7</td>
+                <td>Week 5 (Apr 9+), 6, or 7</td>
                 <td class="best">Skip it</td>
-                <td>Post-Easter lull. Lowest crowds.</td>
+                <td>True post-Easter lull. Lowest crowds.</td>
             </tr>
             <tr>
                 <td>Only 1 day at parks</td>
@@ -726,82 +610,80 @@
         </table>
 
         <h2>Park-by-Park Tips</h2>
+        <p class="small-note">Brought to you by <strong>Skip</strong> — Ride Ready’s AI agent. Use the app for live wait
+            times + drop alerts.</p>
         <div class="two-col">
             <div>
-                <h3>Epic Universe</h3>
-                <p><strong>EPA (Hotel guests):</strong> 1 hour early. Mario Kart opens first.</p>
-                <p style="margin-top: 4px;"><strong>Ride Priority:</strong></p>
-                <ol style="margin-left: 16px; font-size: 8pt;">
-                    <li>Mario Kart: Bowser (rope drop)</li>
-                    <li>Ministry of Magic (10:30 AM or 7 PM+)</li>
-                    <li>Mine-Cart Madness (evening)</li>
-                    <li>Everything else as time allows</li>
-                </ol>
-                <p style="margin-top: 4px;"><strong>Evening Strategy:</strong></p>
-                <table>
-                    <tr>
-                        <td>5 PM</td>
-                        <td>Mine-Cart (thinning)</td>
-                    </tr>
-                    <tr>
-                        <td>7 PM</td>
-                        <td>Ministry re-ride</td>
-                    </tr>
-                    <tr>
-                        <td>8 PM</td>
-                        <td>Stardust (27 min avg)</td>
-                    </tr>
-                </table>
-            </div>
-            <div>
-                <h3>Islands of Adventure</h3>
-                <p><strong>Priority Order:</strong></p>
-                <ol style="margin-left: 16px; font-size: 8pt;">
-                    <li>Hagrid's Motorbike (rope drop or lunch)</li>
-                    <li>VelociCoaster</li>
-                    <li>Forbidden Journey</li>
-                </ol>
-                <p style="margin-top: 4px;"><strong>Hagrid's tip:</strong> Single rider line often 30 min when standby
-                    is 120+</p>
 
-                <h3>Universal Studios</h3>
+                <h3>Epic Universe</h3>
+                <p><strong>Early entry:</strong> On-site hotel guests often get Early Park Admission. Check today’s
+                    official hours — which lands/rides open early can change.</p>
+                <p style="margin-top: 4px;"><strong>Priority Order:</strong></p>
+                <ol style="margin-left: 16px; font-size: 8pt;">
+                    <li><strong>Start with whatever opens first.</strong> If Mario Kart is open, do it first.</li>
+                    <li>Mine‑Cart Madness (do it right after Nintendo while you’re nearby)</li>
+                    <li>Battle at the Ministry (late morning <em>or</em> last 2 hours)</li>
+                    <li>Monsters Unchained (great mid‑day “pivot”)</li>
+                    <li>Stardust Racers (ride after dark if you can)</li>
+                </ol>
+                <p style="margin-top: 4px;"><strong>Evening:</strong> Get in line before close — many queues keep moving
+                    after closing time, but top headliners can cap early.</p>
+            </div>
+
+            <div>
+
+                <h3>Islands of Adventure</h3>
+                <p><strong>Priority Order (first-timers):</strong></p>
+                <ol style="margin-left: 16px; font-size: 8pt;">
+                    <li>Hagrid's Motorbike (rope drop or late lunch)</li>
+                    <li>VelociCoaster</li>
+                    <li>Spider‑Man (easy to miss, worth it)</li>
+                    <li>Forbidden Journey</li>
+                    <li>Hulk (coaster fans: try single rider)</li>
+                </ol>
+
+                <p style="margin-top: 4px;"><strong>Hagrid's tip:</strong> Single rider can be ~30 min when standby is
+                    120+ (varies).</p>
+
+
+                <h3>Universal Studios Florida</h3>
                 <p><strong>Priority Order:</strong></p>
                 <ol style="margin-left: 16px; font-size: 8pt;">
+                    <li>Escape from Gringotts</li>
                     <li>Revenge of the Mummy</li>
-                    <li>Transformers</li>
+                    <li>MEN IN BLACK: Alien Attack (great A/C pivot)</li>
+                    <li>Minion rides (hit early or set alerts)</li>
                 </ol>
+
             </div>
         </div>
 
         <div class="two-col" style="margin-top: 10px;">
             <div>
-                <h3>Disney World</h3>
-                <p><strong>Genie+ vs Universal Express:</strong></p>
-                <table>
-                    <tr>
-                        <th></th>
-                        <th>Genie+</th>
-                        <th>Universal</th>
-                    </tr>
-                    <tr>
-                        <td>Price</td>
-                        <td>$25-45/day</td>
-                        <td>$109-349</td>
-                    </tr>
-                    <tr>
-                        <td>How</td>
-                        <td>Book 1 at a time</td>
-                        <td>Unlimited skips</td>
-                    </tr>
-                </table>
-                <p style="margin-top: 4px;"><strong>Park hopping:</strong> Can't hop until 2 PM. Plan accordingly.</p>
+
+                <h3>Disney World (quick note)</h3>
+                <p style="font-size: 8pt; color: #374151;">Disney’s line-skip tools are reservation-based (not “skip
+                    anytime” like Universal Express). Rules &amp; pricing change — use the official Disney app for
+                    today’s details.</p>
             </div>
             <div>
+
                 <h3>SeaWorld Orlando</h3>
-                <div class="tip-box">
-                    <strong>The Hidden Gem:</strong> Usually 30-40% lighter than Disney/Universal. Quick Queue rarely
-                    needed except Week 2. Even Week 2 is manageable here.
+                <p style="font-size: 8pt; margin-bottom: 4px;"><strong>Deep bench:</strong> More coasters than most
+                    people expect — pivoting is easier here. <strong>Best days:</strong> Wed/Thu (17–19 min avg). <strong>Worst:</strong> Saturday (34 min avg).</p>
+                <p style="margin-top: 2px;"><strong>Priority (rope drop):</strong></p>
+                <ol style="margin-left: 16px; font-size: 8pt;">
+                    <li>Pipeline: The Surf Coaster (35 min avg — highest waits)</li>
+                    <li>Expedition Odyssey (33 min avg)</li>
+                    <li>Manta (30 min avg)</li>
+                    <li>Penguin Trek (30 min avg)</li>
+                    <li>Ice Breaker (26 min avg)</li>
+                </ol>
+                <div class="tip-box" style="margin-top: 6px;">
+                    <strong>Quick Queue:</strong> Usually not needed (except Week 2). Even then, smart timing can keep
+                    you moving.
                 </div>
+
             </div>
         </div>
 
@@ -835,16 +717,73 @@
         </table>
 
         <div class="tip-box">
-            <strong>Best Strategy:</strong> Book sit-down dinner for 7 PM (ride during dinner exodus). Counter-service
-            lunch at 11:30 AM (during peak waits). Skip in-park breakfast.
+            <strong>Best Strategy:</strong> Book sit-down dinner for <strong>5–6 PM</strong> so you're free by the last
+            2 hours. Counter-service lunch at <strong>11:30 AM</strong> (peak waits). And remember: get in line
+            <strong>before park close</strong> — many queues keep moving after closing time.
         </div>
 
-        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
     </div>
+
+    <!-- PAGE 3: WEEK STRATEGY & REGION SPOT CHECK -->
+    <div class="page">
+        <h2>Week-by-Week Strategy Cards</h2>
+        <p class="small-note">Best days vary by park: <strong>Epic Universe</strong> → Sunday. <strong>IOA/USF/SeaWorld</strong> → Wed/Thu. Avoid Monday (all parks).</p>
+        <div class="three-col">
+            <div class="week-card">
+                <h4>Week 1: Soft Open</h4>
+                <p><strong>Score:</strong> <span class="score-6">6/10</span></p>
+                <p><strong>Who:</strong> Texas, early Midwest</p>
+                <p><strong>Strategy:</strong> Normal timing works. Rope drop optional. Skip Express.</p>
+                <p><strong>Best:</strong> Sun (EU), Wed (other)</p>
+            </div>
+            <div class="week-card" style="background: #fff7ed; border-color: #fed7aa;">
+                <h4>Week 2: Heavy Overlap</h4>
+                <p><strong>Score:</strong> <span class="score-8">8/10</span></p>
+                <p><strong>Who:</strong> FL + Dallas + Ontario</p>
+                <p><strong>Strategy:</strong> Rope drop helpful. Express recommended. Book dining 45 days.</p>
+                <p><strong>Best:</strong> Sun (EU), Wed (other)</p>
+            </div>
+            <div class="week-card">
+                <h4>Week 3: Northeast</h4>
+                <p><strong>Score:</strong> <span class="score-8">8/10</span></p>
+                <p><strong>Who:</strong> NY, NJ, Chicago</p>
+                <p><strong>Strategy:</strong> Rope drop helpful. Express optional. Evening strategy works.</p>
+                <p><strong>Best:</strong> Sun (EU), Wed (other)</p>
+            </div>
+        </div>
+        <div class="three-col" style="margin-top: 8px;">
+            <div class="week-card week-bad">
+                <h4>Week 4: THE PEAK</h4>
+                <p><strong>Score:</strong> <span class="score-10">10/10</span></p>
+                <p><strong>Who:</strong> Easter = everyone</p>
+                <p><strong>Strategy:</strong> Rope drop mandatory. Express YES. Book dining 60 days.</p>
+                <p><strong>Best:</strong> <span class="worst">None good</span></p>
+            </div>
+            <div class="week-card">
+                <h4>Week 5: Transition</h4>
+                <p><strong>Score:</strong> <span class="score-7">7/10</span></p>
+                <p><strong>Who:</strong> Easter lingerers → drop-off</p>
+                <p><strong>Strategy:</strong> Apr 6-8 still busy. Apr 9+ is the sweet spot.</p>
+                <p><strong>Best:</strong> Wed-Sat (late week)</p>
+            </div>
+            <div class="week-card week-good">
+                <h4>Weeks 6-7: Best Weeks</h4>
+                <p><strong>Score:</strong> <span class="score-4">3-4/10</span></p>
+                <p><strong>Who:</strong> Stragglers, locals</p>
+                <p><strong>Strategy:</strong> Near-normal. Relax. Skip Express. Enjoy.</p>
+                <p><strong>Best:</strong> <span class="best">Any day</span></p>
+            </div>
+        </div>
+
+
+    </div>
+
 
     <!-- PAGE 4: WEATHER & PACKING -->
     <div class="page">
         <h2>Weather by Week</h2>
+        <p class="small-note">Typical ranges based on historical patterns — check the forecast 7–10 days before your
+            trip.</p>
         <table>
             <tr>
                 <th>Week</th>
@@ -911,7 +850,7 @@
                 <ul>
                     <li>Portable phone charger (you'll use apps all day)</li>
                     <li>Comfortable walking shoes (10+ miles/day)</li>
-                    <li>Sunscreen SPF 50 (Florida sun is brutal)</li>
+                    <li>Sunscreen SPF 50 + a hat (Florida sun is brutal)</li>
                     <li>Light rain jacket/poncho</li>
                     <li>Refillable water bottle</li>
                 </ul>
@@ -921,26 +860,40 @@
                     <li>Cooling towel (April weeks)</li>
                     <li>Portable fan</li>
                     <li>Change of socks (water rides)</li>
+                    <li>Snacks (especially for kids)</li>
+                    <li>Hand sanitizer / wipes</li>
+                    <li>Blister bandages</li>
                 </ul>
+
+                <h3 style="margin-top: 10px;">Families: Need-to-Know</h3>
+                <ul>
+                    <li><strong>Child/Parent Swap:</strong> Ask the attendant — you can still experience the queue
+                        together, even if one rider skips.</li>
+                    <li><strong>Lockers:</strong> Universal rides often require free lockers. A small fanny pack/sling
+                        makes it easier.</li>
+                    <li><strong>Ask the gate attendant:</strong> The team member at the ride entrance can confirm real
+                        rules, accessibility, and today’s wait quirks.</li>
+                </ul>
+
             </div>
             <div>
                 <h3>Key Takeaways</h3>
                 <div class="warning-box">
-                    <strong>AVOID:</strong> Week 2 (Mar 16-22) unless you have Express Pass.
+                    <strong>AVOID:</strong> Week 4 (Easter, Mar 30 - Apr 5). THE peak. Express mandatory.
                 </div>
                 <div class="easter-box">
-                    <strong>WATCH OUT:</strong> Week 4 is Easter. Higher crowds than expected.
+                    <strong>HEAVY:</strong> Week 2 (Mar 16-22). Busy but manageable with strategy.
                 </div>
                 <div class="tip-box">
-                    <strong>BEST VALUE:</strong> Weeks 5-7 (post-Easter). Low crowds, great weather, no Express needed.
+                    <strong>BEST VALUE:</strong> Weeks 6-7. Week 5 improves mid-week (Apr 9+).
                 </div>
                 <div class="tip-box">
-                    <strong>EVERY DAY:</strong> Rope drop + dinner strategy. Get headliners at 9 AM and 7 PM.
+                    <strong>EVERY DAY:</strong> Rope drop + early dinner + the last 2 hours. That’s where you win time.
                 </div>
             </div>
         </div>
 
-        <h2>Final Checklist</h2>
+        <h2 style="page-break-before: always;">Final Checklist</h2>
         <div class="two-col">
             <div>
                 <h3>Before You Go</h3>
@@ -948,23 +901,25 @@
                     <li>Check your week's crowd score (page 1)</li>
                     <li>Decide on Express Pass based on week</li>
                     <li>Book dining reservations (see timing above)</li>
-                    <li>Download park apps</li>
+                    <li>Download Ride Ready + set drop alerts for your must-dos</li>
+                    <li>Download official park apps (tickets, hours, dining)</li>
                     <li>Book EPA hotel if Epic Universe is priority</li>
                 </ul>
             </div>
             <div>
                 <h3>Day-Of</h3>
                 <ul>
-                    <li>Rope drop: Arrive 30 min before open</li>
+                    <li>Rope drop: Arrive 60–90 min before open (security + walking)</li>
                     <li>Morning: Hit headliners</li>
                     <li>11:30 AM: Counter-service lunch</li>
-                    <li>1-5 PM: Shows, second-tier, pool</li>
-                    <li>7-9 PM: Re-ride headliners</li>
+                    <li>1–4 PM: Shows, second-tier, indoor rides</li>
+                    <li>5–6:30 PM: Early dinner / reset</li>
+                    <li>Last 2 hours: Re-ride headliners (be in line before close)</li>
                 </ul>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 16px; padding: 16px; background: #f9fafb; border-radius: 8px;">
+        <div class="no-break" style="text-align: center; margin-top: 16px; padding: 16px; background: #f9fafb; border-radius: 8px;">
             <p style="font-size: 11pt; font-weight: 600; color: #1f2937; margin-bottom: 4px;">Get live wait times at the
                 park</p>
             <p style="font-size: 9pt; color: #6b7280; margin-bottom: 10px;">Scan to download (or open the full guide).
@@ -988,7 +943,7 @@
         </div>
 
         <div class="footer">
-            Data from 523,000+ wait time samples | Regional calendar data from 50 state DOEs + 10 provincial
+            Data from 2,300,000+ wait time samples | Regional calendar data from 50 state DOEs + 10 provincial
             ministries<br />
             Updated January 2026 | Not affiliated with Universal, Disney, or SeaWorld
         </div>
