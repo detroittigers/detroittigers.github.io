@@ -1048,6 +1048,16 @@
       return `hsl(${hue.toFixed(0)}, 70%, 28%)`;
     }
 
+    function getMobileLabel(label) {
+      const isMobile = window.innerWidth <= 768;
+      if (!isMobile) return label;
+      const shortLabels = {
+        'Moderate': 'Med',
+        'Very Busy': 'V.Busy'
+      };
+      return shortLabels[label] || label;
+    }
+
     function fmtUsd(n) {
       if (n === null || n === undefined || Number.isNaN(n)) return "-";
       return "$" + Math.round(n).toString();
@@ -1107,7 +1117,7 @@
       meterHtml += '</div>';
       meterHtml += `<div class="conf-label">${record.confidence} Confidence</div>`;
 
-      mini.innerHTML = `<div><strong>${record.crowdLabel}</strong></div>${meterHtml}`;
+      mini.innerHTML = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>${meterHtml}`;
 
 
 
