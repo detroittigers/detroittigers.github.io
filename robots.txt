@@ -1,9 +1,18 @@
 User-agent: *
 Allow: /
+# Internal development files
 Disallow: /reports/
 Disallow: /plans/
 Disallow: /docs/
 Disallow: /__MACOSX/
+Disallow: /.claude/
+Disallow: /.mcp.json
+Disallow: /AGENT.md
+Disallow: /CLAUDE.md
+Disallow: /generate_redirects.py
+Disallow: /_config.yml
+Disallow: /.gitignore
+Disallow: /tmp/
 
 # Search Indexing Bots (Allow)
 User-agent: Googlebot
