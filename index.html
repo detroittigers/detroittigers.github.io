@@ -84,7 +84,7 @@
           "name": "How is Ride Ready different from official park apps?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ride Ready focuses on proactive planning: cross-park support, smarter alerts (trend + reopening), forecasts, and 'what to ride next' recommendations. Official apps are great for tickets, maps, and dining—alert features vary by park."
+            "text": "Official apps are essential for tickets, maps, and dining. Ride Ready is your AI trip strategist. We predict near-future wait times, send personalized \"go now\" alerts, and give unbiased touring strategy so you can move smarter and ride more."
           }
         },
         {
@@ -92,7 +92,7 @@
           "name": "What does Ride Ready Premium include?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Premium unlocks ML-powered wait time forecasts (see 30-60 minutes into the future), 25 personalized recommendations per day instead of 3, unlimited queue alerts that persist across days, and unlimited favorites. Available as Day Pass ($6.99), Week Pass ($12.99), or Monthly ($19.99)."
+            "text": "Premium unlocks smart wait time forecasts (see 30-60 minutes ahead), 25 personalized recommendations per day (instead of 3), unlimited queue alerts that stay active across your trip, and unlimited favorites. Available as a Day Pass ($6.99), Week Pass ($12.99), or Monthly ($19.99)."
           }
         }
       ]
@@ -614,7 +614,7 @@
 
         /* Screenshot Gallery Styles */
         .screenshots-section {
-            margin: 110px 0 80px;
+            margin: 60px 0 80px;
             padding: 62px 36px;
             background: linear-gradient(182deg, rgba(12, 12, 12, 0.95), rgba(6, 6, 6, 0.92));
             border-radius: 24px;
@@ -823,7 +823,7 @@
 
         /* Premium Section */
         .premium-section {
-            margin: 80px auto 40px;
+            margin: 50px auto 40px;
             padding: 48px 36px;
             background: linear-gradient(160deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.05));
             border: 1px solid rgba(255, 215, 0, 0.25);
@@ -1044,6 +1044,8 @@
             <div style="display: flex; gap: 20px; align-items: center;">
                 <a href="/parks/"
                     style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Parks</a>
+                <a href="/universal-orlando/crowd-calendar/"
+                    style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Crowds</a>
                 <a href="/compare/official-apps/"
                     style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Why
                     Us?</a>
@@ -1230,13 +1232,13 @@
             <div class="feature">
                 <div class="feature-icon">🎢</div>
                 <div class="feature-text">
-                    <h3>Smart Recommendations</h3>
+                    <h3>Skip Recommendations</h3>
                     <p>See exactly what to ride next. Our algorithm weighs current waits, walking time, and your
                         preferences to keep you moving.</p>
                 </div>
             </div>
             <div class="feature">
-                <div class="feature-icon">⏰</div>
+                <div class="feature-icon">📈</div>
                 <div class="feature-text">
                     <h3>Wait Time Forecasts</h3>
                     <p>See the future. We predict wait times 30–60 minutes ahead so you know if lines are growing or
@@ -1249,14 +1251,6 @@
                     <h3>Drop Alerts</h3>
                     <p>Set a threshold (e.g., "Under 45 min") and we'll ping you the second the line dips. Never stare
                         at a screen.</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🗺️</div>
-                <div class="feature-text">
-                    <h3>Multi-Park Dashboard</h3>
-                    <p>Track Epic Universe, Universal, and SeaWorld in one view. Perfect for park hopping or comparing
-                        crowds.</p>
                 </div>
             </div>
             <div class="feature">
@@ -1281,6 +1275,7 @@
                     <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
                         <li style="padding: 6px 0; color: #ccc;">✓ Queue guides</li>
                         <li style="padding: 6px 0; color: #ccc;">✓ Strategy articles</li>
+                        <li style="padding: 6px 0; color: #ccc;">✓ Crowd calendars</li>
                         <li style="padding: 6px 0; color: #ccc;">✓ Planning tips</li>
                     </ul>
                     <p style="color: #666; font-size: 0.85rem; line-height: 1.4;">Static content<br>Plan before you go
@@ -1315,22 +1310,17 @@
             <div class="premium-features">
                 <div class="premium-feature">
                     <h4>Alert Capacity</h4>
-                    <p>Free includes <strong>3 alerts per day</strong>. Premium unlocks <strong>unlimited
-                            alerts</strong> (including trend + reopening alerts) that can persist for your whole trip.
+                    <p>Free includes <strong>one alert per day</strong>. Premium unlocks <strong>unlimited
+                            alerts</strong> (including trend + reopening alerts) that can stay active for your entire trip.
                     </p>
                 </div>
                 <div class="premium-feature">
                     <h4>Wait Time Forecasts</h4>
-                    <p>See wait times 30-60 minutes into the future with ML-powered predictions</p>
+                    <p>See wait times 30–60 minutes ahead with smart predictions</p>
                 </div>
                 <div class="premium-feature">
                     <h4>8x More Suggestions</h4>
-                    <p>Get 25 personalized ride recommendations per day instead of 3</p>
-                </div>
-                <div class="premium-feature">
-                    <h4>Reopening & Trend Alerts</h4>
-                    <p>Get notified instantly when a closed ride reopens or when wait time trends shift in your favor.
-                    </p>
+                    <p>Get 25 personalized Skip recommendations per day instead of just 3 — maximize every hour in the park</p>
                 </div>
                 <div class="premium-feature">
                     <h4>Unlimited Favorites</h4>
@@ -1414,19 +1404,13 @@
             <div class="faq-item">
                 <button class="faq-question">How is Ride Ready different from official park apps?</button>
                 <div class="faq-answer">
-                    <p>Official apps are essential for tickets, maps, and dining. Ride Ready is built for
-                        decision-making. We give you the tools the parks won't: personalized timing alerts, wait time
-                        forecasts, and unbiased strategy to help you do more.</p>
+                    <p>Official apps are essential for tickets, maps, and dining. Ride Ready is your AI trip strategist. We predict near-future wait times, send personalized "go now" alerts, and give unbiased touring strategy so you can move smarter and ride more. <a href="/compare/official-apps/">See the full comparison</a>.</p>
                 </div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">What does Ride Ready Premium include?</button>
                 <div class="faq-answer">
-                    <p>Premium unlocks ML-powered wait time forecasts (see 30-60 minutes into the future), 25
-                        personalized recommendations per day instead of 3, unlimited queue alerts that persist
-                        across
-                        days, and unlimited favorites. Available as Day Pass ($6.99), Week Pass ($12.99), or Monthly
-                        ($19.99).</p>
+                    <p>Premium unlocks smart wait time forecasts (see 30–60 minutes ahead), 25 personalized recommendations per day (instead of 3), unlimited queue alerts that stay active across your trip, and unlimited favorites. Available as a Day Pass ($6.99), Week Pass ($12.99), or Monthly ($19.99).</p>
                 </div>
             </div>
         </div>
@@ -1454,6 +1438,15 @@
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.35 3.608 1.325.975.975 1.263 2.242 1.325 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.35 2.633-1.325 3.608-.975.975-2.242 1.263-3.608 1.325-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.35-3.608-1.325-.975-.975-1.263-2.242-1.325-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.35-2.633 1.325-3.608C4.533 2.567 5.8 2.279 7.166 2.217 8.432 2.159 8.812 2.163 12 2.163zm0 1.534c-3.17 0-3.552.012-4.806.07-1.074.049-1.66.223-2.047.372-.516.201-.885.44-1.272.827-.387.387-.626.756-.827 1.272-.149.387-.323.973-.372 2.047-.058 1.254-.07 1.636-.07 4.806s.012 3.552.07 4.806c.049 1.074.223 1.66.372 2.047.201.516.44.885.827 1.272.387.387.756.626 1.272.827.387.149.973.323 2.047.372 1.254.058 1.636.07 4.806.07s3.552-.012 4.806-.07c1.074-.049 1.66-.223 2.047-.372.516-.201.885-.44 1.272-.827.387-.387.626-.756.827-1.272.149-.387.323-.973.372-2.047.058-1.254.07-1.636.07-4.806s-.012-3.552-.07-4.806c-.049-1.074-.223-1.66-.372-2.047-.201-.516-.44-.885-.827-1.272-.387-.387-.756-.626-1.272-.827-.387-.149-.973-.323-2.047-.372-1.254-.058-1.636-.07-4.806-.07zm0 3.905a5.932 5.932 0 110 11.864 5.932 5.932 0 010-11.864zm0 1.534a4.398 4.398 0 100 8.796 4.398 4.398 0 000-8.796zm6.406-2.845a1.44 1.44 0 110 2.881 1.44 1.44 0 010-2.881z">
+                        </path>
+                    </svg>
+                </a>
+                <a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61587002993310" rel="noopener noreferrer"
+                    target="_blank">
+                    <svg aria-hidden="true" class="social-icon" role="img" viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
                         </path>
                     </svg>
                 </a>
