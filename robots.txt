@@ -12,7 +12,6 @@ Disallow: /generate_redirects.py
 Disallow: /_config.yml
 Disallow: /.gitignore
 Disallow: /tmp/
-Allow: /
 
 # AI Training Bots (Disallow)
 User-agent: GPTBot
