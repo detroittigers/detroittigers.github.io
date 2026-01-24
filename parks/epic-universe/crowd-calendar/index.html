@@ -1169,6 +1169,25 @@
       div.innerHTML = `<div class="k">Crowd Summary</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${reasoning}</div>`;
       body.appendChild(div);
 
+      const cta = document.createElement("div");
+      cta.style.marginTop = "14px";
+      cta.style.padding = "14px";
+      cta.style.border = "1px solid var(--border)";
+      cta.style.borderRadius = "12px";
+      cta.style.background = "rgba(255,255,255,0.03)";
+      cta.innerHTML = `
+        <div style="font-weight:700; margin-bottom:6px;">Going that day?</div>
+        <div style="color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:10px;">
+          Ride Ready gives you live waits + <b>what to ride next</b> in the park. Crowd calendars help you pick a day — the app helps you win the day.
+        </div>
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-drawer"
+           data-ref="crowd-calendar-drawer"
+           style="display:inline-flex; align-items:center; justify-content:center; padding:12px 14px; border-radius:12px; font-weight:700; text-decoration:none; color:white; background: linear-gradient(45deg, #FF416C, #FF4B2B);">
+          Download Free
+        </a>
+      `;
+      body.appendChild(cta);
+
       drawer.classList.add("open");
       drawer.setAttribute("aria-hidden", "false");
     }
@@ -1182,6 +1201,12 @@
     document.getElementById("drawerClose").addEventListener("click", closeDrawer);
     document.getElementById("drawer").addEventListener("click", (e) => {
       if (e.target.id === "drawer") closeDrawer();
+    });
+    document.addEventListener("keydown", (e) => {
+      const drawer = document.getElementById("drawer");
+      if (e.key === "Escape" && drawer.classList.contains("open")) {
+        closeDrawer();
+      }
     });
 
     document.querySelectorAll(".tab").forEach(btn => {

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
     <link href="/favicon.ico" rel="icon" sizes="any" />
     <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
     <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
@@ -19,6 +19,7 @@
     <meta content="https://rideready.app/waitlist/android/" property="og:url" />
     <link href="https://rideready.app/waitlist/android/" rel="canonical" />
     <meta content="summary_large_image" name="twitter:card" />
+    <meta name="twitter:image" content="https://rideready.app/images/logo.png" />
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
     <script>
@@ -266,6 +267,16 @@
         <p class="subtitle">We're finally crossing the platform divide. Get real-time waits, AI plans, and queue alerts
             on your Android device in 2026.</p>
 
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; margin-bottom: 30px; max-width: 480px; text-align: center;">
+            <p style="margin: 0 0 12px; font-size: 0.95rem; color: #ccc;">On iPhone?</p>
+            <p style="margin: 0 0 16px; font-size: 1.1rem; font-weight: 600;">Download Ride Ready now — it's free.</p>
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=android-waitlist-ios"
+               data-ref="android-waitlist-ios"
+               style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; background: linear-gradient(45deg, #FF416C, #FF4B2B); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; transition: transform 0.2s;">
+                Download for iPhone
+            </a>
+        </div>
+
         <div class="card">
             <h3 style="margin-bottom: 20px; font-size: 1.2rem;">Join the Waitlist</h3>
             <form id="email-capture-form">
@@ -367,6 +378,25 @@
                 btn.disabled = false;
                 btn.textContent = 'Notify Me';
             }
+        });
+    </script>
+    <script>
+        // App Store click tracking
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[data-ref]').forEach(a => {
+                a.addEventListener('click', () => {
+                    try {
+                        if (typeof gtag === 'function') {
+                            const url = new URL(a.href);
+                            gtag('event', 'app_store_click', {
+                                ref: a.dataset.ref || null,
+                                ct: url.searchParams.get('ct') || null,
+                                page: location.pathname
+                            });
+                        }
+                    } catch (e) {}
+                });
+            });
         });
     </script>
 </body>
