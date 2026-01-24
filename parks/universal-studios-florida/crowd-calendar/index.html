@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <link href="/favicon.ico" rel="icon" sizes="any" />
   <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
   <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
@@ -638,6 +638,18 @@
       letter-spacing: 0.05em;
       font-weight: 700;
     }
+
+    /* Focus-visible styles for accessibility */
+    a:focus-visible,
+    button:focus-visible,
+    select:focus-visible {
+      outline: 2px solid rgba(255, 75, 43, 0.9);
+      outline-offset: 2px;
+    }
+
+    .day-btn:focus-visible .day {
+      box-shadow: 0 0 0 2px rgba(255, 75, 43, 0.55);
+    }
   </style>
 </head>
 
@@ -849,6 +861,28 @@
         <a href="/universal-orlando/crowd-calendar/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
           <span style="opacity: 0.6;">→</span> Compare Crowd Levels Across All 3 Parks
         </a>
+      </div>
+    </section>
+
+    <section style="margin: 50px 0 30px;">
+      <h2 style="font-size: 24px; margin: 0 0 24px; color: var(--text); text-align: center;">Frequently Asked Questions</h2>
+      <div style="display: grid; gap: 20px;">
+        <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
+          <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">What does crowd level 1-10 mean?</h3>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Crowd level 1 means the lightest crowds with walk-on waits for most attractions. Level 10 means the busiest days with 90+ minute waits for popular rides and packed walkways. Levels 1-3 are ideal for visiting, 4-6 are moderate, and 7-10 require strategic planning or Express Pass.</p>
+        </div>
+        <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
+          <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">How accurate are these crowd predictions?</h3>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">We use Universal's own dynamic pricing as the primary signal - when Universal raises ticket prices, they're predicting higher demand. We blend this with historical patterns and label confidence levels. Days marked 'High confidence' have strong agreement across multiple data sources.</p>
+        </div>
+        <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
+          <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">When should I visit Universal Studios Florida to avoid crowds?</h3>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Based on Feb-Apr 2026 data, the best days are typically Tuesday-Thursday in early February and late April. Avoid spring break weeks (mid-March through early April) and holiday weekends like Presidents Day and Easter. Check the calendar for specific dates rated 1-3 for lowest crowds.</p>
+        </div>
+        <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
+          <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">What affects Universal Studios Florida crowd levels?</h3>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Main factors include: school calendars (spring break causes level 9-10 days), holidays and long weekends, day of week (weekends busier than weekdays), weather forecasts, and special events. Universal's ticket pricing reflects their internal demand predictions based on these factors.</p>
+        </div>
       </div>
     </section>
 
@@ -1076,6 +1110,25 @@
 
     // initial render
     render();
+  </script>
+  <script>
+    // App Store click tracking
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[data-ref]').forEach(a => {
+        a.addEventListener('click', () => {
+          try {
+            if (typeof gtag === 'function') {
+              const url = new URL(a.href);
+              gtag('event', 'app_store_click', {
+                ref: a.dataset.ref || null,
+                ct: url.searchParams.get('ct') || null,
+                page: location.pathname
+              });
+            }
+          } catch (e) {}
+        });
+      });
+    });
   </script>
 </body>
 

@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /reports/
+Disallow: /plans/
+Disallow: /docs/
+Disallow: /__MACOSX/
 
 # Search Indexing Bots (Allow)
 User-agent: Googlebot
