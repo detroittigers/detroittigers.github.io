@@ -20,7 +20,9 @@
   <meta property="og:description"
     content="Price-driven crowd calendar for Epic Universe (Feb–Apr 2026): daily crowd level (1–10), gate ticket price, and Express Pass price. Tap any day to see the multi-source breakdown." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rideready.app/parks/epic-universe/crowd-calendar/" />
   <meta property="og:image" content="https://rideready.app/images/logo.png" />
+  <link rel="canonical" href="https://rideready.app/parks/epic-universe/crowd-calendar/" />
   <meta name="twitter:card" content="summary_large_image" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
@@ -28,6 +30,46 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does crowd level 1-10 mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Crowd level 1 means the lightest crowds with walk-on waits for most attractions. Level 10 means the busiest days with 90+ minute waits for popular rides and packed walkways. Levels 1-3 are ideal for visiting, 4-6 are moderate, and 7-10 require strategic planning or Express Pass."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are these crowd predictions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We use Universal's own dynamic pricing as the primary signal - when Universal raises ticket prices, they're predicting higher demand. We blend this with historical patterns and label confidence levels. Days marked 'High confidence' have strong agreement across multiple data sources."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I visit Epic Universe to avoid crowds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Based on Feb-Apr 2026 data, the best days are typically Tuesday-Thursday in early February and late April. Avoid spring break weeks (mid-March through early April) and holiday weekends like Presidents Day and Easter. Check the calendar for specific dates rated 1-3 for lowest crowds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What affects Epic Universe crowd levels?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Main factors include: school calendars (spring break causes level 9-10 days), holidays and long weekends, day of week (weekends busier than weekdays), weather forecasts, and special events. Universal's ticket pricing reflects their internal demand predictions based on these factors."
+        }
+      }
+    ]
+  }
   </script>
   <style>
     :root {
@@ -616,6 +658,14 @@
       </div>
     </nav>
 
+    <div style="margin: 16px 0 0; padding: 0; font-size: 14px;">
+      <a href="/parks/" style="color: var(--muted); text-decoration: none; transition: color 0.2s;">Parks</a>
+      <span style="color: var(--muted); margin: 0 8px;">→</span>
+      <a href="/parks/epic-universe/" style="color: var(--muted); text-decoration: none; transition: color 0.2s;">Epic Universe</a>
+      <span style="color: var(--muted); margin: 0 8px;">→</span>
+      <span style="color: var(--text);">Crowd Calendar</span>
+    </div>
+
     <section class="hero">
       <h1>Epic Universe Crowd Calendar: Feb–Apr 2026</h1>
       <p class="sub">Daily crowd levels for Epic Universe - using proprietary demand signals blended with historical
@@ -754,17 +804,28 @@
         </p>
       </div>
 
-      <div class="card">
-        <h2>Make this a “click magnet”</h2>
-        <p>These are the UI pieces that reliably improve engagement on crowd calendars:</p>
-        <ul>
-          <li><strong>Price overlay toggle</strong> (crowd + prices in one scan).</li>
-          <li><strong>Tap any day</strong> for a breakdown + “why it’s busy”.</li>
-          <li><strong>Best days + avoid days</strong> summary near the top.</li>
-          <li><strong>Shareable</strong> per‑day cards (OpenGraph) & “copy link”.</li>
-          <li><strong>Download</strong> (CSV/ICS) for planners.</li>
-        </ul>
-        <p class="note">This prototype focuses on Feb–Apr 2026. The same template can render the full year.</p>
+      <div class="card" style="background: linear-gradient(160deg, rgba(249, 115, 22, 0.08), rgba(255, 65, 108, 0.06)); border-color: rgba(249, 115, 22, 0.3);">
+        <h2>Once you're in the park, Ride Ready tells you what to do next</h2>
+        <p>This calendar helps you pick a day. <strong>Ride Ready helps you win the day</strong> — live waits, drop alerts, and "what to ride next" picks so you stop guessing and start moving when it's actually worth it.</p>
+
+        <div style="display: flex; gap: 20px; margin-top: 24px; align-items: center; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <h3 style="font-size: 18px; margin: 0 0 8px;">Get real-time "Ride Next" picks</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5;">Free includes live waits + 3 drop alerts per day. Premium unlocks forecasts and unlimited recommendations.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+            <a class="btn" data-ref="crowd-calendar-epic-mid"
+               href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-epic-mid"
+               target="_blank" rel="noopener noreferrer"
+               style="background: var(--primary-gradient); color: white; border: none; padding: 14px 32px; font-size: 16px; font-weight: 700;">Download Free</a>
+            <a aria-label="Download Ride Ready on the App Store"
+               data-ref="crowd-calendar-epic-badge"
+               href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-epic-badge"
+               target="_blank" rel="noopener noreferrer">
+              <img alt="Download on the App Store" src="/images/app-store-badge.svg" style="height: 50px;" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -776,6 +837,25 @@
         <img src="/images/app-store-badge.svg" alt="Download on the App Store" style="height: 54px;">
       </a>
     </div>
+
+    <section style="margin: 50px 0 30px; padding: 28px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 16px;">
+      <h2 style="font-size: 18px; margin: 0 0 16px; color: var(--text);">Plan Your Epic Universe Visit</h2>
+      <div style="display: grid; gap: 12px;">
+        <a href="/parks/epic-universe/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
+          <span style="opacity: 0.6;">→</span> Epic Universe Park Guide
+        </a>
+        <a href="/parks/epic-universe/strategy/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
+          <span style="opacity: 0.6;">→</span> Epic Universe Strategy Guide
+        </a>
+        <a href="/universal-orlando/epic-universe/ministry-queue-times/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
+          <span style="opacity: 0.6;">→</span> Battle at the Ministry Queue Guide
+        </a>
+        <a href="/universal-orlando/epic-universe/mario-kart-queue-times/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
+          <span style="opacity: 0.6;">→</span> Mario Kart Queue Guide
+        </a>
+      </div>
+    </section>
+
     <footer style="margin-top: 40px; padding-bottom: 30px; font-size: 0.9rem; color: #888888; text-align: center;">
       <div style="display: flex; gap: 12px; justify-content: center; align-items: center; margin: 10px 0 18px;">
         <a aria-label="X (formerly Twitter)" href="https://x.com/RideReadyApp" rel="noopener noreferrer" target="_blank"
