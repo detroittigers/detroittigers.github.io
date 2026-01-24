@@ -763,6 +763,7 @@
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
             <span style="font-weight: 700; font-size: 0.9rem;">Wait times?</span>
             <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-presidents-sticky"
+                data-ref="guide-presidents-sticky"
                 style="background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">Get
                 App</a>
         </div>
@@ -778,6 +779,19 @@
             }
         }
     </style>
+    <script>
+        // Track App Store clicks consistently (ct= in URL + data-ref in GA)
+        document.querySelectorAll('a[data-ref]').forEach(function (link) {
+            link.addEventListener('click', function () {
+                try {
+                    gtag('event', 'app_store_click', {
+                        source: link.getAttribute('data-ref'),
+                        page: window.location.pathname
+                    });
+                } catch (e) { }
+            });
+        });
+    </script>
 </body>
 
 </html>

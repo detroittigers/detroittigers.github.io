@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Universal Orlando Crowd Calendar (Feb–Apr 2026) — Crowd Predictions | Ride Ready</title>
+  <meta name="description"
+    content="Daily crowd levels for Epic Universe, Islands of Adventure, and Universal Studios Florida — using proprietary demand signals blended with historical crowd patterns. Feb–Apr 2026." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title"
+    content="Universal Orlando Crowd Calendar (Feb–Apr 2026) — Crowd Predictions | Ride Ready" />
+  <meta property="og:description"
+    content="Daily crowd levels for Epic Universe, Islands of Adventure, and Universal Studios Florida — using proprietary demand signals blended with historical crowd patterns. Feb–Apr 2026." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --panel: #121a28;
+      --text: #e9edf5;
+      --muted: #a8b2c7;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #66e3ff;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      --radius: 16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    html,
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      margin: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    nav .left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-cta {
+      background: var(--primary-gradient);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.20);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(102, 227, 255, 0.12);
+      border: 1px solid rgba(102, 227, 255, 0.35);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      background: rgba(102, 227, 255, 0.18);
+      text-decoration: none;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(102, 227, 255, 0.10), rgba(255, 255, 255, 0.00));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      font-size: clamp(28px, 3.2vw, 44px);
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+      margin: 0 0 14px;
+    }
+
+    .kpi-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .kpi {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      min-width: 210px;
+    }
+
+    .kpi .label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .kpi .value {
+      font-weight: 800;
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .controls {
+      margin: 18px 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .control-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .select {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .tab.active {
+      background: rgba(102, 227, 255, 0.16);
+      border-color: rgba(102, 227, 255, 0.45);
+    }
+
+    .legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 12px 0 14px;
+    }
+
+    .legend .chip {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .calendar {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .dow {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dow div {
+      padding: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .cell {
+      min-height: 88px;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px;
+      position: relative;
+    }
+
+    .cell:nth-child(7n) {
+      border-right: none;
+    }
+
+    .cell.empty {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .day-btn {
+      all: unset;
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .day-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .day-num {
+      font-weight: 800;
+    }
+
+    .lvl {
+      font-family: var(--mono);
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .mini {
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.25;
+    }
+
+    .mini .muted {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .price-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+      font-size: 12px;
+    }
+
+    .price-row span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      font-weight: 800;
+    }
+
+    .panel {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 14px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .drawer {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.58);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .drawer.open {
+      display: flex;
+    }
+
+    .drawer-inner {
+      width: min(900px, 100%);
+      background: #0f1523;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .drawer-title {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .close {
+      all: unset;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .drawer-body {
+      padding: 14px 14px 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .drawer-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .metric {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .metric .k {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .metric .v {
+      font-weight: 900;
+      font-size: 16px;
+      margin-top: 2px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid var(--border);
+    }
+
+    .pill-high {
+      background: rgba(102, 227, 255, 0.10);
+      border-color: rgba(102, 227, 255, 0.35);
+    }
+
+    .pill-medium {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .pill-low {
+      background: rgba(255, 151, 88, 0.12);
+      border-color: rgba(255, 151, 88, 0.35);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .day-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .day-list li {
+      margin: 8px 0;
+    }
+
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .conf-meter {
+      display: flex;
+      gap: 3px;
+      margin-top: 6px;
+      opacity: 0.8;
+    }
+
+    .conf-bar {
+      height: 4px;
+      flex: 1;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .conf-bar.active {
+      background: var(--accent);
+      box-shadow: 0 0 6px rgba(102, 227, 255, 0.4);
+    }
+
+    .conf-label {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 4px;
+      text-align: right;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav .logo img {
+      height: 28px;
+    }
+
+    nav .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    nav .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color 0.2s ease;
+    }
+
+    nav .nav-links a:hover {
+      color: var(--text);
+    }
+
+    nav .nav-cta {
+      background: var(--accent);
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 15px;
+      transition: background 0.2s ease;
+    }
+
+    nav .nav-cta:hover {
+      background: #66e3ff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav>
+      <div class="left">
+        <a class="logo" href="/">
+          <img src="/images/logo.png" alt="Ride Ready Logo" />
+          <span>Ride Ready</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="/parks/">Parks</a>
+        <a href="/universal-orlando/crowd-calendar/">Crowds</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-nav"
+          data-ref="crowd-calendar-nav">Download Free</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>Universal Orlando Crowd Calendar: Feb–Apr 2026</h1>
+      <p class="sub">Daily crowd levels for Epic Universe, Islands of Adventure, and Universal Studios Florida — using
+        proprietary demand signals blended with historical crowd patterns. Feb–Apr
+        2026.</p>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="label">Methodology</div>
+          <div class="value">Demand-based crowd signals</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Shown per day</div>
+          <div class="value">Crowd Level (1-10)</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Confidence</div>
+          <div class="value">Signal Strength</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="controls">
+
+      <div class="control-row">
+        <label class="label" for="parkSelect">Park</label>
+        <select id="parkSelect" class="select">
+          <option value='epic-universe' selected>Epic Universe</option>
+          <option value='islands-of-adventure'>Islands of Adventure</option>
+          <option value='universal-studios-florida'>Universal Studios Florida</option>
+        </select>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Month tabs">
+        <button class='tab' data-month='2'>February 2026</button><button class='tab' data-month='3'>March
+          2026</button><button class='tab' data-month='4'>April 2026</button>
+      </div>
+    </div>
+
+    <div class="legend" aria-label="Legend">
+      <div class="chip"><span class="swatch" style="background: hsl(120, 70%, 30%)"></span><span>Low (1–3)</span></div>
+      <div class="chip"><span class="swatch" style="background: hsl(70, 70%, 30%)"></span><span>Moderate (4–6)</span>
+      </div>
+      <div class="chip"><span class="swatch" style="background: hsl(25, 70%, 32%)"></span><span>Busy (7–8)</span></div>
+      <div class="chip"><span class="swatch" style="background: hsl(0, 70%, 32%)"></span><span>Very Busy (9–10)</span>
+      </div>
+    </div>
+
+    <div class="calendar" id="calendar">
+      <div class="dow">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+    <div class="note" style="text-align: right; margin-top: 8px;">Last updated January 2026</div>
+
+
+    <section class="card" style="margin-top:14px;">
+      <h2>Quick take</h2>
+
+
+      <footer>
+        © 2026 Ride Ready. Not affiliated with Universal or its operators.
+      </footer>
+  </div>
+
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner" role="dialog" aria-modal="true" aria-label="Day details">
+      <div class="drawer-head">
+        <div>
+          <h3 class="drawer-title" id="drawerTitle">Date details</h3>
+          <div class="note" id="drawerSub"></div>
+        </div>
+        <button class="close" id="drawerClose">Close</button>
+      </div>
+      <div class="drawer-body" id="drawerBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const CROWD_DATA = [{ "date": "2026-02-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 1, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-01", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 1, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-01", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 1, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 2, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-02", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 2, "weekdaySun0": 1, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-02", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 2, "weekdaySun0": 1, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 3, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-03", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 3, "weekdaySun0": 2, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-03", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 3, "weekdaySun0": 2, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 4, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-04", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 4, "weekdaySun0": 3, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-04", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 4, "weekdaySun0": 3, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 5, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-05", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 5, "weekdaySun0": 4, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-05", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 5, "weekdaySun0": 4, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 6, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Low" }, { "date": "2026-02-06", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 6, "weekdaySun0": 5, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-06", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 6, "weekdaySun0": 5, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 7, "weekdaySun0": 6, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-07", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 7, "weekdaySun0": 6, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-07", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 7, "weekdaySun0": 6, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 8, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-08", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 8, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-08", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 8, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 9, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low" }, { "date": "2026-02-09", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 9, "weekdaySun0": 1, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-09", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 9, "weekdaySun0": 1, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 10, "weekdaySun0": 2, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-10", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 10, "weekdaySun0": 2, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-10", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 10, "weekdaySun0": 2, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 11, "weekdaySun0": 3, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-11", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 11, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-11", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 11, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 12, "weekdaySun0": 4, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-12", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 12, "weekdaySun0": 4, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-02-12", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 12, "weekdaySun0": 4, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 13, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-13", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 13, "weekdaySun0": 5, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-13", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 13, "weekdaySun0": 5, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 14, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-14", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 14, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-14", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 14, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 15, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-15", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 15, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-15", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 15, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 16, "weekdaySun0": 1, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-16", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 16, "weekdaySun0": 1, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-16", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 16, "weekdaySun0": 1, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 17, "weekdaySun0": 2, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-17", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 17, "weekdaySun0": 2, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-17", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 17, "weekdaySun0": 2, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-02-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 18, "weekdaySun0": 3, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-02-18", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 18, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-18", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 18, "weekdaySun0": 3, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 19, "weekdaySun0": 4, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-19", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 19, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-19", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 19, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 20, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-20", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 20, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-20", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 20, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 21, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-02-21", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 21, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-21", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 21, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-02-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 22, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-22", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 22, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low" }, { "date": "2026-02-22", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 22, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-02-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 23, "weekdaySun0": 1, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Low" }, { "date": "2026-02-23", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 23, "weekdaySun0": 1, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-23", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 23, "weekdaySun0": 1, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 24, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-24", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 24, "weekdaySun0": 2, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-24", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 24, "weekdaySun0": 2, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 25, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-25", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 25, "weekdaySun0": 3, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-25", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 25, "weekdaySun0": 3, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 26, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-26", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 26, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-26", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 26, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 27, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-27", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 27, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-27", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 27, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-02-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 28, "weekdaySun0": 6, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-02-28", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 2, "day": 28, "weekdaySun0": 6, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-02-28", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 2, "day": 28, "weekdaySun0": 6, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 1, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-03-01", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 1, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-01", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 1, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 2, "weekdaySun0": 1, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-03-02", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 2, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-02", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 2, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 3, "weekdaySun0": 2, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-03", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 3, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-03", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 3, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 4, "weekdaySun0": 3, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-04", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 4, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-04", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 4, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 5, "weekdaySun0": 4, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-05", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 5, "weekdaySun0": 4, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-05", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 5, "weekdaySun0": 4, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 6, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-03-06", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 6, "weekdaySun0": 5, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-06", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 6, "weekdaySun0": 5, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 7, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-07", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 7, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-07", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 7, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 8, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-08", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 8, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-08", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 8, "weekdaySun0": 0, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-03-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 9, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-09", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 9, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-09", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 9, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 10, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-10", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 10, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-10", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 10, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 11, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-11", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 11, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-11", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 11, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 12, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-12", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 12, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-12", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 12, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 13, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-13", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 13, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-13", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 13, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 14, "weekdaySun0": 6, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-14", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 14, "weekdaySun0": 6, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-03-14", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 14, "weekdaySun0": 6, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-03-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 15, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-15", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 15, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-03-15", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 15, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 16, "weekdaySun0": 1, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-16", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 16, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-16", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 16, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 17, "weekdaySun0": 2, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-17", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 17, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-17", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 17, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 18, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-18", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 18, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-18", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 18, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 19, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-19", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 19, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-19", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 19, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 20, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-20", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 20, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-20", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 20, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 21, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-21", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 21, "weekdaySun0": 6, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-21", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 21, "weekdaySun0": 6, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 22, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-22", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 22, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-22", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 22, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-03-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 23, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-03-23", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 23, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-23", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 23, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 24, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-03-24", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 24, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-24", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 24, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 25, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-03-25", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 25, "weekdaySun0": 3, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-25", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 25, "weekdaySun0": 3, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 26, "weekdaySun0": 4, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-26", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 26, "weekdaySun0": 4, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-26", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 26, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 27, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-27", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 27, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-27", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 27, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-03-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 28, "weekdaySun0": 6, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-28", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 28, "weekdaySun0": 6, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-28", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 28, "weekdaySun0": 6, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-29", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 29, "weekdaySun0": 0, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-29", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 29, "weekdaySun0": 0, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-29", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 29, "weekdaySun0": 0, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-30", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 30, "weekdaySun0": 1, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-03-30", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 30, "weekdaySun0": 1, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-03-30", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 30, "weekdaySun0": 1, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-03-31", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 31, "weekdaySun0": 2, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-31", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 3, "day": 31, "weekdaySun0": 2, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-03-31", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 3, "day": 31, "weekdaySun0": 2, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-04-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 1, "weekdaySun0": 3, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-01", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 1, "weekdaySun0": 3, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-04-01", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 1, "weekdaySun0": 3, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-04-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 2, "weekdaySun0": 4, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-02", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 2, "weekdaySun0": 4, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-04-02", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 2, "weekdaySun0": 4, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 3, "weekdaySun0": 5, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-03", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 3, "weekdaySun0": 5, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-04-03", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 3, "weekdaySun0": 5, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-04-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 4, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-04", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 4, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-04-04", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 4, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High" }, { "date": "2026-04-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 5, "weekdaySun0": 0, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Low" }, { "date": "2026-04-05", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 5, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-05", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 5, "weekdaySun0": 0, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 6, "weekdaySun0": 1, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-06", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 6, "weekdaySun0": 1, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-06", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 6, "weekdaySun0": 1, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 7, "weekdaySun0": 2, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium" }, { "date": "2026-04-07", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 7, "weekdaySun0": 2, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-04-07", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 7, "weekdaySun0": 2, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-04-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 8, "weekdaySun0": 3, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-08", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 8, "weekdaySun0": 3, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-04-08", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 8, "weekdaySun0": 3, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-04-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 9, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-09", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 9, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-09", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 9, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 10, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-10", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 10, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-10", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 10, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 11, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-11", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 11, "weekdaySun0": 6, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium" }, { "date": "2026-04-11", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 11, "weekdaySun0": 6, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High" }, { "date": "2026-04-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 12, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-12", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 12, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-12", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 12, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 13, "weekdaySun0": 1, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-13", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 13, "weekdaySun0": 1, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-13", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 13, "weekdaySun0": 1, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 14, "weekdaySun0": 2, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-14", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 14, "weekdaySun0": 2, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-14", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 14, "weekdaySun0": 2, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 15, "weekdaySun0": 3, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-15", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 15, "weekdaySun0": 3, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-15", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 15, "weekdaySun0": 3, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 16, "weekdaySun0": 4, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-16", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 16, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-16", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 16, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 17, "weekdaySun0": 5, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Low" }, { "date": "2026-04-17", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 17, "weekdaySun0": 5, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-17", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 17, "weekdaySun0": 5, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 18, "weekdaySun0": 6, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-18", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 18, "weekdaySun0": 6, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-18", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 18, "weekdaySun0": 6, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 19, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-19", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 19, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-19", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 19, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 20, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-20", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 20, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-20", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 20, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Medium" }, { "date": "2026-04-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 21, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-21", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 21, "weekdaySun0": 2, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-21", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 21, "weekdaySun0": 2, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 22, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-22", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 22, "weekdaySun0": 3, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-22", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 22, "weekdaySun0": 3, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 23, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-23", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 23, "weekdaySun0": 4, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-23", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 23, "weekdaySun0": 4, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 24, "weekdaySun0": 5, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-24", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 24, "weekdaySun0": 5, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-24", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 24, "weekdaySun0": 5, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 25, "weekdaySun0": 6, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-25", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 25, "weekdaySun0": 6, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-25", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 25, "weekdaySun0": 6, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 26, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-26", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 26, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-26", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 26, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High" }, { "date": "2026-04-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 27, "weekdaySun0": 1, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-27", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 27, "weekdaySun0": 1, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-27", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 27, "weekdaySun0": 1, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 28, "weekdaySun0": 2, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-28", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 28, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-28", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 28, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-29", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 29, "weekdaySun0": 3, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-29", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 29, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-29", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 29, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-30", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 30, "weekdaySun0": 4, "crowdLevel": 1, "crowdLabel": "Low", "confidence": "High" }, { "date": "2026-04-30", "park": "Islands of Adventure", "parkSlug": "islands-of-adventure", "month": 4, "day": 30, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }, { "date": "2026-04-30", "park": "Universal Studios Florida", "parkSlug": "universal-studios-florida", "month": 4, "day": 30, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Medium" }];
+
+    const state = {
+      parkSlug: "epic-universe",
+      month: 2,
+      showPrices: true,
+    };
+
+    function levelToHsl(level) {
+      // 1 => green-ish, 10 => red-ish
+      const t = (level - 1) / 9;
+      const hue = 120 * (1 - t);
+      return `hsl(${hue.toFixed(0)}, 70%, 28%)`;
+    }
+
+    function fmtUsd(n) {
+      if (n === null || n === undefined || Number.isNaN(n)) return "—";
+      return "$" + Math.round(n).toString();
+    }
+
+    function weekdayOfFirst(year, month) {
+      // returns 0..6 where 0 is Sunday
+      const d = new Date(year, month - 1, 1);
+      return d.getDay();
+    }
+
+    function daysInMonth(year, month) {
+      return new Date(year, month, 0).getDate();
+    }
+
+    function getDayRecord(parkSlug, dateStr) {
+      return CROWD_DATA.find(r => r.parkSlug === parkSlug && r.date === dateStr);
+    }
+
+    function buildCell(record) {
+      const bg = levelToHsl(record.crowdLevel);
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.style.background = bg;
+
+      const btn = document.createElement("button");
+      btn.className = "day-btn";
+      btn.type = "button";
+      btn.addEventListener("click", () => openDrawer(record));
+
+      const top = document.createElement("div");
+      top.className = "day-top";
+
+      const dayNum = document.createElement("div");
+      dayNum.className = "day-num";
+      dayNum.textContent = record.day;
+
+      const lvl = document.createElement("div");
+      lvl.className = "lvl";
+      lvl.textContent = record.crowdLevel + "/10";
+
+      top.appendChild(dayNum);
+      top.appendChild(lvl);
+
+      const mini = document.createElement("div");
+      mini.className = "mini";
+
+      const confidenceLevel = record.confidence.toLowerCase(); // low, medium, high
+      let bars = 1;
+      if (confidenceLevel === "medium") bars = 2;
+      if (confidenceLevel === "high") bars = 3;
+
+      let meterHtml = '<div class="conf-meter">';
+      for (let i = 1; i <= 3; i++) {
+        meterHtml += `<div class="conf-bar ${i <= bars ? 'active' : ''}"></div>`;
+      }
+      meterHtml += '</div>';
+      meterHtml += `<div class="conf-label">${record.confidence} Confidence</div>`;
+
+      mini.innerHTML = `<div><strong>${record.crowdLabel}</strong></div>${meterHtml}`;
+
+
+
+      btn.appendChild(top);
+      btn.appendChild(mini);
+      cell.appendChild(btn);
+      return cell;
+    }
+
+    function render() {
+      const grid = document.getElementById("grid");
+      grid.innerHTML = "";
+
+      const year = 2026;
+      const month = state.month;
+      const firstDow = weekdayOfFirst(year, month);
+      const totalDays = daysInMonth(year, month);
+
+      // blanks
+      for (let i = 0; i < firstDow; i++) {
+        const empty = document.createElement("div");
+        empty.className = "cell empty";
+        grid.appendChild(empty);
+      }
+
+      for (let day = 1; day <= totalDays; day++) {
+        const dateStr = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+        const rec = getDayRecord(state.parkSlug, dateStr);
+        if (!rec) {
+          const empty = document.createElement("div");
+          empty.className = "cell empty";
+          grid.appendChild(empty);
+          continue;
+        }
+        grid.appendChild(buildCell(rec));
+      }
+
+      // activate tab
+      document.querySelectorAll(".tab").forEach(btn => {
+        btn.classList.toggle("active", Number(btn.dataset.month) === state.month);
+      });
+    }
+
+    function openDrawer(record) {
+      const drawer = document.getElementById("drawer");
+      const title = document.getElementById("drawerTitle");
+      const sub = document.getElementById("drawerSub");
+      const body = document.getElementById("drawerBody");
+
+      title.textContent = `${record.park} · ${record.date}`;
+      const priceIndexText = (record.priceIndex === null || record.priceIndex === undefined) ? "—" : record.priceIndex.toFixed(1);
+      sub.textContent = `Crowd ${record.crowdLevel}/10 (${record.crowdLabel}) · ${record.confidence} confidence`;
+
+      let reasoning = "";
+      const c = record.confidence.toLowerCase();
+      if (c === "high") reasoning = "Strong consensus among demand indicators.";
+      else if (c === "medium") reasoning = "Minor variance between demand signals.";
+      else reasoning = "Conflicting signals or limited data available.";
+
+      body.innerHTML = "";
+      const div = document.createElement("div");
+      div.className = "metric";
+      div.style.width = "100%";
+      div.innerHTML = `<div class="k">Crowd Summary</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${reasoning}</div>`;
+      body.appendChild(div);
+
+      drawer.classList.add("open");
+      drawer.setAttribute("aria-hidden", "false");
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById("drawer");
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    }
+
+    document.getElementById("drawerClose").addEventListener("click", closeDrawer);
+    document.getElementById("drawer").addEventListener("click", (e) => {
+      if (e.target.id === "drawer") closeDrawer();
+    });
+
+    document.querySelectorAll(".tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.month = Number(btn.dataset.month);
+        render();
+      });
+    });
+
+
+
+    const parkSelect = document.getElementById("parkSelect");
+    if (parkSelect) {
+      parkSelect.addEventListener("change", () => {
+        state.parkSlug = parkSelect.value;
+        render();
+      });
+    }
+
+    // initial render
+    render();
+  </script>
+</body>
+
+</html>
