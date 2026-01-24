@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -12,318 +13,369 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
   </script>
 
   <title>Islands of Adventure Wait Times &amp; Strategy | Ride Ready</title>
-  <meta name="description" content="Track Islands of Adventure wait times with Ride Ready and set alerts for Hagrid's, VelociCoaster, Forbidden Journey, Hulk, and more — ride the hits when lines dip." />
+  <meta name="description"
+    content="Track Islands of Adventure wait times with Ride Ready and set alerts for Hagrid's, VelociCoaster, Forbidden Journey, Hulk, and more — ride the hits when lines dip." />
   <link rel="canonical" href="https://rideready.app/parks/islands-of-adventure/" />
   <meta property="og:title" content="Islands of Adventure Wait Times &amp; Strategy | Ride Ready" />
-  <meta property="og:description" content="Track Islands of Adventure wait times with Ride Ready and set alerts for Hagrid's, VelociCoaster, Forbidden Journey, Hulk, and more — ride the hits when lines dip." />
+  <meta property="og:description"
+    content="Track Islands of Adventure wait times with Ride Ready and set alerts for Hagrid's, VelociCoaster, Forbidden Journey, Hulk, and more — ride the hits when lines dip." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/islands-of-adventure/" />
   <meta property="og:image" content="https://rideready.app/images/logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-:root {
-  --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --muted: rgba(255,255,255,0.72);
-  --accent-color: #F97316;
-  --card-bg: #111;
-  --border: #333;
-  --soft-border: rgba(255,255,255,0.08);
-  --shadow: 0 20px 50px rgba(0,0,0,0.55);
-  --radius: 18px;
-}
+    :root {
+      --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --accent-color: #F97316;
+      --card-bg: #111;
+      --border: #333;
+      --soft-border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --radius: 18px;
+    }
 
-* { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  overflow-x: hidden;
-  line-height: 1.55;
-  padding-bottom: 92px; /* space for sticky footer */
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+      line-height: 1.55;
+      padding-bottom: 92px;
+      /* space for sticky footer */
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.20) 0%, transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(255,65,108,0.16) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -1;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.20) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255, 65, 108, 0.16) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 32px 20px 0;
-}
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 0;
+    }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 26px;
-}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
 
-nav .left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
+    nav .left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
 
-nav a:hover { opacity: 1; }
+    nav a:hover {
+      opacity: 1;
+    }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
 
-.logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-.nav-cta {
-  background: var(--primary-gradient);
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 700;
-  color: white;
-  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
-}
+    .nav-cta {
+      background: var(--primary-gradient);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.20);
+    }
 
-.hero {
-  padding: 26px 18px;
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  border: 1px solid var(--soft-border);
-  box-shadow: var(--shadow);
-  text-align: left;
-}
+    .hero {
+      padding: 26px 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--soft-border);
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
 
-.hero h1 {
-  margin: 0 0 8px;
-  font-size: clamp(28px, 5vw, 42px);
-  line-height: 1.1;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.1;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.hero p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 70ch;
-}
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 70ch;
+    }
 
-.section {
-  margin-top: 34px;
-  text-align: left;
-}
+    .section {
+      margin-top: 34px;
+      text-align: left;
+    }
 
-.section h2 {
-  margin: 0 0 14px;
-  font-size: 1.35rem;
-}
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+    }
 
-.kicker {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 10px;
-}
+    .kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 10px;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
 
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-}
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
 
-.fact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-}
+    .fact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
 
-.fact {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
+    .fact {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
 
-.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
-.fact span { color: var(--muted); }
+    .fact b {
+      min-width: 120px;
+      color: rgba(255, 255, 255, 0.92);
+    }
 
-.ride-card h3 {
-  margin: 0 0 6px;
-  font-size: 1.05rem;
-  line-height: 1.2;
-}
+    .fact span {
+      color: var(--muted);
+    }
 
-.ride-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.80);
-  margin-bottom: 10px;
-}
+    .ride-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
 
-.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
+    .ride-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.80);
+      margin-bottom: 10px;
+    }
 
-.chip {
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.86);
-  background: rgba(255,255,255,0.03);
-}
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0 10px;
+    }
 
-.ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
-.ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
+    .chip {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.03);
+    }
 
-.inline-link {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 700;
-}
+    .ride-why {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.80);
+    }
 
-.inline-link:hover { text-decoration: underline; }
+    .ride-fact {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.70);
+    }
 
-.alert-grid .card b { color: rgba(255,255,255,0.92); }
+    .inline-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+    }
 
-.plan {
-  margin: 0;
-  padding-left: 18px;
-  color: rgba(255,255,255,0.82);
-}
+    .inline-link:hover {
+      text-decoration: underline;
+    }
 
-.plan li { margin: 8px 0; }
+    .alert-grid .card b {
+      color: rgba(255, 255, 255, 0.92);
+    }
 
-details {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 14px;
-  padding: 12px 14px;
-}
+    .plan {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255, 255, 255, 0.82);
+    }
 
-details + details { margin-top: 10px; }
+    .plan li {
+      margin: 8px 0;
+    }
 
-summary {
-  cursor: pointer;
-  font-weight: 700;
-  outline: none;
-}
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
 
-details p {
-  margin: 10px 0 0;
-  color: rgba(255,255,255,0.78);
-}
+    details+details {
+      margin-top: 10px;
+    }
 
-footer {
-  margin: 34px 0 22px;
-  color: rgba(255,255,255,0.55);
-  font-size: 0.9rem;
-  text-align: center;
-}
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      outline: none;
+    }
 
-.sources a { word-break: break-word; }
+    details p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
 
-.sticky-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255,255,255,0.10);
-  padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
-  z-index: 1000;
-}
+    footer {
+      margin: 34px 0 22px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.9rem;
+      text-align: center;
+    }
 
-.sticky-footer .inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-}
+    .sources a {
+      word-break: break-word;
+    }
 
-.sticky-footer .text {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.82);
-}
+    .sticky-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
+      z-index: 1000;
+    }
 
-.sticky-footer a {
-  background: var(--primary-gradient);
-  color: white;
-  padding: 11px 16px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
+    .sticky-footer .inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-@media (max-width: 640px) {
-  nav { align-items: flex-start; }
-  .nav-links { justify-content: flex-start; }
-  .hero { padding: 22px 16px; }
-  .sticky-footer .text { display: none; }
-}
-</style>
+    .sticky-footer .text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .sticky-footer a {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 22px 16px;
+      }
+
+      .sticky-footer .text {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="sticky-footer">
     <div class="inner">
       <div class="text">Islands of Adventure: your day is basically Hagrid's + VelociCoaster timing. Make it easy.</div>
-      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-ioa-sticky" data-ref="park-ioa-sticky">Download Free</a>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-ioa-sticky"
+        data-ref="park-ioa-sticky">Download Free</a>
     </div>
   </div>
 
@@ -337,23 +389,35 @@ footer {
       </div>
       <div class="nav-links">
         <a href="/parks/">Parks</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-ioa-nav" data-ref="park-ioa-nav">Download Free</a>
+        <a href="/universal-orlando/crowd-calendar/">Crowds</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-ioa-nav"
+          data-ref="park-ioa-nav">Download Free</a>
       </div>
     </nav>
 
     <div class="hero">
       <div class="kicker">Universal Islands of Adventure - Wait times + smarter timing</div>
       <h1>Universal Islands of Adventure: Know When to Go</h1>
-      <p>Track Islands of Adventure wait times with Ride Ready and set alerts for Hagrid's, VelociCoaster, Forbidden Journey, Hulk, and more - ride the hits when lines dip.</p>
+      <p>Track Islands of Adventure wait times with Ride Ready and set alerts for Hagrid's, VelociCoaster, Forbidden
+        Journey, Hulk, and more - ride the hits when lines dip.</p>
     </div>
 
     <section class="section">
       <h2>Quick park facts</h2>
       <div class="grid">
-        <div class="card"><div class="fact"><b>Location</b><span>Universal Orlando Resort (Orlando, Florida)</span></div></div>
-<div class="card"><div class="fact"><b>Best for</b><span>Thrill rides + a few must-do dark rides in one day</span></div></div>
-<div class="card"><div class="fact"><b>Most time saved on</b><span>Hagrid's, VelociCoaster, Forbidden Journey</span></div></div>
-<div class="card"><div class="fact"><b>The trick</b><span>Set alerts early, then bounce between lands when the park shifts.</span></div></div>
+        <div class="card">
+          <div class="fact"><b>Location</b><span>Universal Orlando Resort (Orlando, Florida)</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>Best for</b><span>Thrill rides + a few must-do dark rides in one day</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>Most time saved on</b><span>Hagrid's, VelociCoaster, Forbidden Journey</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>The trick</b><span>Set alerts early, then bounce between lands when the park
+              shifts.</span></div>
+        </div>
       </div>
     </section>
 
@@ -364,18 +428,24 @@ footer {
         <div class="card ride-card">
           <h3>Hagrid's Magical Creatures Motorbike Adventure</h3>
           <div class="ride-tag">Family thrill coaster - multiple launches</div>
-          <div class="chips"><span class="chip">Launched</span><span class="chip">Story-heavy</span><span class="chip">Very high demand</span></div>
-          <p class="ride-why">This is the wait-time villain. Alerts help you ride it when it dips instead of giving it your whole day.</p>
-          <p class="ride-fact"><b>Fun fact:</b> It's famous for multiple launches and strong theming - a must for most visitors.</p>
+          <div class="chips"><span class="chip">Launched</span><span class="chip">Story-heavy</span><span
+              class="chip">Very high demand</span></div>
+          <p class="ride-why">This is the wait-time villain. Alerts help you ride it when it dips instead of giving it
+            your whole day.</p>
+          <p class="ride-fact"><b>Fun fact:</b> It's famous for multiple launches and strong theming - a must for most
+            visitors.</p>
         </div>
 
 
         <div class="card ride-card">
           <h3>Jurassic World VelociCoaster</h3>
           <div class="ride-tag">Launch coaster - big speed + inversions</div>
-          <div class="chips"><span class="chip">155 ft</span><span class="chip">70 mph</span><span class="chip">4 inversions</span></div>
-          <p class="ride-why">When it's short, it's an instant 'go now.' When it's long, it's a time sink. Track it and strike on dips.</p>
-          <p class="ride-fact"><b>Fun fact:</b> A top-tier modern launch coaster with a signature roll over the lagoon.</p>
+          <div class="chips"><span class="chip">155 ft</span><span class="chip">70 mph</span><span class="chip">4
+              inversions</span></div>
+          <p class="ride-why">When it's short, it's an instant 'go now.' When it's long, it's a time sink. Track it and
+            strike on dips.</p>
+          <p class="ride-fact"><b>Fun fact:</b> A top-tier modern launch coaster with a signature roll over the lagoon.
+          </p>
         </div>
 
 
@@ -383,7 +453,8 @@ footer {
           <h3>Harry Potter and the Forbidden Journey</h3>
           <div class="ride-tag">Dark ride - indoor headliner</div>
           <div class="chips"><span class="chip">Indoor</span><span class="chip">High demand</span></div>
-          <p class="ride-why">Lines can build unexpectedly, especially as the day heats up. Alerts help you hit it before the crowd surge.</p>
+          <p class="ride-why">Lines can build unexpectedly, especially as the day heats up. Alerts help you hit it
+            before the crowd surge.</p>
           <p class="ride-fact"><b>Fun fact:</b> A huge indoor ride that's often a 'must' for first-timers.</p>
         </div>
 
@@ -392,7 +463,8 @@ footer {
           <h3>The Incredible Hulk Coaster</h3>
           <div class="ride-tag">Launched coaster - classic intensity</div>
           <div class="chips"><span class="chip">110 ft</span><span class="chip">67 mph</span></div>
-          <p class="ride-why">A great 'keep momentum' coaster. Track it as a backup when other headliners are peaking.</p>
+          <p class="ride-why">A great 'keep momentum' coaster. Track it as a backup when other headliners are peaking.
+          </p>
           <p class="ride-fact"><b>Fun fact:</b> A long-running favorite that still delivers a punchy ride.</p>
         </div>
 
@@ -401,7 +473,8 @@ footer {
           <h3>The Amazing Adventures of Spider-Man</h3>
           <div class="ride-tag">Dark ride - crowd-pleaser</div>
           <div class="chips"><span class="chip">Indoor</span><span class="chip">Great for groups</span></div>
-          <p class="ride-why">A perfect pivot ride while you wait for a coaster alert. It's a win when it's under 30 minutes.</p>
+          <p class="ride-why">A perfect pivot ride while you wait for a coaster alert. It's a win when it's under 30
+            minutes.</p>
           <p class="ride-fact"><b>Fun fact:</b> One of the most consistently loved rides in the park.</p>
         </div>
 
@@ -411,14 +484,37 @@ footer {
     <section class="section alert-grid">
       <h2>Good default alert presets</h2>
       <div class="grid">
-        <div class="card"><b>Hagrid's</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 60 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">A realistic 'go now' threshold for a ride that often stays high.</div></div>
-<div class="card"><b>VelociCoaster</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 45 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Jump on it when it dips - it's usually worth the walk.</div></div>
-<div class="card"><b>Forbidden Journey</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 40 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Great to tackle before it balloons.</div></div>
-<div class="card"><b>Hulk</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">A strong backup coaster to chain in.</div></div>
-<div class="card"><b>Spider-Man</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Perfect pivot ride (and air-conditioned).</div></div>
+        <div class="card"><b>Hagrid's</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 60 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">A realistic 'go now' threshold for a ride that
+            often stays high.</div>
+        </div>
+        <div class="card"><b>VelociCoaster</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 45 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Jump on it when it dips - it's usually worth the
+            walk.</div>
+        </div>
+        <div class="card"><b>Forbidden Journey</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 40 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Great to tackle before it balloons.</div>
+        </div>
+        <div class="card"><b>Hulk</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">A strong backup coaster to chain in.</div>
+        </div>
+        <div class="card"><b>Spider-Man</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Perfect pivot ride (and air-conditioned).</div>
+        </div>
       </div>
       <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
-        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
+        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth
+        moving for.
       </p>
     </section>
 
@@ -426,50 +522,61 @@ footer {
       <h2>If you only have one day</h2>
       <ol class="plan">
         <li>Favorite your top rides before you enter and set alerts right away.</li>
-<li>Start with one headliner early (before lines fully stack).</li>
-<li>If Hagrid's and VelociCoaster are both high, pivot to indoor rides and wait for a drop ping.</li>
-<li>Use 'backup alerts' (Hulk/Spider-Man) so you always have a next move.</li>
-<li>Late day: re-ride a headliner if you catch a dip - this park can surprise you near close.</li>
+        <li>Start with one headliner early (before lines fully stack).</li>
+        <li>If Hagrid's and VelociCoaster are both high, pivot to indoor rides and wait for a drop ping.</li>
+        <li>Use 'backup alerts' (Hulk/Spider-Man) so you always have a next move.</li>
+        <li>Late day: re-ride a headliner if you catch a dip - this park can surprise you near close.</li>
       </ol>
     </section>
 
     <section class="section">
       <h2>More planning help</h2>
       <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="/parks/islands-of-adventure/crowd-calendar/">Crowd Calendar (Feb–Apr 2026)</a>
+        </li>
         <li><a class="inline-link" href="/orlando/spring-break-2026/">Orlando Spring Break 2026 Survival Guide</a></li>
-<li><a class="inline-link" href="/parks/epic-universe/">Universal Epic Universe strategy</a></li>
-<li><a class="inline-link" href="/parks/">All supported parks</a></li>
+        <li><a class="inline-link" href="/parks/epic-universe/">Universal Epic Universe strategy</a></li>
+        <li><a class="inline-link" href="/parks/">All supported parks</a></li>
       </ul>
     </section>
 
     <section class="section">
       <h2>FAQ</h2>
 
-    <details>
-      <summary>Does Ride Ready use the park's official wait times?</summary>
-      <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
-    </details>
-    <details>
-      <summary>What's the fastest way to get value on a one-day visit?</summary>
-      <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot - that's where you claw back time without buying a line-skip add-on.</p>
-    </details>
-    <details>
-      <summary>Is this affiliated with Universal Islands of Adventure?</summary>
-      <p>No. Ride Ready is an independent app.</p>
-    </details>
+      <details>
+        <summary>Does Ride Ready use the park's official wait times?</summary>
+        <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has
+          downtime, your alerts may be delayed or temporarily less accurate.</p>
+      </details>
+      <details>
+        <summary>What's the fastest way to get value on a one-day visit?</summary>
+        <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot - that's
+          where you claw back time without buying a line-skip add-on.</p>
+      </details>
+      <details>
+        <summary>Is this affiliated with Universal Islands of Adventure?</summary>
+        <p>No. Ride Ready is an independent app.</p>
+      </details>
 
     </section>
 
     <section class="section sources">
       <h2>Sources</h2>
-      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official
+        attraction pages and public ride databases.</p>
       <ul class="plan" style="list-style: disc;">
-        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Universal%27s_Islands_of_Adventure" rel="noopener noreferrer" target="_blank">Islands of Adventure (park overview) - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Hagrid%27s_Magical_Creatures_Motorbike_Adventure" rel="noopener noreferrer" target="_blank">Hagrid's Motorbike Adventure - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Jurassic_World_VelociCoaster" rel="noopener noreferrer" target="_blank">Jurassic World VelociCoaster - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Harry_Potter_and_the_Forbidden_Journey" rel="noopener noreferrer" target="_blank">Forbidden Journey - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/The_Incredible_Hulk_Coaster" rel="noopener noreferrer" target="_blank">The Incredible Hulk Coaster - Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/The_Amazing_Adventures_of_Spider-Man" rel="noopener noreferrer" target="_blank">Spider-Man ride - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Universal%27s_Islands_of_Adventure"
+            rel="noopener noreferrer" target="_blank">Islands of Adventure (park overview) - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Hagrid%27s_Magical_Creatures_Motorbike_Adventure"
+            rel="noopener noreferrer" target="_blank">Hagrid's Motorbike Adventure - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Jurassic_World_VelociCoaster"
+            rel="noopener noreferrer" target="_blank">Jurassic World VelociCoaster - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Harry_Potter_and_the_Forbidden_Journey"
+            rel="noopener noreferrer" target="_blank">Forbidden Journey - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/The_Incredible_Hulk_Coaster"
+            rel="noopener noreferrer" target="_blank">The Incredible Hulk Coaster - Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/The_Amazing_Adventures_of_Spider-Man"
+            rel="noopener noreferrer" target="_blank">Spider-Man ride - Wikipedia</a></li>
       </ul>
     </section>
 
@@ -478,14 +585,15 @@ footer {
     </footer>
   </div>
 
-<script>
-document.querySelectorAll('[data-ref]').forEach(function(link) {
-  link.addEventListener('click', function() {
-    if (typeof gtag === 'function') {
-      gtag('event', 'app_store_click', { source: this.dataset.ref, page: window.location.pathname });
-    }
-  });
-});
-</script>
+  <script>
+    document.querySelectorAll('[data-ref]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'app_store_click', { source: this.dataset.ref, page: window.location.pathname });
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>

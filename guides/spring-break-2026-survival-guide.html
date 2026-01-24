@@ -673,7 +673,8 @@
                 <h3>SeaWorld Orlando</h3>
                 <p style="font-size: 8pt; margin-bottom: 4px;"><strong>Deep bench:</strong> More coasters than most
                     people expect — pivoting is easier here. <strong>Best days:</strong> Wed/Thu (17–19 min avg).
-                    <strong>Worst:</strong> Saturday (34 min avg).</p>
+                    <strong>Worst:</strong> Saturday (34 min avg).
+                </p>
                 <p style="margin-top: 2px;"><strong>Priority (rope drop):</strong></p>
                 <ol style="margin-left: 16px; font-size: 8pt;">
                     <li>Pipeline: The Surf Coaster (35 min avg — highest waits)</li>
@@ -731,7 +732,8 @@
     <div class="page">
         <h2>Week-by-Week Strategy Cards</h2>
         <p class="small-note">Best days vary by park: <strong>Epic Universe</strong> → Sunday.
-            <strong>IOA/USF/SeaWorld</strong> → Wed/Thu. Avoid Monday (all parks).</p>
+            <strong>IOA/USF/SeaWorld</strong> → Wed/Thu. Avoid Monday (all parks).
+        </p>
         <div class="three-col">
             <div class="week-card">
                 <h4>Week 1: Soft Open</h4>
@@ -959,6 +961,7 @@
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
             <span style="font-weight: 700; font-size: 0.9rem;">Wait times?</span>
             <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-springbreak-sticky"
+                data-ref="guide-springbreak-sticky"
                 style="background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">Get
                 App</a>
         </div>
@@ -974,6 +977,19 @@
             }
         }
     </style>
+    <script>
+        // Track App Store clicks consistently (ct= in URL + data-ref in GA)
+        document.querySelectorAll('a[data-ref]').forEach(function (link) {
+            link.addEventListener('click', function () {
+                try {
+                    gtag('event', 'app_store_click', {
+                        source: link.getAttribute('data-ref'),
+                        page: window.location.pathname
+                    });
+                } catch (e) { }
+            });
+        });
+    </script>
 </body>
 
 </html>

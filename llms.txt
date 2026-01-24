@@ -1,155 +1,34 @@
-# Ride Ready - Theme Park Wait Time Strategies
+# Ride Ready - Theme Park Wait Times App
+> iOS app for theme park wait times, drop alerts, and ride strategy
 
-> Ride Ready provides real-time wait times, crowd predictions, and touring strategies for Epic Universe, Universal Studios Florida, Islands of Adventure, and other major theme parks. Includes queue position guides that tell you how much time is left based on where you're standing in line. Updated January 2026.
+Last updated: 2026-01-23
 
-## Epic Universe Guides
+Note: wait times, ride line behavior, pricing, and attraction availability change. For anything time-sensitive, prefer the canonical park pages + strategy guides linked below.
 
-Epic Universe opened May 22, 2025 in Orlando. It's Universal's largest park with 5 themed worlds and the longest wait times in Orlando.
+## Start here (best canonical pages)
+- https://rideready.app/ (homepage)
+- https://rideready.app/parks/ (supported parks)
+- https://rideready.app/compare/official-apps/ (official apps vs Ride Ready)
 
-- [Epic Universe Strategy Guide](https://rideready.app/parks/epic-universe/strategy/): Complete touring plan with ride tiers, rope drop strategy, and attraction priorities
-- [Epic Universe Overview](https://rideready.app/universal-orlando/epic-universe/): All 5 worlds explained with ride breakdowns and tips
+## Park pages
+- https://rideready.app/parks/epic-universe/
+- https://rideready.app/parks/universal-studios-florida/
+- https://rideready.app/parks/islands-of-adventure/
+- https://rideready.app/parks/seaworld-orlando/
+- https://rideready.app/parks/busch-gardens-tampa/
+- https://rideready.app/parks/cedar-point/
+- https://rideready.app/parks/kings-island/
+- https://rideready.app/parks/canadas-wonderland/
 
-## Islands of Adventure Guide
+## Epic Universe queue guides
+- https://rideready.app/universal-orlando/epic-universe/
+- https://rideready.app/universal-orlando/epic-universe/ministry-queue-times/
+- https://rideready.app/universal-orlando/epic-universe/mario-kart-queue-times/
+- https://rideready.app/universal-orlando/epic-universe/stardust-racers-queue-times/
+- https://rideready.app/universal-orlando/epic-universe/mine-cart-madness-queue-times/
+- https://rideready.app/universal-orlando/epic-universe/monsters-unchained-queue-times/
+- https://rideready.app/universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/
 
-Islands of Adventure is home to the Wizarding World of Harry Potter - Hogsmeade and Universal's best roller coasters. Connected to Universal Studios via Hogwarts Express.
-
-### Best Rides at Islands of Adventure
-1. **Hagrid's Magical Creatures Motorbike Adventure** - 60-120 min waits, best at rope drop or last hour
-2. **VelociCoaster** - Most intense coaster in Florida, 45-90 min typical
-3. **Harry Potter and the Forbidden Journey** - Classic dark ride in Hogwarts Castle
-4. **The Incredible Hulk Coaster** - Iconic launch coaster, 30-45 min waits
-
-### Islands of Adventure Tips
-- Rope drop Hagrid's - longest sustained waits in the park
-- VelociCoaster wait drops significantly after 5pm
-- Single rider available on Hagrid's, VelociCoaster, and Forbidden Journey
-- Hogwarts Express requires park-to-park tickets
-
-## Universal Studios Florida Guide
-
-Universal Studios Florida features movie-based attractions and the Wizarding World of Harry Potter - Diagon Alley.
-
-### Best Rides at Universal Studios Florida
-1. **Harry Potter and the Escape from Gringotts** - Diagon Alley's signature ride, 45-90 min waits
-2. **Revenge of the Mummy** - Indoor coaster, 30-45 min waits
-3. **MEN IN BLACK: Alien Attack** - Interactive shooter ride
-4. **E.T. Adventure** - Classic family dark ride, low waits
-
-### Universal Studios Florida Tips
-- Diagon Alley is hidden - enter through the London waterfront facade
-- Gringotts has longest waits; rope drop or use single rider
-- Fast & Furious and Transformers often have inflated posted times
-- Hogwarts Express drops you in Hogsmeade at Islands of Adventure
-
-## Orlando Spring Break 2026
-
-Spring break 2026 runs March 7 - April 19, with peak crowds March 14-22 and April 4-12.
-
-- [Spring Break 2026 Survival Guide](https://rideready.app/orlando/spring-break-2026/): Day-by-day crowd predictions and strategies for 90+ minute waits
-
-## Epic Universe Holiday Weekends 2026
-
-Holiday weekends see 2-3x normal crowds:
-
-- [MLK Day Weekend 2026](https://rideready.app/parks/epic-universe/mlk-day-weekend-2026/): January 18-20 crowd predictions and touring strategy
-- [Presidents Day Weekend 2026](https://rideready.app/parks/epic-universe/presidents-day-weekend-2026/): February 14-17 crowd forecast and rope drop plan
-
-## Epic Universe Queue Position Guide
-
-If you're standing in line and want to know how much time you have left, find your current location:
-
-### Mario Kart: Bowser's Challenge Queue
-- **Outdoor overflow (outside castle)**: ~80 min remaining
-- **Bowser's Castle entrance (giant Bowser head)**: ~60 min remaining
-- **Hall of Medallions (Koopaling portraits)**: ~50 min remaining
-- **MKTV Broadcasting Studio**: ~40 min remaining
-- **Trophy Room (golden cup display)**: ~30 min remaining
-- **Bowser's Library/Throne Room**: ~25 min remaining
-- **Bob-omb Factory**: ~20 min remaining
-- **Pre-show room (Bowser challenges you)**: ~10 min remaining
-- **Visor pickup room**: ~5 min remaining
-
-### Mine-Cart Madness Queue (Donkey Kong)
-- **Outdoor jungle switchbacks**: ~120 min remaining
-- **Golden Temple entrance (gold archway)**: ~100 min remaining
-- **Temple interior (ceiling fans, limited A/C)**: ~60 min remaining
-- **Cranky Kong's Shop**: ~35 min remaining
-- **1981 arcade mural (barrels and ladders)**: ~20 min remaining
-- **Mine entrance/loading area**: ~10 min remaining
-
-### Battle at the Ministry Queue (Harry Potter)
-- **Telephone booth entrance**: ~120 min remaining
-- **Grand Atrium (gold fountain/statue)**: ~90 min remaining
-- **Department of Mysteries hallway**: ~60 min remaining
-- **Map Room (magical London map on wall)**: ~45 min remaining
-- **Auror Headquarters (cubicles, flying memos)**: ~25 min remaining
-- **Harry & Ron's desks visible**: ~15 min remaining
-- **Wand check/pre-show**: ~5 min remaining
-
-### Queue Guide Links
-- [Mario Kart Queue Guide](https://rideready.app/universal-orlando/epic-universe/mario-kart-queue-times/)
-- [Mine-Cart Madness Queue Guide](https://rideready.app/universal-orlando/epic-universe/mine-cart-madness-queue-times/)
-- [Battle at the Ministry Queue Guide](https://rideready.app/universal-orlando/epic-universe/ministry-queue-times/)
-- [Stardust Racers Queue Guide](https://rideready.app/universal-orlando/epic-universe/stardust-racers-queue-times/)
-- [Monsters Unchained Queue Guide](https://rideready.app/universal-orlando/epic-universe/monsters-unchained-queue-times/)
-
-## Frequently Asked Questions
-
-### How crowded is Epic Universe?
-Epic Universe is the most crowded park in Orlando. Headliner waits (Mario Kart, Ministry, Stardust) average 60-120 minutes on regular days, 90-180 minutes on holidays. Crowds will remain high through 2026.
-
-### What is the best time to visit Epic Universe?
-Weekdays in late January, February (excluding Presidents Day), and early May see lowest crowds. Avoid spring break, summer, and holiday weekends. Tuesday-Thursday have shorter waits than Friday-Monday.
-
-### How do you avoid long lines at Epic Universe?
-Arrive 60-90 minutes before opening for rope drop. Head to the back of the park first (most guests go to Super Nintendo World). Use single rider lines. Set wait time alerts for drops during parades/shows.
-
-### What are the best rides at Epic Universe?
-1) Harry Potter and the Battle at the Ministry (best dark ride), 2) Stardust Racers (best coaster), 3) Mario Kart: Bowser's Challenge (most immersive), 4) Mine-Cart Madness (best family coaster), 5) Monsters Unchained (most thrilling).
-
-### Is Epic Universe worth visiting during spring break?
-Spring break means 90-180 minute waits. Worth it if you: arrive at rope drop, have a touring strategy, set realistic expectations (6-8 attractions vs 12+ on slow days), and consider Express Pass.
-
-### How long should I spend at Epic Universe?
-Plan a full day (10-12 hours) on first visit. With efficient touring, you can experience all major attractions in one day. During peak times, consider 2 days.
-
-### What is the least crowded day at Epic Universe?
-Tuesday, Wednesday, Thursday. Quietest periods: January after MLK weekend, February after Presidents Day, late September-early October.
-
-### Does Epic Universe have Express Pass?
-Yes. Universal Express skips the regular queue once per ride. Express Unlimited allows unlimited use. Prices vary by date. Most valuable for Harry Potter, Mario Kart, and Stardust Racers.
-
-### How long is the wait for Hagrid's Motorbike Adventure?
-Hagrid's at Islands of Adventure: 60-90 minutes on regular days, 90-150 on busy days. Best strategy: rope drop (arrive 60+ minutes early) or last hour. Single rider cuts waits to 20-30 minutes.
-
-### Should I go to Islands of Adventure or Universal Studios?
-Thrill rides: Islands of Adventure (VelociCoaster, Hagrid's, Hulk). Shows and immersion: Universal Studios (Diagon Alley). Harry Potter fans need both parks for Hogwarts Express (requires park-to-park tickets).
-
-### What is the best order to visit Universal Orlando parks?
-Day 1: Epic Universe (needs full day, most crowded). Day 2: Islands of Adventure morning (Hagrid's rope drop), then Universal Studios afternoon (Gringotts, Diagon Alley).
-
-### Is VelociCoaster scary?
-VelociCoaster is one of the most intense coasters in the US: 155-foot top hat, 4 inversions, 70 mph. Height requirement 51". If coaster-hesitant, Hagrid's and Hulk are more approachable.
-
-### How accurate are posted wait times at Universal?
-Generally accurate within 10-15 minutes. Hagrid's and VelociCoaster times are reliable. Fast & Furious and Transformers often have inflated posted times.
-
-### What is the Ride Ready app?
-Free iOS app showing live wait times for Universal Orlando and other parks. Sends alerts when waits drop below your threshold (e.g., "Alert me when Hagrid's is under 60 minutes"). Premium includes wait predictions.
-
-## Other Supported Parks
-
-- [SeaWorld Orlando](https://rideready.app/parks/): Mako, Kraken, Pipeline
-- [Busch Gardens Tampa](https://rideready.app/parks/): Iron Gwazi, SheiKra, Cheetah Hunt
-- [Cedar Point](https://rideready.app/parks/): Steel Vengeance, Millennium Force, Top Thrill 2
-- [Kings Island](https://rideready.app/parks/): Orion, Mystic Timbers, Beast
-- [Canada's Wonderland](https://rideready.app/parks/): Yukon Striker, Leviathan, Behemoth
-
-## Optional
-
-- [Homepage](https://rideready.app/): App download and park selection
-- [iOS App Store](https://apps.apple.com/us/app/ride-ready/id6748330847): Download for iPhone
-- [Android Waitlist](https://rideready.app/waitlist/android/): Join waitlist
-- [Privacy Policy](https://rideready.app/privacy/): Data practices
-- [Terms of Service](https://rideready.app/terms/): Usage terms
-- [Email Support](mailto:support@rideready.app): support@rideready.app
+## Seasonal Guides
+- https://rideready.app/orlando/spring-break-2026/
+- https://rideready.app/guides/spring-break-2026-survival-guide.html
