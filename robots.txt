@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /
 # Internal development files
 Disallow: /reports/
 Disallow: /plans/
@@ -13,15 +12,6 @@ Disallow: /generate_redirects.py
 Disallow: /_config.yml
 Disallow: /.gitignore
 Disallow: /tmp/
-
-# Search Indexing Bots (Allow)
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: OAI-SearchBot
 Allow: /
 
 # AI Training Bots (Disallow)
