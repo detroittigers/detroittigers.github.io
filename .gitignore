@@ -68,8 +68,10 @@ logs
 tmp/
 temp/
 
-# Analytics reports
+# Internal development folders
 reports/
+plans/
+docs/
 
 # Secrets
 secrets/
