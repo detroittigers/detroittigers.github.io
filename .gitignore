@@ -73,6 +73,12 @@ reports/
 plans/
 docs/
 
+# Internal development files
+AGENT.md
+CLAUDE.md
+_config.yml
+generate_redirects.py
+
 # Secrets
 secrets/
 .mcp.json
