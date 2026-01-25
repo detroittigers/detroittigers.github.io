@@ -1098,7 +1098,7 @@
       const btn = document.createElement("button");
       btn.className = "day-btn";
       btn.type = "button";
-      btn.addEventListener("click", () => openDrawer(record));
+      btn.addEventListener("click", () => openDrawer(record, btn));
 
       const top = document.createElement("div");
       top.className = "day-top";
@@ -1173,11 +1173,15 @@
       });
     }
 
-    function openDrawer(record) {
+    let focusReturnTarget = null;
+
+    function openDrawer(record, btn) {
       const drawer = document.getElementById("drawer");
       const title = document.getElementById("drawerTitle");
       const sub = document.getElementById("drawerSub");
       const body = document.getElementById("drawerBody");
+
+      focusReturnTarget = btn;
 
       title.textContent = `${record.park} · ${record.date}`;
       const priceIndexText = (record.priceIndex === null || record.priceIndex === undefined) ? "—" : record.priceIndex.toFixed(1);
@@ -1215,14 +1219,31 @@
       `;
       body.appendChild(cta);
 
+      if (typeof gtag === 'function') {
+        gtag('event', 'crowd_calendar_open_day', {
+          date: record.date,
+          crowdLevel: record.crowdLevel,
+          confidence: record.confidence,
+          park: record.park
+        });
+      }
+
       drawer.classList.add("open");
       drawer.setAttribute("aria-hidden", "false");
+
+      const closeBtn = document.getElementById("drawerClose");
+      if (closeBtn) closeBtn.focus();
     }
 
     function closeDrawer() {
       const drawer = document.getElementById("drawer");
       drawer.classList.remove("open");
       drawer.setAttribute("aria-hidden", "true");
+
+      if (focusReturnTarget) {
+        focusReturnTarget.focus();
+        focusReturnTarget = null;
+      }
     }
 
     document.getElementById("drawerClose").addEventListener("click", closeDrawer);
@@ -1239,6 +1260,14 @@
     document.querySelectorAll(".tab").forEach(btn => {
       btn.addEventListener("click", () => {
         state.month = Number(btn.dataset.month);
+
+        if (typeof gtag === 'function') {
+          const monthNames = { 2: 'february', 3: 'march', 4: 'april' };
+          gtag('event', 'crowd_calendar_change_month', {
+            month: monthNames[state.month] || state.month
+          });
+        }
+
         render();
       });
     });
@@ -1249,6 +1278,13 @@
     if (parkSelect) {
       parkSelect.addEventListener("change", () => {
         state.parkSlug = parkSelect.value;
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'crowd_calendar_change_park', {
+            parkSlug: state.parkSlug
+          });
+        }
+
         render();
       });
     }
