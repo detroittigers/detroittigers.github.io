@@ -1045,8 +1045,7 @@
 
     const state = {
       parkSlug: "islands-of-adventure",
-      month: 2,
-      showPrices: true,
+      month: 2
     };
 
     function levelToHsl(level) {
@@ -1064,11 +1063,6 @@
         'Very Busy': 'V.Busy'
       };
       return shortLabels[label] || label;
-    }
-
-    function fmtUsd(n) {
-      if (n === null || n === undefined || Number.isNaN(n)) return "-";
-      return "$" + Math.round(n).toString();
     }
 
     function weekdayOfFirst(year, month) {
