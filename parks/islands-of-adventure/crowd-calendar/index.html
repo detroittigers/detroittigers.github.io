@@ -1186,7 +1186,6 @@
       focusReturnTarget = btn;
 
       title.textContent = `${record.park} · ${record.date}`;
-      const priceIndexText = (record.priceIndex === null || record.priceIndex === undefined) ? "—" : record.priceIndex.toFixed(1);
       sub.textContent = `Crowd ${record.crowdLevel}/10 (${record.crowdLabel}) · ${record.confidence} confidence`;
 
       let reasoning = "";
