@@ -1140,6 +1140,12 @@
     }
 
     function render() {
+      // Close drawer if open to prevent stale focus references
+      const drawer = document.getElementById("drawer");
+      if (drawer && drawer.classList.contains("open")) {
+        closeDrawer();
+      }
+
       const grid = document.getElementById("grid");
       grid.innerHTML = "";
 
@@ -1224,7 +1230,8 @@
           date: record.date,
           crowdLevel: record.crowdLevel,
           confidence: record.confidence,
-          park: record.park
+          park: record.park,
+          parkSlug: record.parkSlug
         });
       }
 
@@ -1253,6 +1260,7 @@
     document.addEventListener("keydown", (e) => {
       const drawer = document.getElementById("drawer");
       if (e.key === "Escape" && drawer.classList.contains("open")) {
+        e.preventDefault();
         closeDrawer();
       }
     });
