@@ -11,9 +11,9 @@
   <link href="/site.webmanifest" rel="manifest" />
   <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-crowd-calendar-ioa">
   <meta name="theme-color" content="#000000" />
-  <title>Islands of Adventure Crowd Calendar (Feb–Apr 2026) - Daily Crowd Predictions | Ride Ready</title>
+  <title>Islands of Adventure Crowd Calendar: Feb–Apr 2026 | Ride Ready</title>
   <meta name="description"
-    content="Crowd calendar for Islands of Adventure (Feb–Apr 2026): daily crowd level predictions (1–10) based on pricing signals and historical patterns. Tap any day for details." />
+    content="Islands of Adventure crowd calendar (Feb–Apr 2026): daily crowd predictions based on ticket price signals + historical patterns. Tap any day." />
   <meta name="robots" content="index,follow" />
   <meta property="og:title"
     content="Islands of Adventure Crowd Calendar (Feb–Apr 2026) - Daily Crowd Predictions | Ride Ready" />
@@ -24,6 +24,33 @@
   <meta property="og:image" content="https://rideready.app/images/logo.png" />
   <link rel="canonical" href="https://rideready.app/parks/islands-of-adventure/crowd-calendar/" />
   <meta name="twitter:card" content="summary_large_image" />
+  <!-- JSON-LD Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://rideready.app/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Parks",
+      "item": "https://rideready.app/parks/"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Islands of Adventure",
+      "item": "https://rideready.app/parks/islands-of-adventure/"
+    },{
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Crowd Calendar"
+    }]
+  }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -779,7 +806,7 @@
 
     <section class="hero">
       <h1>Islands of Adventure Crowd Calendar: Feb–Apr 2026</h1>
-      <p class="sub">Daily crowd levels for Islands of Adventure - using proprietary demand signals blended with
+      <p class="sub">Daily crowd levels for Islands of Adventure - using ticket price signals + historical patterns blended with
         historical crowd patterns. Feb–Apr
         2026.</p>
 
@@ -806,7 +833,7 @@
 
       </div>
 
-      <div class="tabs" role="tablist" aria-label="Month tabs">
+      <div class="tabs">
         <button class='tab' data-month='2'>February 2026</button><button class='tab' data-month='3'>March
           2026</button><button class='tab' data-month='4'>April 2026</button>
       </div>
@@ -919,7 +946,7 @@
       </div>
     </section>
 
-    <p style="color: var(--muted); margin-top: 50px; text-align: center;">Ready to skip the lines?</p>
+    <p style="color: var(--muted); margin-top: 50px; text-align: center;">Pick your day here. Win the day in the app.</p>
     <div style="margin: 20px 0 10px; text-align: center;">
       <a data-ref="crowd-calendar-ioa-footer"
         href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-ioa-footer"
@@ -1018,8 +1045,7 @@
 
     const state = {
       parkSlug: "islands-of-adventure",
-      month: 2,
-      showPrices: true,
+      month: 2
     };
 
     function levelToHsl(level) {
@@ -1037,11 +1063,6 @@
         'Very Busy': 'V.Busy'
       };
       return shortLabels[label] || label;
-    }
-
-    function fmtUsd(n) {
-      if (n === null || n === undefined || Number.isNaN(n)) return "-";
-      return "$" + Math.round(n).toString();
     }
 
     function weekdayOfFirst(year, month) {
@@ -1067,7 +1088,7 @@
       const btn = document.createElement("button");
       btn.className = "day-btn";
       btn.type = "button";
-      btn.addEventListener("click", () => openDrawer(record));
+      btn.addEventListener("click", () => openDrawer(record, btn));
 
       const top = document.createElement("div");
       top.className = "day-top";
@@ -1109,6 +1130,12 @@
     }
 
     function render() {
+      // Close drawer if open to prevent stale focus references
+      const drawer = document.getElementById("drawer");
+      if (drawer && drawer.classList.contains("open")) {
+        closeDrawer();
+      }
+
       const grid = document.getElementById("grid");
       grid.innerHTML = "";
 
@@ -1142,14 +1169,17 @@
       });
     }
 
-    function openDrawer(record) {
+    let focusReturnTarget = null;
+
+    function openDrawer(record, btn) {
       const drawer = document.getElementById("drawer");
       const title = document.getElementById("drawerTitle");
       const sub = document.getElementById("drawerSub");
       const body = document.getElementById("drawerBody");
 
+      focusReturnTarget = btn;
+
       title.textContent = `${record.park} · ${record.date}`;
-      const priceIndexText = (record.priceIndex === null || record.priceIndex === undefined) ? "—" : record.priceIndex.toFixed(1);
       sub.textContent = `Crowd ${record.crowdLevel}/10 (${record.crowdLabel}) · ${record.confidence} confidence`;
 
       let reasoning = "";
@@ -1165,24 +1195,76 @@
       div.innerHTML = `<div class="k">Crowd Summary</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${reasoning}</div>`;
       body.appendChild(div);
 
+      const cta = document.createElement("div");
+      cta.style.marginTop = "14px";
+      cta.style.padding = "14px";
+      cta.style.border = "1px solid var(--border)";
+      cta.style.borderRadius = "12px";
+      cta.style.background = "rgba(255,255,255,0.03)";
+      cta.innerHTML = `
+        <div style="font-weight:700; margin-bottom:6px;">Going that day?</div>
+        <div style="color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:10px;">
+          Ride Ready gives you live waits + <b>what to ride next</b> in the park. Crowd calendars help you pick a day — the app helps you win the day.
+        </div>
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-drawer"
+           data-ref="crowd-calendar-drawer"
+           style="display:inline-flex; align-items:center; justify-content:center; padding:12px 14px; border-radius:12px; font-weight:700; text-decoration:none; color:white; background: linear-gradient(45deg, #FF416C, #FF4B2B);">
+          Download Free
+        </a>
+      `;
+      body.appendChild(cta);
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'crowd_calendar_open_day', {
+          date: record.date,
+          crowdLevel: record.crowdLevel,
+          confidence: record.confidence,
+          park: record.park,
+          parkSlug: record.parkSlug
+        });
+      }
+
       drawer.classList.add("open");
       drawer.setAttribute("aria-hidden", "false");
+
+      const closeBtn = document.getElementById("drawerClose");
+      if (closeBtn) closeBtn.focus();
     }
 
     function closeDrawer() {
       const drawer = document.getElementById("drawer");
       drawer.classList.remove("open");
       drawer.setAttribute("aria-hidden", "true");
+
+      if (focusReturnTarget) {
+        focusReturnTarget.focus();
+        focusReturnTarget = null;
+      }
     }
 
     document.getElementById("drawerClose").addEventListener("click", closeDrawer);
     document.getElementById("drawer").addEventListener("click", (e) => {
       if (e.target.id === "drawer") closeDrawer();
     });
+    document.addEventListener("keydown", (e) => {
+      const drawer = document.getElementById("drawer");
+      if (e.key === "Escape" && drawer.classList.contains("open")) {
+        e.preventDefault();
+        closeDrawer();
+      }
+    });
 
     document.querySelectorAll(".tab").forEach(btn => {
       btn.addEventListener("click", () => {
         state.month = Number(btn.dataset.month);
+
+        if (typeof gtag === 'function') {
+          const monthNames = { 2: 'february', 3: 'march', 4: 'april' };
+          gtag('event', 'crowd_calendar_change_month', {
+            month: monthNames[state.month] || state.month
+          });
+        }
+
         render();
       });
     });
@@ -1193,6 +1275,13 @@
     if (parkSelect) {
       parkSelect.addEventListener("change", () => {
         state.parkSlug = parkSelect.value;
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'crowd_calendar_change_park', {
+            parkSlug: state.parkSlug
+          });
+        }
+
         render();
       });
     }
