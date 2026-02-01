@@ -12,10 +12,10 @@
     <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-android-waitlist" />
     <title>Ride Ready for Android - Join the Waitlist</title>
     <meta
-        content="Be the first to know when Ride Ready launches on Android. Real-time wait times, AI plans, and queue alerts coming in 2026."
+        content="Ride Ready is coming to Android. Join the waitlist for live wait times, drop alerts, and 'what to ride next' picks."
         name="description" />
     <meta content="Ride Ready for Android - Join the Waitlist" property="og:title" />
-    <meta content="Skip the lines. Coming to Android in 2026." property="og:description" />
+    <meta content="Ride Ready is coming to Android. Join the waitlist for live wait times, drop alerts, and 'what to ride next' picks." property="og:description" />
     <meta content="https://rideready.app/images/logo.png" property="og:image" />
     <meta content="https://rideready.app/waitlist/android/" property="og:url" />
     <link href="https://rideready.app/waitlist/android/" rel="canonical" />
@@ -282,7 +282,7 @@
         <span class="robot-icon">🤖</span>
 
         <h1>Ride Ready for Android</h1>
-        <p class="subtitle">We're finally crossing the platform divide. Get real-time waits, AI plans, and queue alerts
+        <p class="subtitle">We're finally crossing the platform divide. Get real-time waits, 'what to ride next' picks, and drop alerts
             on your Android device in 2026.</p>
 
         <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; margin-bottom: 30px; max-width: 480px; text-align: center;">
@@ -401,17 +401,23 @@
     <script>
         // App Store click tracking
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('a[data-ref]').forEach(a => {
-                a.addEventListener('click', () => {
+            document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {
+                link.addEventListener('click', function () {
                     try {
-                        if (typeof gtag === 'function') {
-                            const url = new URL(a.href);
-                            gtag('event', 'app_store_click', {
-                                ref: a.dataset.ref || null,
-                                ct: url.searchParams.get('ct') || null,
-                                page: location.pathname
-                            });
-                        }
+                        if (typeof gtag !== 'function') return;
+
+                        const href = link.getAttribute('href') || '';
+                        let ct = null;
+
+                        try {
+                            ct = new URL(href).searchParams.get('ct');
+                        } catch (e) {}
+
+                        gtag('event', 'app_store_click', {
+                            ref: link.dataset.ref || null,
+                            ct: ct,
+                            page: window.location.pathname
+                        });
                     } catch (e) {}
                 });
             });
