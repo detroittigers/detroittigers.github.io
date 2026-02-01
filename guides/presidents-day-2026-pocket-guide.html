@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
     <meta content="Presidents Day Weekend 2026 Pocket Guide | Ride Ready" property="og:title" />
-    <meta content="Epic Universe crowd guide for Feb 14-16. Sunday is the best day. Skip Express Pass."
+    <meta content="Epic Universe crowd guide for Feb 14-16. Wednesday &amp; Sunday are the best days. Skip Express Pass."
         property="og:description" />
     <meta content="https://rideready.app/images/logo.png" property="og:image" />
     <meta content="summary_large_image" name="twitter:card" />
@@ -360,7 +360,7 @@
             </div>
             <div class="header-right">
                 <div class="branding">RideReady.app</div>
-                <div class="data-badge">523,000+ wait time samples</div>
+                <div class="data-badge">625,000+ wait time samples</div>
             </div>
         </div>
 
@@ -483,7 +483,7 @@
             <strong>3. Skip Express Pass.</strong> February crowds don't justify $160-250. Smart timing wins.
         </div>
 
-        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
+        <div class="footer">Data from 625,000+ wait time samples | RideReady.app</div>
     </div>
 
     <!-- PAGE 2: STRATEGIES & VALENTINE'S -->
@@ -538,7 +538,7 @@
                 <div>
                     <p><strong>Pro tip:</strong> Book YOUR dinner for 7:30 PM. Ride headliners 5-7 PM while everyone
                         else eats.</p>
-                    <p style="margin-top: 6px;"><strong>Romantic rides:</strong> Stardust Raceway at sunset. Ministry of
+                    <p style="margin-top: 6px;"><strong>Romantic rides:</strong> Stardust Racers at sunset. Ministry of
                         Magic after dark.</p>
                 </div>
             </div>
@@ -613,7 +613,7 @@
             </tr>
         </table>
 
-        <div class="footer">Data from 523,000+ wait time samples | RideReady.app</div>
+        <div class="footer">Data from 625,000+ wait time samples | RideReady.app</div>
     </div>
 
     <!-- PAGE 3: QUICK REFERENCE -->
@@ -706,7 +706,7 @@
                 <td>Usually quick</td>
             </tr>
             <tr>
-                <td>Stardust Raceway</td>
+                <td>Stardust Racers</td>
                 <td>20-30 min</td>
                 <td>8 PM+</td>
                 <td>Beautiful at night</td>
@@ -753,7 +753,7 @@
         </div>
 
         <div class="footer">
-            Data from 523,000+ wait time samples | Updated January 2026<br />
+            Data from 625,000+ wait time samples | Updated February 2026<br />
             Not affiliated with Universal Destinations &amp; Experiences
         </div>
     </div>
@@ -781,14 +781,24 @@
     </style>
     <script>
         // Track App Store clicks consistently (ct= in URL + data-ref in GA)
-        document.querySelectorAll('a[data-ref]').forEach(function (link) {
+        document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {
             link.addEventListener('click', function () {
                 try {
+                    if (typeof gtag !== 'function') return;
+
+                    const href = link.getAttribute('href') || '';
+                    let ct = null;
+
+                    try {
+                        ct = new URL(href).searchParams.get('ct');
+                    } catch (e) {}
+
                     gtag('event', 'app_store_click', {
-                        source: link.getAttribute('data-ref'),
+                        ref: link.dataset.ref || null,
+                        ct: ct,
                         page: window.location.pathname
                     });
-                } catch (e) { }
+                } catch (e) {}
             });
         });
     </script>
