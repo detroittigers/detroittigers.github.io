@@ -376,14 +376,24 @@
     </div>
     <script>
         // Track App Store clicks consistently (ct= in URL + data-ref in GA)
-        document.querySelectorAll('a[data-ref]').forEach(function (link) {
+        document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {
             link.addEventListener('click', function () {
                 try {
+                    if (typeof gtag !== 'function') return;
+
+                    const href = link.getAttribute('href') || '';
+                    let ct = null;
+
+                    try {
+                        ct = new URL(href).searchParams.get('ct');
+                    } catch (e) {}
+
                     gtag('event', 'app_store_click', {
-                        source: link.getAttribute('data-ref'),
+                        ref: link.dataset.ref || null,
+                        ct: ct,
                         page: window.location.pathname
                     });
-                } catch (e) { }
+                } catch (e) {}
             });
         });
     </script>
