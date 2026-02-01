@@ -18,7 +18,7 @@
     <meta content="https://rideready.app/images/logo.png" property="og:image" />
     <meta content="https://rideready.app/parks/epic-universe/presidents-day-weekend-2026/" property="og:url" />
     <link href="https://rideready.app/parks/epic-universe/presidents-day-weekend-2026/" rel="canonical" />
-    <meta property="article:modified_time" content="2026-01-22" />
+    <meta property="article:modified_time" content="2026-02-01" />
     <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-guide-presidents-2026" />
     <meta content="summary_large_image" name="twitter:card" />
     <!-- JSON-LD Breadcrumb Schema -->
@@ -359,7 +359,7 @@
         </div>
         <div class="stats-grid">
             <div class="stat-card">
-                <span class="number">7+</span>
+                <span class="number">8+</span>
                 <span class="label">Months of Park Ops</span>
             </div>
             <div class="stat-card highlight">
@@ -411,7 +411,7 @@
             <h2><span class="emoji-icon">🤔</span> What's Still True About February</h2>
             <p>Not everything is doom and gloom. Some factors still work in your favor:</p>
             <ul style="margin-top: 15px; padding-left: 20px; color: var(--text);">
-                <li style="margin-bottom: 8px;"><strong>Park Maturity:</strong> Epic Universe has been open for 7+
+                <li style="margin-bottom: 8px;"><strong>Park Maturity:</strong> Epic Universe has been open for 8+
                     months. Operations are smoother than opening year jitters.</li>
                 <li style="margin-bottom: 8px;"><strong>Weather:</strong> Expect 70s and low humidity, perfect for
                     all-day touring.</li>
@@ -723,14 +723,24 @@
     </div>
     <script>
         // Global App Store click tracking via data-ref attribute
-        document.querySelectorAll('[data-ref]').forEach(function (link) {
+        document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {
             link.addEventListener('click', function () {
-                if (typeof gtag === 'function') {
+                try {
+                    if (typeof gtag !== 'function') return;
+
+                    const href = link.getAttribute('href') || '';
+                    let ct = null;
+
+                    try {
+                        ct = new URL(href).searchParams.get('ct');
+                    } catch (e) {}
+
                     gtag('event', 'app_store_click', {
-                        source: this.dataset.ref,
+                        ref: link.dataset.ref || null,
+                        ct: ct,
                         page: window.location.pathname
                     });
-                }
+                } catch (e) {}
             });
         });
     </script>
