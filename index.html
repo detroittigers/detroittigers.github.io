@@ -1067,6 +1067,20 @@
                             Android Waiting List</a>
                     </p>
                 </div>
+                <!-- Android CTA (hidden by default, shown via JS for Android users) -->
+                <div id="android-cta" style="display: none;">
+                    <p style="font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Android coming soon</p>
+                    <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 16px;">Get notified when Ride Ready launches on Android.</p>
+                    <form id="android-waitlist-form" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 420px; margin: 0 auto;">
+                        <input type="email" id="android-email" name="email" aria-label="Email address" autocomplete="email" inputmode="email" placeholder="your@email.com" required
+                            style="flex: 1; min-width: 200px; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.08); color: #fff;">
+                        <!-- Honeypot field for bot protection - hidden from real users -->
+                        <input type="text" name="website" id="android-hp" autocomplete="off" tabindex="-1" aria-hidden="true" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
+                        <button type="submit"
+                            style="background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; border: none; padding: 14px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 1rem;">Notify Me</button>
+                    </form>
+                    <p id="android-form-status" role="status" aria-live="polite" style="margin-top: 10px; font-size: 0.9rem; display: none;"></p>
+                </div>
                 <!-- Desktop fallback CTA (hidden by default, shown via JS) -->
 
                 <div class="social-proof-hero">
@@ -1634,6 +1648,119 @@
                 }
             }
         });
+    </script>
+    <script>
+        // Android detection: show email capture instead of App Store CTA
+        (function() {
+            var isAndroid = /Android/i.test(navigator.userAgent);
+            if (isAndroid) {
+                var iosCta = document.getElementById('mobile-cta');
+                var androidCta = document.getElementById('android-cta');
+                if (iosCta) iosCta.style.display = 'none';
+                if (androidCta) androidCta.style.display = 'block';
+
+                // Also hide the sticky top CTA App Store link on Android
+                var stickyLink = document.querySelector('.sticky-top-cta a[href*="apps.apple.com"]');
+                if (stickyLink) {
+                    stickyLink.textContent = 'Join Waitlist';
+                    stickyLink.href = '#android-cta';
+                    stickyLink.removeAttribute('target');
+                    // Update tracking attributes to reflect Android waitlist context
+                    stickyLink.setAttribute('data-ref', 'sticky-android-waitlist');
+                    stickyLink.setAttribute('aria-label', 'Scroll to Android waitlist signup');
+                }
+            }
+
+            // Android waitlist form handler
+            var form = document.getElementById('android-waitlist-form');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    // Honeypot check - if filled, silently reject (bot detected)
+                    var honeypot = document.getElementById('android-hp');
+                    if (honeypot && honeypot.value) {
+                        return; // Bot detected, do nothing
+                    }
+
+                    // Normalize email: trim whitespace and lowercase
+                    var rawEmail = document.getElementById('android-email').value;
+                    var email = rawEmail.trim().toLowerCase();
+
+                    // Basic email validation
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                        var statusEl = document.getElementById('android-form-status');
+                        statusEl.style.display = 'block';
+                        statusEl.style.color = '#fca5a5';
+                        statusEl.textContent = 'Please enter a valid email address.';
+                        return;
+                    }
+
+                    var statusEl = document.getElementById('android-form-status');
+                    var btn = form.querySelector('button');
+                    btn.disabled = true;
+                    btn.textContent = 'Sending...';
+
+                    // Create abort controller for timeout
+                    var controller = new AbortController();
+                    var timeoutId = setTimeout(function() { controller.abort(); }, 10000);
+
+                    try {
+                        var response = await fetch('https://gxlpamlcajddjdzktecf.supabase.co/rest/v1/guide_email_signups', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Prefer': 'return=minimal',
+                                'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs',
+                                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs'
+                            },
+                            body: JSON.stringify({
+                                email: email,
+                                guide_slug: 'android-waitlist',
+                                source_url: window.location.pathname // Store only pathname, not full URL
+                            }),
+                            signal: controller.signal
+                        });
+                        clearTimeout(timeoutId);
+
+                        if (response.ok) {
+                            if (typeof gtag === 'function') {
+                                gtag('event', 'android_waitlist_signup', {
+                                    event_category: 'engagement',
+                                    value: 5,
+                                    currency: 'USD'
+                                });
+                            }
+                            statusEl.style.display = 'block';
+                            statusEl.style.color = '#6ee7b7';
+                            statusEl.textContent = "You're on the list! We'll email you when Android launches.";
+                            btn.textContent = 'Signed Up';
+                            document.getElementById('android-email').style.display = 'none';
+                        } else if (response.status === 409) {
+                            // 409 Conflict - likely duplicate email (unique constraint)
+                            statusEl.style.display = 'block';
+                            statusEl.style.color = '#6ee7b7';
+                            statusEl.textContent = "You're already on the list!";
+                            btn.textContent = 'Signed Up';
+                            document.getElementById('android-email').style.display = 'none';
+                        } else {
+                            throw new Error('Request failed with status ' + response.status);
+                        }
+                    } catch(err) {
+                        clearTimeout(timeoutId);
+                        statusEl.style.display = 'block';
+                        statusEl.style.color = '#fca5a5';
+                        if (err.name === 'AbortError') {
+                            statusEl.textContent = 'Request timed out. Please try again.';
+                        } else {
+                            statusEl.textContent = 'Something went wrong. Try again?';
+                        }
+                        btn.disabled = false;
+                        btn.textContent = 'Notify Me';
+                    }
+                });
+            }
+        })();
     </script>
 </body>
 
