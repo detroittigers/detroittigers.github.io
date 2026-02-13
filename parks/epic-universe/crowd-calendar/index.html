@@ -1278,15 +1278,24 @@
       cta.style.border = "1px solid var(--border)";
       cta.style.borderRadius = "12px";
       cta.style.background = "rgba(255,255,255,0.03)";
+
+      const dateObj = new Date(record.date + 'T12:00:00');
+      const dateLabel = dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+      const crowdMsg = record.crowdLevel >= 7
+        ? `Crowd level ${record.crowdLevel}/10 means long lines. Get drop alerts so you ride when waits dip — not when everyone else queues.`
+        : record.crowdLevel >= 4
+        ? `Crowd level ${record.crowdLevel}/10 is manageable with the right timing. Ride Ready tells you exactly when to move.`
+        : `Crowd level ${record.crowdLevel}/10 — great pick! Ride Ready helps you nail the order so you hit everything.`;
+
       cta.innerHTML = `
-        <div style="font-weight:700; margin-bottom:6px;">Going that day?</div>
+        <div style="font-weight:700; margin-bottom:6px;">Going ${dateLabel}?</div>
         <div style="color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:10px;">
-          Ride Ready gives you live waits + <b>what to ride next</b> in the park. Crowd calendars help you pick a day — the app helps you win the day.
+          ${crowdMsg}
         </div>
         <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-drawer"
            data-ref="crowd-calendar-drawer"
            style="display:inline-flex; align-items:center; justify-content:center; padding:12px 14px; border-radius:12px; font-weight:700; text-decoration:none; color:white; background: linear-gradient(45deg, #FF416C, #FF4B2B);">
-          Download Free
+          Get Drop Alerts for ${dateLabel}
         </a>
       `;
       body.appendChild(cta);
