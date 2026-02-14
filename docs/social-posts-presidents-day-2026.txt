@@ -1,0 +1,98 @@
+PRESIDENTS DAY WEEKEND 2026 - SOCIAL POSTS
+============================================
+Created: Feb 13, 2026
+Target: Feb 14-16 weekend
+
+
+REDDIT (r/UniversalOrlando) - post as kevinmtu
+================================================
+
+TITLE: Presidents Day warning: rope drop waits are swinging wildly under the new EPA (3 days of data)
+
+BODY:
+
+Quick update for anyone heading to Epic Universe this weekend. I've been tracking early entry data since the Feb 11 change and now have 3 full days. Here's the thing: you can't plan around a number right now.
+
+**Rope drop waits, same rides, same opening times:**
+
+| Ride | Feb 11 | Feb 12 | Feb 13 |
+|------|--------|--------|--------|
+| Mine-Cart | 120 min | 25 min | 90 min |
+| Mario Kart | 45 min | 15 min | 60 min |
+| Ministry | 150 min | 120 min | 120 min |
+| Hiccup | 25 min | 10 min | 15 min |
+| Dragon Racer | 35 min | 5 min | 10 min |
+
+Mine-Cart went from 25 to 90 in one day. Mario Kart: 15 to 60. Ministry's the only consistent one and it's consistently brutal (120-150 every morning).
+
+**EPA list just changed again (Feb 14).** Mine-Cart, Ministry, Hiccup, Dragon Racer, and Yoshi are now officially part of early entry. Stardust, Carousel, Monsters, and Werewolf dropped off (short waits anyway). These rides were already opening during EPA all week, so the actual experience shouldn't change, but it's nice to have it official.
+
+**When rides have been opening during EPA:**
+- Mine-Cart: ~8:06-8:11
+- Ministry: ~8:30-8:45
+- Dragon Racer: ~8:05-8:06
+- Hiccup: ~8:10-8:20
+
+**What I'd do this weekend:**
+- Monday over Saturday or Sunday. MLK Monday dropped 28-31% from Saturday. Weekend warriors leave Sunday night.
+- Saturday evening is going to be rough (Valentine's + peak pricing).
+- Don't lock into a rigid rope drop plan. Check waits when you get there. Mine-Cart at 25 min is a no-brainer, but at 90 you're better off hitting Dragon Racer and Hiccup first.
+- Ministry is still an evening ride. 120+ all morning, drops to about 43 min by 9 PM.
+
+Longer breakdown with day-by-day strategy here: https://rideready.app/parks/epic-universe/presidents-day-weekend-2026/
+
+Good luck out there.
+
+
+REDDIT SELF-REPLY COMMENT (post a few min after):
+
+Since the whole point here is that you can't predict what rope drop looks like on any given day, I built an app (Ride Ready) that tracks all these waits live every 5 minutes with drop alerts. Free to download if you want to check before committing to a queue this weekend.
+
+
+FACEBOOK (groups, as yourself)
+===============================
+
+Heading to Epic Universe this weekend? Two big updates.
+
+First, Universal just expanded the official early entry list. Mine-Cart, Ministry, Hiccup, Dragon Racer, and Yoshi are all officially part of EPA now. They dropped Stardust, Carousel, Monsters, and Werewolf (which are short waits anyway). This is great news if you have early entry.
+
+Second, I've been tracking rope drop waits all week and they're all over the place:
+
+Mine-Cart: 25 min one day, 90 min the next.
+Mario Kart: 15 min one day, 60 min the next.
+Ministry: 120-150 min every single morning. Save it for evening when it drops to about 43 min.
+
+If you can only pick one day, the move is Monday. MLK data showed holiday Monday was 28-31% lighter than Saturday.
+
+I wrote up the full breakdown with the data tables here: https://rideready.app/parks/epic-universe/presidents-day-weekend-2026/
+
+Also built a free app (Ride Ready) that tracks the waits live if you want real-time numbers while you're there. Link's on the page.
+
+
+X (@RideReadyApp) - thread of 3 tweets
+========================================
+
+TWEET 1:
+We tracked 3 days of Epic Universe's new early entry system.
+
+Mine-Cart rope drop: 25 min one day. 90 min the next.
+Mario Kart: 15 min one day. 60 min the next.
+
+Same rides. Same opening times. You can't plan around a static number this weekend.
+
+TWEET 2:
+What I'd do for Presidents Day weekend:
+
+Monday > Sunday > Saturday
+Mario Kart first at EPA, then Mine-Cart if it's under 60
+Skip Ministry until 7+ PM (120 min all day, 43 min by 9 PM)
+Check live waits before committing to anything
+
+Full data: rideready.app/parks/epic-universe/presidents-day-weekend-2026/
+
+TWEET 3:
+Ride Ready tracks every Epic Universe ride, every 5 minutes, with drop alerts.
+
+Free download. Know before you queue.
+
+https://apps.apple.com/us/app/ride-ready/id6748330847
