@@ -659,6 +659,20 @@
             style="background: #fff; color: #000; font-weight: 700; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-size: 0.9rem; white-space: nowrap;">Download Free</a>
     </div>
 
+    <!-- Planning CTA Banner — tracked for visibility + clicks -->
+    <div id="planning-cta-banner"
+      style="background: rgba(255,75,43,0.1); border: 1px solid rgba(255,75,43,0.25); border-radius: 16px; padding: 20px 24px; margin-bottom: 30px; display: flex; align-items: center; gap: 16px;">
+      <div style="font-size: 32px; flex-shrink: 0;">🗓️</div>
+      <div style="flex: 1; text-align: left;">
+        <span style="display: block; color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Building your park day plan?</span>
+        <p style="margin: 0; color: #aaa; font-size: 0.85rem;">Ride Ready builds a personalized touring order for your group — heights, preferences, live wait times. Free to try.</p>
+      </div>
+      <a id="planning-cta-link"
+        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-planning"
+        data-ref="queue-ministry-planning"
+        style="background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; font-weight: 700; padding: 12px 18px; border-radius: 10px; text-decoration: none; font-size: 0.9rem; white-space: nowrap; flex-shrink: 0; min-height: 44px; display: inline-flex; align-items: center;">Plan My Day</a>
+    </div>
+
     <div class="queue-map">
         <div class="map-header">
             <h2>Ministry of Magic Queue Map</h2>
@@ -1375,6 +1389,43 @@
             });
         });
     </script>
+    <script>
+  (function() {
+    // 1. Track existing top app-upsell box visibility (class="app-upsell")
+    var upsellBox = document.querySelector('.app-upsell');
+    var upsellSeen = false;
+    if (upsellBox && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting && !upsellSeen) {
+            upsellSeen = true;
+            try { gtag('event', 'upsell_cta_view', { location: 'queue-top-upsell', page: window.location.pathname }); } catch(err) {}
+          }
+        });
+      }, { threshold: 0.5 }).observe(upsellBox);
+    }
+
+    // 2. Track new planning banner visibility and clicks
+    var banner = document.getElementById('planning-cta-banner');
+    var link = document.getElementById('planning-cta-link');
+    var bannerSeen = false;
+    if (banner && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting && !bannerSeen) {
+            bannerSeen = true;
+            try { gtag('event', 'live_waits_cta_view', { location: 'queue-planning-banner', page: window.location.pathname }); } catch(err) {}
+          }
+        });
+      }, { threshold: 0.5 }).observe(banner);
+    }
+    if (link) {
+      link.addEventListener('click', function() {
+        try { gtag('event', 'live_waits_cta_click', { location: 'queue-planning-banner', page: window.location.pathname }); } catch(err) {}
+      });
+    }
+  })();
+</script>
 </body>
 
 </html>
