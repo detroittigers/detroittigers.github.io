@@ -11,15 +11,15 @@
     <link href="/site.webmanifest" rel="manifest" />
     <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-guide-strategy" />
     <title>Epic Universe Strategy Guide | Ride Ready</title>
-    <meta content="Beat the crowds at Epic Universe. Data-driven strategy based on 625,000+ wait time samples. Updated Feb 13 with 3 days of new EPA data showing wild rope drop variability."
+    <meta content="Beat the crowds at Epic Universe with or without Early Entry. Data-driven strategy based on 722,000+ wait time samples. Non-EE rope drop plan, ride-by-ride timing, and expert comparison."
         name="description" />
     <meta content="Epic Universe Strategy Guide" property="og:title" />
-    <meta content="Beat the crowds at Epic Universe. Data-driven strategy based on 625,000+ wait time samples. Updated Feb 13 with 3 days of new EPA data."
+    <meta content="Beat the crowds at Epic Universe with or without Early Entry. Data-driven ride-by-ride strategy based on 722,000+ wait time samples."
         property="og:description" />
     <meta content="https://rideready.app/images/epic-portal-photo.jpg" property="og:image" />
     <meta content="https://rideready.app/parks/epic-universe/strategy/" property="og:url" />
     <link href="https://rideready.app/parks/epic-universe/strategy/" rel="canonical" />
-    <meta property="article:modified_time" content="2026-02-13" />
+    <meta property="article:modified_time" content="2026-02-20" />
     <meta content="summary_large_image" name="twitter:card" />
     <script type="application/ld+json">
     {
@@ -30,7 +30,7 @@
         "https://rideready.app/images/epic-portal-photo.jpg"
       ],
       "datePublished": "2025-06-01T08:00:00+08:00",
-      "dateModified": "2026-02-13T12:00:00-05:00",
+      "dateModified": "2026-02-20T12:00:00-05:00",
       "author": [{
           "@type": "Organization",
           "name": "Ride Ready",
@@ -44,10 +44,17 @@
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
+        "name": "What is the best rope drop strategy for Epic Universe without Early Entry?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Based on 722,000+ wait time samples: Go straight to Isle of Berk at 9 AM for Hiccup's Wing Gliders (29 min, doubles to 86 by 11 AM), then Dragon Racer's Rally, then Curse of the Werewolf in Dark Universe. Save Mario Kart and Ministry for evening when waits drop 40-60%. Mine-Cart Madness never drops below 83 min standby — use the single rider line."
+        }
+      }, {
+        "@type": "Question",
         "name": "What is the best day to visit Epic Universe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Based on 625,000+ wait time samples, Sunday is the best day to visit (33 min average), followed by Friday (41 min) and Thursday (42 min). Tuesday is the worst day (53 min average)."
+          "text": "Based on 722,000+ wait time samples, Sunday is the best day to visit (33 min average), followed by Friday (41 min) and Thursday (42 min). Tuesday is the worst day (53 min average)."
         }
       }, {
         "@type": "Question",
@@ -552,7 +559,9 @@
         [id="ride-hierarchy"],
         [id="rope-drop"],
         [id="best-day"],
-        [id="optimal-day"] {
+        [id="optimal-day"],
+        [id="no-early-entry"],
+        [id="no-ee-day-plan"] {
             scroll-margin-top: 60px;
         }
 
@@ -761,22 +770,22 @@
         <div class="hero">
             <h1>Epic Universe Strategy Guide</h1>
             <p class="subtitle">Your data-driven guide to conquering Universal's newest park</p>
-            <span class="data-badge">Based on 625k+ wait time samples</span>
-            <span class="data-badge" style="background: rgba(16,185,129,0.2); color: #6ee7b7; margin-left: 8px;">Updated Feb 13</span>
+            <span class="data-badge">Based on 722k+ wait time samples</span>
+            <span class="data-badge" style="background: rgba(16,185,129,0.2); color: #6ee7b7; margin-left: 8px;">Updated Feb 20</span>
             <div
                 style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; margin-top: 20px; font-size: 0.9rem; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
                 <strong style="display:block; margin-bottom:8px; color: #fbbf24;">TL;DR Summary:</strong>
                 <ul style="margin: 0; padding-left: 20px; margin-bottom: 12px; color: rgba(255,255,255,0.95);">
                     <li>Sunday is the lightest day (33 min avg). Friday &amp; Thursday are also strong picks.</li>
-                    <li>Early entry expanded Feb 14: Mine-Cart, Ministry, Dragon rides, and Hiccup are now officially part of EPA.</li>
-                    <li>Rope drop waits swing 300% day-to-day (Mine-Cart: 25-120 min). You need live data, not a static plan.</li>
-                    <li>During EPA, hit Mario Kart first (15-60 min), then Mine-Cart. Save Ministry for 7+ PM (~43 min).</li>
+                    <li><strong>With Early Entry:</strong> Hit Mario Kart first (15-60 min), then Mine-Cart. Save Ministry for 7+ PM.</li>
+                    <li><strong>Without Early Entry:</strong> Sprint Isle of Berk (Hiccup 29 min) &amp; Dark Universe (Werewolf 13 min). Push Mario Kart + Ministry to evening. <a href="#no-early-entry" style="color: #fbbf24;">Full non-EE plan below.</a></li>
+                    <li>Mine-Cart never drops below 83 min standby without EE. Single rider line is the hack.</li>
                 </ul>
             </div>
         </div>
         <div class="stats-grid">
             <div class="stat-card">
-                <span class="number">625k+</span>
+                <span class="number">722k+</span>
                 <span class="label">Wait Samples</span>
             </div>
             <div class="stat-card warning">
@@ -797,6 +806,7 @@
                 <a href="#rope-drop" class="quick-nav-link" style="background: rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 8px; text-decoration: none; color: #fff; font-size: 0.9rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); transition: background 0.2s;">Rope Drop Strategy</a>
                 <a href="#best-day" class="quick-nav-link" style="background: rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 8px; text-decoration: none; color: #fff; font-size: 0.9rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); transition: background 0.2s;">Best Day to Visit</a>
                 <a href="#optimal-day" class="quick-nav-link" style="background: rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 8px; text-decoration: none; color: #fff; font-size: 0.9rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); transition: background 0.2s;">Optimal Day Plan</a>
+                <a href="#no-early-entry" class="quick-nav-link" style="background: rgba(245,158,11,0.2); padding: 10px 16px; border-radius: 8px; text-decoration: none; color: #fbbf24; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(245,158,11,0.4); transition: background 0.2s;">No Early Entry?</a>
                 <a href="/universal-orlando/epic-universe/" class="quick-nav-link" style="background: rgba(16,185,129,0.15); padding: 10px 16px; border-radius: 8px; text-decoration: none; color: #6ee7b7; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(16,185,129,0.3); transition: background 0.2s;">Queue Guides (in park?)</a>
             </div>
         </div>
@@ -1074,7 +1084,7 @@
         </div>
         <div class="card" id="best-day">
             <h2><span class="emoji">Best Day to Visit</span></h2>
-            <p style="margin-bottom: 20px;">Here's what 625k+ samples reveal (updated February 11, 2026):</p>
+            <p style="margin-bottom: 20px;">Here's what 722k+ samples reveal (updated February 11, 2026):</p>
             <div class="chart-container">
                 <div class="chart-title" style="text-align: center;">Best Day to Visit: Average Wait Time (30-Day)</div>
                 <div class="bar-chart">
@@ -1329,6 +1339,253 @@
                 touring. You save 5+ hours (and potentially hundreds on Express Pass).
             </div>
         </div>
+
+        <!-- ============================================ -->
+        <!-- NON-EARLY ENTRY STRATEGY (722k+ data points) -->
+        <!-- ============================================ -->
+
+        <div class="card" id="no-early-entry" style="border: 2px solid #f59e0b; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
+            <h2 style="color: #92400e;"><span class="emoji">No Early Entry? Here's Your Data-Driven Plan</span></h2>
+            <p style="margin-bottom: 16px;">No hotel package? No problem. We analyzed 722,000+ wait time samples to build the optimal strategy for guests entering at general admission (9 AM). The key insight: <strong>don't chase the rides Early Entry guests already filled up.</strong></p>
+            <div style="background: rgba(239, 68, 68, 0.08); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #ef4444;">
+                <p style="margin: 0; font-size: 0.9rem; color: var(--text);"><strong style="color: #dc2626;">The reality at 9 AM:</strong> Early Entry guests have been riding for an hour. Mine-Cart is already at 98 min. Ministry is at 136 min. Mario Kart is at 76 min. Don't burn your golden hour on rides that are already slammed.</p>
+            </div>
+            <div style="background: rgba(16, 185, 129, 0.08); padding: 15px; border-radius: 8px; border-left: 4px solid #10b981;">
+                <p style="margin: 0; font-size: 0.9rem; color: var(--text);"><strong style="color: #059669;">The strategy:</strong> Sprint the 3 rides that double in wait time within 2 hours. Fill the midday with rides that stay short all day. Push headliners to evening when waits drop 40-60%.</p>
+            </div>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+            <h2><span class="emoji">Arrival: 8:00-8:15 AM</span></h2>
+            <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                <li><strong>Parking opens ~7:45 AM.</strong> Tram to gate takes 10-15 min.</li>
+                <li>Security + ticket scan, then you're held in the Celestial Park hub.</li>
+                <li>Opening ceremony at ~8:55 AM, portals open at 9:00 AM.</li>
+                <li><strong style="color: #059669;">Position yourself at the Isle of Berk portal</strong> during the ceremony. That's where you're headed first.</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border: 2px solid #10b981;">
+            <h2><span class="emoji">Phase 1: Rope Drop Sprint (9:00-10:30 AM)</span></h2>
+            <p style="margin-bottom: 16px;">Only 3 rides punish you for waiting. Everything else stays manageable all day. <strong>These three double in wait time within 2 hours.</strong></p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #10b981;"></div>
+                    <div class="timeline-time" style="color: #059669;">9:05 AM — Hiccup's Wing Gliders</div>
+                    <div class="timeline-content">~29 min wait. <strong>Doubles to 86 min by 11 AM</strong> — steepest penalty in the park. Walk straight through the Isle of Berk portal at 9:00.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #10b981;"></div>
+                    <div class="timeline-time" style="color: #059669;">9:40 AM — Dragon Racer's Rally</div>
+                    <div class="timeline-content">~30 min wait. Same land as Hiccup, walk right over. Hits 58 min by 11 AM.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #10b981;"></div>
+                    <div class="timeline-time" style="color: #059669;">10:15 AM — Curse of the Werewolf</div>
+                    <div class="timeline-content">~20 min wait. <strong>Not on Early Entry</strong> — opens fresh at 9 AM for everyone. But hits 60 min by 11 AM. One portal over in Dark Universe.</div>
+                </div>
+            </div>
+            <div style="background: #ecfdf5; border-radius: 10px; padding: 15px; margin-top: 20px;">
+                <strong style="color: #059669;">Done by 10:40 AM.</strong> Three time-sensitive rides banked in under 2 hours. Total wait: ~79 minutes for 3 rides.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">Phase 2: Ride When Short (All Day)</span></h2>
+            <p style="margin-bottom: 16px;">These rides never get painful. Slot them in whenever you see a short posted wait — between meals, after shows, during your midday break.</p>
+            <div class="ride-list">
+                <div class="ride-item">
+                    <div class="ride-name">Stardust Racers</div>
+                    <span class="ride-wait wait-low">22-53 min all day</span>
+                    <span class="ride-tip">Capacity beast when both tracks run. Ride whenever under 40.</span>
+                </div>
+                <div class="ride-item">
+                    <div class="ride-name">Monsters Unchained</div>
+                    <span class="ride-wait wait-low">11-37 min all day</span>
+                    <span class="ride-tip">Best dark ride in the park. Basically always a walk-on.</span>
+                </div>
+                <div class="ride-item">
+                    <div class="ride-name">Yoshi's Adventure</div>
+                    <span class="ride-wait wait-low">12-46 min (skip 11 AM peak)</span>
+                    <span class="ride-tip">Best after 7 PM (12-26 min).</span>
+                </div>
+                <div class="ride-item">
+                    <div class="ride-name">Fyre Drill</div>
+                    <span class="ride-wait wait-low">5-20 min all day</span>
+                    <span class="ride-tip">Water ride. Always short.</span>
+                </div>
+                <div class="ride-item">
+                    <div class="ride-name">Constellation Carousel</div>
+                    <span class="ride-wait wait-low">5-37 min all day</span>
+                    <span class="ride-tip">Unique experience, worth doing once.</span>
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-light);"><strong>Midday (11 AM-5 PM):</strong> Explore the incredible theming in every world. Catch shows (Untrainable Dragon in Isle of Berk, Le Cirque Arcanus in Wizarding World). Eat. Don't queue for headliners — they're at peak waits.</p>
+        </div>
+
+        <div class="card" style="border: 2px solid #6366f1;">
+            <h2><span class="emoji">Phase 3: Evening Push (7 PM-Close)</span></h2>
+            <p style="margin-bottom: 16px;">This is when non-EE guests make up ground. Most rides drop 40-60% from their peak.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">7:00 PM — Mario Kart: Bowser's Challenge</div>
+                    <div class="timeline-content">~57 min wait (down from 114 at noon). Drops further to 39 at 8 PM and <strong>27 min at 9 PM</strong>.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">8:15 PM — Battle at the Ministry</div>
+                    <div class="timeline-content">~77 min wait (down from 168 at 2 PM). Queue early enough — they may cut the line before close. Drops to <strong>64 min by 9 PM</strong>.</div>
+                </div>
+            </div>
+            <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 15px; border-radius: 0 8px 8px 0; margin-top: 20px;">
+                <p style="margin: 0; font-size: 0.9rem;"><strong style="color: #1e40af;">Pro tip:</strong> If the park closes at 10 PM and Ministry posts 60+ min at 9 PM, you may not make it. Monitor the app — if Ministry drops below 70 min by 8 PM, jump in then.</p>
+            </div>
+        </div>
+
+        <div class="card" style="background: #fef2f2; border: 2px solid #fca5a5;">
+            <h2 style="color: #dc2626;"><span class="emoji">The Mine-Cart Problem</span></h2>
+            <p style="margin-bottom: 16px;">Mine-Cart Madness is the one ride this strategy can't solve cleanly. <strong>It never drops below 83 minutes standby — not even at 9 PM (102 min).</strong></p>
+            <div class="chart-container" style="background: white;">
+                <div class="chart-title" style="text-align: center;">Mine-Cart Madness: Standby Wait (All Day)</div>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">9 AM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 56%; background: var(--danger);"></div>
+                            <span class="bar-value">98 min</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">12 PM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 100%; background: var(--danger);"></div>
+                            <span class="bar-value">176 min - Peak</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">5 PM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 85%; background: var(--danger);"></div>
+                            <span class="bar-value">149 min</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">8 PM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 61%; background: var(--danger);"></div>
+                            <span class="bar-value">108 min</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">9 PM</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 58%; background: var(--danger);"></div>
+                            <span class="bar-value">102 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 16px; font-weight: 600;">Your options:</p>
+            <ol style="padding-left: 20px; line-height: 1.8;">
+                <li><strong style="color: #059669;">Single rider line (recommended)</strong> — 10-30 min most of the day. Gets congested by evening (50+ people). Best midday.</li>
+                <li><strong>Accept a ~100 min standby wait</strong> somewhere in your day. Late morning (before noon peak) or after 8 PM are your least-bad windows.</li>
+                <li><strong>Rope drop it instead of Hiccup</strong> — 83 min avg at 9 AM. But you pay +57 min on Hiccup later. Only do this if Mine-Cart is your #1 must-ride.</li>
+            </ol>
+        </div>
+
+        <div class="card" id="no-ee-day-plan">
+            <h2><span class="emoji">Your Non-EE Day Plan</span></h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">8:00 AM</div>
+                    <div class="timeline-content">Arrive at parking. Tram to gate, security, ticket scan.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">8:55 AM</div>
+                    <div class="timeline-content">Opening ceremony in Celestial Park. <strong>Position at Isle of Berk portal.</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #10b981;"></div>
+                    <div class="timeline-time" style="color: #059669;">9:05 AM</div>
+                    <div class="timeline-content"><strong>Hiccup's Wing Gliders</strong> (~29 min). Sprint priority #1.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #10b981;"></div>
+                    <div class="timeline-time" style="color: #059669;">9:40 AM</div>
+                    <div class="timeline-content"><strong>Dragon Racer's Rally</strong> (~30 min). Same land.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #10b981;"></div>
+                    <div class="timeline-time" style="color: #059669;">10:15 AM</div>
+                    <div class="timeline-content"><strong>Curse of the Werewolf</strong> (~20 min). Walk to Dark Universe.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">10:40 AM</div>
+                    <div class="timeline-content"><strong>Monsters Unchained</strong> (~19 min). Same land, hidden gem.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">11:15 AM</div>
+                    <div class="timeline-content"><strong>Mine-Cart Madness single rider</strong> if line is short (10-30 min). Walk through Super Nintendo World.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">12:00-5:00 PM</div>
+                    <div class="timeline-content">FLEX TIME: Stardust Racers when short, Fyre Drill, shows, explore worlds, eat. Avoid headliner standby queues.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #6366f1;"></div>
+                    <div class="timeline-time" style="color: #4f46e5;">7:00 PM</div>
+                    <div class="timeline-content"><strong>Mario Kart</strong> (~57 min). Evening push begins.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #6366f1;"></div>
+                    <div class="timeline-time" style="color: #4f46e5;">8:00 PM</div>
+                    <div class="timeline-content"><strong>Yoshi's Adventure</strong> (~18 min). Quick hit while in SNW.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #6366f1;"></div>
+                    <div class="timeline-time" style="color: #4f46e5;">8:25 PM</div>
+                    <div class="timeline-content"><strong>Battle at the Ministry</strong> (~77 min). Queue before they cut the line.</div>
+                </div>
+            </div>
+            <div style="background: #ecfdf5; border-radius: 10px; padding: 15px; margin-top: 20px;">
+                <strong style="color: #059669;">Result:</strong> 9-10 rides in one day without Early Entry. Total standby wait: ~4-5 hours vs 12+ hours random touring.
+            </div>
+        </div>
+
+        <div class="card" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white;">
+            <h2 style="color: white;"><span class="emoji">Data vs. the Experts</span></h2>
+            <p style="color: #ddd; margin-bottom: 16px;">We compared our data-driven strategy against recommendations from TouringPlans, Disney Tourist Blog, OrlandoParksGuy, MouseHacking, and 8 other expert sources.</p>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 14px; border-radius: 8px; border-left: 3px solid #10b981;">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: #6ee7b7; margin-bottom: 4px;">EXPERTS SAY: STARDUST FIRST</div>
+                    <div style="font-size: 0.9rem; color: #ddd;">Disney Tourist Blog and OrlandoParksGuy recommend Stardust Racers at rope drop. <strong style="color: #6ee7b7;">Our data says: skip it.</strong> Stardust never exceeds 53 min avg — it's always manageable. Hiccup doubles to 86 in 2 hours.</div>
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 14px; border-radius: 8px; border-left: 3px solid #10b981;">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: #6ee7b7; margin-bottom: 4px;">EXPERTS SAY: MINISTRY FIRST (TOURINGPLANS)</div>
+                    <div style="font-size: 0.9rem; color: #ddd;">TouringPlans sends you to Ministry at rope drop. <strong style="color: #6ee7b7;">Our data says: 136 min at 9 AM vs 64 at 9 PM.</strong> You can ride 3 other attractions in the time you'd wait for Ministry at rope drop.</div>
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 14px; border-radius: 8px; border-left: 3px solid #10b981;">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: #6ee7b7; margin-bottom: 4px;">EVERYONE AGREES: DARK UNIVERSE EARLY</div>
+                    <div style="font-size: 0.9rem; color: #ddd;">Werewolf and Monsters are not on EPA — they open fresh at 9 AM. <strong style="color: #6ee7b7;">Confirmed.</strong> Werewolf: 13 min at 9 AM, 60 min by 11 AM.</div>
+                </div>
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 14px; border-radius: 8px; border-left: 3px solid #ef4444;">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: #fca5a5; margin-bottom: 4px;">WHAT NOBODY MENTIONS</div>
+                    <div style="font-size: 0.9rem; color: #ddd;">Mine-Cart <strong style="color: #fca5a5;">never drops below 83 min standby</strong> — not even at 9 PM. Most guides say "ride it late." The data says the single rider line is your only real option without EPA.</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 20px 24px; border-radius: 12px; margin-bottom: 30px; border-left: 4px solid #f59e0b; text-align: center;">
+            <p style="margin: 0; font-size: 1rem;"><strong>No Early Entry? Ride Ready's AI adapts your plan in real-time</strong> based on live wait times — so you always know where to go next.</p>
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=guide-epic-strategy-no-ee-cta" data-ref="guide-epic-strategy-no-ee-cta" style="display: inline-block; margin-top: 12px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 12px 28px; border-radius: 30px; font-weight: 700; text-decoration: none;">Get Ride Ready - Free to Try</a>
+        </div>
+
         <div class="app-cta-section">
             <h2>You've got the strategy. Now get the live intel.</h2>
             <p>Skip tracks wait times minute-by-minute and pings you when it's time to move. No more guessing, just
@@ -1453,7 +1710,7 @@
             </div>
             <p>Real-time wait times | AI-powered recommendations | $7.99/day</p>
             <p style="margin-top: 20px; font-size: 0.8rem; color: #888;">
-                *Data based on 625k+ wait time samples collected since Epic Universe opening.
+                *Data based on 722k+ wait time samples collected since Epic Universe opening.
             </p>
             <div
                 style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.75rem; color: #666; line-height: 1.5;">
