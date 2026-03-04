@@ -68,7 +68,7 @@
           "name": "How accurate are the wait times?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ride Ready displays real-time wait times pulled directly from park systems, updated every 2 minutes. Our Chronos ML model also generates full-day forecast curves for every ride, so you can see where waits are headed — not just where they are now."
+            "text": "Ride Ready displays real-time wait times pulled directly from park systems. Our Chronos ML model also generates full-day forecast curves for every ride, so you can see where waits are headed — not just where they are now."
           }
         },
         {
@@ -227,17 +227,44 @@
             padding: 30px 24px 90px;
         }
 
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            border-radius: inherit;
+        }
+
+        .hero-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(10,22,40,0.72) 0%, rgba(10,22,40,0.55) 50%, rgba(10,22,40,0.80) 100%);
+            z-index: 1;
+            border-radius: inherit;
+        }
+
+        .hero-cta {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-video { display: none; }
+        }
+
         .hero {
             position: relative;
             max-width: 880px;
             margin: 0 auto 110px;
             padding: 64px 44px 84px;
+            overflow: hidden;
             border-radius: 32px;
             background: rgba(10, 10, 10, 0.88);
             backdrop-filter: blur(28px);
             border: 1px solid rgba(255, 75, 43, 0.2);
             box-shadow: 0 40px 70px rgba(0, 0, 0, 0.45);
-            overflow: hidden;
         }
 
         .hero::before,
@@ -281,6 +308,8 @@
         }
 
         .hero-stack {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1051,6 +1080,11 @@
             </div>
         </nav>
         <section class="hero" id="top">
+            <video class="hero-video" autoplay muted loop playsinline poster="https://cdn.rideready.app/website/images/hero-poster.jpg">
+                <source src="https://cdn.rideready.app/website/videos/hero-loop.webm" type="video/webm">
+                <source src="https://cdn.rideready.app/website/videos/hero-loop.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
             <div class="hero-stack">
                 <div class="hero-logo-wrapper">
                     <img alt="Ride Ready Logo" class="hero-logo" decoding="async" fetchpriority="high"
@@ -1093,7 +1127,7 @@
                 <!-- Desktop fallback CTA (hidden by default, shown via JS) -->
 
                 <div class="social-proof-hero">
-                    Live data for 8+ parks &middot; 14,826 simulations tested &middot; Updated every 2 minutes
+                    Live data for 8+ parks &middot; 14,826 simulations tested &middot; Real-time wait times
                 </div>
             </div>
 
@@ -1444,7 +1478,7 @@
             <div class="faq-item">
                 <button class="faq-question">How accurate are the wait times?</button>
                 <div class="faq-answer">
-                    <p>Ride Ready displays real-time wait times pulled directly from park systems, updated every 2 minutes.
+                    <p>Ride Ready displays real-time wait times pulled directly from park systems.
                         Our Chronos ML model also generates full-day forecast curves for every ride, so you can see where
                         waits are headed — not just where they are now.</p>
                 </div>
