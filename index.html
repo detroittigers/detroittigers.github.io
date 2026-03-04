@@ -227,33 +227,6 @@
             padding: 30px 24px 90px;
         }
 
-        .hero-video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            border-radius: inherit;
-        }
-
-        .hero-video-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(10,22,40,0.88) 0%, rgba(10,22,40,0.78) 50%, rgba(10,22,40,0.92) 100%);
-            z-index: 1;
-            border-radius: inherit;
-        }
-
-        .hero-cta {
-            position: relative;
-            z-index: 2;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .hero-video { display: none; }
-        }
-
         .hero {
             position: relative;
             max-width: 880px;
@@ -261,7 +234,7 @@
             padding: 64px 44px 84px;
             overflow: hidden;
             border-radius: 32px;
-            background: rgba(10, 10, 10, 0.55);
+            background: rgba(10, 10, 10, 0.88);
             backdrop-filter: blur(28px);
             border: 1px solid rgba(255, 75, 43, 0.2);
             box-shadow: 0 40px 70px rgba(0, 0, 0, 0.45);
@@ -1080,11 +1053,6 @@
             </div>
         </nav>
         <section class="hero" id="top">
-            <video class="hero-video" autoplay muted loop playsinline poster="https://cdn.rideready.app/website/images/hero-poster.jpg">
-                <source src="https://cdn.rideready.app/website/videos/hero-loop.webm" type="video/webm">
-                <source src="https://cdn.rideready.app/website/videos/hero-loop.mp4" type="video/mp4">
-            </video>
-            <div class="hero-video-overlay"></div>
             <div class="hero-stack">
                 <div class="hero-logo-wrapper">
                     <img alt="Ride Ready Logo" class="hero-logo" decoding="async" fetchpriority="high"
