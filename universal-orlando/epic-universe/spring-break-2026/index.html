@@ -148,7 +148,9 @@
             text-decoration: none;
         }
 
-        .breadcrumb a:hover { color: #888; }
+        .breadcrumb a:hover {
+            color: #888;
+        }
 
         .hero {
             text-align: center;
@@ -176,8 +178,8 @@
 
         .data-badge {
             display: inline-block;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             padding: 5px 14px;
             border-radius: 99px;
             font-size: 0.75rem;
@@ -198,12 +200,14 @@
             color: #fca5a5;
         }
 
-        .warning-box strong { color: #f87171; }
+        .warning-box strong {
+            color: #f87171;
+        }
 
         /* Section cards */
         .section {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 28px 24px;
             margin-bottom: 24px;
@@ -254,21 +258,46 @@
             vertical-align: top;
         }
 
-        tr:last-child td { border-bottom: none; }
+        tr:last-child td {
+            border-bottom: none;
+        }
 
         td.val {
             font-weight: 700;
             color: #fff;
         }
 
-        td.hot { color: #f97316; font-weight: 700; }
-        td.warm { color: #fbbf24; font-weight: 600; }
-        td.cool { color: #34d399; font-weight: 600; }
-        td.note { color: #666; font-style: italic; font-size: 0.78rem; }
-        td.low-conf { color: #f59e0b; }
+        td.hot {
+            color: #f97316;
+            font-weight: 700;
+        }
+
+        td.warm {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        td.cool {
+            color: #34d399;
+            font-weight: 600;
+        }
+
+        td.note {
+            color: #666;
+            font-style: italic;
+            font-size: 0.78rem;
+        }
+
+        td.low-conf {
+            color: #f59e0b;
+        }
 
         /* Ride order steps */
-        .steps { list-style: none; padding: 0; margin: 0; }
+        .steps {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
         .step {
             display: flex;
@@ -277,7 +306,9 @@
             border-bottom: 1px solid #1a1a1a;
         }
 
-        .step:last-child { border-bottom: none; }
+        .step:last-child {
+            border-bottom: none;
+        }
 
         .step-num {
             flex-shrink: 0;
@@ -293,7 +324,9 @@
             color: #fff;
         }
 
-        .step-body { flex: 1; }
+        .step-body {
+            flex: 1;
+        }
 
         .step-time {
             font-size: 0.7rem;
@@ -325,7 +358,9 @@
         }
 
         @media (max-width: 480px) {
-            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .stat-box {
@@ -368,7 +403,9 @@
             line-height: 1.6;
         }
 
-        .insight strong { color: #fff; }
+        .insight strong {
+            color: #fff;
+        }
 
         /* App CTA */
         .app-cta {
@@ -380,8 +417,18 @@
             margin-bottom: 24px;
         }
 
-        .app-cta h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; }
-        .app-cta p { font-size: 0.88rem; color: #555; margin-bottom: 16px; line-height: 1.5; }
+        .app-cta h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .app-cta p {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
 
         .btn-primary {
             display: inline-block;
@@ -400,6 +447,7 @@
             flex-wrap: wrap;
             gap: 8px;
         }
+
         @media (max-width: 600px) {
             .queue-links {
                 flex-wrap: nowrap;
@@ -420,7 +468,10 @@
             white-space: nowrap;
         }
 
-        .queue-link:hover { background: #1a1a1a; color: #fff; }
+        .queue-link:hover {
+            background: #1a1a1a;
+            color: #fff;
+        }
 
         footer {
             margin-top: 60px;
@@ -431,15 +482,26 @@
             text-align: center;
         }
 
-        footer a { color: #555; }
+        footer a {
+            color: #555;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
 
+        <!-- Branding -->
+        <nav style="margin-bottom: 24px; display: flex; align-items: center;">
+            <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img alt="Ride Ready" src="/images/logo.png" style="height: 28px; width: auto;" />
+                <span style="color: #fff; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.5px;">Ride
+                    Ready</span>
+            </a>
+        </nav>
+
         <div class="breadcrumb">
-            <a href="/">Ride Ready</a> › <a href="/universal-orlando/epic-universe/">Epic Universe</a> › Spring Break 2026
+            <a href="/universal-orlando/epic-universe/">Epic Universe</a> › Spring Break 2026
         </div>
 
         <div class="hero">
@@ -464,27 +526,84 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Mine-Cart Madness</td><td class="hot">145 min</td><td class="hot">210 min</td><td class="note">301</td></tr>
-                        <tr><td>Battle at the Ministry</td><td class="hot">127 min</td><td class="hot">185 min</td><td class="note">260</td></tr>
-                        <tr><td>Mario Kart: Bowser's Challenge</td><td class="hot">117 min</td><td class="hot">220 min</td><td class="note">220</td></tr>
-                        <tr><td>Hiccup's Wing Gliders</td><td class="warm">65 min</td><td class="warm">150 min</td><td class="note">305</td></tr>
-                        <tr><td>Curse of the Werewolf</td><td class="warm">56 min</td><td class="warm">90 min</td><td class="note">285</td></tr>
-                        <tr><td>Monsters Unchained</td><td class="cool">54 min</td><td class="cool">90 min</td><td class="note">173</td></tr>
-                        <tr><td>Dragon Racer's Rally</td><td>46 min</td><td class="warm">120 min</td><td class="note">319</td></tr>
-                        <tr><td>Yoshi's Adventure</td><td>42 min</td><td class="warm">105 min</td><td class="note">356</td></tr>
-                        <tr><td>Fyre Drill</td><td class="cool">24 min</td><td>60 min</td><td class="note">251</td></tr>
-                        <tr><td>Constellation Carousel</td><td class="cool">20 min</td><td>45 min</td><td class="note">347</td></tr>
-                        <tr><td>Stardust Racers</td><td class="note">—</td><td class="note">—</td><td class="note">Not reporting</td></tr>
+                        <tr>
+                            <td>Mine-Cart Madness</td>
+                            <td class="hot">145 min</td>
+                            <td class="hot">210 min</td>
+                            <td class="note">301</td>
+                        </tr>
+                        <tr>
+                            <td>Battle at the Ministry</td>
+                            <td class="hot">127 min</td>
+                            <td class="hot">185 min</td>
+                            <td class="note">260</td>
+                        </tr>
+                        <tr>
+                            <td>Mario Kart: Bowser's Challenge</td>
+                            <td class="hot">117 min</td>
+                            <td class="hot">220 min</td>
+                            <td class="note">220</td>
+                        </tr>
+                        <tr>
+                            <td>Hiccup's Wing Gliders</td>
+                            <td class="warm">65 min</td>
+                            <td class="warm">150 min</td>
+                            <td class="note">305</td>
+                        </tr>
+                        <tr>
+                            <td>Curse of the Werewolf</td>
+                            <td class="warm">56 min</td>
+                            <td class="warm">90 min</td>
+                            <td class="note">285</td>
+                        </tr>
+                        <tr>
+                            <td>Monsters Unchained</td>
+                            <td class="cool">54 min</td>
+                            <td class="cool">90 min</td>
+                            <td class="note">173</td>
+                        </tr>
+                        <tr>
+                            <td>Dragon Racer's Rally</td>
+                            <td>46 min</td>
+                            <td class="warm">120 min</td>
+                            <td class="note">319</td>
+                        </tr>
+                        <tr>
+                            <td>Yoshi's Adventure</td>
+                            <td>42 min</td>
+                            <td class="warm">105 min</td>
+                            <td class="note">356</td>
+                        </tr>
+                        <tr>
+                            <td>Fyre Drill</td>
+                            <td class="cool">24 min</td>
+                            <td>60 min</td>
+                            <td class="note">251</td>
+                        </tr>
+                        <tr>
+                            <td>Constellation Carousel</td>
+                            <td class="cool">20 min</td>
+                            <td>45 min</td>
+                            <td class="note">347</td>
+                        </tr>
+                        <tr>
+                            <td>Stardust Racers</td>
+                            <td class="note">—</td>
+                            <td class="note">—</td>
+                            <td class="note">Not reporting</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <p style="font-size:0.75rem;color:#555;margin-top:12px;">Based on 2,817 wait-time samples from Ride Ready, Mar 8–9, 2026. Low sample size. Treat as directional, not definitive.</p>
+            <p style="font-size:0.75rem;color:#555;margin-top:12px;">Based on 2,817 wait-time samples from Ride Ready,
+                Mar 8–9, 2026. Low sample size. Treat as directional, not definitive.</p>
         </div>
 
         <!-- Week-by-Week Forecast -->
         <div class="section">
             <h2>Week-by-Week Crowd Forecast</h2>
-            <p class="section-meta">Updated Mar 8, 2026 · Crowd calendar signal (Universal dynamic pricing) + 156-day DOW baseline</p>
+            <p class="section-meta">Updated Mar 8, 2026 · Crowd calendar signal (Universal dynamic pricing) + 156-day
+                DOW baseline</p>
 
             <div class="tbl-wrap">
                 <table>
@@ -503,62 +622,77 @@
                             <td>Mar 8–15</td>
                             <td class="hot"><strong>9.9/10 avg</strong></td>
                             <td class="note" style="font-size:0.78rem;">10, 10, 10, 9, 9, 10, 10, 10</td>
-                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/" style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
+                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/"
+                                    style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
                         </tr>
                         <tr>
                             <td><strong>Week 2</strong></td>
                             <td>Mar 16–22</td>
                             <td class="hot"><strong>9.9/10 avg</strong></td>
                             <td class="note" style="font-size:0.78rem;">10, 10, 10, 10, 10, 9, 10</td>
-                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/" style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
+                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/"
+                                    style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
                         </tr>
                         <tr>
                             <td><strong>Week 3</strong></td>
                             <td>Mar 23–29</td>
                             <td class="hot"><strong>10/10 avg</strong></td>
                             <td class="note" style="font-size:0.78rem;">10, 10, 10, 10, 10, 10, 10</td>
-                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/" style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
+                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/"
+                                    style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
                         </tr>
                         <tr>
                             <td><strong>Week 4 (Easter)</strong></td>
                             <td>Mar 30–Apr 5</td>
                             <td class="hot"><strong>10/10 avg</strong></td>
                             <td class="note" style="font-size:0.78rem;">10, 10, 10, 10, 10, 10, 10</td>
-                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/" style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
+                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/"
+                                    style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
                         </tr>
                         <tr>
                             <td><strong>Week 5</strong></td>
                             <td>Apr 6–12</td>
                             <td class="hot"><strong>9.3/10 avg</strong></td>
                             <td class="note" style="font-size:0.78rem;">10, 10, 10, 10, 8, 9, 8</td>
-                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/" style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
+                            <td class="note"><a href="/parks/epic-universe/crowd-calendar/"
+                                    style="color:#888;text-decoration:underline;">Crowd calendar</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="insight">
-                <strong>Key update from January forecast:</strong> Early predictions had weeks 2–5 at 5–7/10. The March crowd calendar shows nearly every day at 9–10/10. Spring break 2026 at Epic Universe is projected to be wall-to-wall peak crowds for the full 5-week window. <strong>There is no "light" week.</strong> The only slight relief comes Apr 10–12 (8–9/10) as spring break ends.
+                <strong>Key update from January forecast:</strong> Early predictions had weeks 2–5 at 5–7/10. The March
+                crowd calendar shows nearly every day at 9–10/10. Spring break 2026 at Epic Universe is projected to be
+                wall-to-wall peak crowds for the full 5-week window. <strong>There is no "light" week.</strong> The only
+                slight relief comes Apr 10–12 (8–9/10) as spring break ends.
             </div>
             <div class="insight" style="margin-top:12px;">
-                <strong>March 8 actual:</strong> Park hit 10/10 at noon (park-wide avg 97.5 min), 9/10 at 11 AM (101.7 min). By 5 PM it moderated to ~60 min avg, which is pretty typical for Universal rope-drop crowds.
+                <strong>March 8 actual:</strong> Park hit 10/10 at noon (park-wide avg 97.5 min), 9/10 at 11 AM (101.7
+                min). By 5 PM it moderated to ~60 min avg, which is pretty typical for Universal rope-drop crowds.
             </div>
-            <p style="font-size:0.8rem;color:#555;margin-top:12px;">Thursday still edges out other days historically, but at 9–10/10 predicted levels the difference is marginal. <strong>Day selection won't save you. Time-of-day strategy will.</strong></p>
+            <p style="font-size:0.8rem;color:#555;margin-top:12px;">Thursday still edges out other days historically,
+                but at 9–10/10 predicted levels the difference is marginal. <strong>Day selection won't save you.
+                    Time-of-day strategy will.</strong></p>
         </div>
 
         <!-- Optimal Ride Order -->
         <div class="section">
             <h2>Optimal Ride Order: Spring Break</h2>
-            <p class="section-meta">Ride Ready plan simulator · 20 actual park days replayed · 91,000+ wait readings · Feb 15–Mar 7, 2026</p>
+            <p class="section-meta">Ride Ready plan simulator · 20 actual park days replayed · 91,000+ wait readings ·
+                Feb 15–Mar 7, 2026</p>
 
-            <p style="color:#bbb;font-size:0.88rem;line-height:1.6;margin-bottom:20px;">This isn't napkin math. It's the output of the same algorithm that powers Ride Ready's SkipIQ day planner, run against 20 actual park days with real 5-minute wait readings. Two strategies below depending on whether you have Early Entry.</p>
+            <p style="color:#bbb;font-size:0.88rem;line-height:1.6;margin-bottom:20px;">This isn't napkin math. It's the
+                output of the same algorithm that powers Ride Ready's SkipIQ day planner, run against 20 actual park
+                days with real 5-minute wait readings. Two strategies below depending on whether you have Early Entry.
+            </p>
 
             <!-- Strategy toggle tabs -->
             <div style="display:flex;gap:8px;margin-bottom:20px;">
-                <button id="tab-early" onclick="showStrategy('early')"
+                <button id="tab-early" onclick="showStrategy('early')" aria-pressed="true"
                     style="flex:1;padding:10px;border-radius:10px;border:none;font-weight:700;font-size:0.85rem;cursor:pointer;background:linear-gradient(45deg,#FF416C,#FF4B2B);color:#fff;">
                     Early Entry (8 AM)
                 </button>
-                <button id="tab-regular" onclick="showStrategy('regular')"
+                <button id="tab-regular" onclick="showStrategy('regular')" aria-pressed="false"
                     style="flex:1;padding:10px;border-radius:10px;border:1px solid #333;font-weight:700;font-size:0.85rem;cursor:pointer;background:#111;color:#888;">
                     Park Open (9 AM)
                 </button>
@@ -566,14 +700,17 @@
 
             <!-- Strategy A: Early Entry -->
             <div id="strategy-early">
-                <p style="font-size:0.78rem;color:#666;margin-bottom:16px;">Avg 8 rides · saves 1h19m vs non-early · Mine-Cart chosen first in 55% of simulated days</p>
+                <p style="font-size:0.78rem;color:#666;margin-bottom:16px;">Avg 8 rides · saves 1h19m vs non-early ·
+                    Mine-Cart chosen first in 55% of simulated days</p>
                 <ul class="steps">
                     <li class="step">
                         <div class="step-num">1</div>
                         <div class="step-body">
                             <div class="step-time">8:00 AM · Rope drop</div>
                             <div class="step-ride">Mine-Cart Madness</div>
-                            <div class="step-why">At 8 AM early entry, Mine-Cart is 20–90 min. By 10 AM it's 137+ min. By noon it's 162 min and stays there. This is the single best use of early entry. Our planner chose it first in 55% of simulated days (position 1.2 avg).</div>
+                            <div class="step-why">At 8 AM early entry, Mine-Cart is 20–90 min. By 10 AM it's 137+ min.
+                                By noon it's 162 min and stays there. This is the single best use of early entry. Our
+                                planner chose it first in 55% of simulated days (position 1.2 avg).</div>
                         </div>
                     </li>
                     <li class="step">
@@ -581,7 +718,8 @@
                         <div class="step-body">
                             <div class="step-time">After Mine-Cart · ~9:30–10:30 AM</div>
                             <div class="step-ride">Mario Kart: Bowser's Challenge</div>
-                            <div class="step-why">Sharpest morning climb after Mine-Cart: 47 min at 8 AM → 125 min by 11 AM. Second priority when Mine-Cart is already done.</div>
+                            <div class="step-why">Sharpest morning climb after Mine-Cart: 47 min at 8 AM → 125 min by 11
+                                AM. Second priority when Mine-Cart is already done.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -589,7 +727,8 @@
                         <div class="step-body">
                             <div class="step-time">Before 11 AM</div>
                             <div class="step-ride">Curse of the Werewolf</div>
-                            <div class="step-why">Climbs from 5 min at 8 AM to 77 min by 1 PM. Catching it before 11 AM saves 50+ min vs midday. Our planner chose it 3rd in 60% of days.</div>
+                            <div class="step-why">Climbs from 5 min at 8 AM to 77 min by 1 PM. Catching it before 11 AM
+                                saves 50+ min vs midday. Our planner chose it 3rd in 60% of days.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -597,7 +736,8 @@
                         <div class="step-body">
                             <div class="step-time">Late morning–early afternoon</div>
                             <div class="step-ride">Hiccup's Wing Gliders</div>
-                            <div class="step-why">Peaks at 84 min around 1 PM. Get it before the 1–3 PM plateau. Engine places it 4th in 90% of days.</div>
+                            <div class="step-why">Peaks at 84 min around 1 PM. Get it before the 1–3 PM plateau. Engine
+                                places it 4th in 90% of days.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -605,7 +745,8 @@
                         <div class="step-body">
                             <div class="step-time">Midday break</div>
                             <div class="step-ride">Constellation Carousel + lunch</div>
-                            <div class="step-why">Constellation works as a palette cleanser between headliners (position 3.9, 65% of days). Every major headliner peaks noon–2 PM. Eat here.</div>
+                            <div class="step-why">Constellation works as a palette cleanser between headliners (position
+                                3.9, 65% of days). Every major headliner peaks noon–2 PM. Eat here.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -613,7 +754,9 @@
                         <div class="step-body">
                             <div class="step-time">Afternoon</div>
                             <div class="step-ride">Yoshi's Adventure + Monsters Unchained</div>
-                            <div class="step-why">Both are mid-plan filler with steady waits and no urgency. Our planner places Monsters at position 5.9, not rope drop. Monsters is 20 min all day. Wasting the first hour of early entry on it costs you Mine-Cart at its minimum wait.</div>
+                            <div class="step-why">Both are mid-plan filler with steady waits and no urgency. Our planner
+                                places Monsters at position 5.9, not rope drop. Monsters is 20 min all day. Wasting the
+                                first hour of early entry on it costs you Mine-Cart at its minimum wait.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -621,7 +764,10 @@
                         <div class="step-body">
                             <div class="step-time">Late afternoon</div>
                             <div class="step-ride">Dragon Racer's Rally + Stardust Racers + Fyre Drill</div>
-                            <div class="step-why">Flat afternoon profiles (46–59 min). No timing urgency. Slot them when gaps appear. <span style="color:#f97316;">Stardust Racers was down during most of our dataset but is scheduled to reopen March 15.</span> Its wait profile is flat all day (45–59 min), so treat it like Dragon Racer.</div>
+                            <div class="step-why">Flat afternoon profiles (46–59 min). No timing urgency. Slot them when
+                                gaps appear. <span style="color:#f97316;">Stardust Racers was down during most of our
+                                    dataset but is scheduled to reopen March 15.</span> Its wait profile is flat all day
+                                (45–59 min), so treat it like Dragon Racer.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -629,25 +775,34 @@
                         <div class="step-body">
                             <div class="step-time">Evening, save for last</div>
                             <div class="step-ride">Harry Potter and the Battle at the Ministry</div>
-                            <div class="step-why">Our planner saved this for last in 90% of early entry days. 150 min at peak → 39 min by 9 PM. The 74% evening collapse is the most dramatic of any headliner. Never waste it at midday.</div>
+                            <div class="step-why">Our planner saved this for last in 90% of early entry days. 150 min at
+                                peak → 39 min by 9 PM. The 74% evening collapse is the most dramatic of any headliner.
+                                Never waste it at midday.</div>
                         </div>
                     </li>
                 </ul>
-                <div style="background:#111;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-top:16px;font-size:0.8rem;color:#888;line-height:1.6;">
-                    <strong style="color:#ccc;">Feb 20 (10/10 crowd day):</strong> Mine-Cart (8:04am, 90m) → Werewolf (9:42am, 60m) → Mario Kart (10:50am, 145m) → Carousel (1:23pm, 20m) → Hiccup's (1:53pm, 92m) → Yoshi's (3:36pm, 40m) → Dragon Racer (4:28pm, 45m) → Fyre Drill (5:19pm, 60m) → Battle at Ministry (6:31pm, 135m) = <strong style="color:#fff;">9 rides</strong>
+                <div
+                    style="background:#111;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-top:16px;font-size:0.8rem;color:#888;line-height:1.6;">
+                    <strong style="color:#ccc;">Feb 20 (10/10 crowd day):</strong> Mine-Cart (8:04am, 90m) → Werewolf
+                    (9:42am, 60m) → Mario Kart (10:50am, 145m) → Carousel (1:23pm, 20m) → Hiccup's (1:53pm, 92m) →
+                    Yoshi's (3:36pm, 40m) → Dragon Racer (4:28pm, 45m) → Fyre Drill (5:19pm, 60m) → Battle at Ministry
+                    (6:31pm, 135m) = <strong style="color:#fff;">9 rides</strong>
                 </div>
             </div>
 
             <!-- Strategy B: Non-Early Entry -->
             <div id="strategy-regular" style="display:none;">
-                <p style="font-size:0.78rem;color:#666;margin-bottom:16px;">Avg 9.2 rides · Mario Kart chosen first in 50% of days · Battle at Ministry last in 100% of days</p>
+                <p style="font-size:0.78rem;color:#666;margin-bottom:16px;">Avg 9.2 rides · Mario Kart chosen first in
+                    50% of days · Battle at Ministry last in 100% of days</p>
                 <ul class="steps">
                     <li class="step">
                         <div class="step-num">1</div>
                         <div class="step-body">
                             <div class="step-time">9:00 AM · Park open</div>
                             <div class="step-ride">Mario Kart: Bowser's Challenge</div>
-                            <div class="step-why">By 9 AM general open, Mine-Cart is already 112+ min. Mario Kart at 60 min is the better move at this hour, and it climbs to 125 min by 11 AM. Our planner chose Mario Kart first in 50% of non-early days (Mine-Cart first in 40%).</div>
+                            <div class="step-why">By 9 AM general open, Mine-Cart is already 112+ min. Mario Kart at 60
+                                min is the better move at this hour, and it climbs to 125 min by 11 AM. Our planner
+                                chose Mario Kart first in 50% of non-early days (Mine-Cart first in 40%).</div>
                         </div>
                     </li>
                     <li class="step">
@@ -655,7 +810,9 @@
                         <div class="step-body">
                             <div class="step-time">After Mario Kart</div>
                             <div class="step-ride">Mine-Cart Madness</div>
-                            <div class="step-why">Still worth doing second despite 112+ min waits. Delaying past 10 AM means 137–162 min. Position 2.2 in the planner's output. It never skips it, just doesn't lead with it.</div>
+                            <div class="step-why">Still worth doing second despite 112+ min waits. Delaying past 10 AM
+                                means 137–162 min. Position 2.2 in the planner's output. It never skips it, just doesn't
+                                lead with it.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -663,7 +820,8 @@
                         <div class="step-body">
                             <div class="step-time">Before 11 AM if possible</div>
                             <div class="step-ride">Curse of the Werewolf</div>
-                            <div class="step-why">36 min at 10 AM vs 77 min by 1 PM. Our planner catches it early in 80% of non-early days (position 2.4).</div>
+                            <div class="step-why">36 min at 10 AM vs 77 min by 1 PM. Our planner catches it early in 80%
+                                of non-early days (position 2.4).</div>
                         </div>
                     </li>
                     <li class="step">
@@ -671,7 +829,8 @@
                         <div class="step-body">
                             <div class="step-time">Midday break</div>
                             <div class="step-ride">Constellation Carousel + lunch</div>
-                            <div class="step-why">Quick break ride (position 3.1, 100% of days). Every headliner peaks noon–2 PM. Trust us, eat here.</div>
+                            <div class="step-why">Quick break ride (position 3.1, 100% of days). Every headliner peaks
+                                noon–2 PM. Trust us, eat here.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -679,15 +838,20 @@
                         <div class="step-body">
                             <div class="step-time">Early–mid afternoon</div>
                             <div class="step-ride">Hiccup's Wing Gliders</div>
-                            <div class="step-why">Late morning or early afternoon before the 1–3 PM plateau (position 4.3, 80% of days).</div>
+                            <div class="step-why">Late morning or early afternoon before the 1–3 PM plateau (position
+                                4.3, 80% of days).</div>
                         </div>
                     </li>
                     <li class="step">
                         <div class="step-num">6</div>
                         <div class="step-body">
                             <div class="step-time">Afternoon</div>
-                            <div class="step-ride">Monsters Unchained + Yoshi's + Dragon Racer's Rally + Stardust Racers</div>
-                            <div class="step-why">All have flat, steady profiles with no timing urgency. Fill the afternoon with them in whatever order gaps allow. <span style="color:#f97316;">Stardust Racers was down during most of our dataset but is scheduled to reopen March 15.</span> Its wait profile is flat (45–59 min), same as Dragon Racer.</div>
+                            <div class="step-ride">Monsters Unchained + Yoshi's + Dragon Racer's Rally + Stardust Racers
+                            </div>
+                            <div class="step-why">All have flat, steady profiles with no timing urgency. Fill the
+                                afternoon with them in whatever order gaps allow. <span style="color:#f97316;">Stardust
+                                    Racers was down during most of our dataset but is scheduled to reopen March
+                                    15.</span> Its wait profile is flat (45–59 min), same as Dragon Racer.</div>
                         </div>
                     </li>
                     <li class="step">
@@ -695,7 +859,8 @@
                         <div class="step-body">
                             <div class="step-time">Late afternoon</div>
                             <div class="step-ride">Fyre Drill</div>
-                            <div class="step-why">When available, fits naturally in the late afternoon slot (position 7.1, 75% of days).</div>
+                            <div class="step-why">When available, fits naturally in the late afternoon slot (position
+                                7.1, 75% of days).</div>
                         </div>
                     </li>
                     <li class="step">
@@ -703,68 +868,106 @@
                         <div class="step-body">
                             <div class="step-time">Evening, dead last, every time</div>
                             <div class="step-ride">Harry Potter and the Battle at the Ministry</div>
-                            <div class="step-why">Our planner saved this for last in <strong>100% of non-early-entry simulations</strong>. Its 74% evening collapse (150 min → 39 min) is simply too valuable to waste at peak. This is the most consistent finding in the entire dataset.</div>
+                            <div class="step-why">Our planner saved this for last in <strong>100% of non-early-entry
+                                    simulations</strong>. Its 74% evening collapse (150 min → 39 min) is simply too
+                                valuable to waste at peak. This is the most consistent finding in the entire dataset.
+                            </div>
                         </div>
                     </li>
                 </ul>
-                <div style="background:#111;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-top:16px;font-size:0.8rem;color:#888;line-height:1.6;">
-                    <strong style="color:#ccc;">Feb 20 (10/10 crowd day):</strong> Mario Kart (9:02am, 60m) → Werewolf (10:10am, 30m) → Mine-Cart (10:48am, 100m) → Hiccup's (12:41pm, 60m) → Carousel (1:51pm, 30m) → Yoshi's (2:29pm, 50m) → Monsters (3:28pm, 35m) → Dragon Racer (4:16pm, 45m) → Fyre Drill (5:08pm, 70m) → Battle at Ministry (6:29pm, 135m) = <strong style="color:#fff;">10 rides</strong>
+                <div
+                    style="background:#111;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-top:16px;font-size:0.8rem;color:#888;line-height:1.6;">
+                    <strong style="color:#ccc;">Feb 20 (10/10 crowd day):</strong> Mario Kart (9:02am, 60m) → Werewolf
+                    (10:10am, 30m) → Mine-Cart (10:48am, 100m) → Hiccup's (12:41pm, 60m) → Carousel (1:51pm, 30m) →
+                    Yoshi's (2:29pm, 50m) → Monsters (3:28pm, 35m) → Dragon Racer (4:16pm, 45m) → Fyre Drill (5:08pm,
+                    70m) → Battle at Ministry (6:29pm, 135m) = <strong style="color:#fff;">10 rides</strong>
                 </div>
             </div>
 
             <!-- Head-to-head -->
             <div style="margin-top:20px;">
-                <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;color:#555;margin-bottom:12px;">Early Entry vs No Early Entry</p>
+                <p
+                    style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;color:#555;margin-bottom:12px;">
+                    Early Entry vs No Early Entry</p>
                 <div class="tbl-wrap">
                     <table>
                         <thead>
-                            <tr><th>Metric</th><th>Early Entry (8 AM)</th><th>Park Open (9 AM)</th></tr>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Early Entry (8 AM)</th>
+                                <th>Park Open (9 AM)</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Avg rides completed</td><td>8.0</td><td class="cool">9.2 (+1.2)</td></tr>
-                            <tr><td>Avg total wait time</td><td class="cool">6h 52m</td><td>8h 11m</td></tr>
-                            <tr><td>Wait per ride</td><td class="cool">51.5 min</td><td>53.4 min</td></tr>
-                            <tr><td>Time efficiency</td><td class="cool">9.9%</td><td>8.0%</td></tr>
+                            <tr>
+                                <td>Avg rides completed</td>
+                                <td>8.0</td>
+                                <td class="cool">9.2 (+1.2)</td>
+                            </tr>
+                            <tr>
+                                <td>Avg total wait time</td>
+                                <td class="cool">6h 52m</td>
+                                <td>8h 11m</td>
+                            </tr>
+                            <tr>
+                                <td>Wait per ride</td>
+                                <td class="cool">51.5 min</td>
+                                <td>53.4 min</td>
+                            </tr>
+                            <tr>
+                                <td>Time efficiency</td>
+                                <td class="cool">9.9%</td>
+                                <td>8.0%</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <div class="insight">
-                <strong>The one rule both strategies agree on:</strong> Battle at Ministry goes last, always. Its 74% evening drop is the most consistent finding in the dataset. Our planner never once prioritized it before late afternoon across 40 total simulated park days. The conventional wisdom about Mine-Cart is correct at rope drop. The conventional wisdom about Battle at Ministry is wrong all day long.
+                <strong>The one rule both strategies agree on:</strong> Battle at Ministry goes last, always. Its 74%
+                evening drop is the most consistent finding in the dataset. Our planner never once prioritized it before
+                late afternoon across 40 total simulated park days. The conventional wisdom about Mine-Cart is correct
+                at rope drop. The conventional wisdom about Battle at Ministry is wrong all day long.
             </div>
         </div>
         <script>
-        function showStrategy(s) {
-            document.getElementById('strategy-early').style.display = s === 'early' ? 'block' : 'none';
-            document.getElementById('strategy-regular').style.display = s === 'regular' ? 'block' : 'none';
-            document.getElementById('tab-early').style.background = s === 'early' ? 'linear-gradient(45deg,#FF416C,#FF4B2B)' : '#111';
-            document.getElementById('tab-early').style.color = s === 'early' ? '#fff' : '#888';
-            document.getElementById('tab-early').style.border = s === 'early' ? 'none' : '1px solid #333';
-            document.getElementById('tab-regular').style.background = s === 'regular' ? 'linear-gradient(45deg,#FF416C,#FF4B2B)' : '#111';
-            document.getElementById('tab-regular').style.color = s === 'regular' ? '#fff' : '#888';
-            document.getElementById('tab-regular').style.border = s === 'regular' ? 'none' : '1px solid #333';
-        }
+            function showStrategy(s) {
+                document.getElementById('strategy-early').style.display = s === 'early' ? 'block' : 'none';
+                document.getElementById('strategy-regular').style.display = s === 'regular' ? 'block' : 'none';
+                document.getElementById('tab-early').style.background = s === 'early' ? 'linear-gradient(45deg,#FF416C,#FF4B2B)' : '#111';
+                document.getElementById('tab-early').style.color = s === 'early' ? '#fff' : '#888';
+                document.getElementById('tab-early').style.border = s === 'early' ? 'none' : '1px solid #333';
+                document.getElementById('tab-early').setAttribute('aria-pressed', s === 'early' ? 'true' : 'false');
+                document.getElementById('tab-regular').style.background = s === 'regular' ? 'linear-gradient(45deg,#FF416C,#FF4B2B)' : '#111';
+                document.getElementById('tab-regular').style.color = s === 'regular' ? '#fff' : '#888';
+                document.getElementById('tab-regular').style.border = s === 'regular' ? 'none' : '1px solid #333';
+                document.getElementById('tab-regular').setAttribute('aria-pressed', s === 'regular' ? 'true' : 'false');
+            }
         </script>
 
         <!-- Replan callout -->
         <div class="insight" style="margin-bottom:20px;">
-            <strong>Plans change. Your strategy should too.</strong> Rides break down, waits spike, weather rolls in. SkipIQ replans your day in seconds using live wait data, so you're not stuck following a morning plan that stopped making sense at 2 PM. It's the same algorithm that generated the strategies above, running live on your phone.
+            <strong>Plans change. Your strategy should too.</strong> Rides break down, waits spike, weather rolls in.
+            SkipIQ replans your day in seconds using live wait data, so you're not stuck following a morning plan that
+            stopped making sense at 2 PM. It's the same algorithm that generated the strategies above, running live on
+            your phone.
         </div>
 
         <!-- Mid-page App CTA: Live wait times -->
         <div class="app-cta">
             <h3>Your plan adapts when the park doesn't go to plan</h3>
-            <p>SkipIQ rebuilds your ride order in seconds when a ride goes down or waits shift. Live wait times every 5 minutes, drop alerts, and the same planner that generated these strategies. Free to download.</p>
+            <p>SkipIQ rebuilds your ride order in seconds when a ride goes down or waits shift. Live wait times every 5
+                minutes, drop alerts, and the same planner that generated these strategies. Free to download.</p>
             <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-spring-break-2026-mid"
-               data-ref="eu-spring-break-2026-mid"
-               class="btn-primary">Download Free on iPhone →</a>
+                data-ref="eu-spring-break-2026-mid" class="btn-primary">Download Free on iPhone →</a>
         </div>
 
         <!-- Evening Drop Windows -->
         <div class="section">
             <h2>Evening Drop Windows: When Waits Fall</h2>
-            <p class="section-meta">All-season medians, Oct 2025–Mar 2026 · Shape holds on high-crowd days; absolute waits 10–20 min higher</p>
+            <p class="section-meta">All-season medians, Oct 2025–Mar 2026 · Shape holds on high-crowd days; absolute
+                waits 10–20 min higher</p>
 
             <div class="tbl-wrap">
                 <table>
@@ -827,7 +1030,8 @@
         <!-- Time of Day Baselines -->
         <div class="section">
             <h2>Wait Times by Hour: Full Season Baselines</h2>
-            <p class="section-meta">Median posted wait · All days of week combined · Oct 2025–Mar 9, 2026 · 5,700–11,580 samples per ride</p>
+            <p class="section-meta">Median posted wait · All days of week combined · Oct 2025–Mar 9, 2026 · 5,700–11,580
+                samples per ride</p>
 
             <div class="tbl-wrap">
                 <table>
@@ -843,30 +1047,145 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>8–9 AM</td><td>91</td><td>109</td><td>47</td><td class="cool">13</td><td class="cool">19</td><td class="cool">10</td></tr>
-                        <tr><td>9–10 AM</td><td>112</td><td>131</td><td>60</td><td class="cool">33</td><td class="cool">32</td><td class="cool">12</td></tr>
-                        <tr><td>10–11 AM</td><td class="warm">137</td><td class="hot">150</td><td>98</td><td>50</td><td>67</td><td class="cool">20</td></tr>
-                        <tr><td>11 AM–12 PM</td><td class="hot">158</td><td>144</td><td class="hot">125</td><td>56</td><td class="warm">81</td><td>33</td></tr>
-                        <tr><td>12–1 PM</td><td class="hot">162</td><td>141</td><td>104</td><td>58</td><td class="warm">83</td><td>33</td></tr>
-                        <tr><td>1–2 PM</td><td class="warm">151</td><td>141</td><td>89</td><td class="warm">59</td><td class="warm">84</td><td>27</td></tr>
-                        <tr><td>2–3 PM</td><td class="warm">146</td><td>142</td><td>87</td><td>52</td><td>79</td><td>25</td></tr>
-                        <tr><td>3–4 PM</td><td class="warm">147</td><td>131</td><td>92</td><td>55</td><td class="warm">83</td><td>24</td></tr>
-                        <tr><td>4–5 PM</td><td class="warm">142</td><td>129</td><td>86</td><td>51</td><td>77</td><td>21</td></tr>
-                        <tr><td>5–6 PM</td><td>136</td><td>125</td><td>72</td><td>49</td><td>69</td><td class="cool">18</td></tr>
-                        <tr><td>6–7 PM</td><td>125</td><td>106</td><td>62</td><td>48</td><td>59</td><td class="cool">15</td></tr>
-                        <tr><td>7–8 PM</td><td>120</td><td>79</td><td>48</td><td>46</td><td>47</td><td class="cool">14</td></tr>
-                        <tr><td>8–9 PM</td><td>106</td><td class="cool">55</td><td class="cool">31</td><td>45</td><td class="cool">40</td><td class="cool">12</td></tr>
-                        <tr><td>9 PM–close</td><td>98</td><td class="cool">39</td><td class="cool">21</td><td>46</td><td class="cool">24</td><td class="cool">10</td></tr>
+                        <tr>
+                            <td>8–9 AM</td>
+                            <td>91</td>
+                            <td>109</td>
+                            <td>47</td>
+                            <td class="cool">13</td>
+                            <td class="cool">19</td>
+                            <td class="cool">10</td>
+                        </tr>
+                        <tr>
+                            <td>9–10 AM</td>
+                            <td>112</td>
+                            <td>131</td>
+                            <td>60</td>
+                            <td class="cool">33</td>
+                            <td class="cool">32</td>
+                            <td class="cool">12</td>
+                        </tr>
+                        <tr>
+                            <td>10–11 AM</td>
+                            <td class="warm">137</td>
+                            <td class="hot">150</td>
+                            <td>98</td>
+                            <td>50</td>
+                            <td>67</td>
+                            <td class="cool">20</td>
+                        </tr>
+                        <tr>
+                            <td>11 AM–12 PM</td>
+                            <td class="hot">158</td>
+                            <td>144</td>
+                            <td class="hot">125</td>
+                            <td>56</td>
+                            <td class="warm">81</td>
+                            <td>33</td>
+                        </tr>
+                        <tr>
+                            <td>12–1 PM</td>
+                            <td class="hot">162</td>
+                            <td>141</td>
+                            <td>104</td>
+                            <td>58</td>
+                            <td class="warm">83</td>
+                            <td>33</td>
+                        </tr>
+                        <tr>
+                            <td>1–2 PM</td>
+                            <td class="warm">151</td>
+                            <td>141</td>
+                            <td>89</td>
+                            <td class="warm">59</td>
+                            <td class="warm">84</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>2–3 PM</td>
+                            <td class="warm">146</td>
+                            <td>142</td>
+                            <td>87</td>
+                            <td>52</td>
+                            <td>79</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>3–4 PM</td>
+                            <td class="warm">147</td>
+                            <td>131</td>
+                            <td>92</td>
+                            <td>55</td>
+                            <td class="warm">83</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>4–5 PM</td>
+                            <td class="warm">142</td>
+                            <td>129</td>
+                            <td>86</td>
+                            <td>51</td>
+                            <td>77</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>5–6 PM</td>
+                            <td>136</td>
+                            <td>125</td>
+                            <td>72</td>
+                            <td>49</td>
+                            <td>69</td>
+                            <td class="cool">18</td>
+                        </tr>
+                        <tr>
+                            <td>6–7 PM</td>
+                            <td>125</td>
+                            <td>106</td>
+                            <td>62</td>
+                            <td>48</td>
+                            <td>59</td>
+                            <td class="cool">15</td>
+                        </tr>
+                        <tr>
+                            <td>7–8 PM</td>
+                            <td>120</td>
+                            <td>79</td>
+                            <td>48</td>
+                            <td>46</td>
+                            <td>47</td>
+                            <td class="cool">14</td>
+                        </tr>
+                        <tr>
+                            <td>8–9 PM</td>
+                            <td>106</td>
+                            <td class="cool">55</td>
+                            <td class="cool">31</td>
+                            <td>45</td>
+                            <td class="cool">40</td>
+                            <td class="cool">12</td>
+                        </tr>
+                        <tr>
+                            <td>9 PM–close</td>
+                            <td>98</td>
+                            <td class="cool">39</td>
+                            <td class="cool">21</td>
+                            <td>46</td>
+                            <td class="cool">24</td>
+                            <td class="cool">10</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <p style="font-size:0.75rem;color:#555;margin-top:12px;">Green = under 40 min · Orange = 130+ min · Based on 5,700–11,580 samples per ride across 156 park days. Spring break waits will run higher than these baselines.</p>
+            <p style="font-size:0.75rem;color:#555;margin-top:12px;">Green = under 40 min · Orange = 130+ min · Based on
+                5,700–11,580 samples per ride across 156 park days. Spring break waits will run higher than these
+                baselines. *Stardust Racers hourly baselines use pre-closure historical data.</p>
         </div>
 
         <!-- Best Day of Week -->
         <div class="section">
             <h2>Best &amp; Worst Day of the Week</h2>
-            <p class="section-meta">7–8 days per DOW in sample · All-season averages · Spring break pattern may differ</p>
+            <p class="section-meta">7–8 days per DOW in sample · All-season averages · Spring break pattern may differ
+            </p>
 
             <div class="tbl-wrap">
                 <table>
@@ -878,18 +1197,50 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong style="color:#34d399;">Thursday ← Best</strong></td><td class="cool">50.4 min</td><td class="cool">4.5/10</td></tr>
-                        <tr><td>Friday</td><td>51.9 min</td><td>4.7/10</td></tr>
-                        <tr><td>Saturday</td><td>53.2 min</td><td>4.9/10</td></tr>
-                        <tr><td>Sunday</td><td>55.5 min</td><td class="warm">5.3/10</td></tr>
-                        <tr><td>Monday</td><td>56.7 min</td><td>4.9/10</td></tr>
-                        <tr><td>Wednesday</td><td>58.6 min</td><td>5.2/10</td></tr>
-                        <tr><td><strong style="color:#f97316;">Tuesday ← Avoid</strong></td><td class="hot">58.7 min</td><td>4.8/10</td></tr>
+                        <tr>
+                            <td><strong style="color:#34d399;">Thursday ← Best</strong></td>
+                            <td class="cool">50.4 min</td>
+                            <td class="cool">4.5/10</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>51.9 min</td>
+                            <td>4.7/10</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>53.2 min</td>
+                            <td>4.9/10</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>55.5 min</td>
+                            <td class="warm">5.3/10</td>
+                        </tr>
+                        <tr>
+                            <td>Monday</td>
+                            <td>56.7 min</td>
+                            <td>4.9/10</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>58.6 min</td>
+                            <td>5.2/10</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:#f97316;">Tuesday ← Avoid</strong></td>
+                            <td class="hot">58.7 min</td>
+                            <td>4.8/10</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
             <div class="insight">
-                <strong>Here's the thing:</strong> Saturday (53 min) outperforms Tuesday and Wednesday. Best guess: school-group weekday crowds raise the midweek average even though crowd level scores look similar. Avoid arriving on a Sunday. It has the highest DOW crowd level in our dataset (5.3/10), likely from weekly visitor turnover. <strong>During spring break, midweek may be even better</strong> since school groups disappear, but this data covers all-season patterns, not spring break-specific.
+                <strong>Here's the thing:</strong> Saturday (53 min) outperforms Tuesday and Wednesday. Best guess:
+                school-group weekday crowds raise the midweek average even though crowd level scores look similar. Avoid
+                arriving on a Sunday. It has the highest DOW crowd level in our dataset (5.3/10), likely from weekly
+                visitor turnover. <strong>During spring break, midweek may be even better</strong> since school groups
+                disappear, but this data covers all-season patterns, not spring break-specific.
             </div>
         </div>
 
@@ -914,47 +1265,92 @@
             </div>
 
             <p style="color:#bbb;font-size:0.9rem;line-height:1.7;margin-bottom:16px;">
-                Across 11,580 baseline samples from 156 park days, Monsters Unchained shows a profile unlike any other headliner at Epic Universe. Its average median wait is <strong style="color:#fff;">20 minutes</strong>, compared to 57–134 min for other headliners during the same hours. Its peak median is only 33 min (11 AM–noon). That's shorter than Dragon Racer's Rally or Stardust Racers at their noon peak.
+                Across 11,580 baseline samples from 156 park days, Monsters Unchained shows a profile unlike any other
+                headliner at Epic Universe. Its average median wait is <strong style="color:#fff;">20 minutes</strong>,
+                compared to 57–134 min for other headliners during the same hours. Its peak median is only 33 min (11
+                AM–noon). That's shorter than Dragon Racer's Rally or Stardust Racers at their noon peak.
             </p>
             <p style="color:#bbb;font-size:0.9rem;line-height:1.7;margin-bottom:16px;">
-                <strong style="color:#fff;">After 7 PM, the median drops to 14 min or less</strong> and stays there until close. On weekends at 8 PM, the median is 13 min, a walk-on by any reasonable definition, even when Mine-Cart is posting 120 min and Battle at Ministry is at 79 min.
+                <strong style="color:#fff;">After 7 PM, the median drops to 14 min or less</strong> and stays there
+                until close. On weekends at 8 PM, the median is 13 min, a walk-on by any reasonable definition, even
+                when Mine-Cart is posting 120 min and Battle at Ministry is at 79 min.
             </p>
 
             <div class="tbl-wrap">
                 <table>
                     <thead>
-                        <tr><th>Hour</th><th>Monsters Median Wait</th><th>vs. Park Average*</th></tr>
+                        <tr>
+                            <th>Hour</th>
+                            <th>Monsters Median Wait</th>
+                            <th>vs. Park Average*</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td>8 AM</td><td class="cool">10 min</td><td class="cool">Much shorter</td></tr>
-                        <tr><td>9 AM</td><td class="cool">12 min</td><td class="cool">Much shorter</td></tr>
-                        <tr><td>10 AM</td><td class="cool">20 min</td><td class="cool">Much shorter</td></tr>
-                        <tr><td>11 AM (peak)</td><td>33 min</td><td class="cool">Shorter</td></tr>
-                        <tr><td>12 PM</td><td>33 min</td><td class="cool">Shorter</td></tr>
-                        <tr><td>1–4 PM</td><td class="cool">21–27 min</td><td class="cool">Much shorter</td></tr>
-                        <tr><td>5–6 PM</td><td class="cool">15–18 min</td><td class="cool">Much shorter</td></tr>
-                        <tr><td>7 PM+</td><td class="cool">10–14 min</td><td class="cool">Walk-on territory</td></tr>
+                        <tr>
+                            <td>8 AM</td>
+                            <td class="cool">10 min</td>
+                            <td class="cool">Much shorter</td>
+                        </tr>
+                        <tr>
+                            <td>9 AM</td>
+                            <td class="cool">12 min</td>
+                            <td class="cool">Much shorter</td>
+                        </tr>
+                        <tr>
+                            <td>10 AM</td>
+                            <td class="cool">20 min</td>
+                            <td class="cool">Much shorter</td>
+                        </tr>
+                        <tr>
+                            <td>11 AM (peak)</td>
+                            <td>33 min</td>
+                            <td class="cool">Shorter</td>
+                        </tr>
+                        <tr>
+                            <td>12 PM</td>
+                            <td>33 min</td>
+                            <td class="cool">Shorter</td>
+                        </tr>
+                        <tr>
+                            <td>1–4 PM</td>
+                            <td class="cool">21–27 min</td>
+                            <td class="cool">Much shorter</td>
+                        </tr>
+                        <tr>
+                            <td>5–6 PM</td>
+                            <td class="cool">15–18 min</td>
+                            <td class="cool">Much shorter</td>
+                        </tr>
+                        <tr>
+                            <td>7 PM+</td>
+                            <td class="cool">10–14 min</td>
+                            <td class="cool">Walk-on territory</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="insight">
-                <strong>Real talk:</strong> Every other headliner at Epic Universe has a time window when you should avoid it. Monsters Unchained has no such window. The ride most guests treat as a fallback is actually more efficiently designed than rides half the park is skipping entirely. Use it anytime, especially during the noon–2 PM peak when everything else is at maximum pain.
+                <strong>Real talk:</strong> Every other headliner at Epic Universe has a time window when you should
+                avoid it. Monsters Unchained has no such window. The ride most guests treat as a fallback is actually
+                more efficiently designed than rides half the park is skipping entirely. Use it anytime, especially
+                during the noon–2 PM peak when everything else is at maximum pain.
             </div>
         </div>
 
         <!-- App CTA -->
         <div class="app-cta">
             <h3>Get drop alerts during spring break</h3>
-            <p>Ride Ready notifies you the moment a ride drops below your threshold, so you can catch Battle at Ministry's evening collapse without watching the app all day.</p>
+            <p>Ride Ready notifies you the moment a ride drops below your threshold, so you can catch Battle at
+                Ministry's evening collapse without watching the app all day.</p>
             <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-spring-break-2026-cta"
-               data-ref="eu-spring-break-2026-cta"
-               class="btn-primary">Download Free on iPhone →</a>
+                data-ref="eu-spring-break-2026-cta" class="btn-primary">Download Free on iPhone →</a>
         </div>
 
         <!-- Queue Guide Links -->
         <div style="margin-top:40px;">
-            <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;color:#555;margin-bottom:14px;">Queue guides: see how long from any room</h3>
+            <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;color:#555;margin-bottom:14px;">
+                Queue guides: see how long from any room</h3>
             <div class="queue-links">
                 <a href="../mine-cart-madness-queue-times/" class="queue-link">🎪 Mine-Cart Madness</a>
                 <a href="../ministry-queue-times/" class="queue-link">⚡ Battle at Ministry</a>
@@ -963,24 +1359,27 @@
                 <a href="../monsters-unchained-queue-times/" class="queue-link">🧟 Monsters Unchained</a>
                 <a href="../hiccups-wing-gliders-queue-times/" class="queue-link">🐉 Hiccup's Wing Gliders</a>
             </div>
-            <p style="font-size:0.8rem;color:#666;margin-top:12px;line-height:1.5;">These guides show estimated waits from each room in line. For live wait times updated every 5 minutes,
+            <p style="font-size:0.8rem;color:#666;margin-top:12px;line-height:1.5;">These guides show estimated waits
+                from each room in line. For live wait times updated every 5 minutes,
                 <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-spring-break-2026-queue"
-                   data-ref="eu-spring-break-2026-queue"
-                   style="color:#f97316;text-decoration:underline;">grab the app</a>.
+                    data-ref="eu-spring-break-2026-queue" style="color:#f97316;text-decoration:underline;">grab the
+                    app</a>.
             </p>
         </div>
 
         <!-- Related -->
-        <a href="../../../orlando/spring-break-2026/"
+        <a href="/orlando/spring-break-2026/"
             style="display:block;margin-top:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:18px 20px;text-decoration:none;color:#ccc;font-size:0.9rem;">
-            <span style="display:block;font-weight:700;color:#fff;margin-bottom:3px;">Orlando Spring Break 2026 Hub →</span>
+            <span style="display:block;font-weight:700;color:#fff;margin-bottom:3px;">Orlando Spring Break 2026 Hub
+                →</span>
             All-parks crowd calendar, Express Pass verdicts, and week-by-week breakdown
         </a>
 
         <footer>
             <p>© 2026 Ride Ready. Not affiliated with Universal Orlando Resort.</p>
             <p style="margin-top:6px;"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
-            <p style="margin-top:10px;">Based on 156 park days of wait-time tracking from Ride Ready, Oct 1, 2025–Mar 9, 2026.</p>
+            <p style="margin-top:10px;">Based on 156 park days of wait-time tracking from Ride Ready, Oct 1, 2025–Mar 9,
+                2026.</p>
         </footer>
     </div>
 
@@ -990,24 +1389,27 @@
         <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
             <span style="font-weight:700;font-size:0.9rem;">Set drop alerts for spring break</span>
             <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-spring-break-2026-sticky"
-               data-ref="eu-spring-break-2026-sticky"
-               style="background:#000;color:#fff;text-decoration:none;padding:8px 16px;border-radius:99px;font-weight:700;font-size:0.85rem;">Get App</a>
+                data-ref="eu-spring-break-2026-sticky"
+                style="background:#000;color:#fff;text-decoration:none;padding:8px 16px;border-radius:99px;font-weight:700;font-size:0.85rem;">Get
+                App</a>
         </div>
     </div>
     <style>
         @media (max-width: 600px) {
-            #mobile-sticky { display: block !important; }
+            #mobile-sticky {
+                display: block !important;
+            }
         }
     </style>
     <script>
-        document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function(link) {
-            link.addEventListener('click', function() {
+        document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {
+            link.addEventListener('click', function () {
                 try {
                     if (typeof gtag !== 'function') return;
                     var ct = null;
-                    try { ct = new URL(link.getAttribute('href')).searchParams.get('ct'); } catch(e) {}
+                    try { ct = new URL(link.getAttribute('href')).searchParams.get('ct'); } catch (e) { }
                     gtag('event', 'app_store_click', { ref: link.dataset.ref || null, ct: ct, page: window.location.pathname });
-                } catch(e) {}
+                } catch (e) { }
             });
         });
     </script>
