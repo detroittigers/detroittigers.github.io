@@ -32,19 +32,25 @@
   </ns0:url>
   <ns0:url>
     <ns0:loc>https://rideready.app/orlando/spring-break-2026/</ns0:loc>
-    <ns0:lastmod>2026-01-09</ns0:lastmod>
+    <ns0:lastmod>2026-03-09</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.9</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/universal-orlando/epic-universe/spring-break-2026/</ns0:loc>
+    <ns0:lastmod>2026-03-09</ns0:lastmod>
     <ns0:changefreq>weekly</ns0:changefreq>
     <ns0:priority>0.9</ns0:priority>
   </ns0:url>
   <ns0:url>
     <ns0:loc>https://rideready.app/universal-orlando/epic-universe/</ns0:loc>
-    <ns0:lastmod>2026-01-09</ns0:lastmod>
+    <ns0:lastmod>2026-03-09</ns0:lastmod>
     <ns0:changefreq>weekly</ns0:changefreq>
     <ns0:priority>0.9</ns0:priority>
   </ns0:url>
   <ns0:url>
     <ns0:loc>https://rideready.app/universal-orlando/epic-universe/ministry-queue-times/</ns0:loc>
-    <ns0:lastmod>2026-01-09</ns0:lastmod>
+    <ns0:lastmod>2026-03-09</ns0:lastmod>
     <ns0:changefreq>weekly</ns0:changefreq>
     <ns0:priority>0.8</ns0:priority>
   </ns0:url>
