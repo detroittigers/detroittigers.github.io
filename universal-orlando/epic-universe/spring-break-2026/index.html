@@ -397,10 +397,16 @@
         /* Queue links */
         .queue-links {
             display: flex;
+            flex-wrap: wrap;
             gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 4px;
-            -webkit-overflow-scrolling: touch;
+        }
+        @media (max-width: 600px) {
+            .queue-links {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 4px;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
         .queue-link {
@@ -440,11 +446,6 @@
             <h1>Epic Universe Spring Break 2026:<br>Wait Times & Ride Strategy</h1>
             <p class="hero-sub">Data-backed ride strategy from 156 park days of wait-time tracking at Epic Universe.</p>
             <span class="data-badge">Updated March 9, 2026</span>
-        </div>
-
-        <!-- Data Limitation Warning -->
-        <div class="warning-box">
-            <strong>Important data note:</strong> Epic Universe opened May 22, 2025. Ride Ready began tracking October 1, 2025. <strong>There is no prior spring break baseline for this park.</strong> Spring break 2026 actuals cover March 8–9 only (2 days). The time-of-day patterns and ride order below are based on 156 days of operating history — the best available data, but not a spring break-specific sample. Crowd forecasts for weeks 2–5 are projections, not observations. We'll update this page weekly as actual data comes in.
         </div>
 
         <!-- Spring Break 2026 Actuals -->
