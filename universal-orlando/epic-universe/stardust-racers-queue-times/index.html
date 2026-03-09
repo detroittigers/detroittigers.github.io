@@ -508,6 +508,15 @@
                 ratios.
             </p>
         </div>
+        <!-- Live Wait Time Widget -->
+        <div id="rr-live" style="display:none;border-radius:16px;padding:18px 20px;margin-bottom:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);text-align:center;">
+            <style>#rr-dot{animation:rrp 2s ease-in-out infinite}@keyframes rrp{0%,100%{opacity:1}50%{opacity:.3}}</style>
+            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:6px;"><span id="rr-dot" style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span>Live Wait</div>
+            <div id="rr-num" style="font-size:3.5rem;font-weight:800;line-height:1;background:linear-gradient(45deg,#FF416C,#FF4B2B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">—</div>
+            <div id="rr-unit" style="font-size:.85rem;color:#888;margin-top:4px;">minutes posted wait</div>
+            <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:10px;"><span id="rr-trend" style="font-size:.8rem;"></span><span id="rr-upd" style="font-size:.75rem;color:#555;"></span></div>
+        </div>
+        <script>(function(){var K='Stardust';var w=document.getElementById('rr-live'),num=document.getElementById('rr-num'),unit=document.getElementById('rr-unit'),tr=document.getElementById('rr-trend'),up=document.getElementById('rr-upd');function ago(s){var d=Math.round((Date.now()-new Date(s))/60000);return d<1?'just now':d+'m ago';}function render(r){if(!r)return;w.style.display='block';var wt=r.standby_wait_time,st=r.status;if(st!=='OPERATING'){num.style.cssText='font-size:3.5rem;font-weight:800;color:#666';num.textContent='—';unit.textContent='temporarily closed';tr.textContent='';up.textContent='';return;}if(wt===0){num.style.cssText='font-size:3.5rem;font-weight:800;color:#22c55e';num.textContent='Walk-on';unit.textContent='no wait right now';}else{num.textContent=wt;unit.textContent='min posted wait';}var td=r.trend_delta||0,ts=r.trend_status||'';if(ts==='rising'&&td){tr.textContent='↑ +'+td+' rising';tr.style.color='#f97316';}else if(ts==='falling'&&td){tr.textContent='↓ −'+Math.abs(td)+' dropping';tr.style.color='#22c55e';}else{tr.textContent='';}up.textContent='Updated '+ago(r.last_updated);try{gtag('event','live_wait_viewed',{ride:r.name,wait_minutes:wt,page:location.pathname});}catch(e){}}function load(){fetch('https://api.rideready.app/rides?park_id=71').then(function(r){return r.json();}).then(function(d){render((d.rides||[]).find(function(r){return r.name&&r.name.indexOf(K)!==-1;}));}).catch(function(){});}load();setInterval(load,300000);})();</script>
         <!-- App Upsell Box -->
         <div class="app-upsell"
             style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 16px; display: flex; align-items: center; gap: 16px; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
