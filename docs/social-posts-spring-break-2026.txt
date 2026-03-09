@@ -1,0 +1,55 @@
+SPRING BREAK 2026 - SOCIAL POSTS
+=================================
+Created: March 9, 2026
+Target: Spring break 2026 (Mar 8 - Apr 12)
+Angle: Battle at Ministry evening drop + ride order data
+
+
+X (@RideReadyApp) - thread of 3 tweets
+========================================
+
+TWEET 1:
+Everyone's rushing Battle at Ministry at rope drop. The pattern is clear: wait until the final hour before close. Median wait drops 74% from its daytime peak. Most consistent finding in 156 days of tracking. Save it for last. #EpicUniverse #RideReady
+
+TWEET 2:
+What I'd do for Epic Universe spring break:
+
+Early entry: Mine-Cart first
+No early entry: Mario Kart first (60 min vs Mine-Cart's 112 at 9 AM)
+Battle at Ministry always last - ride it in the final hour before close
+
+rideready.app/universal-orlando/epic-universe/spring-break-2026/
+
+TWEET 3:
+Ride Ready tracks every Epic Universe ride, every 5 minutes, with drop alerts.
+
+It also has a planner (SkipIQ) that replans your day when rides break down or waits shift. Same algorithm behind this analysis, running live on your phone. Free download.
+
+https://apps.apple.com/app/id6748330847?ct=x-eu-spring-break-2026&mt=8
+
+
+FACEBOOK (groups, as yourself)
+===============================
+
+Heading to Epic Universe over spring break? Here's what 156 days of wait time data actually says.
+
+Here's the thing: Battle at Ministry should be your last ride of the day, not your first. Its median wait drops 74% from its daytime peak and keeps falling as you approach close. We ran 20 park days through our planning algorithm and it picked Battle at Ministry last every single time. Ride it in the final hour before close, whatever time that is.
+
+Full ride order for a high-crowd day:
+
+With early entry (8 AM): Mine-Cart first, then Mario Kart. Both climb sharply after 10 AM. Then Curse of the Werewolf before 11, Hiccup's before the afternoon plateau, filler rides (Yoshi's, Monsters, Dragon Racer) through the afternoon, Battle at Ministry last.
+
+Without early entry (9 AM): Mario Kart first. Mine-Cart is already at 112 min by 9 AM - Mario Kart's at 60. Then the same sequence.
+
+One underrated move: Monsters Unchained averages 20 min and rarely spikes. If you walk up and the line looks long, come back later - it almost always comes back down. Great gap-fill when everything else is 100+ min.
+
+Crowd forecast: there's no light week this spring break. Our January prediction had weeks 2-5 at 5-7/10. Updated numbers show 9-10/10 wall to wall, including Easter week at 10/10 every single day. Day selection won't save you. Time of day will.
+
+(Links in first comment)
+
+
+FACEBOOK FIRST COMMENT (post immediately after):
+
+Full hourly breakdown + ride order data: https://rideready.app/universal-orlando/epic-universe/spring-break-2026/
+
+I also built Ride Ready, a free app that tracks the waits live with drop alerts. It has a built-in planner (SkipIQ) that's the same algorithm I used for this analysis. It replans your day on the fly when rides go down or waits shift. Free: https://apps.apple.com/app/id6748330847?ct=fb-eu-spring-break-2026&mt=8

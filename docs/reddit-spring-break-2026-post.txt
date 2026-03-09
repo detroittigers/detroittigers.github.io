@@ -1,0 +1,46 @@
+SPRING BREAK 2026 - REDDIT POST
+================================
+Target: r/UniversalOrlando, post as kevinmtu
+Created: March 9, 2026
+
+
+TITLE: We tracked Epic Universe wait times for 156 days. Here's the best spring break ride order.
+
+
+BODY:
+
+Quick data dump for anyone heading to Epic Universe over the next few weeks. We run a wait-time tracking app and just replayed 20 actual park days (Feb 15–Mar 7) through our ride-planning algorithm. A few things surprised us so figured I'd share.
+
+**Battle at Ministry should be your LAST ride, not your first**
+
+Its median wait drops 74% from its daytime peak. Our planner saved it for last in 100% of simulated days without early entry. Ride it in the final hour before close - whatever time that is. Everyone rushing it in the morning is leaving hours on the table.
+
+**Early Entry (8 AM):**
+1. Mine-Cart Madness: 20–90 min at 8 AM vs 162 min at noon
+2. Mario Kart: 47 min at 8 AM → 125 min by 11 AM
+3. Curse of the Werewolf before 11 AM
+4. Hiccup's before the 1 PM plateau
+5. Afternoon filler: Yoshi's, Monsters, Dragon Racer
+6. Battle at Ministry last
+
+**No Early Entry (9 AM):**
+1. Mario Kart first (60 min vs Mine-Cart's 112 min at that hour)
+2. Mine-Cart second
+3. Same afternoon strategy, Battle at Ministry last
+
+**Monsters Unchained averages 20 min and rarely spikes.** If you walk up and the line looks long, come back later - it almost always comes back down. Use it as a gap-fill between headliners when everything else is 100+ min.
+
+**Other findings:**
+- Best DOW: Thursday (50 min avg). Worst: Tuesday (59 min)
+- Mario Kart drops to 21 min by 9 PM (−83%)
+- Easter week (Mar 30–Apr 5) projected at 10/10 crowds, every single day
+- No "light" spring break week this year. Our January forecast had weeks 2–5 at 5–7/10. Updated crowd calendar shows 9–10/10 wall-to-wall. Pick your strategy, not your week.
+
+Full hourly breakdown here if anyone wants the raw tables: https://rideready.app/universal-orlando/epic-universe/spring-break-2026/
+
+*Based on 20 replayed park days. Spring break 2026 is only 2 days old. Grain of salt, we'll know more in a couple weeks.*
+
+
+REDDIT SELF-REPLY COMMENT (post a few min after):
+
+Since you can't really predict what any given day looks like until you're there, I built an app (Ride Ready) that tracks all these waits live every 5 minutes with drop alerts. It also has a built-in planner called SkipIQ that's the same algorithm I used for this analysis. It replans your day on the fly when rides break down or waits shift, so you're not stuck following a rope drop plan at 2 PM. Free to download: https://apps.apple.com/app/id6748330847?ct=reddit-eu-spring-break-2026&mt=8
