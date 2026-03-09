@@ -74,7 +74,7 @@
           "name": "What is the best ride order at Epic Universe on a busy spring break day?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "At 9 AM (park open): (1) Monsters Unchained — 15 min median, clears fast. (2) Mario Kart by 9:30 AM before it climbs to 120+ min by 10:30 AM. (3) Stardust Racers at 11 AM–12:30 PM — it never spikes above 62 min. (4) Lunch 12:30–2 PM — every headliner except Monsters is at peak. (5) Hiccup's + Curse of Werewolf 2–4:30 PM. (6) Battle at Ministry after 7 PM — it drops from 125 min at 5 PM to 39 min by 9 PM, the biggest evening collapse of any ride. (7) Mine-Cart last, where it falls to ~100 min by 8 PM."
+            "text": "With Early Entry (8 AM): Mine-Cart Madness first (20–90 min at 8 AM vs 137+ by 10 AM), then Mario Kart, Curse of the Werewolf, Hiccup's Wing Gliders in the morning. Afternoon filler: Yoshi's, Monsters Unchained, Dragon Racer's. Save Battle at Ministry for last — it drops 74% from peak to 39 min by 9 PM. Without Early Entry (9 AM): Mario Kart first (60 min vs Mine-Cart's 112 min at 9 AM), then Mine-Cart, Curse of Werewolf, Hiccup's, then afternoon filler, and Battle at Ministry dead last in 100% of simulated days. Do NOT ride Monsters Unchained at rope drop — it's 20 min all day and wastes your highest-value morning hour. Based on 20 simulated park days using Ride Ready's production plan engine."
           }
         },
         {
@@ -543,71 +543,204 @@
         <!-- Optimal Ride Order -->
         <div class="section">
             <h2>Optimal Ride Order: High-Crowd Day (8–10/10)</h2>
-            <p class="section-meta">Based on 16 weekend days · ~2,000–3,000 samples per ride · Arrival: 9 AM park open (non-Early Entry)</p>
+            <p class="section-meta">Ride Ready plan simulator · 20 actual park days replayed · 91,000+ wait readings · Feb 15–Mar 7, 2026</p>
 
-            <ul class="steps">
-                <li class="step">
-                    <div class="step-num">1</div>
-                    <div class="step-body">
-                        <div class="step-time">9:00–9:30 AM · First 30 min</div>
-                        <div class="step-ride">Monsters Unchained: The Frankenstein Experiment</div>
-                        <div class="step-why">15 min median at 9 AM on weekends. Takes 15–20 min total. Zero opportunity cost — this ride stays short all day, but doing it first clears it and positions you in Dark Universe for Step 2.</div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div class="step-num">2</div>
-                    <div class="step-body">
-                        <div class="step-time">9:30–11:00 AM</div>
-                        <div class="step-ride">Mario Kart: Bowser's Challenge</div>
-                        <div class="step-why">At 9 AM, Mario Kart is 58 min on weekends. By 10 AM it's 96 min. By 11 AM it's 129 min. That's the sharpest morning climb of any ride except Mine-Cart. A 58-min wait at 9:30 AM becomes a 120+ min wait by 10:30 AM.</div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div class="step-num">3</div>
-                    <div class="step-body">
-                        <div class="step-time">11:00 AM–12:30 PM</div>
-                        <div class="step-ride">Stardust Racers</div>
-                        <div class="step-why">Uniquely flat profile — 43 min at 9 AM, 62 min peak at 11 AM. While every other headliner is hitting its worst wait of the day, Stardust stays in the low 60s. 62 min is its ceiling. Take it during the window when it's comparatively the shortest.</div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div class="step-num">4</div>
-                    <div class="step-body">
-                        <div class="step-time">12:30–2:00 PM</div>
-                        <div class="step-ride">Lunch — skip the queues entirely</div>
-                        <div class="step-why">Every headliner except Monsters is at or near peak: Mine-Cart 163 min, Battle at Ministry 141 min, Mario Kart 120 min. The data is unambiguous — this is the worst time to queue for anything major. Eat.</div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div class="step-num">5</div>
-                    <div class="step-body">
-                        <div class="step-time">2:00–4:30 PM</div>
-                        <div class="step-ride">Hiccup's Wing Gliders + Curse of the Werewolf</div>
-                        <div class="step-why">Hiccup's peaks at 88–97 min around 1 PM on weekends and slowly declines from 2 PM. Curse of the Werewolf peaks at 80 min and also fades. Target Hiccup's first (longer waits), then Werewolf.</div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div class="step-num">6</div>
-                    <div class="step-body">
-                        <div class="step-time">4:30–7:00 PM</div>
-                        <div class="step-ride">Dragon Racer's Rally + gap-fill with Monsters</div>
-                        <div class="step-why">Dragon Racer's Rally is a steady 48–50 min all afternoon. Use Monsters Unchained as a filler anytime a gap appears — it stays under 30 min on weekends through 5 PM.</div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div class="step-num">7</div>
-                    <div class="step-body">
-                        <div class="step-time">7:00 PM–close</div>
-                        <div class="step-ride">Battle at Ministry → Mine-Cart Madness</div>
-                        <div class="step-why">Battle at Ministry collapses from 125 min at 5 PM to 67 min by 7 PM and 39 min by 9 PM — the most dramatic evening drop of any headliner. Do Battle first (faster recovery), then Mine-Cart last where it's fallen to ~100 min by 8 PM.</div>
-                    </div>
-                </li>
-            </ul>
+            <p style="color:#bbb;font-size:0.88rem;line-height:1.6;margin-bottom:20px;">This isn't napkin math — it's the output of the same algorithm that powers Ride Ready's SkipIQ day planner, run against 20 actual park days with real 5-minute wait readings. Two strategies below depending on whether you have Early Entry.</p>
+
+            <!-- Strategy toggle tabs -->
+            <div style="display:flex;gap:8px;margin-bottom:20px;">
+                <button id="tab-early" onclick="showStrategy('early')"
+                    style="flex:1;padding:10px;border-radius:10px;border:none;font-weight:700;font-size:0.85rem;cursor:pointer;background:linear-gradient(45deg,#FF416C,#FF4B2B);color:#fff;">
+                    Early Entry (8 AM)
+                </button>
+                <button id="tab-regular" onclick="showStrategy('regular')"
+                    style="flex:1;padding:10px;border-radius:10px;border:1px solid #333;font-weight:700;font-size:0.85rem;cursor:pointer;background:#111;color:#888;">
+                    Park Open (9 AM)
+                </button>
+            </div>
+
+            <!-- Strategy A: Early Entry -->
+            <div id="strategy-early">
+                <p style="font-size:0.78rem;color:#666;margin-bottom:16px;">Avg 8 rides · saves 1h19m vs non-early · Mine-Cart chosen first in 55% of simulated days</p>
+                <ul class="steps">
+                    <li class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                            <div class="step-time">8:00 AM · Rope drop</div>
+                            <div class="step-ride">Mine-Cart Madness</div>
+                            <div class="step-why">At 8 AM early entry, Mine-Cart is 20–90 min. By 10 AM it's 137+ min. By noon it's 162 min and stays there. This is the single highest-ROI use of early entry — the engine chose it first in 55% of simulated days (position 1.2 avg).</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                            <div class="step-time">After Mine-Cart · ~9:30–10:30 AM</div>
+                            <div class="step-ride">Mario Kart: Bowser's Challenge</div>
+                            <div class="step-why">Sharpest morning climb after Mine-Cart: 47 min at 8 AM → 125 min by 11 AM. Second priority when Mine-Cart is already done.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                            <div class="step-time">Before 11 AM</div>
+                            <div class="step-ride">Curse of the Werewolf</div>
+                            <div class="step-why">Climbs from 5 min at 8 AM to 77 min by 1 PM. Catching it before 11 AM saves 50+ min vs midday. The engine chose it 3rd in 60% of days.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-body">
+                            <div class="step-time">Late morning–early afternoon</div>
+                            <div class="step-ride">Hiccup's Wing Gliders</div>
+                            <div class="step-why">Peaks at 84 min around 1 PM. Get it before the 1–3 PM plateau. Engine places it 4th in 90% of days.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-body">
+                            <div class="step-time">Midday break</div>
+                            <div class="step-ride">Constellation Carousel + lunch</div>
+                            <div class="step-why">The engine uses Constellation as a palette cleanser between headliners (position 3.9, 65% of days). Every major headliner peaks noon–2 PM. Eat here.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">6</div>
+                        <div class="step-body">
+                            <div class="step-time">Afternoon</div>
+                            <div class="step-ride">Yoshi's Adventure + Monsters Unchained</div>
+                            <div class="step-why">Both are mid-plan filler — steady waits, no urgency. The engine places Monsters at position 5.9, not rope drop. Monsters is 20 min all day; wasting the first hour of early entry on it costs you Mine-Cart at its minimum wait.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">7</div>
+                        <div class="step-body">
+                            <div class="step-time">Late afternoon</div>
+                            <div class="step-ride">Dragon Racer's Rally + Fyre Drill</div>
+                            <div class="step-why">Flat afternoon profiles (46–55 min). No timing urgency — slot them when gaps appear.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">8</div>
+                        <div class="step-body">
+                            <div class="step-time">Evening — save for last</div>
+                            <div class="step-ride">Harry Potter and the Battle at the Ministry</div>
+                            <div class="step-why">The engine saved this for last in 90% of early entry days. 150 min at peak → 39 min by 9 PM. The 74% evening collapse is the most dramatic of any headliner. Never waste it at midday.</div>
+                        </div>
+                    </li>
+                </ul>
+                <div style="background:#111;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-top:16px;font-size:0.8rem;color:#888;line-height:1.6;">
+                    <strong style="color:#ccc;">Feb 20 (10/10 crowd day):</strong> Mine-Cart (8:04am, 90m) → Werewolf (9:42am, 60m) → Mario Kart (10:50am, 145m) → Carousel (1:23pm, 20m) → Hiccup's (1:53pm, 92m) → Yoshi's (3:36pm, 40m) → Dragon Racer (4:28pm, 45m) → Fyre Drill (5:19pm, 60m) → Battle at Ministry (6:31pm, 135m) = <strong style="color:#fff;">9 rides</strong>
+                </div>
+            </div>
+
+            <!-- Strategy B: Non-Early Entry -->
+            <div id="strategy-regular" style="display:none;">
+                <p style="font-size:0.78rem;color:#666;margin-bottom:16px;">Avg 9.2 rides · Mario Kart chosen first in 50% of days · Battle at Ministry last in 100% of days</p>
+                <ul class="steps">
+                    <li class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                            <div class="step-time">9:00 AM · Park open</div>
+                            <div class="step-ride">Mario Kart: Bowser's Challenge</div>
+                            <div class="step-why">By 9 AM general open, Mine-Cart is already 112+ min. Mario Kart at 60 min offers better ROI at this hour — and climbs to 125 min by 11 AM. The engine chose Mario Kart first in 50% of non-early days (Mine-Cart first in 40%).</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                            <div class="step-time">After Mario Kart</div>
+                            <div class="step-ride">Mine-Cart Madness</div>
+                            <div class="step-why">Still worth doing second despite 112+ min waits. Delaying past 10 AM means 137–162 min. Position 2.2 in the engine's plans — it never skips it, just doesn't lead with it.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                            <div class="step-time">Before 11 AM if possible</div>
+                            <div class="step-ride">Curse of the Werewolf</div>
+                            <div class="step-why">36 min at 10 AM vs 77 min by 1 PM. The engine catches it early in 80% of non-early days (position 2.4).</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-body">
+                            <div class="step-time">Midday break</div>
+                            <div class="step-ride">Constellation Carousel + lunch</div>
+                            <div class="step-why">Quick break ride (position 3.1, 100% of days). Every headliner peaks noon–2 PM. The data is unambiguous: eat here.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-body">
+                            <div class="step-time">Early–mid afternoon</div>
+                            <div class="step-ride">Hiccup's Wing Gliders</div>
+                            <div class="step-why">Late morning or early afternoon before the 1–3 PM plateau (position 4.3, 80% of days).</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">6</div>
+                        <div class="step-body">
+                            <div class="step-time">Afternoon</div>
+                            <div class="step-ride">Monsters Unchained + Yoshi's + Dragon Racer's Rally</div>
+                            <div class="step-why">All three average position 6.5 in the engine's plans. All have flat, steady profiles — no timing urgency. The engine fills the afternoon with them in whatever order gaps allow.</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">7</div>
+                        <div class="step-body">
+                            <div class="step-time">Late afternoon</div>
+                            <div class="step-ride">Fyre Drill</div>
+                            <div class="step-why">When available, fits naturally in the late afternoon slot (position 7.1, 75% of days).</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-num">8</div>
+                        <div class="step-body">
+                            <div class="step-time">Evening — dead last, every time</div>
+                            <div class="step-ride">Harry Potter and the Battle at the Ministry</div>
+                            <div class="step-why">The engine saved this for last in <strong>100% of non-early-entry simulations</strong>. Its 74% evening collapse (150 min → 39 min) is simply too valuable to waste at peak. This is the most consistent finding in the entire dataset.</div>
+                        </div>
+                    </li>
+                </ul>
+                <div style="background:#111;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-top:16px;font-size:0.8rem;color:#888;line-height:1.6;">
+                    <strong style="color:#ccc;">Feb 20 (10/10 crowd day):</strong> Mario Kart (9:02am, 60m) → Werewolf (10:10am, 30m) → Mine-Cart (10:48am, 100m) → Hiccup's (12:41pm, 60m) → Carousel (1:51pm, 30m) → Yoshi's (2:29pm, 50m) → Monsters (3:28pm, 35m) → Dragon Racer (4:16pm, 45m) → Fyre Drill (5:08pm, 70m) → Battle at Ministry (6:29pm, 135m) = <strong style="color:#fff;">10 rides</strong>
+                </div>
+            </div>
+
+            <!-- Head-to-head -->
+            <div style="margin-top:20px;">
+                <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;color:#555;margin-bottom:12px;">Early Entry vs No Early Entry</p>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Metric</th><th>Early Entry (8 AM)</th><th>Park Open (9 AM)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Avg rides completed</td><td>8.0</td><td class="cool">9.2 (+1.2)</td></tr>
+                            <tr><td>Avg total wait time</td><td class="cool">6h 52m</td><td>8h 11m</td></tr>
+                            <tr><td>Wait per ride</td><td class="cool">51.5 min</td><td>53.4 min</td></tr>
+                            <tr><td>Time efficiency</td><td class="cool">9.9%</td><td>8.0%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             <div class="insight">
-                <strong>Surprise finding:</strong> Battle at Ministry drops faster and further in the evening than Mine-Cart. By 9 PM, Battle is a 39-min wait vs Mine-Cart's 91 min. If you can only do one ride late, <strong>Battle at Ministry delivers the bigger payoff</strong>. The conventional wisdom that Mine-Cart is "the one to strategize around" holds at rope drop — but Battle is the better evening play.
+                <strong>The one rule both strategies agree on:</strong> Battle at Ministry goes last, always. Its 74% evening drop is the most consistent finding in the dataset — the engine never once prioritized it before late afternoon across 40 total simulated park days. The conventional wisdom about Mine-Cart is correct at rope drop. The conventional wisdom about Battle at Ministry is wrong all day long.
             </div>
         </div>
+        <script>
+        function showStrategy(s) {
+            document.getElementById('strategy-early').style.display = s === 'early' ? 'block' : 'none';
+            document.getElementById('strategy-regular').style.display = s === 'regular' ? 'block' : 'none';
+            document.getElementById('tab-early').style.background = s === 'early' ? 'linear-gradient(45deg,#FF416C,#FF4B2B)' : '#111';
+            document.getElementById('tab-early').style.color = s === 'early' ? '#fff' : '#888';
+            document.getElementById('tab-early').style.border = s === 'early' ? 'none' : '1px solid #333';
+            document.getElementById('tab-regular').style.background = s === 'regular' ? 'linear-gradient(45deg,#FF416C,#FF4B2B)' : '#111';
+            document.getElementById('tab-regular').style.color = s === 'regular' ? '#fff' : '#888';
+            document.getElementById('tab-regular').style.border = s === 'regular' ? 'none' : '1px solid #333';
+        }
+        </script>
 
         <!-- Evening Drop Windows -->
         <div class="section">
