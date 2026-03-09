@@ -13,7 +13,7 @@ Quick data dump for anyone heading to Epic Universe over the next few weeks. We 
 
 **Battle at Ministry should be your LAST ride, not your first**
 
-Its median wait drops 74% from its daytime peak. Our planner saved it for last in 100% of simulated days without early entry. Ride it in the final hour before close - whatever time that is. Everyone rushing it in the morning is leaving hours on the table.
+Its median wait drops 74% from its daytime peak. I ran it through the planner and it saved Ministry for last every single time without early entry. Ride it in the final hour before close, whatever time that is. Everyone rushing it in the morning is leaving hours on the table.
 
 **Early Entry (8 AM):**
 1. Mine-Cart Madness: 20–90 min at 8 AM vs 162 min at noon
@@ -21,7 +21,8 @@ Its median wait drops 74% from its daytime peak. Our planner saved it for last i
 3. Curse of the Werewolf before 11 AM
 4. Hiccup's before the 1 PM plateau
 5. Afternoon filler: Yoshi's, Monsters, Dragon Racer
-6. Battle at Ministry last
+6. Stardust Racers *(reopens March 15, slot it in once it's back)*
+7. Battle at Ministry last
 
 **No Early Entry (9 AM):**
 1. Mario Kart first (60 min vs Mine-Cart's 112 min at that hour)
