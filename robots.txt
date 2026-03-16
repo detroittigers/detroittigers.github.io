@@ -14,9 +14,6 @@ Disallow: /.gitignore
 Disallow: /tmp/
 
 # AI Training Bots (Disallow)
-User-agent: GPTBot
-Disallow: /
-
 User-agent: Google-Extended
 Disallow: /
 
