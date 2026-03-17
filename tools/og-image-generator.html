@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Ride Ready — OG Share Image Generator</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  h2.section-label {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: -40px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ═══════════════════════════════════════════
+     BASE CARD — 1200×630 (OG image standard)
+     ═══════════════════════════════════════════ */
+  .og-card {
+    width: 1200px;
+    height: 630px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0; /* no radius for actual OG images */
+    flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     1. STRATEGY GUIDE — "Data Dashboard" feel
+     ═══════════════════════════════════════════ */
+  .og-strategy {
+    background: #050507;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .og-strategy .left {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .og-strategy .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #FF6B4A;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .og-strategy .title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg, #fff 40%, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .og-strategy .subtitle {
+    font-size: 20px;
+    color: #888;
+    line-height: 1.5;
+    max-width: 420px;
+  }
+
+  .og-strategy .subtitle strong {
+    color: #FF6B4A;
+    font-weight: 700;
+  }
+
+  .og-strategy .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  .og-strategy .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+  }
+
+  .og-strategy .brand-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .og-strategy .right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Data dashboard visualization */
+  .og-strategy .dashboard {
+    width: 480px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 14px;
+  }
+
+  .stat-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 18px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FF416C, #FF4B2B);
+    opacity: 0.6;
+  }
+
+  .stat-card.green::after {
+    background: linear-gradient(90deg, #00C9A7, #00E5A0);
+  }
+
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stat-card.green .stat-value {
+    background: linear-gradient(135deg, #00E5A0, #00C9A7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stat-unit {
+    font-size: 16px;
+    font-weight: 500;
+    -webkit-text-fill-color: #666;
+  }
+
+  /* Mini wait time bars */
+  .mini-bars {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 18px 20px 14px;
+  }
+
+  .mini-bars .bar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 14px;
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 80px;
+  }
+
+  .bar {
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+    min-height: 6px;
+    position: relative;
+  }
+
+  .bar-label {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: #444;
+    white-space: nowrap;
+  }
+
+  /* Gradient glow behind dashboard */
+  .og-strategy .right::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 65, 108, 0.12) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Grid lines background */
+  .og-strategy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+  }
+
+  .og-strategy .left,
+  .og-strategy .right {
+    z-index: 1;
+  }
+
+  /* ═══════════════════════════════════════════
+     2. CROWD CALENDAR — Mini calendar grid
+     ═══════════════════════════════════════════ */
+  .og-crowd {
+    background: #050507;
+    display: grid;
+    grid-template-columns: 480px 1fr;
+  }
+
+  .og-crowd::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+  }
+
+  .og-crowd .left {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .og-crowd .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #00C9A7;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+
+  .og-crowd .title {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+    color: #fff;
+  }
+
+  .og-crowd .title em {
+    font-style: normal;
+    background: linear-gradient(135deg, #00E5A0, #00C9A7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .og-crowd .subtitle {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .og-crowd .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .og-crowd .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+  }
+
+  .og-crowd .brand-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .og-crowd .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    position: relative;
+  }
+
+  .og-crowd .right::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 201, 167, 0.08) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Calendar grid */
+  .cal-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 20px;
+  }
+
+  .cal-header {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 6px;
+  }
+
+  .cal-header span {
+    width: 68px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 1px;
+  }
+
+  .cal-week {
+    display: flex;
+    gap: 3px;
+  }
+
+  .cal-day {
+    width: 68px;
+    height: 52px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+  }
+
+  .cal-day .day-num {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .cal-day .crowd-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-top: 3px;
+  }
+
+  .cal-day.empty { background: transparent; }
+  .cal-day.low { background: rgba(0, 229, 160, 0.15); color: #00E5A0; }
+  .cal-day.low .crowd-dot { background: #00E5A0; }
+  .cal-day.med { background: rgba(255, 193, 7, 0.15); color: #FFC107; }
+  .cal-day.med .crowd-dot { background: #FFC107; }
+  .cal-day.high { background: rgba(255, 65, 108, 0.15); color: #FF416C; }
+  .cal-day.high .crowd-dot { background: #FF416C; }
+  .cal-day.peak { background: rgba(255, 40, 40, 0.2); color: #FF2828; }
+  .cal-day.peak .crowd-dot { background: #FF2828; }
+
+  .cal-month-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .cal-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    justify-content: center;
+  }
+
+  .cal-legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 1px;
+  }
+
+  .cal-legend .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ═══════════════════════════════════════════
+     3. SPRING BREAK — Heat strip forecast
+     ═══════════════════════════════════════════ */
+  .og-spring {
+    background: #050507;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 70px;
+    position: relative;
+  }
+
+  .og-spring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .og-spring > * { position: relative; z-index: 1; }
+
+  .og-spring .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #FF8C42;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .og-spring .title {
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  .og-spring .subtitle {
+    font-size: 19px;
+    color: #777;
+    margin-bottom: 40px;
+  }
+
+  .og-spring .subtitle strong {
+    color: #FF8C42;
+  }
+
+  .heat-strip {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .heat-week {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .heat-bar {
+    width: 100%;
+    height: 80px;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .heat-bar .level {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .heat-week .dates {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #555;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .heat-week .label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .heat-low { background: rgba(0, 229, 160, 0.18); }
+  .heat-low .level { color: #00E5A0; }
+  .heat-low .label { color: #00E5A0; }
+
+  .heat-med { background: rgba(255, 193, 7, 0.18); }
+  .heat-med .level { color: #FFC107; }
+  .heat-med .label { color: #FFC107; }
+
+  .heat-high { background: rgba(255, 140, 66, 0.2); }
+  .heat-high .level { color: #FF8C42; }
+  .heat-high .label { color: #FF8C42; }
+
+  .heat-peak { background: rgba(255, 65, 108, 0.22); }
+  .heat-peak .level { color: #FF416C; }
+  .heat-peak .label { color: #FF416C; }
+
+  .og-spring .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    align-self: flex-end;
+  }
+
+  .og-spring .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+  }
+
+  .og-spring .brand-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  /* ═══════════════════════════════════════════
+     4. HOMEPAGE — App showcase
+     ═══════════════════════════════════════════ */
+  .og-home {
+    background: #050507;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .og-home::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 65, 108, 0.1) 0%, rgba(255, 75, 43, 0.05) 40%, transparent 70%);
+    top: 50%;
+    right: -100px;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+
+  .og-home .left {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .og-home .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #FF6B4A;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+
+  .og-home .title {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  .og-home .title em {
+    font-style: normal;
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .og-home .features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .feature-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 16px;
+    color: #aaa;
+    width: fit-content;
+  }
+
+  .feature-pill .icon {
+    font-size: 18px;
+    opacity: 0.8;
+  }
+
+  .og-home .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .og-home .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+  }
+
+  .og-home .brand-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .og-home .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    position: relative;
+  }
+
+  /* Fake phone with live wait times */
+  .phone-mock {
+    width: 260px;
+    background: #0a0a0a;
+    border-radius: 28px;
+    border: 2px solid rgba(255,255,255,0.08);
+    padding: 16px 14px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+  }
+
+  .phone-header {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .phone-header .ph-title {
+    font-weight: 800;
+    font-size: 15px;
+    color: #fff;
+  }
+
+  .phone-header .ph-subtitle {
+    font-size: 10px;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  .ride-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    margin-bottom: 4px;
+  }
+
+  .ride-row .ride-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ccc;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ride-row .ride-wait {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .ride-row .ride-wait.green { color: #00E5A0; }
+  .ride-row .ride-wait.yellow { color: #FFC107; }
+  .ride-row .ride-wait.orange { color: #FF8C42; }
+  .ride-row .ride-wait.red { color: #FF416C; }
+
+  .ride-row .trend {
+    font-size: 10px;
+    margin-left: 4px;
+  }
+
+  /* ═══════════════════════════════════════════
+     5. QUEUE TIME — Ride-specific
+     ═══════════════════════════════════════════ */
+  .og-queue {
+    background: #050507;
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    position: relative;
+  }
+
+  .og-queue::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .og-queue .left {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .og-queue .park-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #9B6DFF;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .og-queue .title {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+
+  .og-queue .page-type {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 28px;
+  }
+
+  .og-queue .page-type strong {
+    color: #9B6DFF;
+  }
+
+  .og-queue .quick-stats {
+    display: flex;
+    gap: 24px;
+  }
+
+  .og-queue .qs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .og-queue .qs-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 4px;
+  }
+
+  .og-queue .qs-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .og-queue .qs-value.accent { color: #9B6DFF; }
+
+  .og-queue .brand-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .og-queue .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+  }
+
+  .og-queue .brand-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  .og-queue .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    position: relative;
+  }
+
+  .og-queue .right::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(155, 109, 255, 0.1) 0%, transparent 70%);
+  }
+
+  /* Wait time curve */
+  .wait-chart {
+    width: 520px;
+    padding: 30px;
+  }
+
+  .wait-chart .chart-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 16px;
+  }
+
+  .chart-area {
+    position: relative;
+    height: 260px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .chart-bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    min-height: 8px;
+    transition: all 0.3s;
+  }
+
+  .chart-bar.low-bar { background: linear-gradient(to top, rgba(0, 229, 160, 0.3), rgba(0, 229, 160, 0.6)); }
+  .chart-bar.med-bar { background: linear-gradient(to top, rgba(255, 193, 7, 0.3), rgba(255, 193, 7, 0.6)); }
+  .chart-bar.high-bar { background: linear-gradient(to top, rgba(155, 109, 255, 0.3), rgba(155, 109, 255, 0.6)); }
+  .chart-bar.peak-bar { background: linear-gradient(to top, rgba(255, 65, 108, 0.3), rgba(255, 65, 108, 0.6)); }
+
+  .chart-bar .bar-val {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #666;
+    white-space: nowrap;
+  }
+
+  .chart-time-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .chart-time-labels span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #444;
+  }
+
+  /* ═══════════════════════════════════════════
+     6. GENERIC PARK FALLBACK
+     ═══════════════════════════════════════════ */
+  .og-generic {
+    background: #050507;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .og-generic::before {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 65, 108, 0.06) 0%, rgba(255, 75, 43, 0.03) 40%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .og-generic .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .og-generic .logo-area {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    box-shadow: 0 20px 60px rgba(255, 65, 108, 0.2);
+  }
+
+  .og-generic .title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    color: #fff;
+    max-width: 800px;
+  }
+
+  .og-generic .subtitle {
+    font-size: 20px;
+    color: #666;
+    max-width: 600px;
+  }
+
+  .og-generic .subtitle strong {
+    color: #FF6B4A;
+  }
+
+  /* ═══════════════════════════════════════════
+     INSTRUCTIONS PANEL
+     ═══════════════════════════════════════════ */
+  .instructions {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px 30px;
+    max-width: 800px;
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+  }
+
+  .instructions h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .instructions code {
+    background: rgba(255,255,255,0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #FF6B4A;
+  }
+
+  .instructions ol {
+    padding-left: 20px;
+  }
+
+  .instructions li {
+    margin-bottom: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <h3>OG Share Image Generator</h3>
+  <p>Each card below is exactly 1200&times;630px. To export:</p>
+  <ol>
+    <li>Open this page in Chrome at 100% zoom (no scaling)</li>
+    <li>Right-click a card &rarr; Inspect &rarr; select the <code>.og-card</code> element</li>
+    <li>Right-click the node &rarr; <strong>Capture node screenshot</strong></li>
+    <li>Save as <code>og-[page-name].png</code> in <code>/images/og/</code></li>
+  </ol>
+</div>
+
+<!-- ═══════ 1. STRATEGY GUIDE ═══════ -->
+<h2 class="section-label">Strategy Guide &mdash; og-strategy-guide.png</h2>
+<div class="og-card og-strategy">
+  <div class="left">
+    <div class="eyebrow">Epic Universe</div>
+    <div class="title">Beat the Crowds<br>with Data</div>
+    <div class="subtitle">
+      Ride-by-ride strategy based on<br>
+      <strong>925,000+ wait time samples</strong>
+    </div>
+    <div class="brand-line">
+      <div class="brand-dot"></div>
+      <div class="brand-name">Ride Ready</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="dashboard">
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-label">Data Points</div>
+          <div class="stat-value">925K<span class="stat-unit">+</span></div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-label">Rope Drop Savings</div>
+          <div class="stat-value">30<span class="stat-unit"> min</span></div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-label">Best Rope Drop</div>
+          <div class="stat-value" style="font-size:22px">Mine-Cart</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Peak Hour</div>
+          <div class="stat-value" style="font-size:24px">11a–1<span class="stat-unit">PM</span></div>
+        </div>
+      </div>
+      <div class="mini-bars">
+        <div class="bar-title">Wait Times by Hour</div>
+        <div class="bar-chart">
+          <div class="bar" style="height:55%;background:rgba(0,229,160,0.5)"><span class="bar-label">8a</span></div>
+          <div class="bar" style="height:62%;background:rgba(255,193,7,0.4)"><span class="bar-label">9a</span></div>
+          <div class="bar" style="height:85%;background:rgba(255,140,66,0.5)"><span class="bar-label">10a</span></div>
+          <div class="bar" style="height:100%;background:rgba(255,65,108,0.6)"><span class="bar-label">11a</span></div>
+          <div class="bar" style="height:96%;background:rgba(255,65,108,0.5)"><span class="bar-label">12p</span></div>
+          <div class="bar" style="height:92%;background:rgba(255,65,108,0.5)"><span class="bar-label">1p</span></div>
+          <div class="bar" style="height:90%;background:rgba(255,65,108,0.5)"><span class="bar-label">2p</span></div>
+          <div class="bar" style="height:88%;background:rgba(255,140,66,0.5)"><span class="bar-label">3p</span></div>
+          <div class="bar" style="height:83%;background:rgba(255,140,66,0.5)"><span class="bar-label">4p</span></div>
+          <div class="bar" style="height:77%;background:rgba(255,193,7,0.5)"><span class="bar-label">5p</span></div>
+          <div class="bar" style="height:66%;background:rgba(255,193,7,0.4)"><span class="bar-label">6p</span></div>
+          <div class="bar" style="height:58%;background:rgba(0,229,160,0.5)"><span class="bar-label">7p</span></div>
+          <div class="bar" style="height:47%;background:rgba(0,229,160,0.4)"><span class="bar-label">8p</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 2. CROWD CALENDAR ═══════ -->
+<h2 class="section-label">Crowd Calendar &mdash; og-crowd-calendar.png</h2>
+<div class="og-card og-crowd">
+  <div class="left">
+    <div class="eyebrow">Crowd Calendar</div>
+    <div class="title">Universal Orlando<br><em>Know When to Go</em></div>
+    <div class="subtitle">Daily crowd levels for Epic Universe, IOA, and USF. Feb–Aug 2026.</div>
+    <div class="brand-line">
+      <div class="brand-dot"></div>
+      <div class="brand-name">Ride Ready</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="cal-grid">
+      <div class="cal-month-label">March 2026</div>
+      <div class="cal-header">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <!-- Mar 2026: 1-10 scale. low=1-3, mod=4-6, high=7-8, peak=9-10. Mar 1=Sun -->
+      <div class="cal-week">
+        <div class="cal-day med"><span class="day-num">1</span><span class="crowd-dot"></span></div>
+        <div class="cal-day med"><span class="day-num">2</span><span class="crowd-dot"></span></div>
+        <div class="cal-day low"><span class="day-num">3</span><span class="crowd-dot"></span></div>
+        <div class="cal-day low"><span class="day-num">4</span><span class="crowd-dot"></span></div>
+        <div class="cal-day low"><span class="day-num">5</span><span class="crowd-dot"></span></div>
+        <div class="cal-day med"><span class="day-num">6</span><span class="crowd-dot"></span></div>
+        <div class="cal-day high"><span class="day-num">7</span><span class="crowd-dot"></span></div>
+      </div>
+      <div class="cal-week">
+        <div class="cal-day peak"><span class="day-num">8</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">9</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">10</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">11</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">12</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">13</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">14</span><span class="crowd-dot"></span></div>
+      </div>
+      <div class="cal-week">
+        <div class="cal-day peak"><span class="day-num">15</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">16</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">17</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">18</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">19</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">20</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">21</span><span class="crowd-dot"></span></div>
+      </div>
+      <div class="cal-week">
+        <div class="cal-day peak"><span class="day-num">22</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">23</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">24</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">25</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">26</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">27</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">28</span><span class="crowd-dot"></span></div>
+      </div>
+      <div class="cal-week">
+        <div class="cal-day peak"><span class="day-num">29</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">30</span><span class="crowd-dot"></span></div>
+        <div class="cal-day peak"><span class="day-num">31</span><span class="crowd-dot"></span></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+      </div>
+      <div class="cal-legend">
+        <span><div class="dot" style="background:#00E5A0"></div> Low</span>
+        <span><div class="dot" style="background:#FFC107"></div> Moderate</span>
+        <span><div class="dot" style="background:#FF416C"></div> High</span>
+        <span><div class="dot" style="background:#FF2828"></div> Peak</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 3. SPRING BREAK ═══════ -->
+<h2 class="section-label">Spring Break Guide &mdash; og-spring-break.png</h2>
+<div class="og-card og-spring">
+  <div class="eyebrow">Spring Break 2026</div>
+  <div class="title">Epic Universe Week-by-Week<br>Crowd Forecast</div>
+  <div class="subtitle">Crowd predictions based on <strong>518 days of data</strong></div>
+
+  <div class="heat-strip">
+    <div class="heat-week">
+      <div class="heat-bar heat-peak"><span class="level">10</span></div>
+      <div class="dates">Mar 8–14</div>
+      <div class="label">Peak</div>
+    </div>
+    <div class="heat-week">
+      <div class="heat-bar heat-peak"><span class="level">10</span></div>
+      <div class="dates">Mar 15–21</div>
+      <div class="label">Peak</div>
+    </div>
+    <div class="heat-week">
+      <div class="heat-bar heat-peak"><span class="level">10</span></div>
+      <div class="dates">Mar 22–28</div>
+      <div class="label">Peak</div>
+    </div>
+    <div class="heat-week">
+      <div class="heat-bar heat-peak"><span class="level">10</span></div>
+      <div class="dates">Mar 29–Apr 4</div>
+      <div class="label">Peak</div>
+    </div>
+    <div class="heat-week">
+      <div class="heat-bar heat-peak"><span class="level">10</span></div>
+      <div class="dates">Apr 5–11</div>
+      <div class="label">Peak</div>
+    </div>
+    <div class="heat-week">
+      <div class="heat-bar heat-high"><span class="level">8</span></div>
+      <div class="dates">Apr 12–18</div>
+      <div class="label">Busy</div>
+    </div>
+    <div class="heat-week">
+      <div class="heat-bar heat-med"><span class="level">5</span></div>
+      <div class="dates">Apr 19–24</div>
+      <div class="label">Moderate</div>
+    </div>
+  </div>
+
+  <div class="brand-line">
+    <div class="brand-dot"></div>
+    <div class="brand-name">Ride Ready</div>
+  </div>
+</div>
+
+<!-- ═══════ 4. HOMEPAGE ═══════ -->
+<h2 class="section-label">Homepage &mdash; og-home.png</h2>
+<div class="og-card og-home">
+  <div class="left">
+    <div class="eyebrow">Free on iPhone</div>
+    <div class="title"><em>AI Day Planner</em><br>+ Live Wait Times</div>
+    <div class="features">
+      <div class="feature-pill"><span class="icon">&#9201;</span> Live wait times & drop alerts</div>
+      <div class="feature-pill"><span class="icon">&#128200;</span> Forecast curves for every ride</div>
+      <div class="feature-pill"><span class="icon">&#128161;</span> AI plans your whole day</div>
+    </div>
+    <div class="brand-line">
+      <div class="brand-dot"></div>
+      <div class="brand-name">Ride Ready</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="phone-mock">
+      <div class="phone-header">
+        <div class="ph-title">Epic Universe</div>
+        <div class="ph-subtitle">Live Wait Times</div>
+      </div>
+      <div class="ride-row">
+        <span class="ride-name">Mine-Cart Madness</span>
+        <span class="ride-wait red">122 min</span>
+      </div>
+      <div class="ride-row">
+        <span class="ride-name">Battle at the Ministry</span>
+        <span class="ride-wait red">109 min</span>
+      </div>
+      <div class="ride-row">
+        <span class="ride-name">Mario Kart: Bowser's</span>
+        <span class="ride-wait orange">73 min</span>
+      </div>
+      <div class="ride-row">
+        <span class="ride-name">Hiccup's Wing Gliders</span>
+        <span class="ride-wait orange">59 min</span>
+      </div>
+      <div class="ride-row">
+        <span class="ride-name">Stardust Racers</span>
+        <span class="ride-wait yellow">43 min</span>
+      </div>
+      <div class="ride-row">
+        <span class="ride-name">Monsters Unchained</span>
+        <span class="ride-wait green">20 min</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 5. QUEUE TIME (Mine-Cart Example) ═══════ -->
+<h2 class="section-label">Queue Time Page &mdash; og-mine-cart-madness.png</h2>
+<div class="og-card og-queue">
+  <div class="left">
+    <div class="park-badge">Epic Universe &bull; Super Nintendo World</div>
+    <div class="title">Mine-Cart<br>Madness</div>
+    <div class="page-type"><strong>Queue Guide</strong> &middot; Wait Times & Strategy</div>
+    <div class="quick-stats">
+      <div class="qs">
+        <div class="qs-label">Avg Wait</div>
+        <div class="qs-value accent">135 min</div>
+      </div>
+      <div class="qs">
+        <div class="qs-label">Best Time</div>
+        <div class="qs-value">8–9 AM</div>
+      </div>
+      <div class="qs">
+        <div class="qs-label">Height</div>
+        <div class="qs-value">40"</div>
+      </div>
+    </div>
+    <div class="brand-line">
+      <div class="brand-dot"></div>
+      <div class="brand-name">Ride Ready</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="wait-chart">
+      <div class="chart-title">Average Wait by Hour</div>
+      <div class="chart-area">
+        <div class="chart-bar med-bar" style="height:64%"><span class="bar-val">105</span></div>
+        <div class="chart-bar med-bar" style="height:71%"><span class="bar-val">117</span></div>
+        <div class="chart-bar high-bar" style="height:86%"><span class="bar-val">142</span></div>
+        <div class="chart-bar peak-bar" style="height:98%"><span class="bar-val">162</span></div>
+        <div class="chart-bar peak-bar" style="height:100%"><span class="bar-val">165</span></div>
+        <div class="chart-bar peak-bar" style="height:90%"><span class="bar-val">148</span></div>
+        <div class="chart-bar high-bar" style="height:85%"><span class="bar-val">141</span></div>
+        <div class="chart-bar high-bar" style="height:87%"><span class="bar-val">143</span></div>
+        <div class="chart-bar high-bar" style="height:81%"><span class="bar-val">133</span></div>
+        <div class="chart-bar high-bar" style="height:80%"><span class="bar-val">132</span></div>
+        <div class="chart-bar med-bar" style="height:74%"><span class="bar-val">122</span></div>
+        <div class="chart-bar med-bar" style="height:70%"><span class="bar-val">116</span></div>
+        <div class="chart-bar med-bar" style="height:67%"><span class="bar-val">110</span></div>
+      </div>
+      <div class="chart-time-labels">
+        <span>8 AM</span>
+        <span>11 AM</span>
+        <span>2 PM</span>
+        <span>5 PM</span>
+        <span>8 PM</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 6. GENERIC PARK FALLBACK ═══════ -->
+<h2 class="section-label">Generic Fallback &mdash; og-default.png</h2>
+<div class="og-card og-generic">
+  <div class="center">
+    <img src="../images/logo.png" alt="Ride Ready" style="width:120px;height:auto;margin-bottom:28px;border-radius:20px;box-shadow:0 20px 60px rgba(255,65,108,0.2)">
+    <div class="title">Live Wait Times &<br>AI Day Planning</div>
+    <div class="subtitle">Beat the crowds at <strong>Epic Universe</strong>, Universal Orlando, SeaWorld & more. Free on iPhone.</div>
+  </div>
+</div>
+
+</body>
+</html>
