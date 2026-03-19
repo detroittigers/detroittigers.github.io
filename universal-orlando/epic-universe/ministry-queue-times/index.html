@@ -563,7 +563,6 @@
                 order: 3;
             }
         }
-        #planning-cta-link:focus-visible { outline: 2px solid #FF4B2B; outline-offset: 3px; }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -658,35 +657,6 @@
         <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:10px;"><span id="rr-trend" style="font-size:.8rem;"></span><span id="rr-upd" style="font-size:.75rem;color:#555;"></span></div>
     </div>
     <script>(function(){var K='Ministry';var w=document.getElementById('rr-live'),num=document.getElementById('rr-num'),unit=document.getElementById('rr-unit'),up=document.getElementById('rr-upd');function ago(s){var d=Math.round((Date.now()-new Date(s))/60000);return d<1?'just now':d+'m ago';}function render(r,t){if(!r)return;w.style.display='block';var wt=r.wait_minutes,st=r.status;if(st!=='OPERATING'){num.style.cssText='font-size:3.5rem;font-weight:800;color:#666';num.textContent='\u2014';unit.textContent='temporarily closed';up.textContent='';return;}if(!wt){num.style.cssText='font-size:3.5rem;font-weight:800;color:#22c55e';num.textContent='Walk-on';unit.textContent='no wait right now';}else{num.textContent=wt;unit.textContent='min posted wait';}up.textContent='Updated '+ago(t);try{gtag('event','live_wait_viewed',{ride:r.name,wait_minutes:wt,page:location.pathname});}catch(e){}}function load(){fetch('https://cdn.rideready.app/public/waits/park_71.json').then(function(r){return r.json();}).then(function(d){render((d.rides||[]).find(function(r){return r.name&&r.name.indexOf(K)!==-1;}),d.updated_at);}).catch(function(){});}load();setInterval(load,300000);})();</script>
-    <!-- App Upsell Box -->
-    <div class="app-upsell"
-        style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 16px; display: flex; align-items: center; gap: 16px; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-        <img src="../../../images/logo.png"
-            style="width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-            alt="Ride Ready Logo">
-        <div style="flex: 1; text-align: left;">
-            <span style="display:block; margin: 0 0 4px; color: #fff; font-size: 1rem; font-weight: 700;">Get alerted when Ministry drops under 60 min</span>
-            <p style="margin: 0; color: #aaa; font-size: 0.85rem;">It averages 150+ midday. Set a drop alert and ride when it actually makes sense. 3 free alerts/day.</p>
-        </div>
-        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-upsell"
-            data-ref="queue-ministry-upsell"
-            style="background: #fff; color: #000; font-weight: 700; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-size: 0.9rem; white-space: nowrap;">Download Free</a>
-    </div>
-
-    <!-- Planning CTA Banner — tracked for visibility + clicks -->
-    <div id="planning-cta-banner"
-      style="background: rgba(255,75,43,0.1); border: 1px solid rgba(255,75,43,0.25); border-radius: 16px; padding: 20px 24px; margin-bottom: 30px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-      <div style="font-size: 32px; flex-shrink: 0;">🗓️</div>
-      <div style="flex: 1; text-align: left;">
-        <span style="display: block; color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Building your park day plan?</span>
-        <p style="margin: 0; color: #aaa; font-size: 0.85rem;">Ride Ready builds a personalized touring order for your group — heights, preferences, live wait times. Free to try.</p>
-      </div>
-      <a id="planning-cta-link"
-        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-planning"
-        data-ref="queue-ministry-planning"
-        style="background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; font-weight: 700; padding: 12px 18px; border-radius: 10px; text-decoration: none; font-size: 0.9rem; white-space: nowrap; flex-shrink: 0; min-height: 44px; display: inline-flex; align-items: center;">Plan My Day</a>
-    </div>
-
     <div class="queue-map">
         <div class="map-header">
             <h2>Ministry of Magic Queue Map</h2>
@@ -867,36 +837,19 @@
             </div>
         </div>
         <div class="cta-box">
-            <div class="battery-banner"
-                style="background: rgba(255, 75, 43, 0.15); padding: 12px; margin-bottom: 30px; border-radius: 12px; border: 1px solid rgba(255, 75, 43, 0.3); display: flex; align-items: center; gap: 12px;">
-                <div style="font-size: 24px;">📱</div>
-                <div>
-                    <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-banner"
-                        data-ref="queue-ministry-banner" style="text-decoration: none; color: inherit; display: block;"
-                        target="_blank" rel="noopener noreferrer">
-                        <strong style="color: #ffb6a3; display: block; margin-bottom: 2px;">Available on
-                            iPhone</strong>
-                        <p style="margin: 0; font-size: 0.85rem; color: #ddd;">Ride Ready is built to be fast,
-                            lightweight, and focused on wait times + alerts.</p>
-                    </a>
-                </div>
-            </div>
-            <p>Don't get stuck without data.</p>
+            <p style="color: #fff; font-weight: 700; font-size: 1.05rem; margin-bottom: 6px;">Don't spend 3 hours in this queue.</p>
+            <p>We'll ping you when the Ministry drops under 60 min. Free on iPhone.</p>
             <a class="primary-button" data-ref="queue-ministry-cta"
-                href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-cta">Download
-                Ride Ready App</a>
+                href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-cta">Get Drop Alerts</a>
         </div>
     </div>
     <div class="mid-page-cta"
         style="margin: 40px auto; text-align: center; background: rgba(255, 75, 43, 0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 75, 43, 0.3);">
-        <p style="color: #fff; font-weight: 700; margin-bottom: 8px; font-size: 0.95rem;">Want this to update
-            automatically?</p>
-        <p style="color: #bbb; margin: 0 0 12px; font-size: 0.9rem;">Ride Ready updates live + you get <strong>3 free
-                drop alerts/day</strong>.</p>
+        <p style="color: #fff; font-weight: 700; margin-bottom: 8px; font-size: 0.95rem;">180+ minute peak waits. Plan around it.</p>
+        <p style="color: #bbb; margin: 0 0 12px; font-size: 0.9rem;">Ride Ready builds your day so you hit the Ministry when the line is short — not when everyone else does.</p>
         <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-mid"
             data-ref="queue-ministry-mid"
-            style="display: inline-block; background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; text-decoration: none; padding: 10px 24px; border-radius: 99px; font-weight: 800; font-size: 0.95rem;">Download
-            Free (iPhone)</a>
+            style="display: inline-block; background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; text-decoration: none; padding: 10px 24px; border-radius: 99px; font-weight: 800; font-size: 0.95rem;">Plan My Day — Free</a>
     </div>
     <section class="content-prose">
         <div
@@ -942,7 +895,6 @@
                     restroom access once you pass the Metro-Floo entrance (90+ minutes).</li>
                 <li style="margin-bottom: 8px;"><strong>Bags Allowed:</strong> Bring a snack because vending is scarce
                     inside.</li>
-                you get in line.</li>
                 <li style="margin-bottom: 8px;"><strong>Express Pass:</strong> One-time access only (not unlimited).
                     Skips Outdoor Overflow and Metro-Floo, merging near the <strong>Auror Lockers</strong> (~38 min
                     mark).</li>
@@ -1366,11 +1318,10 @@
     <div class="mobile-sticky-cta"
         style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; color: #000; padding: 12px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 9999; text-align: center; display: none;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-            <span style="font-weight: 700; font-size: 0.9rem;">Set a drop alert?</span>
+            <span style="font-weight: 700; font-size: 0.9rem;">Ministry: 150+ min avg</span>
             <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-sticky"
                 data-ref="queue-ministry-sticky"
-                style="background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">Open
-                App</a>
+                style="background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 0.85rem; min-height: 44px; display: inline-flex; align-items: center;">Get Alerts</a>
         </div>
     </div>
     <style>
@@ -1405,38 +1356,18 @@
     </script>
     <script>
   (function() {
-    // 1. Track existing top app-upsell box visibility (class="app-upsell")
-    var upsellBox = document.querySelector('.app-upsell');
-    var upsellSeen = false;
-    if (upsellBox && 'IntersectionObserver' in window) {
+    // Track mid-page CTA visibility
+    var midCta = document.querySelector('.mid-page-cta');
+    var midCtaSeen = false;
+    if (midCta && 'IntersectionObserver' in window) {
       new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
-          if (e.isIntersecting && !upsellSeen) {
-            upsellSeen = true;
-            try { gtag('event', 'upsell_cta_view', { location: 'queue-top-upsell', page: window.location.pathname }); } catch(err) {}
+          if (e.isIntersecting && !midCtaSeen) {
+            midCtaSeen = true;
+            try { gtag('event', 'cta_view', { location: 'queue-mid-planning', page: window.location.pathname }); } catch(err) {}
           }
         });
-      }, { threshold: 0.5 }).observe(upsellBox);
-    }
-
-    // 2. Track new planning banner visibility and clicks
-    var banner = document.getElementById('planning-cta-banner');
-    var link = document.getElementById('planning-cta-link');
-    var bannerSeen = false;
-    if (banner && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting && !bannerSeen) {
-            bannerSeen = true;
-            try { gtag('event', 'live_waits_cta_view', { location: 'queue-planning-banner', page: window.location.pathname }); } catch(err) {}
-          }
-        });
-      }, { threshold: 0.5 }).observe(banner);
-    }
-    if (link) {
-      link.addEventListener('click', function() {
-        try { gtag('event', 'live_waits_cta_click', { location: 'queue-planning-banner', page: window.location.pathname }); } catch(err) {}
-      });
+      }, { threshold: 0.5 }).observe(midCta);
     }
   })();
 </script>
