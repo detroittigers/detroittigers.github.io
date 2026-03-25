@@ -1,0 +1,562 @@
+[
+  {
+    "date": "2025-12-03",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-04",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-05",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-06",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-07",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-08",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-09",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-10",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-11",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-12",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-13",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-14",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-15",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-16",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-17",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-18",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-19",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-20",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-21",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-22",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-23",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-24",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-25",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-26",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-27",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-28",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-29",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-30",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2025-12-31",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-01",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-02",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-03",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-04",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-05",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-06",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-07",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-08",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-09",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-10",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-11",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-12",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-13",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-14",
+    "crowdLevel": null,
+    "crowdLabel": "Unknown"
+  },
+  {
+    "date": "2026-01-15",
+    "crowdLevel": 2,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-01-16",
+    "crowdLevel": 3,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-01-17",
+    "crowdLevel": 8,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-01-18",
+    "crowdLevel": 9,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-01-19",
+    "crowdLevel": 7,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-01-20",
+    "crowdLevel": 8,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-01-21",
+    "crowdLevel": 4,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-01-22",
+    "crowdLevel": 4,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-01-23",
+    "crowdLevel": 9,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-01-24",
+    "crowdLevel": 7,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-01-25",
+    "crowdLevel": 4,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-01-26",
+    "crowdLevel": 6,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-01-27",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-01-28",
+    "crowdLevel": 8,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-01-29",
+    "crowdLevel": 8,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-01-30",
+    "crowdLevel": 6,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-01-31",
+    "crowdLevel": 5,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-01",
+    "crowdLevel": 5,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-02",
+    "crowdLevel": 5,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-03",
+    "crowdLevel": 6,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-04",
+    "crowdLevel": 6,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-05",
+    "crowdLevel": 6,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-06",
+    "crowdLevel": 5,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-07",
+    "crowdLevel": 6,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-08",
+    "crowdLevel": 6,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-02-09",
+    "crowdLevel": 5,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-10",
+    "crowdLevel": 4,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-02-11",
+    "crowdLevel": 5,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-12",
+    "crowdLevel": 6,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-13",
+    "crowdLevel": 7,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-02-14",
+    "crowdLevel": 7,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-02-15",
+    "crowdLevel": 6,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-02-16",
+    "crowdLevel": 8,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-02-17",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-02-18",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-02-19",
+    "crowdLevel": 7,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-02-20",
+    "crowdLevel": 5,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-21",
+    "crowdLevel": 2,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-02-22",
+    "crowdLevel": 2,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-02-23",
+    "crowdLevel": 2,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-02-24",
+    "crowdLevel": 4,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-02-25",
+    "crowdLevel": 3,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-02-26",
+    "crowdLevel": 2,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-02-27",
+    "crowdLevel": 2,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-02-28",
+    "crowdLevel": 2,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-03-01",
+    "crowdLevel": 1,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-03-02",
+    "crowdLevel": 2,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-03-03",
+    "crowdLevel": 2,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-03-04",
+    "crowdLevel": 1,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-03-05",
+    "crowdLevel": 1,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-03-06",
+    "crowdLevel": 3,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-03-07",
+    "crowdLevel": 4,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-03-08",
+    "crowdLevel": 6,
+    "crowdLabel": "Normal"
+  },
+  {
+    "date": "2026-03-09",
+    "crowdLevel": 9,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-03-10",
+    "crowdLevel": 7,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-03-11",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-03-12",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-03-13",
+    "crowdLevel": 8,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-03-14",
+    "crowdLevel": 7,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-03-15",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-03-16",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-03-17",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-03-18",
+    "crowdLevel": 9,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-03-19",
+    "crowdLevel": 8,
+    "crowdLabel": "Packed"
+  },
+  {
+    "date": "2026-03-20",
+    "crowdLevel": 8,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-03-21",
+    "crowdLevel": 6,
+    "crowdLabel": "Busy"
+  },
+  {
+    "date": "2026-03-22",
+    "crowdLevel": 4,
+    "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-03-23",
+    "crowdLevel": 1,
+    "crowdLabel": "Dead"
+  },
+  {
+    "date": "2026-03-24",
+    "crowdLevel": 2,
+    "crowdLabel": "Dead"
+  }
+]
