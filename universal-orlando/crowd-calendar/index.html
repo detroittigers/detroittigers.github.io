@@ -1096,6 +1096,29 @@
     const state = {
       parkSlug: "epic-universe",
       month: Math.max(2, Math.min(8, new Date().getMonth() + 1))
+
+    /* --- Actuals overlay: fetch real crowd data for past dates --- */
+    const ACTUALS = {};  // keyed by "parkSlug:date"
+    const TODAY = new Date().toISOString().slice(0, 10);
+
+    async function loadActuals() {
+      const parkSlugs = ["epic-universe", "islands-of-adventure", "universal-studios-florida"];
+      for (const slug of parkSlugs) {
+        try {
+          const resp = await fetch(`/parks/${slug}/crowd-calendar/actuals.json`);
+          if (!resp.ok) continue;
+          const data = await resp.json();
+          for (const entry of data) {
+            if (entry.crowdLevel != null) {
+              ACTUALS[`${slug}:${entry.date}`] = entry;
+            }
+          }
+        } catch (e) { /* fail silently */ }
+      }
+      render();  // Re-render with actuals
+    }
+    loadActuals();
+
     };
 
     function levelToHsl(level) {
@@ -1131,51 +1154,96 @@
 
     function buildCell(record) {
       const bg = levelToHsl(record.crowdLevel);
+      const actual = ACTUALS[`${record.parkSlug}:${record.date}`];
+      const isPast = record.date < TODAY;
+      const useActual = isPast && actual;
+
+      // Use actual crowd level for past dates
+      const displayLevel = useActual ? actual.crowdLevel : record.crowdLevel;
+      const displayLabel = useActual ? actual.crowdLabel : record.crowdLabel;
+      const displayBg = useActual ? levelToHsl(displayLevel) : bg;
+
       const cell = document.createElement("div");
       cell.className = "cell";
-      cell.style.background = bg;
+      cell.style.background = displayBg;
 
-      const btn = document.createElement("button");
-      btn.className = "day-btn";
-      btn.type = "button";
-      btn.addEventListener("click", () => openDrawer(record, btn));
+      // Past dates with actuals link to report page
+      if (useActual) {
+        const link = document.createElement("a");
+        link.href = `/parks/${record.parkSlug}/crowd-calendar/${record.date}/`;
+        link.className = "day-btn";
+        link.style.textDecoration = "none";
+        link.style.color = "inherit";
+        link.style.display = "flex";
+        link.style.flexDirection = "column";
+        link.style.alignItems = "center";
+        link.style.justifyContent = "center";
+        link.style.width = "100%";
+        link.style.height = "100%";
 
-      const top = document.createElement("div");
-      top.className = "day-top";
+        const top = document.createElement("div");
+        top.className = "day-top";
 
-      const dayNum = document.createElement("div");
-      dayNum.className = "day-num";
-      dayNum.textContent = record.day;
+        const dayNum = document.createElement("div");
+        dayNum.className = "day-num";
+        dayNum.textContent = record.day;
 
-      const lvl = document.createElement("div");
-      lvl.className = "lvl";
-      lvl.textContent = record.crowdLevel + "/10";
+        const lvl = document.createElement("div");
+        lvl.className = "lvl";
+        lvl.textContent = displayLevel + "/10";
 
-      top.appendChild(dayNum);
-      top.appendChild(lvl);
+        top.appendChild(dayNum);
+        top.appendChild(lvl);
 
-      const mini = document.createElement("div");
-      mini.className = "mini";
+        const mini = document.createElement("div");
+        mini.className = "mini";
+        mini.innerHTML = `<div><strong>${getMobileLabel(displayLabel)}</strong></div><div style="font-size:10px;opacity:0.7;margin-top:2px;">Actual</div>`;
 
-      const confidenceLevel = record.confidence.toLowerCase(); // low, medium, high
-      let bars = 1;
-      if (confidenceLevel === "medium") bars = 2;
-      if (confidenceLevel === "high") bars = 3;
+        link.appendChild(top);
+        link.appendChild(mini);
+        cell.appendChild(link);
+      } else {
+        // Future dates: keep existing button behavior
+        const btn = document.createElement("button");
+        btn.className = "day-btn";
+        btn.type = "button";
+        btn.addEventListener("click", () => openDrawer(record, btn));
 
-      let meterHtml = '<div class="conf-meter">';
-      for (let i = 1; i <= 3; i++) {
-        meterHtml += `<div class="conf-bar ${i <= bars ? 'active' : ''}"></div>`;
+        const top = document.createElement("div");
+        top.className = "day-top";
+
+        const dayNum = document.createElement("div");
+        dayNum.className = "day-num";
+        dayNum.textContent = record.day;
+
+        const lvl = document.createElement("div");
+        lvl.className = "lvl";
+        lvl.textContent = displayLevel + "/10";
+
+        top.appendChild(dayNum);
+        top.appendChild(lvl);
+
+        const mini = document.createElement("div");
+        mini.className = "mini";
+
+        const confidenceLevel = record.confidence.toLowerCase();
+        let bars = 1;
+        if (confidenceLevel === "medium") bars = 2;
+        if (confidenceLevel === "high") bars = 3;
+
+        let meterHtml = '<div class="conf-meter">';
+        for (let i = 1; i <= 3; i++) {
+          meterHtml += `<div class="conf-bar ${i <= bars ? 'active' : ''}"></div>`;
+        }
+        meterHtml += '</div>';
+        meterHtml += `<div class="conf-label">${record.confidence} Confidence</div>`;
+
+        mini.innerHTML = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>${meterHtml}`;
+
+        btn.appendChild(top);
+        btn.appendChild(mini);
+        cell.appendChild(btn);
       }
-      meterHtml += '</div>';
-      meterHtml += `<div class="conf-label">${record.confidence} Confidence</div>`;
-
-      mini.innerHTML = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>${meterHtml}`;
-
-
-
-      btn.appendChild(top);
-      btn.appendChild(mini);
-      cell.appendChild(btn);
       return cell;
     }
 
@@ -1229,21 +1297,42 @@
 
       focusReturnTarget = btn;
 
+      const actual = ACTUALS[`${record.parkSlug}:${record.date}`];
+      const isPast = record.date < TODAY;
+      const useActual = isPast && actual;
+      const dispLevel = useActual ? actual.crowdLevel : record.crowdLevel;
+      const dispLabel = useActual ? actual.crowdLabel : record.crowdLabel;
+
       title.textContent = `${record.park} · ${record.date}`;
-      sub.textContent = `Crowd ${record.crowdLevel}/10 (${record.crowdLabel}) · ${record.confidence} confidence`;
+      sub.textContent = useActual
+        ? `Actual Crowd ${dispLevel}/10 (${dispLabel})`
+        : `Predicted Crowd ${dispLevel}/10 (${dispLabel}) · ${record.confidence} confidence`;
 
       let reasoning = "";
-      const c = record.confidence.toLowerCase();
-      if (c === "high") reasoning = "Strong consensus among demand indicators.";
-      else if (c === "medium") reasoning = "Minor variance between demand signals.";
-      else reasoning = "Conflicting signals or limited data available.";
+      if (useActual) {
+        reasoning = "Based on actual wait times recorded on this day.";
+      } else {
+        const c = record.confidence.toLowerCase();
+        if (c === "high") reasoning = "Strong consensus among demand indicators.";
+        else if (c === "medium") reasoning = "Minor variance between demand signals.";
+        else reasoning = "Conflicting signals or limited data available.";
+      }
 
       body.innerHTML = "";
       const div = document.createElement("div");
       div.className = "metric";
       div.style.width = "100%";
-      div.innerHTML = `<div class="k">Crowd Summary</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${reasoning}</div>`;
+      div.innerHTML = `<div class="k">${useActual ? 'Actual Crowd Level' : 'Predicted Crowd Level'}</div><div class="v">${dispLabel} (${dispLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${reasoning}</div>`;
       body.appendChild(div);
+
+      // Add "View Full Report" link for past dates with actuals
+      if (useActual) {
+        const reportLink = document.createElement("a");
+        reportLink.href = `/parks/${record.parkSlug}/crowd-calendar/${record.date}/`;
+        reportLink.style.cssText = "display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;color:white;background:var(--accent,#F97316);margin-top:14px;width:100%;box-sizing:border-box;";
+        reportLink.textContent = "View Full Daily Report →";
+        body.appendChild(reportLink);
+      }
 
       const cta = document.createElement("div");
       cta.style.marginTop = "14px";
