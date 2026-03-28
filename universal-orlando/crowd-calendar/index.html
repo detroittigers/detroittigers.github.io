@@ -1096,17 +1096,18 @@
     const state = {
       parkSlug: "epic-universe",
       month: Math.max(2, Math.min(8, new Date().getMonth() + 1))
+    };
 
     /* --- Actuals overlay: fetch real crowd data for past dates --- */
     const ACTUALS = {};  // keyed by "parkSlug:date"
-    const TODAY = new Date().toISOString().slice(0, 10);
+    const TODAY = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; })();
 
     async function loadActuals() {
       const parkSlugs = ["epic-universe", "islands-of-adventure", "universal-studios-florida"];
-      for (const slug of parkSlugs) {
+      await Promise.allSettled(parkSlugs.map(async (slug) => {
         try {
           const resp = await fetch(`/parks/${slug}/crowd-calendar/actuals.json`);
-          if (!resp.ok) continue;
+          if (!resp.ok) return;
           const data = await resp.json();
           for (const entry of data) {
             if (entry.crowdLevel != null) {
@@ -1114,12 +1115,10 @@
             }
           }
         } catch (e) { /* fail silently */ }
-      }
-      render();  // Re-render with actuals
+      }));
+      render(true);  // Re-render with actuals (don't close drawer)
     }
     loadActuals();
-
-    };
 
     function levelToHsl(level) {
       // 1 => green-ish, 10 => red-ish
@@ -1247,11 +1246,13 @@
       return cell;
     }
 
-    function render() {
-      // Close drawer if open to prevent stale focus references
-      const drawer = document.getElementById("drawer");
-      if (drawer && drawer.classList.contains("open")) {
-        closeDrawer();
+    function render(skipDrawerClose) {
+      // Close drawer if open (unless this is a background data refresh)
+      if (!skipDrawerClose) {
+        const drawer = document.getElementById("drawer");
+        if (drawer && drawer.classList.contains("open")) {
+          closeDrawer();
+        }
       }
 
       const grid = document.getElementById("grid");
