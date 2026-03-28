@@ -1122,6 +1122,24 @@
       month: Math.max(2, Math.min(8, new Date().getMonth() + 1))
     };
 
+    /* --- Actuals overlay --- */
+    const ACTUALS = {};
+    const TODAY = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; })();
+
+    (async function loadActuals() {
+      try {
+        const resp = await fetch(`/parks//crowd-calendar/actuals.json`);
+        if (!resp.ok) return;
+        const data = await resp.json();
+        for (const entry of data) {
+          if (entry.crowdLevel != null) {
+            ACTUALS[`:${entry.date}`] = entry;
+          }
+        }
+        render(true);
+      } catch (e) { /* fail silently */ }
+    })();
+
     function levelToHsl(level) {
       // 1 => green-ish, 10 => red-ish
       const t = (level - 1) / 9;
@@ -1154,60 +1172,50 @@
     }
 
     function buildCell(record) {
-      const bg = levelToHsl(record.crowdLevel);
-      const cell = document.createElement("div");
-      cell.className = "cell";
+      const actual = ACTUALS[`${record.parkSlug}:${record.date}`];
+      const isPast = record.date < TODAY;
+      const useActual = isPast && actual;
+      const displayLevel = useActual ? actual.crowdLevel : record.crowdLevel;
+      const displayLabel = useActual ? actual.crowdLabel : record.crowdLabel;
+      const bg = levelToHsl(displayLevel);
+      const cell = document.createElement('div');
+      cell.className = 'cell';
       cell.style.background = bg;
-
-      const btn = document.createElement("button");
-      btn.className = "day-btn";
-      btn.type = "button";
-      btn.addEventListener("click", () => openDrawer(record, btn));
-
-      const top = document.createElement("div");
-      top.className = "day-top";
-
-      const dayNum = document.createElement("div");
-      dayNum.className = "day-num";
-      dayNum.textContent = record.day;
-
-      const lvl = document.createElement("div");
-      lvl.className = "lvl";
-      lvl.textContent = record.crowdLevel + "/10";
-
-      top.appendChild(dayNum);
-      top.appendChild(lvl);
-
-      const mini = document.createElement("div");
-      mini.className = "mini";
-
-      const confidenceLevel = record.confidence.toLowerCase(); // low, medium, high
-      let bars = 1;
-      if (confidenceLevel === "medium") bars = 2;
-      if (confidenceLevel === "high") bars = 3;
-
-      let meterHtml = '<div class="conf-meter">';
-      for (let i = 1; i <= 3; i++) {
-        meterHtml += `<div class="conf-bar ${i <= bars ? 'active' : ''}"></div>`;
+      if (useActual) {
+        const link = document.createElement('a');
+        link.href = `/parks//crowd-calendar/${record.date}/`;
+        link.className = 'day-btn';
+        link.style.cssText = 'text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;';
+        const top = document.createElement('div'); top.className = 'day-top';
+        const dayNum = document.createElement('div'); dayNum.className = 'day-num'; dayNum.textContent = record.day;
+        const lvl = document.createElement('div'); lvl.className = 'lvl'; lvl.textContent = displayLevel + '/10';
+        top.appendChild(dayNum); top.appendChild(lvl);
+        const mini = document.createElement('div'); mini.className = 'mini';
+        mini.innerHTML = `<div><strong>${getMobileLabel(displayLabel)}</strong></div><div style="font-size:10px;opacity:0.7;margin-top:2px;">Actual</div>`;
+        link.appendChild(top); link.appendChild(mini); cell.appendChild(link);
+      } else {
+        const btn = document.createElement('button'); btn.className = 'day-btn'; btn.type = 'button';
+        btn.addEventListener('click', () => openDrawer(record, btn));
+        const top = document.createElement('div'); top.className = 'day-top';
+        const dayNum = document.createElement('div'); dayNum.className = 'day-num'; dayNum.textContent = record.day;
+        const lvl = document.createElement('div'); lvl.className = 'lvl'; lvl.textContent = displayLevel + '/10';
+        top.appendChild(dayNum); top.appendChild(lvl);
+        const mini = document.createElement('div'); mini.className = 'mini';
+        const cl = record.confidence.toLowerCase(); let bars = 1;
+        if (cl === 'medium') bars = 2; if (cl === 'high') bars = 3;
+        let mh = '<div class="conf-meter">'; for (let i=1;i<=3;i++) mh += `<div class="conf-bar ${i<=bars?'active':''}">`+'</div>'; mh += '</div><div class="conf-label">' + record.confidence + ' Confidence</div>';
+        mini.innerHTML = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>${mh}`;
+        btn.appendChild(top); btn.appendChild(mini); cell.appendChild(btn);
       }
-      meterHtml += '</div>';
-      meterHtml += `<div class="conf-label">${record.confidence} Confidence</div>`;
-
-      mini.innerHTML = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>${meterHtml}`;
-
-
-
-      btn.appendChild(top);
-      btn.appendChild(mini);
-      cell.appendChild(btn);
       return cell;
     }
 
-    function render() {
-      // Close drawer if open to prevent stale focus references
-      const drawer = document.getElementById("drawer");
-      if (drawer && drawer.classList.contains("open")) {
-        closeDrawer();
+    function render(skipDrawerClose) {
+      if (!skipDrawerClose) {
+        const drawer = document.getElementById("drawer");
+        if (drawer && drawer.classList.contains("open")) {
+          closeDrawer();
+        }
       }
 
       const grid = document.getElementById("grid");
