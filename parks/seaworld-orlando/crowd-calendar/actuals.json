@@ -593,5 +593,10 @@
     "date": "2026-04-01",
     "crowdLevel": 3,
     "crowdLabel": "Light"
+  },
+  {
+    "date": "2026-04-02",
+    "crowdLevel": 5,
+    "crowdLabel": "Normal"
   }
 ]
