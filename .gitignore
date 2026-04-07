@@ -81,6 +81,7 @@ generate_redirects.py
 
 # Secrets
 secrets/
+!parks/epic-universe/secrets/
 .mcp.json
 rideready.zip
 
