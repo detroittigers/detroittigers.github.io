@@ -53,7 +53,7 @@
         "name": "What is the best rope drop strategy for Epic Universe without Early Entry?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Based on 950,000+ wait time samples: Go straight to Isle of Berk at 9 AM for Hiccup's Wing Gliders (50 min avg, doubles within 2 hours), then Dragon Racer's Rally, then Curse of the Werewolf in Dark Universe. Save Mario Kart and Ministry for evening when waits drop 40-60%. Mine-Cart Madness averages 80 min even at 9 PM. Use the single rider line."
+          "text": "Based on 950,000+ wait time samples: Regular open is 10 AM (Early Entry at 9 AM for hotel guests). Without Early Entry, go straight to Isle of Berk at 10 AM for Hiccup's Wing Gliders (58 min at open, spikes toward 100 by noon), then Dragon Racer's Rally. Save Mario Kart and Ministry for evening when waits collapse 40-60%. Mine-Cart averages 80 min even at 9 PM — use the single rider line."
         }
       }, {
         "@type": "Question",
@@ -74,7 +74,7 @@
         "name": "Should I rope drop Mario Kart or Mine-Cart at Epic Universe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "During Early Park Admission, hit Mario Kart first (averages 29 min at rope drop, range 10-65). Mine-Cart averages 79 min at rope drop with huge variance (25-150 min). Mario Kart is the better first ride because it's more predictable. Save Ministry for 8-9 PM when it drops to 53-64 min."
+          "text": "With Early Entry (9 AM), hit Mario Kart first — 29 min avg vs 104 min at regular 10 AM open, a 75-minute saving. Mine-Cart averages 79 min at early entry with huge variance (25-150 min). Mario Kart is the better first ride because it's more predictable. Save Ministry for 8-9 PM when it drops to 53-64 min."
         }
       }]
     }
@@ -618,84 +618,95 @@
 
         <!-- ========== EPA INTEL ========== -->
         <div class="card">
-            <h2><span class="emoji">🎯</span> Early Park Admission (EPA) Intel</h2>
+            <h2><span class="emoji">🎯</span> Early Entry vs Regular Open</h2>
             <p style="margin-bottom: 16px;">
-                EPA lets hotel guests enter an hour before general admission. Based on <strong>14 tracked EPA mornings</strong>,
-                here's what actually happens at rope drop.
+                Epic Universe runs <strong>Early Entry at 9 AM</strong> for hotel guests and <strong>regular open at 10 AM</strong>.
+                That one hour gap is massive — here's what every ride looks like at both entry times.
             </p>
             <div style="overflow-x: auto;">
                 <table class="epa-table">
                     <thead>
                         <tr>
                             <th>Ride</th>
-                            <th>EPA Days</th>
-                            <th>Avg Rope Drop</th>
-                            <th>Range</th>
+                            <th style="background: #059669;">9 AM Early Entry</th>
+                            <th>10 AM Regular</th>
+                            <th>You Save</th>
                             <th>Verdict</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>Mario Kart</strong></td>
-                            <td>14/14</td>
-                            <td>29 min</td>
-                            <td>10–65 min</td>
-                            <td style="color: #059669; font-weight: 600;">Hit first</td>
+                            <td style="color: #059669; font-weight: 700;">29 min</td>
+                            <td style="color: #dc2626; font-weight: 600;">104 min</td>
+                            <td style="color: #059669; font-weight: 700;">75 min</td>
+                            <td style="color: #059669; font-weight: 600;">Hit first — biggest EPA win</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hiccup's Wing Gliders</strong></td>
+                            <td style="color: #059669; font-weight: 700;">14 min</td>
+                            <td style="color: #d97706; font-weight: 600;">58 min</td>
+                            <td style="color: #059669; font-weight: 700;">44 min</td>
+                            <td style="color: #059669;">Easy — also first stop without EPA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dragon Racer's Rally</strong></td>
+                            <td style="color: #059669; font-weight: 700;">8 min</td>
+                            <td style="color: #d97706; font-weight: 600;">50 min</td>
+                            <td style="color: #059669; font-weight: 700;">42 min</td>
+                            <td style="color: #059669;">Walk-on at 9 AM, real wait by 11 AM</td>
                         </tr>
                         <tr>
                             <td><strong>Mine-Cart</strong></td>
-                            <td>14/14</td>
-                            <td>79 min</td>
-                            <td>25–150 min</td>
-                            <td style="color: #d97706; font-weight: 600;">Gamble — check live times</td>
+                            <td style="color: #d97706; font-weight: 700;">79 min</td>
+                            <td style="color: #dc2626; font-weight: 600;">131 min</td>
+                            <td style="color: #d97706; font-weight: 700;">52 min</td>
+                            <td style="color: #d97706; font-weight: 600;">Gamble — check live times. Single rider beats both.</td>
                         </tr>
                         <tr>
                             <td><strong>Ministry</strong></td>
-                            <td>12/14</td>
-                            <td>71 min</td>
-                            <td>45–135 min</td>
-                            <td style="color: #dc2626; font-weight: 600;">Skip — save for evening</td>
+                            <td style="color: #dc2626; font-weight: 700;">71 min</td>
+                            <td style="color: #dc2626; font-weight: 600;">142 min</td>
+                            <td style="color: #d97706; font-weight: 700;">71 min</td>
+                            <td style="color: #dc2626; font-weight: 600;">Skip both — save for 9 PM (53 min)</td>
+                        </tr>
+                        <tr>
+                            <td>Yoshi's Adventure</td>
+                            <td style="color: #059669;">5 min</td>
+                            <td style="color: #d97706;">48 min</td>
+                            <td style="color: #059669; font-weight: 600;">43 min</td>
+                            <td style="color: var(--text-light);">Underrated EPA grab</td>
                         </tr>
                         <tr>
                             <td>Stardust Racers</td>
-                            <td>6/14</td>
-                            <td>28 min</td>
-                            <td>20–45 min</td>
-                            <td style="color: var(--text-light);">Grab if open</td>
+                            <td style="color: #059669;">28 min</td>
+                            <td style="color: #059669;">36 min</td>
+                            <td style="color: var(--text-light);">8 min</td>
+                            <td style="color: var(--text-light);">Anytime — flat all day</td>
                         </tr>
                         <tr>
-                            <td>Hiccup's Wing Gliders</td>
-                            <td>14/14</td>
-                            <td>14 min</td>
-                            <td>5–25 min</td>
-                            <td style="color: #059669;">Easy win</td>
-                        </tr>
-                        <tr>
-                            <td>Dragon Racer's Rally</td>
-                            <td>14/14</td>
-                            <td>8 min</td>
-                            <td>5–15 min</td>
-                            <td style="color: #059669;">Walk-on</td>
-                        </tr>
-                        <tr>
-                            <td>Werewolf</td>
-                            <td>11/14</td>
-                            <td>6 min</td>
-                            <td>5–10 min</td>
-                            <td style="color: #059669;">Walk-on</td>
+                            <td>Curse of the Werewolf</td>
+                            <td style="color: #059669;">6 min</td>
+                            <td style="color: #059669;">33 min</td>
+                            <td style="color: #059669;">27 min</td>
+                            <td style="color: var(--text-light);">Hit early either way</td>
                         </tr>
                         <tr>
                             <td>Monsters Unchained</td>
-                            <td>14/14</td>
-                            <td>10 min</td>
-                            <td>10 min</td>
-                            <td style="color: #059669;">Always 10 min — don't waste rope drop</td>
+                            <td style="color: #059669;">10 min</td>
+                            <td style="color: #059669;">18 min</td>
+                            <td style="color: var(--text-light);">8 min</td>
+                            <td style="color: #059669;">Always short — ride anytime</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="insight-box">
-                <strong>The play:</strong> Hit Mario Kart first (29 min avg, most predictable headliner). Then check live times for Mine-Cart — if it's under 60 min, grab it. If it's 100+, skip to Hiccup/Dragon Racer and come back to Mine-Cart via single rider later. Never rope drop Ministry or Monsters.
+            <p style="font-size: 0.75rem; color: var(--text-light); margin-top: 10px;">9 AM Early Entry based on 14 tracked EPA mornings. 10 AM Regular based on 173 park-day hourly averages.</p>
+            <div class="insight-box" style="margin-top: 16px;">
+                <strong>With Early Entry:</strong> Mario Kart at 9 AM saves 75 minutes over waiting until 10 AM. Dragon Racer's and Hiccup's are near walk-ons. Skip Mine-Cart if it's over 60 min — use single rider later. Never rope drop Ministry even with EPA; save it for 9 PM.
+            </div>
+            <div class="info-box" style="margin-top: 12px;">
+                <strong>Without Early Entry:</strong> Sprint to Isle of Berk at 10 AM — Hiccup's goes from 58 to 90+ min by noon. Mario Kart and Ministry are already deep; hit them after 7 PM when waits collapse.
             </div>
         </div>
 
@@ -705,27 +716,27 @@
             <p style="margin-bottom: 20px;">Two strategies depending on whether you have EPA access. Both are optimized
                 to minimize total wait time across all 11 attractions.</p>
 
-            <h3 style="color: var(--primary); margin-bottom: 16px; font-size: 1.1rem;">With Early Park Admission</h3>
+            <h3 style="color: var(--primary); margin-bottom: 16px; font-size: 1.1rem;">With Early Entry</h3>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot" style="border-color: var(--success);"></div>
-                    <div class="timeline-time" style="color: #059669;">8:00 AM · Rope drop</div>
-                    <div class="timeline-content"><strong>Mario Kart: Bowser's Challenge.</strong> Avg 29 min at EPA rope drop. Most consistent headliner — always opens, lowest variance.</div>
+                    <div class="timeline-time" style="color: #059669;">9:00 AM · Early Entry opens</div>
+                    <div class="timeline-content"><strong>Mario Kart: Bowser's Challenge.</strong> 29 min avg at early entry — saves 75 min vs the 10 AM crowd. Most consistent headliner.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot" style="border-color: var(--success);"></div>
-                    <div class="timeline-time" style="color: #059669;">8:30 AM</div>
-                    <div class="timeline-content"><strong>Mine-Cart Madness</strong> (if posting under 60 min). Opens ~8:06–8:11 most days. If 90+, skip to step 3 and use single rider for Mine-Cart later.</div>
+                    <div class="timeline-time" style="color: #059669;">9:30 AM</div>
+                    <div class="timeline-content"><strong>Mine-Cart Madness</strong> (if posting under 60 min). If 90+, skip to step 3 and use single rider for Mine-Cart later.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-time">9:15 AM</div>
-                    <div class="timeline-content"><strong>Hiccup's Wing Gliders + Dragon Racer's Rally.</strong> Both in Isle of Berk. Hiccup averages 14 min at EPA but doubles by 11 AM. Dragon Racer is a walk-on.</div>
+                    <div class="timeline-time">10:15 AM</div>
+                    <div class="timeline-content"><strong>Hiccup's Wing Gliders + Dragon Racer's Rally.</strong> Both in Isle of Berk. Hiccup is 14 min at early entry, Dragon Racer is a walk-on. Both spike hard once regular guests arrive at 10 AM.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-time">10:00 AM</div>
-                    <div class="timeline-content"><strong>Curse of the Werewolf</strong> in Dark Universe. Short all morning (15 min at 9 AM). Triples by noon.</div>
+                    <div class="timeline-time">11:00 AM</div>
+                    <div class="timeline-content"><strong>Curse of the Werewolf</strong> in Dark Universe. Short all morning (6 min at early entry). Triples by noon.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -739,25 +750,25 @@
                 </div>
             </div>
 
-            <h3 style="color: #92400e; margin-top: 30px; margin-bottom: 16px; font-size: 1.1rem;" id="no-early-entry">Without Early Park Admission</h3>
+            <h3 style="color: #92400e; margin-top: 30px; margin-bottom: 16px; font-size: 1.1rem;" id="no-early-entry">Without Early Entry</h3>
             <div style="background: rgba(239, 68, 68, 0.08); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #ef4444;">
-                <p style="margin: 0; font-size: 0.9rem;"><strong style="color: #dc2626;">The reality at 9 AM:</strong> EPA guests have been riding for an hour. Mine-Cart is already at 92 min. Ministry is at 112 min. Mario Kart is at 72 min. Don't burn your golden hour on rides that are already slammed.</p>
+                <p style="margin: 0; font-size: 0.9rem;"><strong style="color: #dc2626;">The reality at 10 AM:</strong> EPA guests have been riding for an hour. Mine-Cart is already at 131 min. Ministry is at 142 min. Mario Kart is at 104 min. Don't burn your first hour on rides that are already slammed.</p>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot" style="border-color: var(--success);"></div>
-                    <div class="timeline-time" style="color: #059669;">9:00 AM · Park open</div>
-                    <div class="timeline-content"><strong>Hiccup's Wing Gliders.</strong> 50 min avg — doubles within 2 hours, steepest penalty in the park. Sprint to Isle of Berk.</div>
+                    <div class="timeline-time" style="color: #059669;">10:00 AM · Park open</div>
+                    <div class="timeline-content"><strong>Hiccup's Wing Gliders.</strong> 58 min at open — spikes hard toward 100 min by noon. Sprint to Isle of Berk first.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot" style="border-color: var(--success);"></div>
-                    <div class="timeline-time" style="color: #059669;">9:40 AM</div>
-                    <div class="timeline-content"><strong>Dragon Racer's Rally.</strong> Same land, walk right over. 38 min avg, hits 58 min by 11 AM.</div>
+                    <div class="timeline-time" style="color: #059669;">10:45 AM</div>
+                    <div class="timeline-content"><strong>Dragon Racer's Rally.</strong> Same land, walk right over. 50 min at 10 AM, climbs fast by noon.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot" style="border-color: var(--success);"></div>
-                    <div class="timeline-time" style="color: #059669;">10:15 AM</div>
-                    <div class="timeline-content"><strong>Curse of the Werewolf.</strong> Opens fresh at general admission. ~33 min at 10 AM, hits 66 min by noon. One portal over in Dark Universe.</div>
+                    <div class="timeline-time" style="color: #059669;">11:15 AM</div>
+                    <div class="timeline-content"><strong>Curse of the Werewolf.</strong> ~33 min at open, hits 66 min by noon. One portal over in Dark Universe.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -786,7 +797,7 @@
             <h2><span class="emoji" style="font-size: 1.8rem;">⚡</span> The 5 Golden Rules</h2>
             <div class="cheat-item">
                 <div class="cheat-number">1</div>
-                <div class="cheat-text"><strong>Hit Mario Kart first at rope drop</strong> — 29 min avg at EPA, lowest variance of any headliner. Mine-Cart swings 25–150 min. Mario Kart is the safe bet.</div>
+                <div class="cheat-text"><strong>Hit Mario Kart first at Early Entry (9 AM)</strong> — 29 min avg, saves 75 min vs the 10 AM crowd (104 min). With no Early Entry, go to Hiccup's first at 10 AM.</div>
             </div>
             <div class="cheat-item">
                 <div class="cheat-number">2</div>
