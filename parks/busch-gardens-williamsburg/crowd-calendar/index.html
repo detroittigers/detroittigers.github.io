@@ -506,7 +506,8 @@
     .drawer {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.58);
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.85);
       display: none;
       align-items: flex-end;
       justify-content: center;
@@ -1338,12 +1339,29 @@
           document.getElementById("lastUpdated").textContent = `Data through ${lastDateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
         }
 
-        // Find latest year/month with data for default view
+        // Default to the year with the most data (seasonal parks have sparse recent years)
         if (ACTUALS.length > 0) {
-          const dates = ACTUALS.map(d => d.date).sort();
-          const lastDate = dates[dates.length - 1];
-          state.year = parseInt(lastDate.substring(0, 4), 10);
-          state.month = parseInt(lastDate.substring(5, 7), 10);
+          const yearCounts = {};
+          for (const entry of ACTUALS) {
+            const y = parseInt(entry.date.substring(0, 4), 10);
+            yearCounts[y] = (yearCounts[y] || 0) + 1;
+          }
+          let bestYear = null;
+          let bestCount = 0;
+          for (const [y, c] of Object.entries(yearCounts)) {
+            if (c > bestCount) { bestCount = c; bestYear = parseInt(y, 10); }
+          }
+          state.year = bestYear;
+          // Default to the middle of the season (July) if available, otherwise first available month
+          const months = [];
+          const prefix = String(bestYear);
+          for (const entry of ACTUALS) {
+            if (entry.date.startsWith(prefix)) {
+              months.push(parseInt(entry.date.substring(5, 7), 10));
+            }
+          }
+          const uniqueMonths = [...new Set(months)].sort((a, b) => a - b);
+          state.month = uniqueMonths.includes(7) ? 7 : uniqueMonths[Math.floor(uniqueMonths.length / 2)];
         }
 
         buildYearSelect();
