@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+    <link href="/favicon.ico" rel="icon" sizes="any" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="/site.webmanifest" rel="manifest" />
+    <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-guide-strategy-ki" />
+    <title>Kings Island Strategy Guide | Ride Ready</title>
+    <meta
+        content="Data-driven strategy for Kings Island based on 45,000+ wait time samples across 658 park days. Orion, Beast night ride timing, Flight of Fear — beat the crowds."
+        name="description" />
+    <meta content="Kings Island Strategy Guide" property="og:title" />
+    <meta
+        content="Data-driven strategy for Kings Island based on 45,000+ wait time samples across 658 park days. Orion, Beast night ride timing, Flight of Fear — beat the crowds."
+        property="og:description" />
+    <meta content="article" property="og:type" />
+    <meta content="https://rideready.app/images/og/og-strategy-guide.png" property="og:image" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta content="https://rideready.app/parks/kings-island/strategy/" property="og:url" />
+    <link href="https://rideready.app/parks/kings-island/strategy/" rel="canonical" />
+    <meta property="article:modified_time" content="2026-04-09" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Kings Island Strategy Guide: Beat Crowds with Data",
+      "image": [
+        "https://rideready.app/images/og/og-strategy-guide.png"
+      ],
+      "datePublished": "2026-04-06T08:00:00-05:00",
+      "dateModified": "2026-04-09T12:00:00-05:00",
+      "author": [{
+          "@type": "Organization",
+          "name": "Ride Ready",
+          "url": "https://rideready.app/"
+        }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is the best rope drop strategy for Kings Island?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Based on 45,000+ wait time samples: Hit Flight of Fear first at 10 AM (36 min avg vs 65 min at 3 PM). It's indoor with terrible throughput — the worst afternoon wait in the park. Then walk to Orion nearby in Area 72 (19 min at 10 AM). After that, head to Banshee. Save The Beast for a 7:30 PM line-up for the legendary night ride."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the best day to visit Kings Island?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Based on 45,000+ wait time samples across 658 park days, Wednesday and Thursday are tied for the best days to visit (20 min park-wide average). Saturday is the worst at 37 min — nearly double the midweek average."
+        }
+      }, {
+        "@type": "Question",
+        "name": "When should I ride The Beast at night at Kings Island?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Beast night ride is legendary, but everyone knows it. Unlike most rides, The Beast gets WORSE at close — 44 min at 8 PM and 45 min at 9 PM, up from 36 min at 5 PM. Get in line by 7:30-8 PM at the latest to avoid the closing rush."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does Orion have shorter waits in the evening at Kings Island?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — Orion is one of Kings Island's unusual evening risers. It averages 19 min at 10 AM but spikes to 40-41 min at 8-9 PM due to closing rush demand. Your best window for Orion is first thing at rope drop."
+        }
+      }]
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KGYGTPMTQ3');
+    </script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --text: #374151;
+            --text-light: #6b7280;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 100%);
+            min-height: 100vh;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .data-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        /* Stats bar */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .stat-card.warning { background: linear-gradient(135deg, var(--warning) 0%, #d97706 100%); }
+        .stat-card.danger { background: linear-gradient(135deg, var(--danger) 0%, #dc2626 100%); }
+        .stat-card .number { font-size: 2.5rem; font-weight: 800; display: block; }
+        .stat-card .label { font-size: 0.85rem; opacity: 0.9; }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h2 .emoji { font-size: 1.8rem; }
+
+        /* Bar chart (day of week, hourly) */
+        .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+        .bar-row { display: flex; align-items: center; gap: 10px; }
+        .bar-label { width: 95px; font-size: 0.85rem; font-weight: 500; text-align: right; }
+        .bar-container {
+            flex: 1;
+            height: 28px;
+            background: #e5e7eb;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+        .bar {
+            height: 100%;
+            border-radius: 14px;
+            transition: width 0.5s ease;
+        }
+        .bar-value {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            white-space: nowrap;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Chart container */
+        .chart-container {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .chart-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        /* Ride tiers */
+        .ride-tier { margin-bottom: 30px; }
+        .tier-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .tier-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .tier-1 .tier-badge { background: #fef2f2; color: #dc2626; }
+        .tier-2 .tier-badge { background: #fffbeb; color: #d97706; }
+        .tier-3 .tier-badge { background: #ecfdf5; color: #059669; }
+        .ride-list { display: flex; flex-direction: column; gap: 12px; }
+        .ride-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+            gap: 15px;
+        }
+        .ride-name { flex: 1; font-weight: 600; }
+        .ride-wait { font-weight: 700; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+        .wait-high { background: #fef2f2; color: #dc2626; }
+        .wait-med { background: #fffbeb; color: #d97706; }
+        .wait-low { background: #ecfdf5; color: #059669; }
+        .ride-tip { font-size: 0.85rem; color: var(--text-light); }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--success), var(--warning), var(--danger), var(--warning), var(--success));
+            border-radius: 3px;
+        }
+        .timeline-item { position: relative; padding-bottom: 25px; }
+        .timeline-dot {
+            position: absolute;
+            left: -26px;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary);
+        }
+        .timeline-time { font-weight: 700; color: var(--primary); }
+        .timeline-content { font-size: 0.95rem; }
+
+        /* Golden rules */
+        .cheat-sheet {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border-radius: 16px;
+            padding: 30px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .cheat-sheet h2 { color: white; }
+        .cheat-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .cheat-item:last-child { border-bottom: none; }
+        .cheat-number {
+            width: 30px; height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .cheat-text strong { color: var(--success); }
+
+        /* Evening drop bars */
+        .time-legend {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 22px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .time-legend span { display: flex; align-items: center; gap: 6px; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+        .legend-dot.early { background: var(--danger); }
+        .legend-dot.late { background: var(--success); }
+        .drop-ride { margin-bottom: 20px; }
+        .drop-ride:last-child { margin-bottom: 0; }
+        .drop-ride-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .drop-ride-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
+        .drop-pct { font-size: 0.8rem; font-weight: 700; padding: 2px 10px; border-radius: 12px; }
+        .drop-pct-high { background: #ecfdf5; color: #059669; }
+        .drop-pct-med { background: #eff6ff; color: #2563eb; }
+        .drop-pct-low { background: #fef3c7; color: #92400e; }
+        .drop-pct-increase { background: #fef2f2; color: #dc2626; }
+        .drop-bars { position: relative; height: 36px; }
+        .drop-bar {
+            position: absolute;
+            height: 16px;
+            border-radius: 4px;
+            min-width: 2px;
+        }
+        .drop-bar-5pm { top: 0; background: linear-gradient(90deg, #ef4444 0%, #f87171 100%); opacity: 0.85; }
+        .drop-bar-9pm { top: 20px; background: linear-gradient(90deg, #10b981 0%, #34d399 100%); }
+        .drop-bar-9pm.increase { background: linear-gradient(90deg, #ef4444 0%, #f87171 100%); }
+        .drop-bar-label {
+            position: absolute;
+            right: -4px;
+            transform: translateX(100%);
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 16px;
+            padding-left: 8px;
+            white-space: nowrap;
+        }
+        .drop-bar-5pm .drop-bar-label { color: #dc2626; }
+        .drop-bar-9pm .drop-bar-label { color: #059669; }
+        .drop-bar-9pm.increase .drop-bar-label { color: #dc2626; }
+        .drop-bar-label.inside {
+            right: 8px;
+            transform: none;
+            padding-left: 0;
+            color: white !important;
+        }
+
+        /* Insight callout */
+        .insight-box {
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            border-radius: 10px;
+            border-left: 4px solid var(--success);
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+        .insight-box strong { color: #059669; }
+
+        .warning-box {
+            padding: 16px 20px;
+            background: #fef2f2;
+            border-radius: 10px;
+            border-left: 4px solid var(--danger);
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+        .warning-box strong { color: #dc2626; }
+
+        .info-box {
+            padding: 16px 20px;
+            background: #eff6ff;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+        .info-box strong { color: #1e40af; }
+
+        /* Hourly table */
+        .hourly-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-top: 15px;
+        }
+        .hourly-table th {
+            background: var(--dark);
+            color: white;
+            padding: 8px 6px;
+            font-weight: 600;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        .hourly-table td {
+            padding: 6px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hourly-table tr:hover { background: #f9fafb; }
+        .hourly-table .ride-col {
+            text-align: left;
+            font-weight: 600;
+            padding-left: 10px;
+            white-space: nowrap;
+        }
+        .wait-cell-high { background: #fef2f2; color: #dc2626; font-weight: 700; }
+        .wait-cell-med { background: #fffbeb; color: #92400e; }
+        .wait-cell-low { background: #ecfdf5; color: #059669; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .footer-cta {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+        .footer-cta:hover { opacity: 0.9; }
+        .footer-logo { font-weight: 700; font-size: 1.1rem; color: white; margin-bottom: 5px; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-card .number { font-size: 2rem; }
+            .card { padding: 20px; }
+            .bar-label { width: 75px; font-size: 0.8rem; }
+            .hourly-table { font-size: 0.7rem; }
+            .hourly-table td, .hourly-table th { padding: 4px 3px; }
+            .drop-bar-label { font-size: 0.7rem; }
+            .drop-ride-name { font-size: 0.88rem; }
+            .ride-item { flex-wrap: wrap; }
+            .ride-tip { width: 100%; }
+        }
+
+        /* Focus & motion */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .bar { transition: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- ========== HERO ========== -->
+        <div class="hero">
+            <h1>Kings Island Strategy Guide</h1>
+            <p class="subtitle">Data-driven ride-by-ride strategy for beating the crowds</p>
+            <span class="data-badge">45,000+ wait time samples &middot; 658 park days</span>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-top: 12px; position: relative;">
+                Last updated April 9, 2026 &middot; Jun 2022 – Apr 2026 dataset
+            </p>
+        </div>
+
+        <!-- ========== KEY STATS ========== -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="number">20</span>
+                <span class="label">Rides tracked</span>
+            </div>
+            <div class="stat-card warning">
+                <span class="number">25 min</span>
+                <span class="label">Park-wide average</span>
+            </div>
+            <div class="stat-card danger">
+                <span class="number">52 min</span>
+                <span class="label">Flight of Fear avg</span>
+            </div>
+        </div>
+
+        <!-- ========== BEST DAY TO VISIT ========== -->
+        <div class="card">
+            <h2><span class="emoji">📊</span> Best Day to Visit</h2>
+            <div class="chart-container">
+                <div class="chart-title">Average Park-Wide Wait by Day of Week</div>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label"><strong>Wednesday</strong></span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 54%; background: var(--success);"></div>
+                            <span class="bar-value">20 min ← Best (tied)</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label"><strong>Thursday</strong></span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 54%; background: var(--success);"></div>
+                            <span class="bar-value">20 min ← Best (tied)</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Tuesday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 57%; background: var(--success);"></div>
+                            <span class="bar-value">21 min</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Monday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 62%; background: #60a5fa;"></div>
+                            <span class="bar-value">23 min</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Friday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 70%; background: var(--warning);"></div>
+                            <span class="bar-value">26 min</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Sunday</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 73%; background: var(--warning);"></div>
+                            <span class="bar-value">27 min</span>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label"><strong>Saturday</strong></span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 100%; background: var(--danger);"></div>
+                            <span class="bar-value">37 min ← Worst</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--text); margin-top: 16px;">
+                <strong>The honest take:</strong> Midweek is dramatically better at Kings Island. Wednesday and Thursday average 20 min park-wide
+                vs 37 min on Saturday — nearly half the wait. Any Tuesday through Thursday visit is a solid choice.
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 12px;">
+                Based on 45,275 samples across 658 park days (Jun 2022 – Apr 2026). Day-of-week patterns can shift during peak seasons.
+            </p>
+        </div>
+
+        <!-- ========== 5 GOLDEN RULES ========== -->
+        <div class="cheat-sheet">
+            <h2><span class="emoji" style="font-size: 1.8rem;">⚡</span> The 5 Golden Rules</h2>
+            <div class="cheat-item">
+                <div class="cheat-number">1</div>
+                <div class="cheat-text"><strong>Flight of Fear first — always</strong> — 36 min at 10 AM vs 65 min at 3 PM. Indoor LIM launch with terrible throughput. Do NOT leave this for afternoon.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-number">2</div>
+                <div class="cheat-text"><strong>Visit Wednesday or Thursday</strong> — 20 min park-wide avg vs 37 min on Saturday. Nearly half the wait. The gap here is enormous.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-number">3</div>
+                <div class="cheat-text"><strong>The Beast night ride requires timing</strong> — everyone wants it. The line INCREASES to 45 min by 9 PM. Get in line by 7:30 PM.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-number">4</div>
+                <div class="cheat-text"><strong>Orion at 10 AM is your best giga window</strong> — 19 min vs 38 min at 3 PM. It also spikes at close (41 min at 9 PM). Don't wait.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-number">5</div>
+                <div class="cheat-text"><strong>Soak City is your midday move</strong> — included with admission. Use 12–3 PM for the water park when coaster waits peak.</div>
+            </div>
+        </div>
+
+        <!-- ========== EVENING DROP WINDOWS ========== -->
+        <div class="card">
+            <h2><span class="emoji">🌙</span> Evening Analysis: 5 PM vs 9 PM</h2>
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">Kings Island is unusual — headliners get WORSE at close due to night ride demand and closing rush. Diamondback and Banshee are the smart evening plays.</p>
+
+            <div class="time-legend">
+                <span><span class="legend-dot early"></span> 5 PM</span>
+                <span><span class="legend-dot late"></span> 9 PM</span>
+            </div>
+
+            <!-- Flight of Fear: 53 → 36 = 32% drop -->
+            <div class="drop-ride">
+                <div class="drop-ride-header">
+                    <span class="drop-ride-name">Flight of Fear</span>
+                    <span class="drop-pct drop-pct-high">-32%</span>
+                </div>
+                <div class="drop-bars">
+                    <div class="drop-bar drop-bar-5pm" style="width: calc(53 / 65 * 100%);">
+                        <span class="drop-bar-label">53 min</span>
+                    </div>
+                    <div class="drop-bar drop-bar-9pm" style="width: calc(36 / 65 * 100%);">
+                        <span class="drop-bar-label">36 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diamondback: 36 → 24 = 33% drop -->
+            <div class="drop-ride">
+                <div class="drop-ride-header">
+                    <span class="drop-ride-name">Diamondback</span>
+                    <span class="drop-pct drop-pct-high">-33%</span>
+                </div>
+                <div class="drop-bars">
+                    <div class="drop-bar drop-bar-5pm" style="width: calc(36 / 65 * 100%);">
+                        <span class="drop-bar-label">36 min</span>
+                    </div>
+                    <div class="drop-bar drop-bar-9pm" style="width: calc(24 / 65 * 100%);">
+                        <span class="drop-bar-label">24 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banshee: 28 → 22 = 21% drop -->
+            <div class="drop-ride">
+                <div class="drop-ride-header">
+                    <span class="drop-ride-name">Banshee</span>
+                    <span class="drop-pct drop-pct-med">-21%</span>
+                </div>
+                <div class="drop-bars">
+                    <div class="drop-bar drop-bar-5pm" style="width: calc(28 / 65 * 100%);">
+                        <span class="drop-bar-label">28 min</span>
+                    </div>
+                    <div class="drop-bar drop-bar-9pm" style="width: calc(22 / 65 * 100%);">
+                        <span class="drop-bar-label">22 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mystic Timbers: 32 → 29 = slight drop -->
+            <div class="drop-ride">
+                <div class="drop-ride-header">
+                    <span class="drop-ride-name">Mystic Timbers</span>
+                    <span class="drop-pct drop-pct-low">-9%</span>
+                </div>
+                <div class="drop-bars">
+                    <div class="drop-bar drop-bar-5pm" style="width: calc(32 / 65 * 100%);">
+                        <span class="drop-bar-label">32 min</span>
+                    </div>
+                    <div class="drop-bar drop-bar-9pm" style="width: calc(29 / 65 * 100%);">
+                        <span class="drop-bar-label">29 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orion: 33 → 41 = INCREASES 24% -->
+            <div class="drop-ride">
+                <div class="drop-ride-header">
+                    <span class="drop-ride-name">Orion</span>
+                    <span class="drop-pct drop-pct-increase">+24%</span>
+                </div>
+                <div class="drop-bars">
+                    <div class="drop-bar drop-bar-5pm" style="width: calc(33 / 65 * 100%);">
+                        <span class="drop-bar-label">33 min</span>
+                    </div>
+                    <div class="drop-bar drop-bar-9pm increase" style="width: calc(41 / 65 * 100%);">
+                        <span class="drop-bar-label">41 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Beast: 36 → 45 = INCREASES 25% -->
+            <div class="drop-ride">
+                <div class="drop-ride-header">
+                    <span class="drop-ride-name">The Beast</span>
+                    <span class="drop-pct drop-pct-increase">+25%</span>
+                </div>
+                <div class="drop-bars">
+                    <div class="drop-bar drop-bar-5pm" style="width: calc(36 / 65 * 100%);">
+                        <span class="drop-bar-label">36 min</span>
+                    </div>
+                    <div class="drop-bar drop-bar-9pm increase" style="width: calc(45 / 65 * 100%);">
+                        <span class="drop-bar-label">45 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 24px; padding-top: 12px; border-top: 1px solid #e5e7eb;">
+                <span style="font-size: 0.7rem; color: var(--text-light); font-weight: 600;">0 min</span>
+                <span style="font-size: 0.7rem; color: var(--text-light); font-weight: 600;">30 min</span>
+                <span style="font-size: 0.7rem; color: var(--text-light); font-weight: 600;">65 min</span>
+            </div>
+
+            <div class="warning-box">
+                <strong>Kings Island flips the script at night.</strong> The Beast and Orion both INCREASE 24-25% from 5 PM to 9 PM.
+                Everyone rushes for the legendary Beast night ride and closing laps on Orion. Instead, ride Diamondback (-33%) and Banshee (-21%) in the evening — they empty out as crowds flock to the back of the park.
+            </div>
+        </div>
+
+        <!-- ========== HOURLY WAIT PATTERNS ========== -->
+        <div class="card">
+            <h2><span class="emoji">⏰</span> Hourly Wait Patterns</h2>
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px;">Average wait in minutes by hour across 658 park days. Color-coded: <span style="color: #dc2626; font-weight: 600;">45+ min</span>, <span style="color: #92400e; font-weight: 600;">25–44 min</span>, <span style="color: #059669; font-weight: 600;">under 25 min</span>.</p>
+            <div style="overflow-x: auto;">
+                <table class="hourly-table">
+                    <thead>
+                        <tr>
+                            <th class="ride-col">Ride</th>
+                            <th>10a</th>
+                            <th>11a</th>
+                            <th>12p</th>
+                            <th>1p</th>
+                            <th>2p</th>
+                            <th>3p</th>
+                            <th>4p</th>
+                            <th>5p</th>
+                            <th>6p</th>
+                            <th>7p</th>
+                            <th>8p</th>
+                            <th>9p</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ride-col">Flight of Fear</td>
+                            <td class="wait-cell-med">36</td>
+                            <td class="wait-cell-high">51</td>
+                            <td class="wait-cell-high">57</td>
+                            <td class="wait-cell-high">62</td>
+                            <td class="wait-cell-high">63</td>
+                            <td class="wait-cell-high">65</td>
+                            <td class="wait-cell-high">60</td>
+                            <td class="wait-cell-high">53</td>
+                            <td class="wait-cell-high">47</td>
+                            <td class="wait-cell-high">50</td>
+                            <td class="wait-cell-med">44</td>
+                            <td class="wait-cell-med">36</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">The Beast</td>
+                            <td class="wait-cell-med">26</td>
+                            <td class="wait-cell-med">28</td>
+                            <td class="wait-cell-med">28</td>
+                            <td class="wait-cell-med">35</td>
+                            <td class="wait-cell-med">37</td>
+                            <td class="wait-cell-med">41</td>
+                            <td class="wait-cell-med">41</td>
+                            <td class="wait-cell-med">36</td>
+                            <td class="wait-cell-med">34</td>
+                            <td class="wait-cell-med">36</td>
+                            <td class="wait-cell-med">44</td>
+                            <td class="wait-cell-high">45</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Orion</td>
+                            <td class="wait-cell-low">19</td>
+                            <td class="wait-cell-low">23</td>
+                            <td class="wait-cell-med">26</td>
+                            <td class="wait-cell-med">28</td>
+                            <td class="wait-cell-med">35</td>
+                            <td class="wait-cell-med">38</td>
+                            <td class="wait-cell-med">35</td>
+                            <td class="wait-cell-med">33</td>
+                            <td class="wait-cell-med">32</td>
+                            <td class="wait-cell-med">36</td>
+                            <td class="wait-cell-med">40</td>
+                            <td class="wait-cell-med">41</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Mystic Timbers</td>
+                            <td class="wait-cell-low">18</td>
+                            <td class="wait-cell-low">23</td>
+                            <td class="wait-cell-med">27</td>
+                            <td class="wait-cell-med">30</td>
+                            <td class="wait-cell-med">35</td>
+                            <td class="wait-cell-med">37</td>
+                            <td class="wait-cell-med">32</td>
+                            <td class="wait-cell-med">32</td>
+                            <td class="wait-cell-med">33</td>
+                            <td class="wait-cell-med">36</td>
+                            <td class="wait-cell-med">36</td>
+                            <td class="wait-cell-med">29</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Diamondback</td>
+                            <td class="wait-cell-low">18</td>
+                            <td class="wait-cell-low">22</td>
+                            <td class="wait-cell-med">28</td>
+                            <td class="wait-cell-med">31</td>
+                            <td class="wait-cell-med">38</td>
+                            <td class="wait-cell-med">39</td>
+                            <td class="wait-cell-med">38</td>
+                            <td class="wait-cell-med">36</td>
+                            <td class="wait-cell-med">35</td>
+                            <td class="wait-cell-med">33</td>
+                            <td class="wait-cell-med">32</td>
+                            <td class="wait-cell-low">24</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Banshee</td>
+                            <td class="wait-cell-low">17</td>
+                            <td class="wait-cell-med">30</td>
+                            <td class="wait-cell-med">32</td>
+                            <td class="wait-cell-med">31</td>
+                            <td class="wait-cell-med">31</td>
+                            <td class="wait-cell-med">27</td>
+                            <td class="wait-cell-med">30</td>
+                            <td class="wait-cell-med">28</td>
+                            <td class="wait-cell-med">29</td>
+                            <td class="wait-cell-med">27</td>
+                            <td class="wait-cell-med">28</td>
+                            <td class="wait-cell-low">22</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <strong>How to read this:</strong> Red cells (45+ min) are danger zones — avoid queuing at those hours.
+                Green cells (under 25 min) are your windows. Notice how Flight of Fear is red from 11 AM–7 PM, while Beast and Orion spike red at 8–9 PM — the exact opposite of what you'd expect.
+            </div>
+        </div>
+
+        <!-- ========== THE BEAST NIGHT RIDE ========== -->
+        <div class="card">
+            <h2><span class="emoji">🌲</span> The Beast Night Ride: Timing the Legend</h2>
+            <p style="margin-bottom: 16px;">
+                The Beast at night is one of the most iconic experiences in all of theme parks — 7,359 feet of wooden track through the pitch-black woods.
+                But everyone knows this, and the data shows it. Unlike every other ride at Kings Island, The Beast gets <strong>worse</strong> as the park closes.
+            </p>
+            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 20px;">
+                <div style="background: #ecfdf5; border-radius: 12px; padding: 16px; text-align: center;">
+                    <span style="font-size: 2rem; font-weight: 800; color: #059669; display: block;">26 min</span>
+                    <span style="font-size: 0.8rem; color: var(--text-light);">10 AM (rope drop)</span>
+                </div>
+                <div style="background: #fffbeb; border-radius: 12px; padding: 16px; text-align: center;">
+                    <span style="font-size: 2rem; font-weight: 800; color: #d97706; display: block;">36 min</span>
+                    <span style="font-size: 0.8rem; color: var(--text-light);">5 PM</span>
+                </div>
+                <div style="background: #fef2f2; border-radius: 12px; padding: 16px; text-align: center;">
+                    <span style="font-size: 2rem; font-weight: 800; color: #dc2626; display: block;">45 min</span>
+                    <span style="font-size: 0.8rem; color: var(--text-light);">9 PM (close)</span>
+                </div>
+            </div>
+            <p style="font-size: 0.9rem; margin-bottom: 12px;">
+                The Beast is one of the only rides in our entire dataset where the closing hour is the longest wait of the day.
+                At 8 PM it's 44 min; at 9 PM it hits 45 min — the daily peak. Everyone is rushing back to Rivertown for one last ride through the woods in the dark.
+            </p>
+            <div class="warning-box">
+                <strong>The play:</strong> Get in line by 7:30–8:00 PM at the latest. The queue builds fast as sunset approaches. If you wait until 9 PM,
+                you'll be in the longest line The Beast sees all day. The night ride is worth it — just time it right.
+            </div>
+        </div>
+
+        <!-- ========== OPTIMAL RIDE ORDER ========== -->
+        <div class="card">
+            <h2><span class="emoji">🗺️</span> Rope Drop Strategy</h2>
+            <p style="margin-bottom: 20px;">Optimized to minimize total wait time across all major attractions, with The Beast night ride built into the plan.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: var(--success);"></div>
+                    <div class="timeline-time" style="color: #059669;">10:00 AM · Park opens</div>
+                    <div class="timeline-content"><strong>Flight of Fear.</strong> 36 min at 10 AM vs 65 min at 3 PM. Indoor LIM launch coaster with low capacity — the worst afternoon waits in the park. Always first.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: var(--success);"></div>
+                    <div class="timeline-time" style="color: #059669;">10:30 AM</div>
+                    <div class="timeline-content"><strong>Orion.</strong> Same area (Area 72), walk right over. 19 min at 10 AM — doubles to 38 min by 3 PM and spikes to 41 min at close.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: var(--success);"></div>
+                    <div class="timeline-time" style="color: #059669;">11:00 AM</div>
+                    <div class="timeline-content"><strong>Banshee.</strong> Head to Action Zone. 30 min at 11 AM, stays steady all day. Better to knock it out now while you're in the area.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">Midday</div>
+                    <div class="timeline-content"><strong>Mystic Timbers, Diamondback, Racer, Adventure Express.</strong> All manageable midday. Mix in flat rides like Delirium (17 min avg) and Adventure Express (16 min avg) — both are near walk-ons.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: #3b82f6;"></div>
+                    <div class="timeline-time" style="color: #3b82f6;">12:00 – 3:00 PM · Soak City</div>
+                    <div class="timeline-content"><strong>Soak City water park.</strong> Included with admission. Coaster waits peak 12–3 PM. Escape to the water park and come back when crowds thin.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: var(--primary);"></div>
+                    <div class="timeline-time">7:30 PM</div>
+                    <div class="timeline-content"><strong>Get in line for The Beast.</strong> Night ride demand builds fast — 44 min at 8 PM, 45 min at 9 PM. Line up by 7:30 to beat the closing rush.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="border-color: var(--primary);"></div>
+                    <div class="timeline-time">After Beast</div>
+                    <div class="timeline-content"><strong>Diamondback or Banshee.</strong> Both drop 21-33% in the evening as crowds rush to Beast and Orion. Perfect closers while everyone else is in Rivertown and Area 72.</div>
+                </div>
+            </div>
+            <div class="insight-box">
+                <strong>The key insight:</strong> Flight of Fear first, Beast last, water park in the middle. This simple structure saves 60+ minutes of waiting across a full day compared to winging it.
+            </div>
+        </div>
+
+        <!-- ========== RIDE HIERARCHY ========== -->
+        <div class="card">
+            <h2><span class="emoji">🏆</span> The Ride Hierarchy</h2>
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">Based on 45,275 samples across 658 park days. This tells you which rides need planning and which don't.</p>
+
+            <div class="ride-tier tier-1">
+                <div class="tier-header">
+                    <span class="tier-badge">Tier 1 — Plan Around These</span>
+                </div>
+                <div class="ride-list">
+                    <div class="ride-item">
+                        <div class="ride-name">Flight of Fear</div>
+                        <span class="ride-wait wait-high">52 min avg</span>
+                        <span class="ride-tip">Indoor LIM launch, low capacity. Rope drop only.</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">The Beast</div>
+                        <span class="ride-wait wait-med">36 min avg</span>
+                        <span class="ride-tip">World's longest wooden. Night ride spikes to 45 min.</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Orion</div>
+                        <span class="ride-wait wait-med">32 min avg</span>
+                        <span class="ride-tip">Giga coaster. Best at 10 AM (19 min), worst at close.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ride-tier tier-2">
+                <div class="tier-header">
+                    <span class="tier-badge">Tier 2 — Time It Right</span>
+                </div>
+                <div class="ride-list">
+                    <div class="ride-item">
+                        <div class="ride-name">Mystic Timbers</div>
+                        <span class="ride-wait wait-med">31 min avg</span>
+                        <span class="ride-tip">GCI wooden. Best morning or late evening.</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Diamondback</div>
+                        <span class="ride-wait wait-med">31 min avg</span>
+                        <span class="ride-tip">B&M hyper. Great evening ride (24 min at 9 PM).</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Banshee</div>
+                        <span class="ride-wait wait-med">28 min avg</span>
+                        <span class="ride-tip">World's longest inverted. Drops to 22 min at 9 PM.</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Queen City Stunt Coaster</div>
+                        <span class="ride-wait wait-med">25 min avg</span>
+                        <span class="ride-tip">Themed launch coaster. Moderate all day.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ride-tier tier-3">
+                <div class="tier-header">
+                    <span class="tier-badge">Tier 3 — Walk-Ons</span>
+                </div>
+                <div class="ride-list">
+                    <div class="ride-item">
+                        <div class="ride-name">Delirium</div>
+                        <span class="ride-wait wait-low">17 min avg</span>
+                        <span class="ride-tip">Giant frisbee. Always short.</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Adventure Express</div>
+                        <span class="ride-wait wait-low">16 min avg</span>
+                        <span class="ride-tip">Mine train coaster. Near walk-on all day.</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-name">Racer Blue</div>
+                        <span class="ride-wait wait-low">14 min avg</span>
+                        <span class="ride-tip">Classic wooden racing coaster. Practically walk-on.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== FULL RIDE RANKINGS ========== -->
+        <div class="card">
+            <h2><span class="emoji">📈</span> All Rides Ranked by Average Wait</h2>
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px;">Every tracked ride at Kings Island, sorted by average operating wait time. Sample counts show data depth.</p>
+            <div style="overflow-x: auto;">
+                <table class="hourly-table">
+                    <thead>
+                        <tr>
+                            <th class="ride-col">Ride</th>
+                            <th>Avg Wait</th>
+                            <th>Samples</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ride-col">Flight of Fear</td>
+                            <td class="wait-cell-high">52 min</td>
+                            <td>3,486</td>
+                            <td style="text-align: left; font-size: 0.75rem;">Indoor LIM launch, low capacity</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">The Beast</td>
+                            <td class="wait-cell-med">36 min</td>
+                            <td>3,972</td>
+                            <td style="text-align: left; font-size: 0.75rem;">World's longest wooden coaster</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Orion</td>
+                            <td class="wait-cell-med">32 min</td>
+                            <td>3,587</td>
+                            <td style="text-align: left; font-size: 0.75rem;">B&M giga coaster</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Mystic Timbers</td>
+                            <td class="wait-cell-med">31 min</td>
+                            <td>4,415</td>
+                            <td style="text-align: left; font-size: 0.75rem;">GCI wooden coaster</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Diamondback</td>
+                            <td class="wait-cell-med">31 min</td>
+                            <td>2,844</td>
+                            <td style="text-align: left; font-size: 0.75rem;">B&M hyper coaster</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Banshee</td>
+                            <td class="wait-cell-med">28 min</td>
+                            <td>2,597</td>
+                            <td style="text-align: left; font-size: 0.75rem;">World's longest inverted coaster</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Queen City Stunt Coaster</td>
+                            <td class="wait-cell-med">25 min</td>
+                            <td>3,223</td>
+                            <td style="text-align: left; font-size: 0.75rem;">Themed launch coaster</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">White Water Canyon</td>
+                            <td class="wait-cell-low">23 min</td>
+                            <td>964</td>
+                            <td style="text-align: left; font-size: 0.75rem;">River rapids ride</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Kings Mills Antique Autos</td>
+                            <td class="wait-cell-low">22 min</td>
+                            <td>2,455</td>
+                            <td style="text-align: left; font-size: 0.75rem;">Classic car ride</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Invertigo</td>
+                            <td class="wait-cell-low">21 min</td>
+                            <td>1,878</td>
+                            <td style="text-align: left; font-size: 0.75rem;">Inverted boomerang</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Drop Tower</td>
+                            <td class="wait-cell-low">20 min</td>
+                            <td>1,562</td>
+                            <td style="text-align: left; font-size: 0.75rem;">315-foot drop tower</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">The Bat</td>
+                            <td class="wait-cell-low">19 min</td>
+                            <td>2,166</td>
+                            <td style="text-align: left; font-size: 0.75rem;">Suspended coaster</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Delirium</td>
+                            <td class="wait-cell-low">17 min</td>
+                            <td>2,578</td>
+                            <td style="text-align: left; font-size: 0.75rem;">Giant frisbee</td>
+                        </tr>
+                        <tr>
+                            <td class="ride-col">Adventure Express</td>
+                            <td class="wait-cell-low">16 min</td>
+                            <td>2,153</td>
+                            <td style="text-align: left; font-size: 0.75rem;">Mine train coaster</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== APP CTA ========== -->
+        <div class="footer">
+            <div class="footer-logo">Ride Ready</div>
+            <p style="margin-bottom: 20px; color: rgba(255,255,255,0.8);">You've got the strategy. Now get the live intel.</p>
+            <a href="https://apps.apple.com/app/ride-ready-theme-park-planner/id6748330847?ct=strategy-ki-footer"
+                class="footer-cta" data-ref="strategy-ki-footer">Download Ride Ready — Free</a>
+            <p style="font-size: 0.8rem; margin-top: 20px;">
+                Data from 45,275 wait time samples across 658 park days (Jun 2022 – Apr 2026).
+            </p>
+            <p style="font-size: 0.8rem; margin-top: 8px;">
+                <a href="/" style="color: rgba(255,255,255,0.6);">Ride Ready</a> ·
+                <a href="/parks/kings-island/" style="color: rgba(255,255,255,0.6);">Kings Island</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
