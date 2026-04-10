@@ -1234,6 +1234,9 @@
       const mini = document.createElement("div");
       mini.className = "mini";
       let miniHtml = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>`;
+      if (record.parkHours) {
+        miniHtml += `<div style="font-size:10px;color:rgba(255,255,255,0.7);margin-top:2px;">${record.parkHours}</div>`;
+      }
       if (record.eventTag) {
         miniHtml += `<div class="event-tag">${record.eventTag}</div>`;
       }
@@ -1384,6 +1387,21 @@
         : "Forecast based on day-of-week trends, seasonal patterns, and known events.";
       div.innerHTML = `<div class="k">Crowd Level</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${basisText}</div>`;
       body.appendChild(div);
+
+      // Park hours if available
+      if (record.parkHours) {
+        const hrs = document.createElement("div");
+        hrs.style.marginTop = "10px";
+        hrs.style.padding = "10px 12px";
+        hrs.style.border = "1px solid var(--border)";
+        hrs.style.borderRadius = "12px";
+        hrs.style.background = "rgba(255,255,255,0.03)";
+        hrs.innerHTML = `
+          <div style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); font-weight:700;">Park Hours</div>
+          <div style="font-size:18px; margin-top:4px; font-weight:700;">🕙 ${record.parkHours}</div>
+        `;
+        body.appendChild(hrs);
+      }
 
       // Weather details if available
       if (record.tempHigh != null || record.weatherEmoji) {
