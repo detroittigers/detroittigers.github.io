@@ -9,16 +9,16 @@
   <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
   <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
   <link href="/site.webmanifest" rel="manifest" />
-  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-crowd-calendar-epic">
+  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-crowd-calendar-eu">
   <meta name="theme-color" content="#000000" />
-  <title>Epic Universe Crowd Calendar: Feb–Aug 2026 | Ride Ready</title>
+  <title>Epic Universe Crowd Calendar | Ride Ready</title>
   <meta name="description"
-    content="Crowd calendar for Epic Universe (Feb–Aug 2026): daily crowd level predictions (1–10) based on pricing signals and historical patterns. Tap any day for details." />
+    content="Historical crowd calendar for Epic Universe: daily crowd levels (1-10) based on actual wait time data across 641+ park days from Mar 2025 to Dec 2026. Tap any day for details." />
   <meta name="robots" content="index,follow, max-image-preview:large" />
   <meta property="og:title"
-    content="Epic Universe Crowd Calendar (Feb–Aug 2026) - Daily Crowd Predictions | Ride Ready" />
+    content="Epic Universe Crowd Calendar (Mar 2025–Dec 2026) | Ride Ready" />
   <meta property="og:description"
-    content="Crowd calendar for Epic Universe (Feb–Aug 2026): daily crowd level predictions (1–10) based on pricing signals and historical patterns. Tap any day for details." />
+    content="Historical crowd calendar for Epic Universe: daily crowd levels (1-10) based on actual wait time data across 641+ park days from Mar 2025 to Dec 2026. Tap any day for details." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/epic-universe/crowd-calendar/" />
   <meta property="og:image" content="https://rideready.app/images/og/og-default.png" />
@@ -70,15 +70,15 @@
         "name": "What does crowd level 1-10 mean?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Crowd level 1 means the lightest crowds with walk-on waits for most attractions. Level 10 means the busiest days with 90+ minute waits for popular rides and packed walkways. Levels 1-3 are ideal for visiting, 4-6 are moderate, and 7-10 require strategic planning or Express Pass."
+          "text": "Crowd level 1 means the lightest crowds with walk-on waits for most attractions. Level 10 means the busiest days with 90+ minute waits for popular rides and packed walkways. Levels 1-3 are ideal for visiting, 4-6 are moderate, and 7-10 require strategic planning or Fast Lane."
         }
       },
       {
         "@type": "Question",
-        "name": "How accurate are these crowd predictions?",
+        "name": "How are these crowd levels calculated?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We use Universal's own dynamic pricing as the primary signal - when Universal raises ticket prices, they're predicting higher demand. We blend this with historical patterns and label confidence levels. Days marked 'High confidence' have strong agreement across multiple data sources."
+          "text": "Crowd levels are calculated from actual wait time data collected at Epic Universe. We analyze wait times across all major attractions throughout each operating day and convert them into a 1-10 scale. Higher average waits result in a higher crowd level."
         }
       },
       {
@@ -86,7 +86,7 @@
         "name": "When should I visit Epic Universe to avoid crowds?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Based on Feb-Aug 2026 data, the best days are typically Tuesday-Thursday in early February and late April. Avoid spring break weeks (mid-March through early April) and holiday weekends like Presidents Day and Easter. Check the calendar for specific dates rated 1-3 for lowest crowds."
+          "text": "Based on historical data, the best days are typically weekdays (Tuesday-Thursday) outside of holiday periods and school breaks. Avoid spring break weeks, summer weekends, and holiday weekends for the lowest crowds. Check the calendar for specific dates rated 1-3 for the lightest crowds."
         }
       },
       {
@@ -94,7 +94,7 @@
         "name": "What affects Epic Universe crowd levels?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Main factors include: school calendars (spring break causes level 9-10 days), holidays and long weekends, day of week (weekends busier than weekdays), weather forecasts, and special events. Universal's ticket pricing reflects their internal demand predictions based on these factors."
+          "text": "Main factors include: school calendars (spring break and summer cause the busiest days), holidays and long weekends, day of week (weekends are busier than weekdays), weather, and special events. The crowd levels shown here reflect actual measured wait times on each operating day."
         }
       }
     ]
@@ -448,6 +448,46 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
+    .wx {
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      font-size: 13px;
+      line-height: 1;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .wx .wx-temp {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.80);
+      margin-right: 3px;
+      font-weight: 600;
+    }
+
+    .event-tag {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 999px;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .cell .has-detail::after {
+      content: "→";
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
     .price-row {
       display: flex;
       gap: 10px;
@@ -506,7 +546,8 @@
     .drawer {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.58);
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.85);
       display: none;
       align-items: flex-end;
       justify-content: center;
@@ -641,12 +682,6 @@
         font-weight: 600;
       }
 
-      /* Hide confidence on mobile - show in drawer instead */
-      .conf-meter,
-      .conf-label {
-        display: none;
-      }
-
       .dow div {
         font-size: 10px;
         padding: 10px 2px;
@@ -738,35 +773,6 @@
       margin-top: 10px;
     }
 
-    .conf-meter {
-      display: flex;
-      gap: 3px;
-      margin-top: 6px;
-      opacity: 0.8;
-    }
-
-    .conf-bar {
-      height: 4px;
-      flex: 1;
-      border-radius: 2px;
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .conf-bar.active {
-      background: var(--accent);
-      box-shadow: 0 0 6px rgba(249, 115, 22, 0.4);
-    }
-
-    .conf-label {
-      font-size: 10px;
-      color: var(--muted);
-      margin-top: 4px;
-      text-align: right;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 700;
-    }
-
     /* Focus-visible styles for accessibility */
     a:focus-visible,
     button:focus-visible,
@@ -841,6 +847,17 @@
         transition: none;
       }
     }
+
+    .year-select {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -855,61 +872,54 @@
       </div>
       <div class="nav-links">
         <a href="/parks/">Parks</a>
-        <a href="/universal-orlando/crowd-calendar/">Crowds</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-nav"
-          data-ref="crowd-calendar-nav">Download Free</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-cal-eu-nav"
+          data-ref="crowd-cal-eu-nav">Download Free</a>
       </div>
     </nav>
 
     <div style="margin: 16px 0 0; padding: 0; font-size: 14px;">
       <a href="/parks/" style="color: var(--muted); text-decoration: none; transition: color 0.2s;">Parks</a>
-      <span style="color: var(--muted); margin: 0 8px;">→</span>
+      <span style="color: var(--muted); margin: 0 8px;">&rarr;</span>
       <a href="/parks/epic-universe/" style="color: var(--muted); text-decoration: none; transition: color 0.2s;">Epic Universe</a>
-      <span style="color: var(--muted); margin: 0 8px;">→</span>
+      <span style="color: var(--muted); margin: 0 8px;">&rarr;</span>
       <span style="color: var(--text);">Crowd Calendar</span>
     </div>
 
     <section class="hero">
-      <h1>Epic Universe Crowd Calendar: Feb–Aug 2026</h1>
-      <p class="sub">Daily crowd levels for Epic Universe - using ticket price signals + historical patterns blended with historical
-        crowd
-        patterns. Feb–Apr
-        2026.</p>
+      <h1>Epic Universe Crowd Calendar: Mar 2025 – Dec 2026</h1>
+      <p class="sub">Crowd levels for Epic Universe based on actual wait time data. Past days show measured crowd levels across 641+ operating days; future days show predictions through Dec 2026. Tap any day for details.</p>
 
       <div class="kpi-row">
         <div class="kpi">
-          <div class="label">Methodology</div>
-          <div class="value">Demand-based crowd signals</div>
+          <div class="label">Data Source</div>
+          <div class="value">Actual wait times</div>
         </div>
         <div class="kpi">
           <div class="label">Shown per day</div>
           <div class="value">Crowd Level (1-10)</div>
         </div>
         <div class="kpi">
-          <div class="label">Confidence</div>
-          <div class="value">Signal Strength</div>
+          <div class="label">Coverage</div>
+          <div class="value">641+ park days</div>
         </div>
       </div>
     </section>
 
     <div class="controls">
-
       <div class="control-row">
         <div class="badge">Epic Universe</div>
-
+        <select class="year-select" id="yearSelect" aria-label="Select year"></select>
       </div>
 
-      <div class="tabs">
-        <button class='tab' data-month='2'>Feb</button><button class='tab' data-month='3'>Mar</button><button class='tab' data-month='4'>Apr</button><button class='tab' data-month='5'>May</button><button class='tab' data-month='6'>Jun</button><button class='tab' data-month='7'>Jul</button><button class='tab' data-month='8'>Aug</button>
-      </div>
+      <div class="tabs" id="monthTabs"></div>
     </div>
 
     <div class="legend" aria-label="Legend">
-      <div class="chip"><span class="swatch" style="background: hsl(120, 70%, 30%)"></span><span>Low (1–3)</span></div>
-      <div class="chip"><span class="swatch" style="background: hsl(70, 70%, 30%)"></span><span>Moderate (4–6)</span>
+      <div class="chip"><span class="swatch" style="background: hsl(120, 70%, 30%)"></span><span>Low (1-3)</span></div>
+      <div class="chip"><span class="swatch" style="background: hsl(70, 70%, 30%)"></span><span>Moderate (4-6)</span>
       </div>
-      <div class="chip"><span class="swatch" style="background: hsl(25, 70%, 32%)"></span><span>Busy (7–8)</span></div>
-      <div class="chip"><span class="swatch" style="background: hsl(0, 70%, 32%)"></span><span>Very Busy (9–10)</span>
+      <div class="chip"><span class="swatch" style="background: hsl(25, 70%, 32%)"></span><span>Busy (7-8)</span></div>
+      <div class="chip"><span class="swatch" style="background: hsl(0, 70%, 32%)"></span><span>Very Busy (9-10)</span>
       </div>
     </div>
 
@@ -925,36 +935,31 @@
       </div>
       <div class="grid" id="grid"></div>
     </div>
-    <div class="note" style="text-align: right; margin-top: 8px;">Last updated January 2026</div>
+    <div class="note" id="lastUpdated" style="text-align: right; margin-top: 8px;"></div>
 
 
     <section class="panel">
       <div class="card">
-        <h2>How Ride Ready predicts crowds (in plain English)</h2>
+        <h2>How crowd levels are calculated</h2>
         <p>
-          Most crowd calendars guess based on "it's a holiday" or last year's trends.
-          We do something more reliable: we treat Universal's dynamic pricing as the strongest real‑world crowd signal,
-          then blend it with other indicators.
+          Unlike prediction-based crowd calendars, these levels come from actual wait time data
+          collected at Epic Universe on each operating day.
         </p>
         <ul>
-          <li><strong>Primary signal:</strong> Universal's dynamic pricing trends (higher pricing usually = higher
-            expected demand).</li>
-          <li><strong>Secondary signals:</strong> other indicators based on wait‑time forecasting models.
-          </li>
-          <li><strong>One unified scale:</strong> everything is normalized onto a <strong>1–10 crowd level</strong> so
-            you can compare dates apples‑to‑apples.</li>
-          <li><strong>Confidence:</strong> when sources agree, we label the day higher confidence.</li>
+          <li><strong>Data source:</strong> Real wait times collected throughout each park day across all major attractions.</li>
+          <li><strong>Methodology:</strong> Average wait times are converted into a <strong>1-10 crowd level</strong> scale for easy comparison across dates.</li>
+          <li><strong>Historical coverage:</strong> Data spans from Mar 2025 to Dec 2026, covering 641+ operating days.</li>
+          <li><strong>Use it to plan:</strong> Compare crowd levels by month, day of week, and season to find the best time to visit.</li>
         </ul>
         <p class="note">
-          Disclaimer: Ride Ready is independent and not affiliated with Universal. Prices and operating hours can
-          change;
-          we recommend checking official sources before purchase.
+          Disclaimer: Ride Ready is independent and not affiliated with Cedar Fair Entertainment Company. Operating schedules and policies can
+          change; we recommend checking official sources before your visit.
         </p>
       </div>
 
       <div class="card" style="background: linear-gradient(160deg, rgba(249, 115, 22, 0.08), rgba(255, 65, 108, 0.06)); border-color: rgba(249, 115, 22, 0.3);">
         <h2>Once you're in the park, Ride Ready tells you what to do next</h2>
-        <p>This calendar helps you pick a day. <strong>Ride Ready helps you win the day</strong> — live waits, drop alerts, and "what to ride next" picks so you stop guessing and start moving when it's actually worth it.</p>
+        <p>This calendar helps you pick a day. <strong>Ride Ready helps you win the day.</strong> Live waits, drop alerts, and "what to ride next" picks so you stop guessing and start moving when it's actually worth it.</p>
 
         <div style="display: flex; gap: 20px; margin-top: 24px; align-items: center; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 280px;">
@@ -962,13 +967,13 @@
             <p style="margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5;">Free includes live waits + 3 drop alerts per day. Premium unlocks forecasts and unlimited recommendations.</p>
           </div>
           <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
-            <a class="btn" data-ref="crowd-calendar-epic-mid"
-               href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-epic-mid"
+            <a class="btn" data-ref="crowd-cal-eu-mid"
+               href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-cal-eu-mid"
                target="_blank" rel="noopener noreferrer"
                style="background: var(--primary-gradient); color: white; border: none; padding: 14px 32px; font-size: 16px; font-weight: 700;">Download Free</a>
             <a aria-label="Download Ride Ready on the App Store"
-               data-ref="crowd-calendar-epic-badge"
-               href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-epic-badge"
+               data-ref="crowd-cal-eu-badge"
+               href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-cal-eu-badge"
                target="_blank" rel="noopener noreferrer">
               <img alt="Download on the App Store" src="/images/app-store-badge.svg" style="height: 50px;" />
             </a>
@@ -977,44 +982,10 @@
       </div>
     </section>
 
-
-    <section class="two-col">
-      <div class="card">
-        <h2>Best days to visit</h2>
-        <ol class="day-list">
-          <li><strong>Tue, Apr 28</strong> - Crowd <strong>1/10</strong> <span class='pill pill-high'>High confidence</span></li>
-          <li><strong>Wed, Apr 29</strong> - Crowd <strong>1/10</strong> <span class='pill pill-high'>High confidence</span></li>
-          <li><strong>Thu, Apr 30</strong> - Crowd <strong>1/10</strong> <span class='pill pill-high'>High confidence</span></li>
-          <li><strong>Fri, Apr 24</strong> - Crowd <strong>1/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Mon, Apr 27</strong> - Crowd <strong>1/10</strong> <span class='pill pill-high'>High confidence</span></li>
-          <li><strong>Wed, Apr 22</strong> - Crowd <strong>2/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Thu, Apr 23</strong> - Crowd <strong>2/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Tue, Feb 3</strong> - Crowd <strong>2/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Wed, Feb 4</strong> - Crowd <strong>2/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Thu, Feb 5</strong> - Crowd <strong>2/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-        </ol>
-      </div>
-      <div class="card">
-        <h2>Days to avoid</h2>
-        <ol class="day-list">
-          <li><strong>Sat, Feb 14</strong> - Crowd <strong>10/10</strong> <span class='pill pill-high'>High confidence</span></li>
-          <li><strong>Sun, Feb 15</strong> - Crowd <strong>10/10</strong> <span class='pill pill-high'>High confidence</span></li>
-          <li><strong>Sat, Apr 4</strong> - Crowd <strong>10/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Mon, Feb 16</strong> - Crowd <strong>10/10</strong> <span class='pill pill-high'>High confidence</span></li>
-          <li><strong>Tue, Feb 17</strong> - Crowd <strong>10/10</strong> <span class='pill pill-high'>High confidence</span></li>
-          <li><strong>Sun, Apr 5</strong> - Crowd <strong>9/10</strong> <span class='pill pill-low'>Low confidence</span></li>
-          <li><strong>Fri, Apr 3</strong> - Crowd <strong>9/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Thu, Apr 2</strong> - Crowd <strong>9/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Mon, Apr 6</strong> - Crowd <strong>9/10</strong> <span class='pill pill-medium'>Medium confidence</span></li>
-          <li><strong>Tue, Mar 31</strong> - Crowd <strong>9/10</strong> <span class='pill pill-high'>High confidence</span></li>
-        </ol>
-      </div>
-    </section>
-
     <p style="color: var(--muted); margin-top: 50px; text-align: center;">Pick your day here. Win the day in the app.</p>
     <div style="margin: 20px 0 10px; text-align: center;">
-      <a data-ref="crowd-calendar-epic-footer"
-        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-epic-footer"
+      <a data-ref="crowd-cal-eu-footer"
+        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-cal-eu-footer"
         rel="noopener noreferrer" target="_blank" aria-label="Download Ride Ready on the App Store">
         <img src="/images/app-store-badge.svg" alt="Download on the App Store" style="height: 54px;">
       </a>
@@ -1024,16 +995,10 @@
       <h2 style="font-size: 18px; margin: 0 0 16px; color: var(--text);">Plan Your Epic Universe Visit</h2>
       <div style="display: grid; gap: 12px;">
         <a href="/parks/epic-universe/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
-          <span style="opacity: 0.6;">→</span> Epic Universe Park Guide
+          <span style="opacity: 0.6;">&rarr;</span> Epic Universe Park Guide
         </a>
-        <a href="/parks/epic-universe/strategy/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
-          <span style="opacity: 0.6;">→</span> Epic Universe Strategy Guide
-        </a>
-        <a href="/universal-orlando/epic-universe/ministry-queue-times/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
-          <span style="opacity: 0.6;">→</span> Battle at the Ministry Queue Guide
-        </a>
-        <a href="/universal-orlando/epic-universe/mario-kart-queue-times/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
-          <span style="opacity: 0.6;">→</span> Mario Kart Queue Guide
+        <a href="/parks/" style="color: var(--accent); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;">
+          <span style="opacity: 0.6;">&rarr;</span> All Parks
         </a>
       </div>
     </section>
@@ -1043,19 +1008,19 @@
       <div style="display: grid; gap: 20px;">
         <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
           <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">What does crowd level 1-10 mean?</h3>
-          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Crowd level 1 means the lightest crowds with walk-on waits for most attractions. Level 10 means the busiest days with 90+ minute waits for popular rides and packed walkways. Levels 1-3 are ideal for visiting, 4-6 are moderate, and 7-10 require strategic planning or Express Pass.</p>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Crowd level 1 means the lightest crowds with walk-on waits for most attractions. Level 10 means the busiest days with 90+ minute waits for popular rides and packed walkways. Levels 1-3 are ideal for visiting, 4-6 are moderate, and 7-10 require strategic planning or Fast Lane.</p>
         </div>
         <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
-          <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">How accurate are these crowd predictions?</h3>
-          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">We use Universal's own dynamic pricing as the primary signal - when Universal raises ticket prices, they're predicting higher demand. We blend this with historical patterns and label confidence levels. Days marked 'High confidence' have strong agreement across multiple data sources.</p>
+          <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">How are these crowd levels calculated?</h3>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Crowd levels are calculated from actual wait time data collected at Epic Universe. We analyze wait times across all major attractions throughout each operating day and convert them into a 1-10 scale. Higher average waits result in a higher crowd level.</p>
         </div>
         <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
           <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">When should I visit Epic Universe to avoid crowds?</h3>
-          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Based on Feb-Aug 2026 data, the best days are typically Tuesday-Thursday in early February and late April. Avoid spring break weeks (mid-March through early April) and holiday weekends like Presidents Day and Easter. Check the calendar for specific dates rated 1-3 for lowest crowds.</p>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">The patterns are clear: weekdays in September or mid-January are the lightest. Avoid spring break weeks, summer weekends, and holiday weekends. Check the calendar for specific dates rated 1-3 for the lightest crowds.</p>
         </div>
         <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
           <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">What affects Epic Universe crowd levels?</h3>
-          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Main factors include: school calendars (spring break causes level 9-10 days), holidays and long weekends, day of week (weekends busier than weekdays), weather forecasts, and special events. Universal's ticket pricing reflects their internal demand predictions based on these factors.</p>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Main factors include: school calendars (spring break and summer cause the busiest days), holidays and long weekends, day of week (weekends are busier than weekdays), weather, and special events. The crowd levels shown here reflect actual measured wait times on each operating day.</p>
         </div>
       </div>
     </section>
@@ -1099,9 +1064,9 @@
         the property of their respective owners. Information is provided for informational purposes only and is subject
         to change without notice.</p>
       <p style="color:#888;">For support or questions, contact us at <a href="mailto:support@rideready.app"
-          style="color:#aaa;">support@rideready.app</a> · <a href="/privacy/" style="color:#aaa;">Privacy</a> · <a
+          style="color:#aaa;">support@rideready.app</a> &middot; <a href="/privacy/" style="color:#aaa;">Privacy</a> &middot; <a
           href="/terms/" style="color:#aaa;">Terms</a></p>
-      <p style="color:#888;">© 2026 Ride Ready. All rights reserved.</p>
+      <p style="color:#888;">&copy; 2026 Ride Ready. All rights reserved.</p>
     </footer>
   </div>
 
@@ -1119,33 +1084,18 @@
   </div>
 
   <script>
-    const CROWD_DATA = [{"date": "2026-02-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 1, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 2, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 3, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 4, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 5, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 6, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 7, "weekdaySun0": 6, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 8, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 9, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 10, "weekdaySun0": 2, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 11, "weekdaySun0": 3, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 12, "weekdaySun0": 4, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 13, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High"}, {"date": "2026-02-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 14, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-02-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 15, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-02-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 16, "weekdaySun0": 1, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-02-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 17, "weekdaySun0": 2, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-02-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 18, "weekdaySun0": 3, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-02-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 19, "weekdaySun0": 4, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "High"}, {"date": "2026-02-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 20, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High"}, {"date": "2026-02-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 21, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "High"}, {"date": "2026-02-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 22, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-02-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 23, "weekdaySun0": 1, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 24, "weekdaySun0": 2, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 25, "weekdaySun0": 3, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 26, "weekdaySun0": 4, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 27, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-02-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 2, "day": 28, "weekdaySun0": 6, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-03-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 1, "weekdaySun0": 0, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-03-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 2, "weekdaySun0": 1, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-03-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 3, "weekdaySun0": 2, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-03-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 4, "weekdaySun0": 3, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-03-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 5, "weekdaySun0": 4, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-03-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 6, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "High"}, {"date": "2026-03-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 7, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "High"}, {"date": "2026-03-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 8, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 9, "weekdaySun0": 1, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 10, "weekdaySun0": 2, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 11, "weekdaySun0": 3, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 12, "weekdaySun0": 4, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 13, "weekdaySun0": 5, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 14, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 15, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 16, "weekdaySun0": 1, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 17, "weekdaySun0": 2, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 18, "weekdaySun0": 3, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 19, "weekdaySun0": 4, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 20, "weekdaySun0": 5, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 21, "weekdaySun0": 6, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 22, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 23, "weekdaySun0": 1, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "High"}, {"date": "2026-03-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 24, "weekdaySun0": 2, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-03-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 25, "weekdaySun0": 3, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-03-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 26, "weekdaySun0": 4, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-03-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 27, "weekdaySun0": 5, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-03-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 28, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-03-29", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 29, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-03-30", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 30, "weekdaySun0": 1, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-03-31", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 3, "day": 31, "weekdaySun0": 2, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 1, "weekdaySun0": 3, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 2, "weekdaySun0": 4, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 3, "weekdaySun0": 5, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 4, "weekdaySun0": 6, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 5, "weekdaySun0": 0, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 6, "weekdaySun0": 1, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 7, "weekdaySun0": 2, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 8, "weekdaySun0": 3, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 9, "weekdaySun0": 4, "crowdLevel": 10, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 10, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 11, "weekdaySun0": 6, "crowdLevel": 9, "crowdLabel": "Very Busy", "confidence": "Medium"}, {"date": "2026-04-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 12, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 13, "weekdaySun0": 1, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 14, "weekdaySun0": 2, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 15, "weekdaySun0": 3, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 16, "weekdaySun0": 4, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 17, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 18, "weekdaySun0": 6, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 19, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 20, "weekdaySun0": 1, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 21, "weekdaySun0": 2, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 22, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-04-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 23, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-04-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 24, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-04-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 25, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 26, "weekdaySun0": 0, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-04-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 27, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-04-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 28, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-04-29", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 29, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-04-30", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 4, "day": 30, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-05-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 1, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-05-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 2, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-05-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 3, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-05-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 4, "weekdaySun0": 1, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Medium"}, {"date": "2026-05-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 5, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-05-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 6, "weekdaySun0": 3, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-05-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 7, "weekdaySun0": 4, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-05-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 8, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Medium"}, {"date": "2026-05-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 9, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 10, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 11, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 12, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 13, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 14, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 15, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 16, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 17, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 18, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 19, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 20, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-05-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 21, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 22, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 23, "weekdaySun0": 6, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 24, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 25, "weekdaySun0": 1, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 26, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 27, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 28, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-29", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 29, "weekdaySun0": 5, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-30", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 30, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-05-31", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 5, "day": 31, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 1, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 2, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-06-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 3, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-06-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 4, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 5, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 6, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 7, "weekdaySun0": 0, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 8, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 9, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 10, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 11, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-06-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 12, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-06-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 13, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-06-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 14, "weekdaySun0": 0, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 15, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 16, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 17, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 18, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 19, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 20, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 21, "weekdaySun0": 0, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 22, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 23, "weekdaySun0": 2, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 24, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 25, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 26, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 27, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 28, "weekdaySun0": 0, "crowdLevel": 8, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-29", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 29, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-06-30", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 6, "day": 30, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 1, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 2, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 3, "weekdaySun0": 5, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 4, "weekdaySun0": 6, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 5, "weekdaySun0": 0, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 6, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 7, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 8, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 9, "weekdaySun0": 4, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 10, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 11, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 12, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 13, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 14, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 15, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 16, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 17, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 18, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 19, "weekdaySun0": 0, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 20, "weekdaySun0": 1, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 21, "weekdaySun0": 2, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 22, "weekdaySun0": 3, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 23, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 24, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 25, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 26, "weekdaySun0": 0, "crowdLevel": 7, "crowdLabel": "Busy", "confidence": "Low"}, {"date": "2026-07-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 27, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 28, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-29", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 29, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-30", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 30, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-07-31", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 7, "day": 31, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-01", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 1, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-02", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 2, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-03", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 3, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-04", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 4, "weekdaySun0": 2, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-05", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 5, "weekdaySun0": 3, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-06", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 6, "weekdaySun0": 4, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-07", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 7, "weekdaySun0": 5, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-08", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 8, "weekdaySun0": 6, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-09", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 9, "weekdaySun0": 0, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-10", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 10, "weekdaySun0": 1, "crowdLevel": 6, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-11", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 11, "weekdaySun0": 2, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-12", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 12, "weekdaySun0": 3, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-13", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 13, "weekdaySun0": 4, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-14", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 14, "weekdaySun0": 5, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-15", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 15, "weekdaySun0": 6, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-16", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 16, "weekdaySun0": 0, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-17", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 17, "weekdaySun0": 1, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-18", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 18, "weekdaySun0": 2, "crowdLevel": 5, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-19", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 19, "weekdaySun0": 3, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-20", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 20, "weekdaySun0": 4, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-21", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 21, "weekdaySun0": 5, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-22", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 22, "weekdaySun0": 6, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-23", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 23, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-24", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 24, "weekdaySun0": 1, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-25", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 25, "weekdaySun0": 2, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Low"}, {"date": "2026-08-26", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 26, "weekdaySun0": 3, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Low"}, {"date": "2026-08-27", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 27, "weekdaySun0": 4, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Low"}, {"date": "2026-08-28", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 28, "weekdaySun0": 5, "crowdLevel": 3, "crowdLabel": "Low", "confidence": "Low"}, {"date": "2026-08-29", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 29, "weekdaySun0": 6, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-30", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 30, "weekdaySun0": 0, "crowdLevel": 4, "crowdLabel": "Moderate", "confidence": "Low"}, {"date": "2026-08-31", "park": "Epic Universe", "parkSlug": "epic-universe", "month": 8, "day": 31, "weekdaySun0": 1, "crowdLevel": 2, "crowdLabel": "Low", "confidence": "Low"}];
+    const PARK_NAME = "Epic Universe";
+    const PARK_SLUG = "epic-universe";
 
     const state = {
-      parkSlug: "epic-universe",
-      month: Math.max(2, Math.min(8, new Date().getMonth() + 1))
+      year: 2025,
+      month: 7
     };
 
-    /* --- Actuals overlay --- */
-    const ACTUALS = {};
-    const TODAY = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; })();
-
-    (async function loadActuals() {
-      try {
-        const resp = await fetch(`/parks/epic-universe/crowd-calendar/actuals.json`);
-        if (!resp.ok) return;
-        const data = await resp.json();
-        for (const entry of data) {
-          if (entry.crowdLevel != null) {
-            ACTUALS[`epic-universe:${entry.date}`] = entry;
-          }
-        }
-        render(true);
-      } catch (e) { /* fail silently */ }
-    })();
+    /* --- Load actuals data --- */
+    let ACTUALS = [];
 
     function levelToHsl(level) {
-      // 1 => green-ish, 10 => red-ish
       const t = (level - 1) / 9;
       const hue = 120 * (1 - t);
       return `hsl(${hue.toFixed(0)}, 70%, 28%)`;
@@ -1156,13 +1106,15 @@
       if (!isMobile) return label;
       const shortLabels = {
         'Moderate': 'Med',
-        'Very Busy': 'V.Busy'
+        'Very Busy': 'V.Busy',
+        'Below Average': 'Below Avg',
+        'Above Average': 'Above Avg',
+        'Ghost Town': 'Ghost'
       };
       return shortLabels[label] || label;
     }
 
     function weekdayOfFirst(year, month) {
-      // returns 0..6 where 0 is Sunday
       const d = new Date(year, month - 1, 1);
       return d.getDay();
     }
@@ -1171,96 +1123,166 @@
       return new Date(year, month, 0).getDate();
     }
 
-    function getDayRecord(parkSlug, dateStr) {
-      return CROWD_DATA.find(r => r.parkSlug === parkSlug && r.date === dateStr);
+    function getActualForDate(dateStr) {
+      return ACTUALS.find(r => r.date === dateStr);
+    }
+
+    function isPastDate(dateStr) {
+      // ET-safe comparison: both dates as YYYY-MM-DD in local park tz (site-wide ET)
+      const todayEt = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      return dateStr < todayEt;
     }
 
     function buildCell(record) {
-      const actual = ACTUALS[`${record.parkSlug}:${record.date}`];
-      const isPast = record.date < TODAY;
-      const useActual = isPast && actual;
-      const displayLevel = useActual ? actual.crowdLevel : record.crowdLevel;
-      const displayLabel = useActual ? actual.crowdLabel : record.crowdLabel;
-      const bg = levelToHsl(displayLevel);
+      const bg = levelToHsl(record.crowdLevel);
 
       const cell = document.createElement("div");
       cell.className = "cell";
       cell.style.background = bg;
 
-      if (useActual) {
-        const link = document.createElement("a");
-        link.href = `/parks/epic-universe/crowd-calendar/${record.date}/`;
-        link.className = "day-btn";
-        link.style.cssText = "text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;";
+      const past = isPastDate(record.date);
+      const hasWeather = record.weatherEmoji || record.tempHigh != null;
 
-        const top = document.createElement("div");
-        top.className = "day-top";
-        const dayNum = document.createElement("div");
-        dayNum.className = "day-num";
-        dayNum.textContent = record.day;
-        const lvl = document.createElement("div");
-        lvl.className = "lvl";
-        lvl.textContent = displayLevel + "/10";
-        top.appendChild(dayNum);
-        top.appendChild(lvl);
-
-        const mini = document.createElement("div");
-        mini.className = "mini";
-        mini.innerHTML = `<div><strong>${getMobileLabel(displayLabel)}</strong></div><div style="font-size:10px;opacity:0.9;margin-top:2px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#fff;margin-right:3px;vertical-align:middle;"></span>Actual</div>`;
-
-        link.appendChild(top);
-        link.appendChild(mini);
-        cell.appendChild(link);
+      // For past days we navigate to the per-date report page for richer detail
+      // (ride wait times, hourly breakdown, weather). For future/today days we
+      // keep the in-page drawer since there's no report page yet.
+      let clickable;
+      if (past) {
+        clickable = document.createElement("a");
+        clickable.className = "day-btn has-detail";
+        clickable.href = `/parks/${PARK_SLUG}/crowd-calendar/${record.date}/`;
+        clickable.style.textDecoration = "none";
+        clickable.style.color = "inherit";
+        clickable.setAttribute("aria-label",
+          `${record.date} — crowd level ${record.crowdLevel}/10. View full report.`);
+        clickable.addEventListener("click", () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'crowd_calendar_open_report', {
+              date: record.date,
+              crowdLevel: record.crowdLevel,
+              park: PARK_SLUG,
+            });
+          }
+        });
       } else {
-        const btn = document.createElement("button");
-        btn.className = "day-btn";
-        btn.type = "button";
-        btn.addEventListener("click", () => openDrawer(record, btn));
-
-        const top = document.createElement("div");
-        top.className = "day-top";
-        const dayNum = document.createElement("div");
-        dayNum.className = "day-num";
-        dayNum.textContent = record.day;
-        const lvl = document.createElement("div");
-        lvl.className = "lvl";
-        lvl.textContent = displayLevel + "/10";
-        top.appendChild(dayNum);
-        top.appendChild(lvl);
-
-        const mini = document.createElement("div");
-        mini.className = "mini";
-        const confidenceLevel = record.confidence.toLowerCase();
-        let bars = 1;
-        if (confidenceLevel === "medium") bars = 2;
-        if (confidenceLevel === "high") bars = 3;
-        let meterHtml = '<div class="conf-meter">';
-        for (let i = 1; i <= 3; i++) {
-          meterHtml += `<div class="conf-bar ${i <= bars ? 'active' : ''}"></div>`;
-        }
-        meterHtml += '</div>';
-        meterHtml += `<div class="conf-label">${record.confidence} Confidence</div>`;
-        mini.innerHTML = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>${meterHtml}`;
-
-        btn.appendChild(top);
-        btn.appendChild(mini);
-        cell.appendChild(btn);
+        clickable = document.createElement("button");
+        clickable.className = "day-btn";
+        clickable.type = "button";
+        clickable.addEventListener("click", () => openDrawer(record, clickable));
       }
+
+      const day = parseInt(record.date.split('-')[2], 10);
+
+      const top = document.createElement("div");
+      top.className = "day-top";
+      const dayNum = document.createElement("div");
+      dayNum.className = "day-num";
+      dayNum.textContent = day;
+      const lvl = document.createElement("div");
+      lvl.className = "lvl";
+      lvl.textContent = record.crowdLevel + "/10";
+      top.appendChild(dayNum);
+      top.appendChild(lvl);
+
+      const mini = document.createElement("div");
+      mini.className = "mini";
+      let miniHtml = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>`;
+      if (record.eventTag) {
+        miniHtml += `<div class="event-tag">${record.eventTag}</div>`;
+      }
+      mini.innerHTML = miniHtml;
+
+      clickable.appendChild(top);
+      clickable.appendChild(mini);
+      cell.appendChild(clickable);
+
+      // Weather indicator (past days only, when weather data is attached)
+      if (past && hasWeather) {
+        const wx = document.createElement("div");
+        wx.className = "wx";
+        let wxContent = "";
+        if (record.tempHigh != null) {
+          wxContent += `<span class="wx-temp">${record.tempHigh}°</span>`;
+        }
+        if (record.weatherEmoji) {
+          wxContent += record.weatherEmoji;
+        }
+        wx.innerHTML = wxContent;
+        cell.appendChild(wx);
+      }
+
       return cell;
     }
 
-    function render(skipDrawerClose) {
-      if (!skipDrawerClose) {
-        const drawer = document.getElementById("drawer");
-        if (drawer && drawer.classList.contains("open")) {
-          closeDrawer();
+    function getAvailableYears() {
+      const years = new Set();
+      for (const entry of ACTUALS) {
+        years.add(parseInt(entry.date.substring(0, 4), 10));
+      }
+      return Array.from(years).sort();
+    }
+
+    function getAvailableMonths(year) {
+      const months = new Set();
+      const prefix = String(year);
+      for (const entry of ACTUALS) {
+        if (entry.date.startsWith(prefix)) {
+          months.add(parseInt(entry.date.substring(5, 7), 10));
         }
       }
+      return Array.from(months).sort((a, b) => a - b);
+    }
+
+    function buildYearSelect() {
+      const sel = document.getElementById("yearSelect");
+      sel.innerHTML = "";
+      const years = getAvailableYears();
+      for (const y of years) {
+        const opt = document.createElement("option");
+        opt.value = y;
+        opt.textContent = y;
+        if (y === state.year) opt.selected = true;
+        sel.appendChild(opt);
+      }
+    }
+
+    function buildMonthTabs() {
+      const container = document.getElementById("monthTabs");
+      container.innerHTML = "";
+      const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const months = getAvailableMonths(state.year);
+      for (const m of months) {
+        const btn = document.createElement("button");
+        btn.className = "tab" + (m === state.month ? " active" : "");
+        btn.dataset.month = m;
+        btn.textContent = monthNames[m - 1];
+        btn.addEventListener("click", () => {
+          state.month = m;
+          if (typeof gtag === 'function') {
+            gtag('event', 'crowd_calendar_change_month', {
+              month: monthNames[m - 1].toLowerCase(),
+              year: state.year,
+              park: PARK_SLUG
+            });
+          }
+          render();
+        });
+        container.appendChild(btn);
+      }
+    }
+
+    function render() {
+      const drawer = document.getElementById("drawer");
+      if (drawer && drawer.classList.contains("open")) {
+        closeDrawer();
+      }
+
+      buildMonthTabs();
 
       const grid = document.getElementById("grid");
       grid.innerHTML = "";
 
-      const year = 2026;
+      const year = state.year;
       const month = state.month;
       const firstDow = weekdayOfFirst(year, month);
       const totalDays = daysInMonth(year, month);
@@ -1274,7 +1296,7 @@
 
       for (let day = 1; day <= totalDays; day++) {
         const dateStr = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-        const rec = getDayRecord(state.parkSlug, dateStr);
+        const rec = getActualForDate(dateStr);
         if (!rec) {
           const empty = document.createElement("div");
           empty.className = "cell empty";
@@ -1300,29 +1322,63 @@
 
       focusReturnTarget = btn;
 
-      const actual = ACTUALS[`${record.parkSlug}:${record.date}`];
-      const isPast = record.date < TODAY;
-      const useActual = isPast && actual;
-      const dispLevel = useActual ? actual.crowdLevel : record.crowdLevel;
-      const dispLabel = useActual ? actual.crowdLabel : record.crowdLabel;
+      const dateObj = new Date(record.date + 'T12:00:00');
+      const dateLabel = dateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 
-      title.textContent = `${record.park} · ${record.date}`;
-      sub.textContent = useActual
-        ? `Actual Crowd ${dispLevel}/10 (${dispLabel})`
-        : `Predicted Crowd ${dispLevel}/10 (${dispLabel}) · ${record.confidence} confidence`;
-
-      let reasoning = "";
-      const c = record.confidence.toLowerCase();
-      if (c === "high") reasoning = "Strong consensus among demand indicators.";
-      else if (c === "medium") reasoning = "Minor variance between demand signals.";
-      else reasoning = "Conflicting signals or limited data available.";
+      title.textContent = `${PARK_NAME} · ${dateLabel}`;
+      sub.textContent = `Crowd Level ${record.crowdLevel}/10 (${record.crowdLabel})`;
 
       body.innerHTML = "";
       const div = document.createElement("div");
       div.className = "metric";
       div.style.width = "100%";
-      div.innerHTML = `<div class="k">Crowd Summary</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${reasoning}</div>`;
+      const basisText = isPastDate(record.date)
+        ? "Based on actual wait time data collected on this day."
+        : "Forecast based on day-of-week trends, seasonal patterns, and known events.";
+      div.innerHTML = `<div class="k">Crowd Level</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${basisText}</div>`;
       body.appendChild(div);
+
+      // Weather details if available
+      if (record.tempHigh != null || record.weatherEmoji) {
+        const wx = document.createElement("div");
+        wx.style.marginTop = "12px";
+        wx.style.padding = "12px";
+        wx.style.border = "1px solid var(--border)";
+        wx.style.borderRadius = "12px";
+        wx.style.background = "rgba(255,255,255,0.03)";
+        const tempText = (record.tempHigh != null && record.tempLow != null)
+          ? `${record.tempHigh}°F / ${record.tempLow}°F`
+          : (record.tempHigh != null ? `${record.tempHigh}°F high` : "");
+        const rainText = record.rainHours
+          ? ` · ${record.rainHours}h of rain`
+          : "";
+        wx.innerHTML = `
+          <div style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); font-weight:700;">Weather</div>
+          <div style="font-size:18px; margin-top:4px; font-weight:700;">${record.weatherEmoji || ""} ${tempText}${rainText}</div>
+        `;
+        body.appendChild(wx);
+      }
+
+      // Event annotation (if any)
+      if (record.eventTag || record.eventName) {
+        const ev = document.createElement("div");
+        ev.style.marginTop = "10px";
+        ev.style.padding = "10px 12px";
+        ev.style.border = "1px solid rgba(249,115,22,0.35)";
+        ev.style.borderRadius = "12px";
+        ev.style.background = "rgba(249,115,22,0.08)";
+        ev.innerHTML = `<div style="font-size:12px; font-weight:700; color:var(--accent);">EVENT</div>
+          <div style="font-size:14px; margin-top:2px;">${record.eventName || record.eventTag}</div>`;
+        body.appendChild(ev);
+      }
+
+      // "View full report" link for past days
+      if (isPastDate(record.date)) {
+        const link = document.createElement("div");
+        link.style.marginTop = "12px";
+        link.innerHTML = `<a href="/parks/${PARK_SLUG}/crowd-calendar/${record.date}/" style="display:inline-flex; align-items:center; gap:6px; color:var(--accent); text-decoration:none; font-weight:700; font-size:14px;">View full report →</a>`;
+        body.appendChild(link);
+      }
 
       const cta = document.createElement("div");
       cta.style.marginTop = "14px";
@@ -1331,23 +1387,22 @@
       cta.style.borderRadius = "12px";
       cta.style.background = "rgba(255,255,255,0.03)";
 
-      const dateObj = new Date(record.date + 'T12:00:00');
-      const dateLabel = dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+      const shortDateLabel = dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
       const crowdMsg = record.crowdLevel >= 7
-        ? `Crowd level ${record.crowdLevel}/10 means long lines. Get drop alerts so you ride when waits dip — not when everyone else queues.`
+        ? `Crowd level ${record.crowdLevel}/10 means long lines. Get drop alerts so you ride when waits dip.`
         : record.crowdLevel >= 4
         ? `Crowd level ${record.crowdLevel}/10 is manageable with the right timing. Ride Ready tells you exactly when to move.`
-        : `Crowd level ${record.crowdLevel}/10 — great pick! Ride Ready helps you nail the order so you hit everything.`;
+        : `Crowd level ${record.crowdLevel}/10. Great pick. Ride Ready helps you nail the order so you hit everything.`;
 
       cta.innerHTML = `
-        <div style="font-weight:700; margin-bottom:6px;">Going ${dateLabel}?</div>
+        <div style="font-weight:700; margin-bottom:6px;">Planning a visit?</div>
         <div style="color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:10px;">
           ${crowdMsg}
         </div>
-        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-calendar-drawer"
-           data-ref="crowd-calendar-drawer"
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-cal-eu-drawer"
+           data-ref="crowd-cal-eu-drawer"
            style="display:inline-flex; align-items:center; justify-content:center; padding:12px 14px; border-radius:12px; font-weight:700; text-decoration:none; color:white; background: linear-gradient(45deg, #FF416C, #FF4B2B);">
-          Get Drop Alerts for ${dateLabel}
+          Get Drop Alerts in the App
         </a>
       `;
       body.appendChild(cta);
@@ -1356,9 +1411,8 @@
         gtag('event', 'crowd_calendar_open_day', {
           date: record.date,
           crowdLevel: record.crowdLevel,
-          confidence: record.confidence,
-          park: record.park,
-          parkSlug: record.parkSlug
+          park: PARK_NAME,
+          parkSlug: PARK_SLUG
         });
       }
 
@@ -1392,40 +1446,67 @@
       }
     });
 
-    document.querySelectorAll(".tab").forEach(btn => {
-      btn.addEventListener("click", () => {
-        state.month = Number(btn.dataset.month);
-
-        if (typeof gtag === 'function') {
-          const monthNames = { 2: 'february', 3: 'march', 4: 'april', 5: 'may', 6: 'june', 7: 'july', 8: 'august' };
-          gtag('event', 'crowd_calendar_change_month', {
-            month: monthNames[state.month] || state.month
-          });
-        }
-
-        render();
-      });
+    document.getElementById("yearSelect").addEventListener("change", (e) => {
+      state.year = parseInt(e.target.value, 10);
+      const months = getAvailableMonths(state.year);
+      if (!months.includes(state.month)) {
+        state.month = months[months.length - 1] || 1;
+      }
+      if (typeof gtag === 'function') {
+        gtag('event', 'crowd_calendar_change_year', {
+          year: state.year,
+          park: PARK_SLUG
+        });
+      }
+      render();
     });
 
+    /* --- Load data and initialize --- */
+    (async function init() {
+      try {
+        const resp = await fetch(`/parks/epic-universe/crowd-calendar/actuals.json`);
+        if (!resp.ok) return;
+        ACTUALS = await resp.json();
 
-
-    const parkSelect = document.getElementById("parkSelect");
-    if (parkSelect) {
-      parkSelect.addEventListener("change", () => {
-        state.parkSlug = parkSelect.value;
-
-        if (typeof gtag === 'function') {
-          gtag('event', 'crowd_calendar_change_park', {
-            parkSlug: state.parkSlug
-          });
+        // Set last updated text
+        if (ACTUALS.length > 0) {
+          const dates = ACTUALS.map(d => d.date).sort();
+          const lastDate = dates[dates.length - 1];
+          const lastDateObj = new Date(lastDate + 'T12:00:00');
+          document.getElementById("lastUpdated").textContent = `Data through ${lastDateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
         }
 
-        render();
-      });
-    }
+        // Default to the year with the most data (seasonal parks have sparse recent years)
+        if (ACTUALS.length > 0) {
+          const yearCounts = {};
+          for (const entry of ACTUALS) {
+            const y = parseInt(entry.date.substring(0, 4), 10);
+            yearCounts[y] = (yearCounts[y] || 0) + 1;
+          }
+          let bestYear = null;
+          let bestCount = 0;
+          for (const [y, c] of Object.entries(yearCounts)) {
+            if (c > bestCount) { bestCount = c; bestYear = parseInt(y, 10); }
+          }
+          state.year = bestYear;
+          // Default to the middle of the season (July) if available, otherwise first available month
+          const months = [];
+          const prefix = String(bestYear);
+          for (const entry of ACTUALS) {
+            if (entry.date.startsWith(prefix)) {
+              months.push(parseInt(entry.date.substring(5, 7), 10));
+            }
+          }
+          const uniqueMonths = [...new Set(months)].sort((a, b) => a - b);
+          state.month = uniqueMonths.includes(7) ? 7 : uniqueMonths[Math.floor(uniqueMonths.length / 2)];
+        }
 
-    // initial render
-    render();
+        buildYearSelect();
+        render();
+      } catch (e) {
+        console.error('Failed to load crowd data:', e);
+      }
+    })();
   </script>
   <script>
     // App Store click tracking
