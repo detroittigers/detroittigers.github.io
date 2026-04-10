@@ -901,7 +901,7 @@
 
     <section class="hero">
       <h1>Busch Gardens Tampa Crowd Calendar: Jun 2022 – Dec 2026</h1>
-      <p class="sub">Crowd levels for Busch Gardens Tampa based on actual wait time data. Past days show measured crowd levels across 1504+ operating days; future days show predictions through Dec 2026. Tap any day for details.</p>
+      <p class="sub">Crowd levels for Kings Island based on actual wait time data. Past days show measured crowd levels across 697+ operating days; future days show predictions through December 2026. Tap any day for details.</p>
 
       <div class="kpi-row">
         <div class="kpi">
@@ -951,6 +951,17 @@
       <div class="grid" id="grid"></div>
     </div>
     <div class="note" id="lastUpdated" style="text-align: right; margin-top: 8px;"></div>
+
+    <!-- Best upcoming days insight -->
+    <section id="bestDays" class="panel" style="display:none; margin-top: 28px;">
+      <div class="card">
+        <h2 style="margin-top: 0;">Best upcoming days to visit</h2>
+        <p class="note" style="margin-bottom: 16px;">
+          Our 5 least-crowded forecast days in the next 60 operating days. Plan around these for the shortest lines.
+        </p>
+        <div id="bestDaysList" style="display: grid; gap: 8px;"></div>
+      </div>
+    </section>
 
 
     <section class="panel">
@@ -1576,11 +1587,57 @@
         }
 
         buildYearSelect();
+        buildBestDays();
         render();
       } catch (e) {
         console.error('Failed to load crowd data:', e);
       }
     })();
+
+    function buildBestDays() {
+      // Pick the 5 lowest-crowd-level days in the next 60 operating days.
+      const todayEt = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      const future = ACTUALS
+        .filter(r => r.date >= todayEt)
+        .slice(0, 60);
+      if (future.length === 0) return;
+      const sorted = [...future].sort((a, b) =>
+        a.crowdLevel - b.crowdLevel || a.date.localeCompare(b.date)
+      );
+      const top = sorted.slice(0, 5);
+      if (top.length === 0) return;
+
+      const container = document.getElementById("bestDaysList");
+      container.innerHTML = "";
+      for (const r of top) {
+        const dateObj = new Date(r.date + 'T12:00:00');
+        const dow = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
+        const niceDate = dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        const color = levelToHsl(r.crowdLevel);
+        const row = document.createElement("a");
+        row.href = `/parks/${PARK_SLUG}/crowd-calendar/${r.date}/`;
+        row.style.cssText =
+          `display:flex; align-items:center; justify-content:space-between;` +
+          `padding:14px 18px; border:1px solid var(--border); border-radius:14px;` +
+          `background:linear-gradient(90deg, ${color}22 0%, rgba(255,255,255,0.02) 60%);` +
+          `text-decoration:none; color:inherit; transition:transform 0.15s;`;
+        row.innerHTML = `
+          <div>
+            <div style="font-weight:800; font-size:16px;">${dow}, ${niceDate}</div>
+            <div class="note" style="margin-top:2px;">
+              ${r.eventName ? `<span style="color:var(--accent); font-weight:700;">${r.eventName}</span> · ` : ''}
+              ${isPastDate(r.date) ? 'Actual' : 'Forecast'}
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div style="font-weight:900; font-size:22px; font-family:var(--mono);">${r.crowdLevel}/10</div>
+            <div style="background:${color}; color:#fff; padding:6px 14px; border-radius:999px; font-size:12px; font-weight:700; white-space:nowrap;">${r.crowdLabel}</div>
+          </div>
+        `;
+        container.appendChild(row);
+      }
+      document.getElementById("bestDays").style.display = "block";
+    }
   </script>
   <script>
     // App Store click tracking
