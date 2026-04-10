@@ -147,21 +147,127 @@
   </ns0:url>
   <ns0:url>
     <ns0:loc>https://rideready.app/parks/epic-universe/crowd-calendar/</ns0:loc>
-    <ns0:lastmod>2026-01-24</ns0:lastmod>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
     <ns0:changefreq>weekly</ns0:changefreq>
     <ns0:priority>0.85</ns0:priority>
   </ns0:url>
   <ns0:url>
     <ns0:loc>https://rideready.app/parks/islands-of-adventure/crowd-calendar/</ns0:loc>
-    <ns0:lastmod>2026-01-24</ns0:lastmod>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
     <ns0:changefreq>weekly</ns0:changefreq>
     <ns0:priority>0.85</ns0:priority>
   </ns0:url>
   <ns0:url>
     <ns0:loc>https://rideready.app/parks/universal-studios-florida/crowd-calendar/</ns0:loc>
-    <ns0:lastmod>2026-01-24</ns0:lastmod>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
     <ns0:changefreq>weekly</ns0:changefreq>
     <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+
+  <!-- Crowd calendars for all parks (added 2026-04-10) -->
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/cedar-point/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/kings-island/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/canadas-wonderland/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/carowinds/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/busch-gardens-williamsburg/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/busch-gardens-tampa/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/seaworld-orlando/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/six-flags-over-georgia/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/six-flags-great-america/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/six-flags-great-adventure/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/kings-dominion/crowd-calendar/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.85</ns0:priority>
+  </ns0:url>
+
+  <!-- Park landing pages for parks added since initial sitemap -->
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/busch-gardens-williamsburg/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/carowinds/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/six-flags-over-georgia/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/six-flags-great-america/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/six-flags-great-adventure/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://rideready.app/parks/kings-dominion/</ns0:loc>
+    <ns0:lastmod>2026-04-10</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
   </ns0:url>
 
 </ns0:urlset>
