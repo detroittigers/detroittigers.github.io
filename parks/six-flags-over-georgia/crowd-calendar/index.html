@@ -13,12 +13,12 @@
   <meta name="theme-color" content="#000000" />
   <title>Six Flags Over Georgia Crowd Calendar | Ride Ready</title>
   <meta name="description"
-    content="Historical crowd calendar for Six Flags Over Georgia: daily crowd levels (1-10) based on 500+ wait time samples across 500+ park days. Tap any day for details." />
+    content="Historical crowd calendar for Six Flags Over Georgia: daily crowd levels (1-10) based on actual wait time data across 320+ park days from Sep 2022 to Nov 2026. Tap any day for details." />
   <meta name="robots" content="index,follow, max-image-preview:large" />
   <meta property="og:title"
-    content="Six Flags Over Georgia Crowd Calendar (Sep 2022–Feb 2026) | Ride Ready" />
+    content="Six Flags Over Georgia Crowd Calendar (Sep 2022–Nov 2026) | Ride Ready" />
   <meta property="og:description"
-    content="Historical crowd calendar for Six Flags Over Georgia: daily crowd levels (1-10) based on 500+ wait time samples across 500+ park days. Tap any day for details." />
+    content="Historical crowd calendar for Six Flags Over Georgia: daily crowd levels (1-10) based on actual wait time data across 320+ park days from Sep 2022 to Nov 2026. Tap any day for details." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/six-flags-over-georgia/crowd-calendar/" />
   <meta property="og:image" content="https://rideready.app/images/og/og-default.png" />
@@ -448,6 +448,46 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
+    .wx {
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      font-size: 13px;
+      line-height: 1;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .wx .wx-temp {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.80);
+      margin-right: 3px;
+      font-weight: 600;
+    }
+
+    .event-tag {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 999px;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .cell .has-detail::after {
+      content: "→";
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
     .price-row {
       display: flex;
       gap: 10px;
@@ -846,8 +886,8 @@
     </div>
 
     <section class="hero">
-      <h1>Six Flags Over Georgia Crowd Calendar: Sep 2022 – Feb 2026</h1>
-      <p class="sub">Historical crowd levels for Six Flags Over Georgia based on actual wait time data collected across 500+ park days. Tap any day for details.</p>
+      <h1>Six Flags Over Georgia Crowd Calendar: Sep 2022 – Nov 2026</h1>
+      <p class="sub">Crowd levels for Six Flags Over Georgia based on actual wait time data. Past days show measured crowd levels across 320+ operating days; future days show predictions through Nov 2026. Tap any day for details.</p>
 
       <div class="kpi-row">
         <div class="kpi">
@@ -860,7 +900,7 @@
         </div>
         <div class="kpi">
           <div class="label">Coverage</div>
-          <div class="value">500+ park days</div>
+          <div class="value">320+ park days</div>
         </div>
       </div>
     </section>
@@ -908,18 +948,18 @@
         <ul>
           <li><strong>Data source:</strong> Real wait times collected throughout each park day across all major attractions.</li>
           <li><strong>Methodology:</strong> Average wait times are converted into a <strong>1-10 crowd level</strong> scale for easy comparison across dates.</li>
-          <li><strong>Historical coverage:</strong> Data spans from Sep 2022 – Feb 2026, covering 500++ operating days.</li>
+          <li><strong>Historical coverage:</strong> Data spans from Sep 2022 to Nov 2026, covering 320+ operating days.</li>
           <li><strong>Use it to plan:</strong> Compare crowd levels by month, day of week, and season to find the best time to visit.</li>
         </ul>
         <p class="note">
-          Disclaimer: Ride Ready is independent and not affiliated with Six Flags Entertainment Corporation. Operating schedules and policies can
+          Disclaimer: Ride Ready is independent and not affiliated with Cedar Fair Entertainment Company. Operating schedules and policies can
           change; we recommend checking official sources before your visit.
         </p>
       </div>
 
       <div class="card" style="background: linear-gradient(160deg, rgba(249, 115, 22, 0.08), rgba(255, 65, 108, 0.06)); border-color: rgba(249, 115, 22, 0.3);">
         <h2>Once you're in the park, Ride Ready tells you what to do next</h2>
-        <p>This calendar helps you pick a day. <strong>Ride Ready helps you win the day</strong> -- live waits, drop alerts, and "what to ride next" picks so you stop guessing and start moving when it's actually worth it.</p>
+        <p>This calendar helps you pick a day. <strong>Ride Ready helps you win the day.</strong> Live waits, drop alerts, and "what to ride next" picks so you stop guessing and start moving when it's actually worth it.</p>
 
         <div style="display: flex; gap: 20px; margin-top: 24px; align-items: center; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 280px;">
@@ -976,7 +1016,7 @@
         </div>
         <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
           <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">When should I visit Six Flags Over Georgia to avoid crowds?</h3>
-          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">Based on historical data, the best days are typically weekdays (Tuesday-Thursday) outside of holiday periods and school breaks. Avoid spring break weeks, summer weekends, and holiday weekends for the lowest crowds. Check the calendar for specific dates rated 1-3 for the lightest crowds.</p>
+          <p style="font-size: 14px; margin: 0; color: var(--muted); line-height: 1.6;">The patterns are clear: weekdays in May-June or September are the lightest. Avoid spring break weeks, summer weekends, and holiday weekends. Check the calendar for specific dates rated 1-3 for the lightest crowds.</p>
         </div>
         <div style="padding: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px;">
           <h3 style="font-size: 16px; margin: 0 0 10px; color: var(--accent);">What affects Six Flags Over Georgia crowd levels?</h3>
@@ -1087,6 +1127,12 @@
       return ACTUALS.find(r => r.date === dateStr);
     }
 
+    function isPastDate(dateStr) {
+      // ET-safe comparison: both dates as YYYY-MM-DD in local park tz (site-wide ET)
+      const todayEt = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      return dateStr < todayEt;
+    }
+
     function buildCell(record) {
       const bg = levelToHsl(record.crowdLevel);
 
@@ -1094,10 +1140,36 @@
       cell.className = "cell";
       cell.style.background = bg;
 
-      const btn = document.createElement("button");
-      btn.className = "day-btn";
-      btn.type = "button";
-      btn.addEventListener("click", () => openDrawer(record, btn));
+      const past = isPastDate(record.date);
+      const hasWeather = record.weatherEmoji || record.tempHigh != null;
+
+      // For past days we navigate to the per-date report page for richer detail
+      // (ride wait times, hourly breakdown, weather). For future/today days we
+      // keep the in-page drawer since there's no report page yet.
+      let clickable;
+      if (past) {
+        clickable = document.createElement("a");
+        clickable.className = "day-btn has-detail";
+        clickable.href = `/parks/${PARK_SLUG}/crowd-calendar/${record.date}/`;
+        clickable.style.textDecoration = "none";
+        clickable.style.color = "inherit";
+        clickable.setAttribute("aria-label",
+          `${record.date} — crowd level ${record.crowdLevel}/10. View full report.`);
+        clickable.addEventListener("click", () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'crowd_calendar_open_report', {
+              date: record.date,
+              crowdLevel: record.crowdLevel,
+              park: PARK_SLUG,
+            });
+          }
+        });
+      } else {
+        clickable = document.createElement("button");
+        clickable.className = "day-btn";
+        clickable.type = "button";
+        clickable.addEventListener("click", () => openDrawer(record, clickable));
+      }
 
       const day = parseInt(record.date.split('-')[2], 10);
 
@@ -1114,11 +1186,31 @@
 
       const mini = document.createElement("div");
       mini.className = "mini";
-      mini.innerHTML = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>`;
+      let miniHtml = `<div><strong>${getMobileLabel(record.crowdLabel)}</strong></div>`;
+      if (record.eventTag) {
+        miniHtml += `<div class="event-tag">${record.eventTag}</div>`;
+      }
+      mini.innerHTML = miniHtml;
 
-      btn.appendChild(top);
-      btn.appendChild(mini);
-      cell.appendChild(btn);
+      clickable.appendChild(top);
+      clickable.appendChild(mini);
+      cell.appendChild(clickable);
+
+      // Weather indicator (past days only, when weather data is attached)
+      if (past && hasWeather) {
+        const wx = document.createElement("div");
+        wx.className = "wx";
+        let wxContent = "";
+        if (record.tempHigh != null) {
+          wxContent += `<span class="wx-temp">${record.tempHigh}°</span>`;
+        }
+        if (record.weatherEmoji) {
+          wxContent += record.weatherEmoji;
+        }
+        wx.innerHTML = wxContent;
+        cell.appendChild(wx);
+      }
+
       return cell;
     }
 
@@ -1240,8 +1332,53 @@
       const div = document.createElement("div");
       div.className = "metric";
       div.style.width = "100%";
-      div.innerHTML = `<div class="k">Crowd Level</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">Based on actual wait time data collected on this day.</div>`;
+      const basisText = isPastDate(record.date)
+        ? "Based on actual wait time data collected on this day."
+        : "Forecast based on day-of-week trends, seasonal patterns, and known events.";
+      div.innerHTML = `<div class="k">Crowd Level</div><div class="v">${record.crowdLabel} (${record.crowdLevel}/10)</div><div style="margin-top:4px; font-weight:400; color:var(--muted); font-size:13px;">${basisText}</div>`;
       body.appendChild(div);
+
+      // Weather details if available
+      if (record.tempHigh != null || record.weatherEmoji) {
+        const wx = document.createElement("div");
+        wx.style.marginTop = "12px";
+        wx.style.padding = "12px";
+        wx.style.border = "1px solid var(--border)";
+        wx.style.borderRadius = "12px";
+        wx.style.background = "rgba(255,255,255,0.03)";
+        const tempText = (record.tempHigh != null && record.tempLow != null)
+          ? `${record.tempHigh}°F / ${record.tempLow}°F`
+          : (record.tempHigh != null ? `${record.tempHigh}°F high` : "");
+        const rainText = record.rainHours
+          ? ` · ${record.rainHours}h of rain`
+          : "";
+        wx.innerHTML = `
+          <div style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); font-weight:700;">Weather</div>
+          <div style="font-size:18px; margin-top:4px; font-weight:700;">${record.weatherEmoji || ""} ${tempText}${rainText}</div>
+        `;
+        body.appendChild(wx);
+      }
+
+      // Event annotation (if any)
+      if (record.eventTag || record.eventName) {
+        const ev = document.createElement("div");
+        ev.style.marginTop = "10px";
+        ev.style.padding = "10px 12px";
+        ev.style.border = "1px solid rgba(249,115,22,0.35)";
+        ev.style.borderRadius = "12px";
+        ev.style.background = "rgba(249,115,22,0.08)";
+        ev.innerHTML = `<div style="font-size:12px; font-weight:700; color:var(--accent);">EVENT</div>
+          <div style="font-size:14px; margin-top:2px;">${record.eventName || record.eventTag}</div>`;
+        body.appendChild(ev);
+      }
+
+      // "View full report" link for past days
+      if (isPastDate(record.date)) {
+        const link = document.createElement("div");
+        link.style.marginTop = "12px";
+        link.innerHTML = `<a href="/parks/${PARK_SLUG}/crowd-calendar/${record.date}/" style="display:inline-flex; align-items:center; gap:6px; color:var(--accent); text-decoration:none; font-weight:700; font-size:14px;">View full report →</a>`;
+        body.appendChild(link);
+      }
 
       const cta = document.createElement("div");
       cta.style.marginTop = "14px";
@@ -1255,7 +1392,7 @@
         ? `Crowd level ${record.crowdLevel}/10 means long lines. Get drop alerts so you ride when waits dip.`
         : record.crowdLevel >= 4
         ? `Crowd level ${record.crowdLevel}/10 is manageable with the right timing. Ride Ready tells you exactly when to move.`
-        : `Crowd level ${record.crowdLevel}/10 -- great pick! Ride Ready helps you nail the order so you hit everything.`;
+        : `Crowd level ${record.crowdLevel}/10. Great pick. Ride Ready helps you nail the order so you hit everything.`;
 
       cta.innerHTML = `
         <div style="font-weight:700; margin-bottom:6px;">Planning a visit?</div>
