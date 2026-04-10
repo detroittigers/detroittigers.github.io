@@ -488,6 +488,20 @@
       color: rgba(255, 255, 255, 0.6);
     }
 
+    .cell.is-today {
+      box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.9);
+      z-index: 1;
+    }
+
+    .cell.is-today .day-num::before {
+      content: "TODAY · ";
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: rgba(0, 0, 0, 0.7);
+      padding-right: 2px;
+    }
+
     .price-row {
       display: flex;
       gap: 10px;
@@ -909,6 +923,7 @@
       <div class="control-row">
         <div class="badge">Busch Gardens Tampa</div>
         <select class="year-select" id="yearSelect" aria-label="Select year"></select>
+        <button id="jumpToday" class="year-select" style="font-weight:700; cursor:pointer;" aria-label="Jump to current month">Today</button>
       </div>
 
       <div class="tabs" id="monthTabs"></div>
@@ -1135,9 +1150,11 @@
 
     function buildCell(record) {
       const bg = levelToHsl(record.crowdLevel);
+      const nowEt = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      const isToday = record.date === nowEt;
 
       const cell = document.createElement("div");
-      cell.className = "cell";
+      cell.className = "cell" + (isToday ? " is-today" : "");
       cell.style.background = bg;
 
       const past = isPastDate(record.date);
@@ -1446,6 +1463,30 @@
       }
     });
 
+    document.getElementById("jumpToday").addEventListener("click", () => {
+      const nowEt = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      const currentYear = parseInt(nowEt.substring(0, 4), 10);
+      const currentMonth = parseInt(nowEt.substring(5, 7), 10);
+      const availableYears = getAvailableYears();
+      if (!availableYears.includes(currentYear)) return;
+      state.year = currentYear;
+      const months = getAvailableMonths(currentYear);
+      if (months.includes(currentMonth)) {
+        state.month = currentMonth;
+      } else {
+        // Closest month in current year
+        state.month = months.reduce(
+          (best, m) => Math.abs(m - currentMonth) < Math.abs(best - currentMonth) ? m : best,
+          months[0]
+        );
+      }
+      buildYearSelect();
+      render();
+      if (typeof gtag === 'function') {
+        gtag('event', 'crowd_calendar_jump_today', { park: PARK_SLUG });
+      }
+    });
+
     document.getElementById("yearSelect").addEventListener("change", (e) => {
       state.year = parseInt(e.target.value, 10);
       const months = getAvailableMonths(state.year);
@@ -1468,37 +1509,70 @@
         if (!resp.ok) return;
         ACTUALS = await resp.json();
 
-        // Set last updated text
+        // Set coverage text. Historical days are labeled "Actual data through X",
+        // predictions extend it to "Forecasts through Y".
         if (ACTUALS.length > 0) {
           const dates = ACTUALS.map(d => d.date).sort();
-          const lastDate = dates[dates.length - 1];
-          const lastDateObj = new Date(lastDate + 'T12:00:00');
-          document.getElementById("lastUpdated").textContent = `Data through ${lastDateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
+          const todayEt = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+          const pastDates = dates.filter(d => d < todayEt);
+          const futureDates = dates.filter(d => d >= todayEt);
+          const parts = [];
+          if (pastDates.length > 0) {
+            const lastActual = new Date(pastDates[pastDates.length - 1] + 'T12:00:00');
+            parts.push(`Actuals through ${lastActual.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`);
+          }
+          if (futureDates.length > 0) {
+            const lastForecast = new Date(futureDates[futureDates.length - 1] + 'T12:00:00');
+            parts.push(`forecasts through ${lastForecast.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}`);
+          }
+          document.getElementById("lastUpdated").textContent = parts.join(' · ');
         }
 
-        // Default to the year with the most data (seasonal parks have sparse recent years)
+        // Default to the CURRENT month (in ET) if we have data for it. Most
+        // visitors are planning an upcoming visit and expect to land on "now",
+        // not on a random historical month. Fall back to the closest available
+        // month in the current year, or the year-with-most-data heuristic if
+        // the current year has no data at all.
         if (ACTUALS.length > 0) {
+          const nowEt = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+          const currentYear = parseInt(nowEt.substring(0, 4), 10);
+          const currentMonth = parseInt(nowEt.substring(5, 7), 10);
+
           const yearCounts = {};
+          const yearMonths = {};
           for (const entry of ACTUALS) {
             const y = parseInt(entry.date.substring(0, 4), 10);
+            const m = parseInt(entry.date.substring(5, 7), 10);
             yearCounts[y] = (yearCounts[y] || 0) + 1;
+            if (!yearMonths[y]) yearMonths[y] = new Set();
+            yearMonths[y].add(m);
           }
-          let bestYear = null;
-          let bestCount = 0;
-          for (const [y, c] of Object.entries(yearCounts)) {
-            if (c > bestCount) { bestCount = c; bestYear = parseInt(y, 10); }
-          }
-          state.year = bestYear;
-          // Default to the middle of the season (July) if available, otherwise first available month
-          const months = [];
-          const prefix = String(bestYear);
-          for (const entry of ACTUALS) {
-            if (entry.date.startsWith(prefix)) {
-              months.push(parseInt(entry.date.substring(5, 7), 10));
+
+          if (yearMonths[currentYear] && yearMonths[currentYear].size > 0) {
+            state.year = currentYear;
+            // If current month has data, use it; otherwise pick the closest
+            // month in the same year.
+            const months = [...yearMonths[currentYear]].sort((a, b) => a - b);
+            if (months.includes(currentMonth)) {
+              state.month = currentMonth;
+            } else {
+              // Pick the month closest to current month
+              state.month = months.reduce(
+                (best, m) => Math.abs(m - currentMonth) < Math.abs(best - currentMonth) ? m : best,
+                months[0]
+              );
             }
+          } else {
+            // No data in the current year — fall back to year with most data
+            let bestYear = null;
+            let bestCount = 0;
+            for (const [y, c] of Object.entries(yearCounts)) {
+              if (c > bestCount) { bestCount = c; bestYear = parseInt(y, 10); }
+            }
+            state.year = bestYear;
+            const months = [...yearMonths[bestYear]].sort((a, b) => a - b);
+            state.month = months.includes(7) ? 7 : months[Math.floor(months.length / 2)];
           }
-          const uniqueMonths = [...new Set(months)].sort((a, b) => a - b);
-          state.month = uniqueMonths.includes(7) ? 7 : uniqueMonths[Math.floor(uniqueMonths.length / 2)];
         }
 
         buildYearSelect();
