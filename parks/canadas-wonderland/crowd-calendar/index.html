@@ -1709,9 +1709,10 @@
         const dateStr = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
         const rec = getActualForDate(dateStr);
         if (!rec) {
-          const empty = document.createElement("div");
-          empty.className = "cell empty";
-          grid.appendChild(empty);
+          const closed = document.createElement("div");
+          closed.className = "cell empty";
+          closed.innerHTML = '<span class="cell-date" style="opacity:0.35">' + day + '</span><span class="cell-label" style="opacity:0.3;font-size:0.6rem">Closed</span>';
+          grid.appendChild(closed);
           continue;
         }
         grid.appendChild(buildCell(rec));
