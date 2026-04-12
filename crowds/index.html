@@ -258,6 +258,55 @@
       font-weight: 600;
     }
 
+    .lookahead {
+      display: flex;
+      gap: 4px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .lookahead-day {
+      flex: 1;
+      text-align: center;
+      min-width: 0;
+    }
+
+    .lookahead-label {
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .lookahead-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: white;
+      margin: 0 auto;
+    }
+
+    .lookahead-empty {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 0.65rem;
+      font-weight: 600;
+      margin: 0 auto;
+    }
+
     .footer {
       text-align: center;
       margin-top: 48px;
@@ -415,26 +464,40 @@
       return 'Packed';
     }
 
-    function todayStr() {
-      var d = new Date();
+    var DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    function dateStr(d) {
       var y = d.getFullYear();
       var m = String(d.getMonth() + 1).padStart(2, '0');
       var day = String(d.getDate()).padStart(2, '0');
       return y + '-' + m + '-' + day;
     }
 
-    function renderParks(todayData) {
+    function todayStr() { return dateStr(new Date()); }
+
+    function getNext7Days() {
+      var days = [];
+      for (var i = 0; i < 7; i++) {
+        var d = new Date();
+        d.setDate(d.getDate() + i);
+        days.push({ date: dateStr(d), label: i === 0 ? 'Today' : DAY_NAMES[d.getDay()] });
+      }
+      return days;
+    }
+
+    function renderParks(parkData) {
       var grid = document.getElementById('parks-grid');
       grid.innerHTML = '';
-      var today = todayStr();
+      var days = getNext7Days();
 
       PARKS.forEach(function (park) {
-        var entry = todayData[park.slug];
+        var data = parkData[park.slug] || {};
         var card = document.createElement('a');
         card.className = 'park-card';
         card.href = '/parks/' + park.slug + '/crowd-calendar/';
 
-        var level = entry ? entry.crowdLevel : null;
+        var todayEntry = data[days[0].date];
+        var level = todayEntry ? todayEntry.crowdLevel : null;
         var badgeHtml = '';
         var statusHtml = '';
 
@@ -446,6 +509,23 @@
           statusHtml = '<div class="park-status">View calendar</div>';
         }
 
+        // Build 7-day lookahead row
+        var lookaheadHtml = '<div class="lookahead">';
+        var hasAnyLookahead = false;
+        days.forEach(function (day) {
+          var entry = data[day.date];
+          lookaheadHtml += '<div class="lookahead-day">';
+          lookaheadHtml += '<div class="lookahead-label">' + day.label + '</div>';
+          if (entry && entry.crowdLevel) {
+            hasAnyLookahead = true;
+            lookaheadHtml += '<div class="lookahead-num" style="background: ' + crowdColor(entry.crowdLevel) + ';">' + entry.crowdLevel + '</div>';
+          } else {
+            lookaheadHtml += '<div class="lookahead-empty">--</div>';
+          }
+          lookaheadHtml += '</div>';
+        });
+        lookaheadHtml += '</div>';
+
         card.innerHTML =
           '<div class="park-header">' +
             '<div>' +
@@ -454,40 +534,43 @@
             '</div>' +
             badgeHtml +
           '</div>' +
-          statusHtml;
+          statusHtml +
+          (hasAnyLookahead ? lookaheadHtml : '');
 
         grid.appendChild(card);
       });
     }
 
-    // Load today's crowd level for each park from their actuals.json
+    // Load crowd data for each park from their actuals.json
     (function () {
-      var today = todayStr();
-      var todayData = {};
+      var parkData = {};
       var loaded = 0;
       var total = PARKS.length;
+      var days = getNext7Days();
+      var dateSet = {};
+      days.forEach(function (d) { dateSet[d.date] = true; });
 
       // Render immediately with no data (shows "--" badges)
-      renderParks(todayData);
+      renderParks(parkData);
 
       PARKS.forEach(function (park) {
         var url = '/parks/' + park.slug + '/crowd-calendar/actuals.json';
         fetch(url)
           .then(function (r) { return r.ok ? r.json() : []; })
           .then(function (data) {
-            // Find today's entry
-            for (var i = data.length - 1; i >= 0; i--) {
-              if (data[i].date === today) {
-                todayData[park.slug] = data[i];
-                break;
+            var byDate = {};
+            for (var i = 0; i < data.length; i++) {
+              if (dateSet[data[i].date]) {
+                byDate[data[i].date] = data[i];
               }
             }
+            parkData[park.slug] = byDate;
           })
-          .catch(function () { /* no data for this park */ })
+          .catch(function () { /* no data */ })
           .finally(function () {
             loaded++;
             if (loaded === total) {
-              renderParks(todayData);
+              renderParks(parkData);
             }
           });
       });
