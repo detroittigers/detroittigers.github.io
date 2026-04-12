@@ -51,7 +51,6 @@ Spring break 2026 runs March 7 - April 19, with peak crowds March 14-22 and Apri
 
 Daily crowd level predictions (1-10 scale) for February through April 2026, based on Universal's own pricing signals blended with historical patterns.
 
-- [Universal Orlando Crowd Calendar](https://rideready.app/universal-orlando/crowd-calendar/): Hub page with all 3 parks, month tabs, and day-by-day breakdown
 - [Epic Universe Crowd Calendar](https://rideready.app/parks/epic-universe/crowd-calendar/): Daily predictions for Epic Universe
 - [Islands of Adventure Crowd Calendar](https://rideready.app/parks/islands-of-adventure/crowd-calendar/): Daily predictions for IoA
 - [Universal Studios Florida Crowd Calendar](https://rideready.app/parks/universal-studios-florida/crowd-calendar/): Daily predictions for USF
