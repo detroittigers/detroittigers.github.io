@@ -391,7 +391,11 @@ function buildCell(record) {
 }
 ```
 
-- [ ] **Step 5: Remove old unused CSS**
+- [ ] **Step 5: Update buildBestDays to use new labels and open drawer**
+
+In the `buildBestDays` function, update any display of `crowdLabel` to use `getDisplayLabel(record.crowdLevel)` instead. Future "best day" rows should open the drawer on click (same behavior as future calendar cells), not link to per-date report pages that don't exist yet.
+
+- [ ] **Step 6: Remove old unused CSS**
 
 Delete these CSS classes that are no longer used: `.day-top`, `.lvl`, `.mini`, `.mini .muted`, `.wx .wx-temp`, `.price-row`, `.price-row span`. Also remove the old `.cell .has-detail::after` arrow indicator.
 
@@ -659,27 +663,74 @@ git commit -m "feat: authority block with accuracy stats and methodology"
 **Files:**
 - Modify: all 14 other `parks/*/crowd-calendar/index.html` files
 
-All pages share the same template. The changes from Tasks 1-4 need to be applied to each. The differences between pages are only park-specific strings (park name, slug, meta tags, descriptions, CTAs with tracking params).
+The 15 per-park pages share ~95% of their code. The differences are in: meta tags, title, description, FAQ copy, breadcrumb text, PARK_NAME/PARK_SLUG constants, tracking params, disclaimer text, and coverage stats. The shared code that changes in this redesign is: the `<style>` block (CSS), the JS functions (`levelToHsl`, `getDisplayLabel`, `buildCell`, `openDrawer`, `buildBestDays`), the legend HTML, the drawer HTML structure, and the authority block HTML.
 
-- [ ] **Step 1: Create a diff of the shared sections**
+**Strategy:** Do NOT use a naive diff-and-apply. Instead, use targeted block replacement — identify each shared code block by its unique start/end markers (function names, HTML comments, CSS selectors) and replace only those blocks in each file. Park-specific content (meta tags, FAQs, breadcrumbs, disclaimers) is never touched.
 
-Generate the diff between the original and modified Epic Universe page. Identify which line ranges contain the shared CSS, JS functions, and HTML structure that are identical across all pages.
+**Normative source:** The completed Epic Universe page after Tasks 1-4 is the canonical implementation. All shared blocks are copied verbatim from it.
 
-- [ ] **Step 2: Apply changes to each park page**
+**Authority copy:** The authority strip and authority block text is intentionally identical across all parks — the IOA benchmark is a company-wide accuracy claim, not park-specific.
 
-For each of the 14 other parks, apply the same changes to: `levelToHsl`, `getDisplayLabel` (replacing `getMobileLabel`), `buildCell`, `openDrawer`, legend HTML, cell CSS, drawer CSS+HTML, authority block CSS+HTML, and mobile breakpoints.
+- [ ] **Step 1: Identify the exact shared blocks to propagate**
 
-Key: do NOT change any park-specific strings (PARK_NAME, PARK_SLUG, meta tags, tracking params, breadcrumbs, disclaimers).
+From the completed Epic Universe page, extract these discrete blocks:
+1. **CSS `<style>` block** — everything from `<style>` to `</style>` (the entire style tag is shared; park-specific content is not in CSS)
+2. **JS functions** — `levelToHsl`, `getDisplayLabel`, `buildCell`, `openDrawer`, `buildBestDays`, `closeDrawer` plus event listeners
+3. **Legend HTML** — the `<div class="legend">` block
+4. **Drawer HTML** — the `<div class="drawer" id="drawer">` block
+5. **Authority block HTML** — the section replacing "How crowd levels are calculated"
 
-- [ ] **Step 3: Spot-check 3 parks in browser**
+Do NOT touch: `<head>` meta tags, `<title>`, breadcrumbs, `PARK_NAME`/`PARK_SLUG` constants, FAQ schema, tracking params, disclaimer text, footer.
+
+- [ ] **Step 2: For each of the 14 other parks, replace each shared block**
+
+Process parks one at a time. For each park file:
+1. Replace the `<style>...</style>` block with Epic Universe's
+2. Replace each JS function body (match by `function functionName`)
+3. Replace the legend `<div class="legend">` block
+4. Replace the drawer `<div class="drawer" id="drawer">` block
+5. Replace the authority section (match by "How crowd levels are calculated" heading)
+6. Verify `PARK_NAME` and `PARK_SLUG` constants are unchanged
+
+- [ ] **Step 3: Run automated verification across all 15 pages**
+
+For each `parks/*/crowd-calendar/index.html`, verify:
+- Contains `function levelToHsl` with the new palette array (not the old `hsl(${hue}` formula)
+- Contains `function getDisplayLabel` (not `getMobileLabel`)
+- Contains `class="crowd-num"` (not old `class="lvl"`)
+- Contains `class="hero-band"` (new drawer structure)
+- Contains `We actually test this` (authority block)
+- Contains the correct `PARK_NAME` for that park (not "Epic Universe")
+- Contains the correct `PARK_SLUG` for that park
+- Contains the correct `actuals.json` fetch path for that park
+
+```bash
+for dir in parks/*/crowd-calendar; do
+  f="$dir/index.html"
+  slug=$(echo "$dir" | cut -d/ -f2)
+  echo "=== $slug ==="
+  grep -c "function levelToHsl" "$f" | xargs echo "  levelToHsl:"
+  grep -c "function getDisplayLabel" "$f" | xargs echo "  getDisplayLabel:"
+  grep -c "crowd-num" "$f" | xargs echo "  crowd-num class:"
+  grep -c "hero-band" "$f" | xargs echo "  hero-band:"
+  grep -c "We actually test this" "$f" | xargs echo "  authority block:"
+  grep -c "PARK_SLUG = \"$slug\"" "$f" | xargs echo "  correct slug:"
+done
+```
+
+All counts should be >= 1. Any 0 means that park's page was not properly updated.
+
+- [ ] **Step 4: Visual spot-check 3 parks in browser**
 
 Open Cedar Point, Kings Island, and Busch Gardens Tampa in a browser. Verify:
 - Correct park name in header, breadcrumbs, drawer
 - Calendar loads data from correct actuals.json
 - New cell design renders correctly
 - Drawer shows correct park name and CTA tracking params
+- Past dates navigate to per-date report pages
+- Future dates open the drawer (not navigate)
 
-- [ ] **Step 4: Commit**
+- [ ] **Step 5: Commit**
 
 ```bash
 git add parks/*/crowd-calendar/index.html
@@ -727,19 +778,25 @@ git commit -m "feat: redirect old UO crowd calendar to per-park pages (SEO-prese
 
 ### Task 7: Final Review and Deploy
 
-- [ ] **Step 1: Full visual review**
+- [ ] **Step 1: Full visual review on Epic Universe**
 
-Open Epic Universe calendar at desktop and mobile widths. Walk through:
-- Calendar grid: colors, numbers, labels, YoY badges, weather, events
-- Drawer: hero band, info cards, authority strip, CTA
-- Authority block below calendar
-- All links work (per-date reports, app store links)
+Open Epic Universe calendar at desktop and mobile widths. Walk through both interaction paths:
+- **Past date:** click a past date cell → navigates to per-date report page
+- **Future date:** click a future date cell → drawer opens with hero band, info cards, authority strip, CTA
+- **Best upcoming days:** click a "best day" row → drawer opens (not navigation)
+- Calendar grid: colors, numbers, labels, YoY badges (only ↑/↓, no "=" badges), weather readable
+- Authority block below calendar: stats, bar chart, differentiator cards
+- Mobile (375px): YoY and weather hidden, cells compact, drawer still works
 
-- [ ] **Step 2: Check 3 other parks**
+- [ ] **Step 2: Verify all 15 parks load correctly**
 
-Quick scan of IOA, Cedar Point, and Kings Island to confirm propagation worked.
+Run the verification script from Task 5 Step 3 to confirm all pages have the new code. Then open at least IOA, Cedar Point, and Kings Island in a browser to confirm visual correctness.
 
-- [ ] **Step 3: Switch to detroittigers account and push**
+- [ ] **Step 3: Verify UO redirect**
+
+Open `/universal-orlando/crowd-calendar/` and confirm it redirects to `/parks/universal-orlando/crowd-calendar/`.
+
+- [ ] **Step 4: Switch to detroittigers account and push**
 
 ```bash
 gh auth switch --user detroittigers
