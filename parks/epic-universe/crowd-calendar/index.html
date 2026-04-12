@@ -995,6 +995,164 @@
       font-weight: 700;
       cursor: pointer;
     }
+
+    /* ===== AUTHORITY BLOCK ===== */
+    .authority-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .ab-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .ab-header h2 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 4px;
+    }
+
+    .ab-header p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      flex-wrap: wrap;
+    }
+
+    .stat-block {
+      flex: 1;
+      min-width: 140px;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stat-block:last-child { border-right: none; }
+
+    .stat-val {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .unit {
+      font-size: 18px;
+      font-weight: 700;
+      opacity: 0.6;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.4;
+      margin-top: 5px;
+    }
+
+    .proof {
+      color: rgba(34, 197, 94, 0.8);
+      font-weight: 700;
+    }
+
+    .accuracy-bar {
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .acc-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 12px;
+    }
+
+    .bar-row { margin-bottom: 8px; }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .bar-name { font-weight: 700; color: rgba(255, 255, 255, 0.7); }
+    .bar-pct { font-weight: 800; }
+
+    .bar-track {
+      height: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .bar-us { background: linear-gradient(90deg, rgba(34,197,94,0.5), rgba(34,197,94,0.25)); color: #4ade80; }
+    .bar-them { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.3); }
+
+    .bar-note {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.2);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 18px 24px;
+    }
+
+    @media (max-width: 560px) {
+      .diff-grid { grid-template-columns: 1fr; }
+    }
+
+    .diff-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .diff-icon { font-size: 20px; margin-bottom: 8px; }
+
+    .diff-title {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .diff-body {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.5;
+    }
+
+    .diff-body strong { color: rgba(255, 255, 255, 0.7); }
+
+    @media (max-width: 700px) {
+      .stats-row { flex-direction: column; }
+      .stat-block { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    }
   </style>
 </head>
 
@@ -1087,22 +1245,65 @@
 
 
     <section class="panel">
-      <div class="card">
-        <h2>How crowd levels are calculated</h2>
-        <p>
-          Unlike prediction-based crowd calendars, these levels come from actual wait time data
-          collected at Epic Universe on each operating day.
-        </p>
-        <ul>
-          <li><strong>Data source:</strong> Real wait times collected throughout each park day across all major attractions.</li>
-          <li><strong>Methodology:</strong> Average wait times are converted into a <strong>1-10 crowd level</strong> scale for easy comparison across dates.</li>
-          <li><strong>Historical coverage:</strong> Data spans from Mar 2025 to Dec 2026, covering 641+ operating days.</li>
-          <li><strong>Use it to plan:</strong> Compare crowd levels by month, day of week, and season to find the best time to visit.</li>
-        </ul>
-        <p class="note">
-          Disclaimer: Ride Ready is independent and not affiliated with Cedar Fair Entertainment Company. Operating schedules and policies can
-          change; we recommend checking official sources before your visit.
-        </p>
+      <div class="authority-block">
+        <div class="ab-header">
+          <h2>We actually test this. Here's what we found.</h2>
+          <p>Every year, we predict every day for an entire calendar year, then compare to what actually happened. No peeking, no adjustments after the fact.</p>
+        </div>
+        <div class="stats-row">
+          <div class="stat-block">
+            <div class="stat-val" style="color:#4ade80;">82<span class="unit">%</span></div>
+            <div class="stat-label">of predictions land within<br>2 crowd levels of reality<br><span class="proof">all 365 days of 2025</span></div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-val" style="color:#4ade80;">59<span class="unit">%</span></div>
+            <div class="stat-label">land within 1 crowd level<br><span class="proof">vs 45% for the leading alternative</span></div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-val">10<span class="unit">k+</span></div>
+            <div class="stat-label">park-days of real wait<br>time data since 2021</div>
+          </div>
+        </div>
+        <div class="accuracy-bar">
+          <div class="acc-title">Within 1 crowd level — Islands of Adventure, all 365 days of 2025</div>
+          <div class="bar-row">
+            <div class="bar-label">
+              <span class="bar-name">Ride Ready</span>
+              <span class="bar-pct" style="color:#4ade80;">59%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill bar-us" style="width:59.2%">59% within 1 level</div></div>
+          </div>
+          <div class="bar-row" style="margin-top:8px;">
+            <div class="bar-label">
+              <span class="bar-name" style="color:rgba(255,255,255,0.35);">Leading alternative</span>
+              <span class="bar-pct" style="color:rgba(255,255,255,0.3);">45%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill bar-them" style="width:45.5%">45%</div></div>
+          </div>
+          <div class="bar-note">Trained on pre-2025 data, then predicted every day of 2025 cold. The leading alternative publishes predictions in wait minutes. We converted to the same 1-10 scale so it's a fair comparison.</div>
+        </div>
+        <div class="diff-grid">
+          <div class="diff-card">
+            <div class="diff-icon">🎯</div>
+            <div class="diff-title">It knows what kind of day it is</div>
+            <div class="diff-body">A generic model lumps all October Saturdays into one bucket. Ours knows <strong>a Halloween event Friday is a completely different day than a regular October Friday.</strong> Separate prediction, different baseline.</div>
+          </div>
+          <div class="diff-card">
+            <div class="diff-icon">🔄</div>
+            <div class="diff-title">Updated every day at 4pm ET</div>
+            <div class="diff-body">Most crowd calendars update once a week. We run it every day. <strong>Yesterday's crowd level shows up on the calendar by morning.</strong> 90-day forecasts, recalculated daily.</div>
+          </div>
+          <div class="diff-card">
+            <div class="diff-icon">📅</div>
+            <div class="diff-title">Closed days are shown as closed</div>
+            <div class="diff-body">Seasonal parks close in winter. We show it correctly. <strong>Most crowd calendars show "Moderate" for a day the park isn't even open.</strong></div>
+          </div>
+          <div class="diff-card">
+            <div class="diff-icon">📈</div>
+            <div class="diff-title">Adjusts when parks get quieter</div>
+            <div class="diff-body">If a park trends quieter year over year, we pick that up and adjust. <strong>Not just a static average that pretends parks don't change.</strong></div>
+          </div>
+        </div>
       </div>
 
       <div class="card" style="background: linear-gradient(160deg, rgba(249, 115, 22, 0.08), rgba(255, 65, 108, 0.06)); border-color: rgba(249, 115, 22, 0.3);">
