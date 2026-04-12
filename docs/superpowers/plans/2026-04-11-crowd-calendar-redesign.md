@@ -483,6 +483,7 @@ Replace the existing `.drawer`, `.drawer-inner`, `.drawer-head`, `.drawer-title`
 
 @media (max-width: 700px) {
   .drawer-info { grid-template-columns: 1fr; }
+  .info-card.event-card { grid-column: span 1; }
 }
 ```
 
@@ -705,20 +706,29 @@ For each `parks/*/crowd-calendar/index.html`, verify:
 - Contains the correct `actuals.json` fetch path for that park
 
 ```bash
+FAIL=0
 for dir in parks/*/crowd-calendar; do
   f="$dir/index.html"
   slug=$(echo "$dir" | cut -d/ -f2)
   echo "=== $slug ==="
-  grep -c "function levelToHsl" "$f" | xargs echo "  levelToHsl:"
-  grep -c "function getDisplayLabel" "$f" | xargs echo "  getDisplayLabel:"
-  grep -c "crowd-num" "$f" | xargs echo "  crowd-num class:"
-  grep -c "hero-band" "$f" | xargs echo "  hero-band:"
-  grep -c "We actually test this" "$f" | xargs echo "  authority block:"
-  grep -c "PARK_SLUG = \"$slug\"" "$f" | xargs echo "  correct slug:"
+  # New code present
+  grep -cq "function levelToHsl" "$f" && echo "  OK levelToHsl" || { echo "  FAIL levelToHsl"; FAIL=1; }
+  grep -cq "function getDisplayLabel" "$f" && echo "  OK getDisplayLabel" || { echo "  FAIL getDisplayLabel"; FAIL=1; }
+  grep -cq "crowd-num" "$f" && echo "  OK crowd-num" || { echo "  FAIL crowd-num"; FAIL=1; }
+  grep -cq "hero-band" "$f" && echo "  OK hero-band" || { echo "  FAIL hero-band"; FAIL=1; }
+  grep -cq "We actually test this" "$f" && echo "  OK authority" || { echo "  FAIL authority"; FAIL=1; }
+  # Park identity preserved (not overwritten with Epic Universe values)
+  grep -cq "PARK_SLUG = \"$slug\"" "$f" && echo "  OK slug" || { echo "  FAIL slug"; FAIL=1; }
+  grep -cq "/parks/$slug/crowd-calendar/actuals.json" "$f" && echo "  OK fetch path" || { echo "  FAIL fetch path"; FAIL=1; }
+  # PARK_NAME should NOT be "Epic Universe" (unless this IS epic-universe)
+  if [ "$slug" != "epic-universe" ]; then
+    grep -cq 'PARK_NAME = "Epic Universe"' "$f" && { echo "  FAIL: still says Epic Universe!"; FAIL=1; } || echo "  OK park name"
+  fi
 done
+[ $FAIL -eq 0 ] && echo "ALL PARKS PASSED" || echo "FAILURES DETECTED — fix before committing"
 ```
 
-All counts should be >= 1. Any 0 means that park's page was not properly updated.
+All checks must pass. The script specifically catches the highest-risk propagation error: a park page accidentally showing "Epic Universe" as its name or loading Epic Universe's data file.
 
 - [ ] **Step 4: Visual spot-check 3 parks in browser**
 
