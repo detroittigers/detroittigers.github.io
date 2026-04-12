@@ -98,7 +98,7 @@ def draw_crowd_dots(draw, x, y, size=28, gap=10):
             fill=color,
         )
         # Draw the number inside
-        num_font = load_font("bold", 16)
+        num_font = load_font("bold", int(size * 0.5))
         draw.text(
             (dot_x + size // 2, y + size // 2),
             str(level),
@@ -114,54 +114,49 @@ def generate_park_og(park, output_dir):
     draw_gradient_bg(img)
     draw = ImageDraw.Draw(img)
 
-    # Fonts
-    font_label = load_font("semibold", 32)
-    font_park = load_font("bold", 96)
-    font_tagline = load_font("medium", 42)
-    font_region = load_font("regular", 38)
-    font_cta = load_font("semibold", 36)
-    font_url = load_font("medium", 34)
+    # Fonts — sized for 2400x1260 canvas (needs to be big to read in previews)
+    font_label = load_font("semibold", 52)
+    font_park = load_font("bold", 160)
+    font_tagline = load_font("medium", 64)
+    font_region = load_font("regular", 56)
+    font_url = load_font("medium", 48)
 
-    left_x = 120
-    y = 140
+    left_x = 160
+    y = 160
 
     # "CROWD CALENDAR" label
     draw.text((left_x, y), "CROWD CALENDAR", font=font_label, fill="#F97316")
-    y += 60
+    y += 80
 
-    # Park name (may need to wrap if long)
+    # Park name (may need smaller font for long names)
     name = park["name"]
-    # Check if name fits
     bbox = draw.textbbox((0, 0), name, font=font_park)
-    max_width = WIDTH - 240
+    max_width = WIDTH - 400
     if bbox[2] - bbox[0] > max_width:
-        # Use smaller font for long names
-        font_park_small = load_font("bold", 76)
+        font_park_small = load_font("bold", 120)
         draw.text((left_x, y), name, font=font_park_small, fill="#FFFFFF")
-        y += 100
+        y += 160
     else:
         draw.text((left_x, y), name, font=font_park, fill="#FFFFFF")
-        y += 120
+        y += 200
 
     # "Know When to Go" in accent green
-    font_italic = load_font("semibold", 56)
-    draw.text((left_x, y), "Know When to Go", font=font_italic, fill="#34D399")
-    y += 80
+    font_green = load_font("semibold", 88)
+    draw.text((left_x, y), "Know When to Go", font=font_green, fill="#34D399")
+    y += 130
 
-    # Region
+    # Region + tagline on same area
     draw.text((left_x, y), park["region"], font=font_region, fill="#999999")
-    y += 60
-
-    # Tagline
-    draw.text((left_x, y), park["tagline"], font=font_tagline, fill="#BBBBBB")
     y += 80
+    draw.text((left_x, y), park["tagline"], font=font_tagline, fill="#BBBBBB")
+    y += 110
 
-    # Sample crowd dots row
-    draw_crowd_dots(draw, left_x, y, size=44, gap=14)
-    y += 70
+    # Sample crowd dots row — bigger
+    draw_crowd_dots(draw, left_x, y, size=64, gap=18)
+    y += 90
 
     # Legend below dots
-    font_legend = load_font("regular", 24)
+    font_legend = load_font("regular", 36)
     legend_items = [
         ("#22c55e", "Low"),
         ("#f59e0b", "Moderate"),
@@ -170,17 +165,17 @@ def generate_park_og(park, output_dir):
     ]
     lx = left_x
     for color, label in legend_items:
-        draw.ellipse([lx, y, lx + 16, y + 16], fill=color)
-        draw.text((lx + 22, y - 2), label, font=font_legend, fill="#888888")
-        lx += 160
+        draw.ellipse([lx, y, lx + 24, y + 24], fill=color)
+        draw.text((lx + 34, y - 4), label, font=font_legend, fill="#888888")
+        lx += 240
 
     # Bottom branding
-    draw.text((left_x, HEIGHT - 100), "rideready.app", font=font_url, fill="#F97316")
+    draw.text((left_x, HEIGHT - 120), "rideready.app", font=font_url, fill="#F97316")
 
     # Ride Ready logo placeholder (top-right)
-    logo_size = 120
-    logo_x = WIDTH - logo_size - 120
-    logo_y = 120
+    logo_size = 160
+    logo_x = WIDTH - logo_size - 160
+    logo_y = 140
     icon_path = os.path.join(os.path.dirname(__file__), "..", "images", "logo.png")
     if os.path.exists(icon_path):
         icon = Image.open(icon_path).convert("RGBA")
@@ -189,10 +184,10 @@ def generate_park_og(park, output_dir):
     else:
         draw.rounded_rectangle(
             [logo_x, logo_y, logo_x + logo_size, logo_y + logo_size],
-            radius=20,
+            radius=28,
             fill="#F97316",
         )
-        rr_font = load_font("bold", 48)
+        rr_font = load_font("bold", 64)
         draw.text(
             (logo_x + logo_size // 2, logo_y + logo_size // 2),
             "RR",
