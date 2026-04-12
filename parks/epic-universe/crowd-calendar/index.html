@@ -394,20 +394,31 @@
     }
 
     .cell {
-      min-height: 88px;
-      border-right: 1px solid rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 10px;
+      min-height: 96px;
+      border-right: 1px solid rgba(0, 0, 0, 0.25);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 8px 6px;
+      transition: filter 0.12s;
     }
+
+    .cell:hover { filter: brightness(1.12); }
 
     .cell:nth-child(7n) {
       border-right: none;
     }
 
     .cell.empty {
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.015);
+      cursor: default;
     }
+
+    .cell.empty:hover { filter: none; }
 
     .day-btn {
       all: unset;
@@ -417,103 +428,87 @@
       height: 100%;
     }
 
-    .day-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
     .day-num {
-      font-weight: 800;
-    }
-
-    .lvl {
-      font-family: var(--mono);
-      font-weight: 900;
-      padding: 4px 8px;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .mini {
-      margin-top: 8px;
+      position: absolute;
+      top: 7px;
+      left: 9px;
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.92);
-      line-height: 1.25;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1;
     }
 
-    .mini .muted {
-      color: rgba(255, 255, 255, 0.75);
+    .crowd-num {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.95);
+      margin-top: 4px;
+    }
+
+    .crowd-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .event-tag {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      font-size: 7px;
+      font-weight: 800;
+      padding: 2px 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 1px;
     }
 
     .wx {
       position: absolute;
-      bottom: 6px;
-      right: 8px;
-      font-size: 13px;
-      line-height: 1;
-      opacity: 0.85;
+      bottom: 5px;
+      right: 7px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.58);
+      font-weight: 600;
       pointer-events: none;
     }
 
-    .wx .wx-temp {
-      font-size: 10px;
-      color: rgba(255, 255, 255, 0.80);
-      margin-right: 3px;
-      font-weight: 600;
-    }
-
-    .event-tag {
-      display: inline-block;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: rgba(255, 255, 255, 0.95);
-      font-size: 9px;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 999px;
-      margin-top: 4px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .cell .has-detail::after {
-      content: "→";
+    .yoy {
       position: absolute;
-      top: 8px;
-      right: 8px;
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.6);
+      top: 6px;
+      right: 7px;
+      font-size: 9px;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 2px 5px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 1px;
+    }
+
+    .yoy-down {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .yoy-up {
+      background: rgba(239, 68, 68, 0.12);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.25);
     }
 
     .cell.is-today {
-      box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.9);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.85);
       z-index: 1;
-    }
-
-    .cell.is-today .day-num::before {
-      content: "TODAY · ";
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      color: rgba(0, 0, 0, 0.7);
-      padding-right: 2px;
-    }
-
-    .price-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 6px;
-      font-size: 12px;
-    }
-
-    .price-row span {
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.22);
-      border: 1px solid rgba(255, 255, 255, 0.16);
     }
 
     .badge {
@@ -675,26 +670,13 @@
 
     /* Mobile calendar optimizations - simplified cells */
     @media (max-width: 768px) {
-      .cell {
-        min-height: 70px;
-        padding: 8px 4px;
-      }
-
-      .day-num {
-        font-size: 15px;
-      }
-
-      .lvl {
-        font-size: 11px;
-        padding: 3px 6px;
-        font-weight: 900;
-      }
-
-      .mini {
-        font-size: 11px;
-        margin-top: 6px;
-        font-weight: 600;
-      }
+      .cell { min-height: 75px; padding: 7px 4px; }
+      .crowd-num { font-size: 24px; }
+      .crowd-label { font-size: 8px; }
+      .day-num { font-size: 11px; }
+      .yoy { display: none; }
+      .wx { display: none; }
+      .event-tag { font-size: 6px; padding: 1px 4px; }
 
       .dow div {
         font-size: 10px;
@@ -732,38 +714,12 @@
     }
 
     @media (max-width: 480px) {
-      .cell {
-        min-height: 65px;
-        padding: 6px 3px;
-      }
-
-      .day-top {
-        gap: 4px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .day-num {
-        font-size: 14px;
-        width: 100%;
-        text-align: center;
-      }
-
-      .lvl {
-        font-size: 10px;
-        padding: 3px 5px;
-      }
-
-      .mini {
-        font-size: 10px;
-        text-align: center;
-        margin-top: 4px;
-      }
-
-      .dow div {
-        font-size: 9px;
-        padding: 8px 1px;
-      }
+      .cell { min-height: 65px; padding: 5px 3px; }
+      .crowd-num { font-size: 22px; margin-top: 8px; }
+      .day-num { font-size: 10px; top: 4px; left: 5px; }
+      .crowd-label { font-size: 7px; letter-spacing: 0.04em; }
+      .event-tag { font-size: 6px; }
+      .dow div { font-size: 9px; padding: 8px 2px; }
     }
 
     .day-list {
@@ -1193,7 +1149,7 @@
       let clickable;
       if (past) {
         clickable = document.createElement("a");
-        clickable.className = "day-btn has-detail";
+        clickable.className = "day-btn";
         clickable.href = `/parks/${PARK_SLUG}/crowd-calendar/${record.date}/`;
         clickable.style.textDecoration = "none";
         clickable.style.color = "inherit";
@@ -1217,44 +1173,57 @@
 
       const day = parseInt(record.date.split('-')[2], 10);
 
-      const top = document.createElement("div");
-      top.className = "day-top";
+      // Day number — top-left
       const dayNum = document.createElement("div");
       dayNum.className = "day-num";
       dayNum.textContent = day;
-      const lvl = document.createElement("div");
-      lvl.className = "lvl";
-      lvl.textContent = record.crowdLevel + "/10";
-      top.appendChild(dayNum);
-      top.appendChild(lvl);
 
-      const mini = document.createElement("div");
-      mini.className = "mini";
-      let miniHtml = `<div><strong>${getDisplayLabel(record.crowdLevel)}</strong></div>`;
-      if (record.parkHours) {
-        miniHtml += `<div style="font-size:10px;color:rgba(255,255,255,0.7);margin-top:2px;">${record.parkHours}</div>`;
+      // YoY badge — top-right (desktop only, hidden via CSS on mobile)
+      const lastYearLevel = record.lastYearLevel;
+      const delta = (lastYearLevel != null) ? (record.crowdLevel - lastYearLevel) : 0;
+      if (lastYearLevel != null && delta !== 0) {
+        const yoy = document.createElement("div");
+        yoy.className = "yoy " + (delta < 0 ? "yoy-down" : "yoy-up");
+        yoy.textContent = (delta < 0 ? "↓" : "↑") + Math.abs(delta);
+        cell.appendChild(yoy);
       }
+
+      // Big crowd number — centered
+      const crowdNum = document.createElement("div");
+      crowdNum.className = "crowd-num";
+      crowdNum.textContent = record.crowdLevel;
+
+      // Label below number
+      const crowdLbl = document.createElement("div");
+      crowdLbl.className = "crowd-label";
+      crowdLbl.textContent = getDisplayLabel(record.crowdLevel);
+
+      clickable.appendChild(dayNum);
+      clickable.appendChild(crowdNum);
+      clickable.appendChild(crowdLbl);
+
+      // Event tag below label
       if (record.eventTag) {
-        miniHtml += `<div class="event-tag">${record.eventTag}</div>`;
+        const evt = document.createElement("div");
+        evt.className = "event-tag";
+        evt.textContent = record.eventTag;
+        clickable.appendChild(evt);
       }
-      mini.innerHTML = miniHtml;
 
-      clickable.appendChild(top);
-      clickable.appendChild(mini);
       cell.appendChild(clickable);
 
-      // Weather indicator (past days only, when weather data is attached)
+      // Weather — bottom-right absolute, past dates only
       if (past && hasWeather) {
         const wx = document.createElement("div");
         wx.className = "wx";
         let wxContent = "";
         if (record.tempHigh != null) {
-          wxContent += `<span class="wx-temp">${record.tempHigh}°</span>`;
+          wxContent += `${record.tempHigh}°`;
         }
         if (record.weatherEmoji) {
           wxContent += record.weatherEmoji;
         }
-        wx.innerHTML = wxContent;
+        wx.textContent = wxContent;
         cell.appendChild(wx);
       }
 
@@ -1648,19 +1617,18 @@
         const dow = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
         const niceDate = dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
         const color = levelToHsl(r.crowdLevel);
-        const row = document.createElement("a");
-        row.href = `/parks/${PARK_SLUG}/crowd-calendar/${r.date}/`;
+        const row = document.createElement("div");
         row.style.cssText =
           `display:flex; align-items:center; justify-content:space-between;` +
           `padding:14px 18px; border:1px solid var(--border); border-radius:14px;` +
           `background:linear-gradient(90deg, ${color}22 0%, rgba(255,255,255,0.02) 60%);` +
-          `text-decoration:none; color:inherit; transition:transform 0.15s;`;
+          `cursor:pointer; color:inherit; transition:transform 0.15s;`;
         row.innerHTML = `
           <div>
             <div style="font-weight:800; font-size:16px;">${dow}, ${niceDate}</div>
             <div class="note" style="margin-top:2px;">
               ${r.eventName ? `<span style="color:var(--accent); font-weight:700;">${r.eventName}</span> · ` : ''}
-              ${isPastDate(r.date) ? 'Actual' : 'Forecast'}
+              Forecast
             </div>
           </div>
           <div style="display:flex; align-items:center; gap:10px;">
@@ -1668,6 +1636,18 @@
             <div style="background:${color}; color:#fff; padding:6px 14px; border-radius:999px; font-size:12px; font-weight:700; white-space:nowrap;">${getDisplayLabel(r.crowdLevel)}</div>
           </div>
         `;
+        row.addEventListener("click", () => {
+          // Switch to the correct year/month and open the drawer
+          const y = parseInt(r.date.substring(0, 4), 10);
+          const m = parseInt(r.date.substring(5, 7), 10);
+          if (state.year !== y || state.month !== m) {
+            state.year = y;
+            state.month = m;
+            buildYearSelect();
+            render();
+          }
+          openDrawer(r, row);
+        });
         container.appendChild(row);
       }
       document.getElementById("bestDays").style.display = "block";
