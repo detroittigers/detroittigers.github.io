@@ -14,6 +14,9 @@ Disallow: /.gitignore
 Disallow: /tmp/
 Disallow: /tools/
 
+# Block crawlers from raw data files
+Disallow: /parks/*/crowd-calendar/actuals.json
+
 # AI Training Bots (block training, allow GPTBot for citation)
 User-agent: Google-Extended
 Disallow: /
