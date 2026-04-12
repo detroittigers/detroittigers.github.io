@@ -657,6 +657,13 @@
         <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:10px;"><span id="rr-trend" style="font-size:.8rem;"></span><span id="rr-upd" style="font-size:.75rem;color:#555;"></span></div>
     </div>
     <script>(function(){var K='Ministry';var w=document.getElementById('rr-live'),num=document.getElementById('rr-num'),unit=document.getElementById('rr-unit'),up=document.getElementById('rr-upd');function ago(s){var d=Math.round((Date.now()-new Date(s))/60000);return d<1?'just now':d+'m ago';}function render(r,t){if(!r)return;w.style.display='block';var wt=r.wait_minutes,st=r.status;if(st!=='OPERATING'){num.style.cssText='font-size:3.5rem;font-weight:800;color:#666';num.textContent='\u2014';unit.textContent='temporarily closed';up.textContent='';return;}if(!wt){num.style.cssText='font-size:3.5rem;font-weight:800;color:#22c55e';num.textContent='Walk-on';unit.textContent='no wait right now';}else{num.textContent=wt;unit.textContent='min posted wait';}up.textContent='Updated '+ago(t);try{gtag('event','live_wait_viewed',{ride:r.name,wait_minutes:wt,page:location.pathname});}catch(e){}}function load(){fetch('https://cdn.rideready.app/public/waits/park_71.json').then(function(r){return r.json();}).then(function(d){render((d.rides||[]).find(function(r){return r.name&&r.name.indexOf(K)!==-1;}),d.updated_at);}).catch(function(){});}load();setInterval(load,300000);})();</script>
+    <!-- CTA 1: After live data / before queue map -->
+    <div style="margin: 0 auto 28px; text-align: center; background: linear-gradient(45deg, #FF416C, #FF4B2B); padding: 18px 20px; border-radius: 14px;">
+        <p style="margin: 0 0 10px; color: #fff; font-weight: 700; font-size: 1rem;">Love tracking Ministry? Get drop alerts for every ride in the app.</p>
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-ministry-afterchart"
+            data-ref="eu-ministry-afterchart"
+            style="display: inline-block; background: #fff; color: #FF4B2B; text-decoration: none; padding: 10px 24px; border-radius: 99px; font-weight: 800; font-size: 0.95rem; min-height: 44px; line-height: 24px;">Get Drop Alerts — Free</a>
+    </div>
     <div class="queue-map">
         <div class="map-header">
             <h2>Ministry of Magic Queue Map</h2>
@@ -886,6 +893,14 @@
                 <span style="font-size: 0.9rem; color: #66ffaa;">✨ <strong>Late Night:</strong> Lines drop
                     significantly during the "Cosmos" nighttime show.</span>
             </div>
+        </div>
+        <!-- CTA 2: Mid-content, between Best Time to Ride and Queue Survival Tips -->
+        <div style="margin: 0 0 32px; text-align: center; background: rgba(255,65,108,0.08); border: 1px solid rgba(255,65,108,0.3); padding: 20px; border-radius: 14px;">
+            <p style="margin: 0 0 4px; color: #fff; font-weight: 700; font-size: 0.95rem;">Pro tip: the app alerts you when Ministry drops under 30 min.</p>
+            <p style="margin: 0 0 12px; color: #bbb; font-size: 0.88rem;">Works for every ride at Epic Universe, not just Ministry.</p>
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-ministry-mid"
+                data-ref="eu-ministry-mid"
+                style="display: inline-block; background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; text-decoration: none; padding: 10px 24px; border-radius: 99px; font-weight: 800; font-size: 0.95rem; min-height: 44px; line-height: 24px;">Try the App — Free</a>
         </div>
         <div
             style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px;">
@@ -1315,22 +1330,39 @@
         })();
     </script>
     <!-- Mobile Sticky CTA -->
-    <div class="mobile-sticky-cta"
-        style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; color: #000; padding: 12px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 9999; text-align: center; display: none;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-            <span style="font-weight: 700; font-size: 0.9rem;">Ministry: 150+ min avg</span>
-            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-ministry-sticky"
-                data-ref="queue-ministry-sticky"
-                style="background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 0.85rem; min-height: 44px; display: inline-flex; align-items: center;">Get Alerts</a>
+    <div id="mobile-sticky-cta" class="mobile-sticky-cta"
+        style="position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(45deg, #FF416C, #FF4B2B); padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); z-index: 9999; text-align: center; display: none; transform: translateY(100%); transition: transform 0.35s ease;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; max-width: 500px; margin: 0 auto;">
+            <span style="font-weight: 700; font-size: 0.9rem; color: #fff;">Get drop alerts for every Epic ride</span>
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-ministry-sticky"
+                data-ref="eu-ministry-sticky"
+                style="background: #fff; color: #FF4B2B; text-decoration: none; padding: 8px 18px; border-radius: 99px; font-weight: 800; font-size: 0.85rem; min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap;">Free App</a>
         </div>
     </div>
     <style>
-        @media (max-width: 600px) {
-            .mobile-sticky-cta {
+        @media (max-width: 768px) {
+            #mobile-sticky-cta {
                 display: block !important;
             }
         }
     </style>
+    <script>
+        (function () {
+            var bar = document.getElementById('mobile-sticky-cta');
+            if (!bar) return;
+            var shown = false;
+            var dismissed = false;
+            function onScroll() {
+                if (dismissed) return;
+                if (!shown && window.scrollY > 400) {
+                    shown = true;
+                    bar.style.transform = 'translateY(0)';
+                    try { gtag('event', 'cta_view', { location: 'eu-ministry-sticky', page: location.pathname }); } catch (e) {}
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
+    </script>
     <script>
         // Global App Store click tracking via data-ref attribute
         document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {

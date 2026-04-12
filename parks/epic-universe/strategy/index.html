@@ -509,6 +509,95 @@
         @media (prefers-reduced-motion: reduce) {
             .bar { transition: none; }
         }
+
+        /* Inline App CTA card */
+        .inline-cta {
+            background: linear-gradient(45deg, #FF416C 0%, #FF4B2B 100%);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            text-decoration: none;
+            color: white;
+        }
+        .inline-cta:hover { opacity: 0.93; }
+        .inline-cta .cta-text { flex: 1; }
+        .inline-cta .cta-headline {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 3px;
+        }
+        .inline-cta .cta-sub {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .inline-cta .cta-btn {
+            background: white;
+            color: #FF416C;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            white-space: nowrap;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        @media (max-width: 480px) {
+            .inline-cta { flex-direction: column; align-items: flex-start; }
+            .inline-cta .cta-btn { align-self: stretch; justify-content: center; }
+        }
+
+        /* Mobile-only sticky bottom CTA */
+        .sticky-cta {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .sticky-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                background: linear-gradient(45deg, #FF416C 0%, #FF4B2B 100%);
+                padding: 12px 20px;
+                padding-bottom: calc(12px + env(safe-area-inset-bottom));
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+            }
+            .sticky-cta.visible { transform: translateY(0); }
+            .sticky-cta .sticky-text {
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: white;
+                flex: 1;
+            }
+            .sticky-cta .sticky-btn {
+                background: white;
+                color: #FF416C;
+                font-weight: 700;
+                font-size: 0.82rem;
+                padding: 9px 18px;
+                border-radius: 30px;
+                text-decoration: none;
+                white-space: nowrap;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .sticky-cta { transition: none; }
+        }
     </style>
 </head>
 
@@ -610,11 +699,20 @@
                 </a>
             </p>
             <div class="seasonal-callout">
-                <strong>Planning for spring break?</strong> Day-of-week patterns flip during peak seasons. During spring break 2026, Thursday and Saturday
-                were the lightest days while Sunday was the heaviest.
-                <a href="/universal-orlando/epic-universe/spring-break-2026/">See the full spring break guide →</a>
+                <strong>Heads up:</strong> Day-of-week patterns shift during peak seasons. During spring break 2026, Thursday and Saturday
+                were the lightest days while Sunday was the heaviest. Holidays and seasonal events can flip the usual rankings.
             </div>
         </div>
+
+        <!-- ========== INLINE CTA 1 ========== -->
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-strategy-mid"
+            class="inline-cta" data-ref="eu-strategy-mid" aria-label="Download Ride Ready free on the App Store">
+            <div class="cta-text">
+                <div class="cta-headline">Plan your Epic day in seconds</div>
+                <div class="cta-sub">Live waits, drop alerts, and a plan that updates as crowds shift</div>
+            </div>
+            <span class="cta-btn">Download Free</span>
+        </a>
 
         <!-- ========== EPA INTEL ========== -->
         <div class="card">
@@ -816,6 +914,16 @@
                 <div class="cheat-text"><strong>Use single rider for Mine-Cart.</strong> Standby averages 118 min and never drops below 80. Single rider is 10–30 min midday. It's the only hack that works for this ride.</div>
             </div>
         </div>
+
+        <!-- ========== INLINE CTA 2 ========== -->
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-strategy-afterrules"
+            class="inline-cta" data-ref="eu-strategy-afterrules" aria-label="Download Ride Ready free on the App Store">
+            <div class="cta-text">
+                <div class="cta-headline">Pro tip: the app replans your day every 30 min as waits shift</div>
+                <div class="cta-sub">So you're always chasing the shortest lines, not the ones you planned last night</div>
+            </div>
+            <span class="cta-btn">Try it free</span>
+        </a>
 
         <!-- ========== EVENING DROP WINDOWS ========== -->
         <div class="card">
@@ -1206,6 +1314,16 @@
             </div>
         </div>
 
+        <!-- ========== INLINE CTA 3 ========== -->
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-strategy-afterhierarchy"
+            class="inline-cta" data-ref="eu-strategy-afterhierarchy" aria-label="Download Ride Ready free on the App Store">
+            <div class="cta-text">
+                <div class="cta-headline">Skip the lines with Ride Ready</div>
+                <div class="cta-sub">See live waits, get drop alerts, and follow a plan built around your day</div>
+            </div>
+            <span class="cta-btn">Get the App — Free</span>
+        </a>
+
         <!-- ========== QUEUE GUIDES ========== -->
         <div class="card" style="text-align: center;">
             <h2 style="justify-content: center;"><span class="emoji">📍</span> In the Park Right Now?</h2>
@@ -1250,6 +1368,38 @@
             </p>
         </div>
     </div>
+
+    <!-- Mobile-only sticky CTA — appears after user scrolls past hero -->
+    <div class="sticky-cta" id="sticky-cta" role="complementary" aria-label="Download Ride Ready">
+        <span class="sticky-text">Get live waits + a plan that updates as crowds shift</span>
+        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-strategy-sticky"
+            class="sticky-btn" data-ref="eu-strategy-sticky">Get the App</a>
+    </div>
+
+    <script>
+        // Sticky CTA: show after user scrolls past the hero
+        (function () {
+            var hero = document.querySelector('.hero');
+            var bar = document.getElementById('sticky-cta');
+            if (!hero || !bar) return;
+            var shown = false;
+            var dismissed = false;
+
+            function onScroll() {
+                if (dismissed) return;
+                var heroBottom = hero.getBoundingClientRect().bottom;
+                if (!shown && heroBottom < 0) {
+                    bar.classList.add('visible');
+                    shown = true;
+                } else if (shown && heroBottom >= 0) {
+                    bar.classList.remove('visible');
+                    shown = false;
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
+    </script>
 </body>
 
 </html>
