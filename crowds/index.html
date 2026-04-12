@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link href="/favicon.ico" rel="icon" sizes="any" />
+  <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+  <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="/site.webmanifest" rel="manifest" />
+  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-crowds-hub" />
+  <meta name="theme-color" content="#000000" />
+  <title>Theme Park Crowd Calendars | Ride Ready</title>
+  <meta name="description"
+    content="Daily crowd level predictions (1-10) for 14 theme parks. See which parks are busy today and plan the best day to visit Epic Universe, Universal, SeaWorld, Cedar Point, and more." />
+  <meta name="robots" content="index,follow, max-image-preview:large" />
+  <meta property="og:title" content="Theme Park Crowd Calendars | Ride Ready" />
+  <meta property="og:description"
+    content="Daily crowd levels for 14 parks. See which parks are busy today and plan the best day to visit." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rideready.app/crowds/" />
+  <meta property="og:image" content="https://rideready.app/images/og/og-default.png" />
+  <meta property="og:image:width" content="2400" />
+  <meta property="og:image:height" content="1260" />
+  <link rel="canonical" href="https://rideready.app/crowds/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://rideready.app/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Crowd Calendars"
+    }]
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KGYGTPMTQ3');
+  </script>
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: #111111;
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #F97316;
+      --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --radius: 18px;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      margin: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.20) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255, 65, 108, 0.16) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    nav .left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .logo img {
+      width: auto;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-cta {
+      background: var(--primary-gradient);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.20);
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 0;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 20px 0 32px;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+    }
+
+    .parks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .park-card {
+      display: block;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .park-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(249, 115, 22, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+    }
+
+    .park-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .park-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .park-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: white;
+    }
+
+    .crowd-badge {
+      min-width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .park-region {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .park-status {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .park-status .label-text {
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.45);
+      margin: 0 0 8px;
+      line-height: 1.5;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .cta-banner {
+      background: var(--primary-gradient);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner .cta-text {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .cta-banner .cta-headline {
+      font-weight: 700;
+      font-size: 1rem;
+      color: white;
+      margin-bottom: 3px;
+    }
+
+    .cta-banner .cta-sub {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .cta-banner .cta-btn {
+      background: white;
+      color: #FF416C;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 11px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      white-space: nowrap;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .cta-banner .cta-btn:hover { opacity: 0.93; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.6rem; }
+      .parks-grid { grid-template-columns: 1fr; }
+      .cta-banner { flex-direction: column; align-items: flex-start; }
+      .cta-banner .cta-btn { align-self: stretch; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .park-card { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav>
+      <div class="left">
+        <a href="/" class="logo" aria-label="Ride Ready home">
+          <img src="/images/rr-icon-60@2x.png" alt="" width="32" height="32" />
+          <span style="font-weight: 800; letter-spacing: -0.02em;">Ride Ready</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="/parks/">Parks</a>
+        <a href="/crowds/" style="opacity: 1; border-bottom: 2px solid var(--accent); padding-bottom: 2px;">Crowds</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowds-hub-nav"
+          data-ref="crowds-hub-nav">Download Free</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>Crowd Calendars</h1>
+      <p>Daily crowd levels (1-10) for 14 parks. Tap a park to see the full calendar with day-by-day predictions.</p>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background: #22c55e;"></div> 1-3 Light</div>
+      <div class="legend-item"><div class="legend-dot" style="background: #f59e0b;"></div> 4-6 Moderate</div>
+      <div class="legend-item"><div class="legend-dot" style="background: #ef4444;"></div> 7-8 Busy</div>
+      <div class="legend-item"><div class="legend-dot" style="background: #991b1b;"></div> 9-10 Packed</div>
+    </div>
+
+    <div class="parks-grid" id="parks-grid">
+      <!-- JS populates crowd levels; static fallback below -->
+    </div>
+
+    <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowds-hub-bottom"
+      data-ref="crowds-hub-bottom" class="cta-banner">
+      <div class="cta-text">
+        <div class="cta-headline">Get live waits + drop alerts for every ride</div>
+        <div class="cta-sub">Crowd calendars tell you which day. The app tells you which ride, right now.</div>
+      </div>
+      <span class="cta-btn">Download Free</span>
+    </a>
+
+    <div class="footer">
+      <p>Ride Ready is an independent application and is not affiliated with, endorsed by, or sponsored by
+        Universal, SeaWorld, Cedar Fair, Six Flags, or any other theme park operators.</p>
+      <p><a href="/">Home</a> · <a href="/parks/">Parks</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+      <p>&copy; 2026 Ride Ready. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    var PARKS = [
+      { slug: "epic-universe",              name: "Epic Universe",              region: "Orlando, FL",      featured: true },
+      { slug: "universal-studios-florida",  name: "Universal Studios Florida",  region: "Orlando, FL" },
+      { slug: "islands-of-adventure",       name: "Islands of Adventure",       region: "Orlando, FL" },
+      { slug: "seaworld-orlando",           name: "SeaWorld Orlando",           region: "Orlando, FL" },
+      { slug: "busch-gardens-tampa",        name: "Busch Gardens Tampa",        region: "Tampa, FL" },
+      { slug: "busch-gardens-williamsburg", name: "Busch Gardens Williamsburg", region: "Williamsburg, VA" },
+      { slug: "cedar-point",               name: "Cedar Point",                region: "Sandusky, OH" },
+      { slug: "kings-island",              name: "Kings Island",               region: "Mason, OH" },
+      { slug: "kings-dominion",            name: "Kings Dominion",             region: "Doswell, VA" },
+      { slug: "carowinds",                 name: "Carowinds",                  region: "Charlotte, NC" },
+      { slug: "canadas-wonderland",        name: "Canada's Wonderland",        region: "Vaughan, ON" },
+      { slug: "six-flags-over-georgia",    name: "Six Flags Over Georgia",     region: "Austell, GA" },
+      { slug: "six-flags-great-adventure", name: "Six Flags Great Adventure",  region: "Jackson, NJ" },
+      { slug: "six-flags-great-america",   name: "Six Flags Great America",    region: "Gurnee, IL" }
+    ];
+
+    function crowdColor(level) {
+      if (level <= 3) return '#22c55e';
+      if (level <= 6) return '#f59e0b';
+      if (level <= 8) return '#ef4444';
+      return '#991b1b';
+    }
+
+    function crowdLabel(level) {
+      if (level <= 3) return 'Light';
+      if (level <= 6) return 'Moderate';
+      if (level <= 8) return 'Busy';
+      return 'Packed';
+    }
+
+    function todayStr() {
+      var d = new Date();
+      var y = d.getFullYear();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      var day = String(d.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + day;
+    }
+
+    function renderParks(todayData) {
+      var grid = document.getElementById('parks-grid');
+      grid.innerHTML = '';
+      var today = todayStr();
+
+      PARKS.forEach(function (park) {
+        var entry = todayData[park.slug];
+        var card = document.createElement('a');
+        card.className = 'park-card';
+        card.href = '/parks/' + park.slug + '/crowd-calendar/';
+
+        var level = entry ? entry.crowdLevel : null;
+        var badgeHtml = '';
+        var statusHtml = '';
+
+        if (level !== null) {
+          badgeHtml = '<div class="crowd-badge" style="background: ' + crowdColor(level) + ';">' + level + '</div>';
+          statusHtml = '<div class="park-status"><span class="label-text">' + crowdLabel(level) + '</span> today</div>';
+        } else {
+          badgeHtml = '<div class="crowd-badge" style="background: rgba(255,255,255,0.1); color: var(--muted); font-size: 0.75rem;">--</div>';
+          statusHtml = '<div class="park-status">View calendar</div>';
+        }
+
+        card.innerHTML =
+          '<div class="park-header">' +
+            '<div>' +
+              '<div class="park-name">' + park.name + '</div>' +
+              '<div class="park-region">' + park.region + '</div>' +
+            '</div>' +
+            badgeHtml +
+          '</div>' +
+          statusHtml;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Load today's crowd level for each park from their actuals.json
+    (function () {
+      var today = todayStr();
+      var todayData = {};
+      var loaded = 0;
+      var total = PARKS.length;
+
+      // Render immediately with no data (shows "--" badges)
+      renderParks(todayData);
+
+      PARKS.forEach(function (park) {
+        var url = '/parks/' + park.slug + '/crowd-calendar/actuals.json';
+        fetch(url)
+          .then(function (r) { return r.ok ? r.json() : []; })
+          .then(function (data) {
+            // Find today's entry
+            for (var i = data.length - 1; i >= 0; i--) {
+              if (data[i].date === today) {
+                todayData[park.slug] = data[i];
+                break;
+              }
+            }
+          })
+          .catch(function () { /* no data for this park */ })
+          .finally(function () {
+            loaded++;
+            if (loaded === total) {
+              renderParks(todayData);
+            }
+          });
+      });
+    })();
+  </script>
+  <script>
+    // Global App Store click tracking via data-ref attribute
+    document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        try {
+          if (typeof gtag !== 'function') return;
+          var href = link.getAttribute('href') || '';
+          var ct = null;
+          try { ct = new URL(href).searchParams.get('ct'); } catch (e) { }
+          gtag('event', 'app_store_click', {
+            ref: link.dataset.ref || null,
+            ct: ct,
+            page: window.location.pathname
+          });
+        } catch (e) { }
+      });
+    });
+  </script>
+</body>
+
+</html>
