@@ -86,6 +86,15 @@ secrets/
 !parks/universal-studios-florida/secrets/
 !parks/kings-island/secrets/
 !parks/cedar-point/secrets/
+!parks/canadas-wonderland/secrets/
+!parks/busch-gardens-tampa/secrets/
+!parks/busch-gardens-williamsburg/secrets/
+!parks/carowinds/secrets/
+!parks/kings-dominion/secrets/
+!parks/seaworld-orlando/secrets/
+!parks/six-flags-great-adventure/secrets/
+!parks/six-flags-great-america/secrets/
+!parks/six-flags-over-georgia/secrets/
 .mcp.json
 rideready.zip
 
