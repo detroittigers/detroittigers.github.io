@@ -82,6 +82,8 @@ generate_redirects.py
 # Secrets
 secrets/
 !parks/epic-universe/secrets/
+!parks/islands-of-adventure/secrets/
+!parks/universal-studios-florida/secrets/
 .mcp.json
 rideready.zip
 
