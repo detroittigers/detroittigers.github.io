@@ -26,24 +26,44 @@ def should_skip(path: Path) -> bool:
 
 
 # Rewrite the nav markup with hardened inline styles.
+NAV_STYLE_BLOCK = """<style>
+    @media print { .site-nav { display: none !important; } }
+    .site-nav-inner { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; gap:16px; }
+    .site-nav-links { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+    .site-nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .site-nav-brand span { color:#fff; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px; }
+    .site-nav a.site-nav-link { color:#fff; text-decoration:none; font-size:0.95rem; font-weight:500; }
+    .site-nav a.site-nav-secondary { color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500; }
+    .site-nav-cta { background:rgba(255,255,255,0.1); color:#fff !important; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap; }
+    @media (max-width: 680px) {
+      .site-nav { padding:10px 14px !important; }
+      .site-nav-inner { flex-direction:column; align-items:stretch; gap:10px; }
+      .site-nav-links { width:100%; justify-content:flex-start; gap:14px; }
+      .site-nav-cta { margin-left:auto; }
+    }
+    @media (max-width: 430px) {
+      .site-nav-secondary { display:none; }
+    }
+  </style>"""
+
+
 def canonical_for(ref: str, ct: str) -> str:
     return (
         '<nav class="site-nav no-print" style="display:block !important; '
         'padding:14px 20px !important; border-bottom:1px solid #1a1a1a !important; '
         'background:#000 !important; margin:0 !important; width:100% !important; '
         'box-sizing:border-box !important; position:relative; z-index:10;">\n'
-        '  <style>@media print { .site-nav { display: none !important; } }</style>\n'
-        '  <div style="display:flex !important; justify-content:space-between; '
-        'align-items:center; max-width:1100px; margin:0 auto; gap:16px;">\n'
-        '    <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none;">\n'
+        f'  {NAV_STYLE_BLOCK}\n'
+        '  <div class="site-nav-inner">\n'
+        '    <a class="site-nav-brand" href="/">\n'
         '      <img alt="Ride Ready" src="/images/logo.png" style="height:32px; width:auto;" />\n'
-        '      <span style="color:white; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px;">Ride Ready</span>\n'
+        '      <span>Ride Ready</span>\n'
         '    </a>\n'
-        '    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">\n'
-        '      <a href="/parks/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Parks</a>\n'
-        '      <a href="/crowds/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Crowds</a>\n'
-        '      <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500;">Why Us?</a>\n'
-        f'      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct={ct}" data-ref="{ref}" style="background:rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap;">Download Free</a>\n'
+        '    <div class="site-nav-links">\n'
+        '      <a class="site-nav-link" href="/parks/">Parks</a>\n'
+        '      <a class="site-nav-link" href="/crowds/">Crowds</a>\n'
+        '      <a class="site-nav-secondary" href="/compare/official-apps/">Why Us?</a>\n'
+        f'      <a class="site-nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct={ct}" data-ref="{ref}">Download Free</a>\n'
         '    </div>\n'
         '  </div>\n'
         '</nav>'
