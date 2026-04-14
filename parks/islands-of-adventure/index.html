@@ -33,6 +33,28 @@
     }]
   }
   </script>
+  <!-- JSON-LD AmusementPark Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AmusementPark",
+    "name": "Universal's Islands of Adventure",
+    "url": "https://www.universalorlando.com/web/en/us/theme-parks/universals-islands-of-adventure",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6000 Universal Blvd",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32819",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://en.wikipedia.org/wiki/Islands_of_Adventure",
+      "https://www.universalorlando.com/web/en/us/theme-parks/universals-islands-of-adventure"
+    ],
+    "image": "https://rideready.app/images/og/og-default.png"
+  }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -51,6 +73,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/islands-of-adventure/" />
   <meta property="og:image" content="https://rideready.app/images/og/og-default.png" />
+  <meta name="twitter:image" content="https://rideready.app/images/og/og-default.png" />
   <meta property="og:image:width" content="2400" />
   <meta property="og:image:height" content="1260" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -329,7 +352,7 @@
 
     footer {
       margin: 34px 0 22px;
-      color: rgba(255, 255, 255, 0.55);
+      color: rgba(255, 255, 255, 0.75);
       font-size: 0.9rem;
       text-align: center;
     }
@@ -401,6 +424,22 @@
 </head>
 
 <body>
+<nav class="site-nav no-print" style="display:block !important; padding:14px 20px !important; border-bottom:1px solid #1a1a1a !important; background:#000 !important; margin:0 !important; width:100% !important; box-sizing:border-box !important; position:relative; z-index:10;">
+  <style>@media print { .site-nav { display: none !important; } }</style>
+  <div style="display:flex !important; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; gap:16px;">
+    <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img alt="Ride Ready" src="/images/logo.png" style="height:32px; width:auto;" />
+      <span style="color:white; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px;">Ride Ready</span>
+    </a>
+    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+      <a href="/parks/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Parks</a>
+      <a href="/crowds/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Crowds</a>
+      <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500;">Why Us?</a>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=smartbanner-parks-islands-of-adventure" data-ref="parks-islands-of-adventure-nav" style="background:rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap;">Download Free</a>
+    </div>
+  </div>
+</nav>
+
   <div class="sticky-footer">
     <div class="inner">
       <div class="text">Islands of Adventure: your day is basically Hagrid's + VelociCoaster timing. Make it easy.</div>
@@ -409,23 +448,7 @@
     </div>
   </div>
 
-  <div class="container">
-    <nav>
-      <div class="left">
-        <a class="logo" href="/">
-          <img src="/images/logo.png" alt="Ride Ready Logo" />
-          <span>Ride Ready</span>
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/parks/">Parks</a>
-        <a href="/crowds/">Crowds</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-ioa-nav"
-          data-ref="park-ioa-nav">Download Free</a>
-      </div>
-    </nav>
-
-    <div class="hero">
+  <div class="container"><div class="hero">
       <div class="kicker">Universal Islands of Adventure - Wait times + smarter timing</div>
       <h1>Universal Islands of Adventure: Know When to Go</h1>
       <p>Track Islands of Adventure wait times with Ride Ready and set alerts for Hagrid's, VelociCoaster, Forbidden

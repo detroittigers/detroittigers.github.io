@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="max-image-preview:large" />
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+  <meta name="apple-itunes-app" content="app-id=6748330847, affiliate-data=ct=smartbanner-park-six-flags-great-america">
+  <link href="/favicon.ico" rel="icon" sizes="any" />
+  <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+  <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="/site.webmanifest" rel="manifest" />
+  <!-- JSON-LD Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://rideready.app/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Parks",
+      "item": "https://rideready.app/parks/"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Six Flags Great America"
+    }]
+  }
+  </script>
+  <!-- JSON-LD AmusementPark Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AmusementPark",
+    "name": "Six Flags Great America",
+    "url": "https://www.sixflags.com/greatamerica",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1 Great America Pkwy",
+      "addressLocality": "Gurnee",
+      "addressRegion": "IL",
+      "postalCode": "60031",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://en.wikipedia.org/wiki/Six_Flags_Great_America",
+      "https://www.sixflags.com/greatamerica"
+    ],
+    "image": "https://rideready.app/images/og/og-default.png"
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KGYGTPMTQ3');
+  </script>
+
+  <title>Six Flags Great America Wait Times &amp; Ride Strategy | Ride Ready</title>
+  <meta name="description" content="Track Six Flags Great America wait times. Set Ride Ready alerts for Goliath, Raging Bull, Maxx Force, X-Flight — catch coaster windows without burning your day." />
+  <link rel="canonical" href="https://rideready.app/parks/six-flags-great-america/" />
+  <meta property="og:title" content="Six Flags Great America Wait Times &amp; Ride Strategy | Ride Ready" />
+  <meta property="og:description" content="Track Six Flags Great America wait times and set Ride Ready alerts for Goliath, Raging Bull, Maxx Force, X-Flight, Batman, Superman and more — catch coaster windows without wasting your day in queues." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rideready.app/parks/six-flags-great-america/" />
+  <meta property="og:image" content="https://rideready.app/images/og/og-default.png" />
+  <meta name="twitter:image" content="https://rideready.app/images/og/og-default.png" />
+  <meta property="og:image:width" content="2400" />
+  <meta property="og:image:height" content="1260" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+:root {
+  --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --muted: rgba(255,255,255,0.72);
+  --accent-color: #F97316;
+  --card-bg: #111;
+  --border: #333;
+  --soft-border: rgba(255,255,255,0.08);
+  --shadow: 0 20px 50px rgba(0,0,0,0.55);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: hidden;
+  line-height: 1.55;
+  padding-bottom: 92px; /* space for sticky footer */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.20) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255,65,108,0.16) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+nav .left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+nav a:hover { opacity: 1; }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.logo img { width: 32px; height: 32px; border-radius: 8px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-cta {
+  background: var(--primary-gradient);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
+}
+
+.hero {
+  padding: 26px 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid var(--soft-border);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.1;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 70ch;
+}
+
+.section {
+  margin-top: 34px;
+  text-align: left;
+}
+
+.section h2 {
+  margin: 0 0 14px;
+  font-size: 1.35rem;
+}
+
+.kicker {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.fact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.fact {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
+.fact span { color: var(--muted); }
+
+.ride-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.ride-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.80);
+  margin-bottom: 10px;
+}
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
+
+.chip {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.86);
+  background: rgba(255,255,255,0.03);
+}
+
+.ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
+.ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
+
+.inline-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.inline-link:hover { text-decoration: underline; }
+
+.alert-grid .card b { color: rgba(255,255,255,0.92); }
+
+.plan {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.82);
+}
+
+.plan li { margin: 8px 0; }
+
+details {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+details + details { margin-top: 10px; }
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  outline: none;
+}
+
+details p {
+  margin: 10px 0 0;
+  color: rgba(255,255,255,0.78);
+}
+
+footer {
+  margin: 34px 0 22px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.sources a { word-break: break-word; }
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
+  z-index: 1000;
+}
+
+.sticky-footer .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sticky-footer .text {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.82);
+}
+
+.sticky-footer a {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 11px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  nav { align-items: flex-start; }
+  .nav-links { justify-content: flex-start; }
+  .hero { padding: 22px 16px; }
+  .sticky-footer .text { display: none; }
+  .logo span { display: none; }
+}
+</style>
+</head>
+
+<body>
+<nav class="site-nav no-print" style="display:block !important; padding:14px 20px !important; border-bottom:1px solid #1a1a1a !important; background:#000 !important; margin:0 !important; width:100% !important; box-sizing:border-box !important; position:relative; z-index:10;">
+  <style>@media print { .site-nav { display: none !important; } }</style>
+  <div style="display:flex !important; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; gap:16px;">
+    <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img alt="Ride Ready" src="/images/logo.png" style="height:32px; width:auto;" />
+      <span style="color:white; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px;">Ride Ready</span>
+    </a>
+    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+      <a href="/parks/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Parks</a>
+      <a href="/crowds/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Crowds</a>
+      <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500;">Why Us?</a>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=smartbanner-parks-six-flags-great-america" data-ref="parks-six-flags-great-america-nav" style="background:rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap;">Download Free</a>
+    </div>
+  </div>
+</nav>
+
+  <div class="sticky-footer">
+    <div class="inner">
+      <div class="text">Six Flags Great America: nine coasters worth tracking, one app. Catch your windows and ride when it counts.</div>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-sfga-sticky" data-ref="park-sfga-sticky">Download Free</a>
+    </div>
+  </div>
+
+  <div class="container"><div class="hero">
+      <div class="kicker">🎢 Six Flags Great America • Wait times + smarter timing</div>
+      <h1>Six Flags Great America: Know When to Go</h1>
+      <p>Track Six Flags Great America wait times and set Ride Ready alerts for Goliath, Raging Bull, Maxx Force, X-Flight, Batman, Superman and more. Catch coaster windows without wasting your day in queues.</p>
+    </div>
+
+    <section class="section">
+      <h2>Quick park facts</h2>
+      <div class="grid">
+        <div class="card"><div class="fact"><b>Location</b><span>Gurnee, Illinois (north of Chicago, near the Wisconsin border)</span></div></div>
+        <div class="card"><div class="fact"><b>Opened</b><span>1976, originally as Marriott's Great America — now one of Six Flags' flagship Midwest parks</span></div></div>
+        <div class="card"><div class="fact"><b>Best for</b><span>Diverse coaster lineup spanning wooden classics (Goliath, American Eagle), B&amp;M behemoths (Raging Bull, X-Flight), and a record-setting air launch (Maxx Force)</span></div></div>
+        <div class="card"><div class="fact"><b>The trick</b><span>Head to Goliath and Maxx Force at rope drop before crowds settle in. The back of the park is the sweet spot early in the day.</span></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Rides worth setting alerts for</h2>
+      <div class="grid">
+
+        <div class="card ride-card">
+          <h3>Goliath</h3>
+          <div class="ride-tag">RMC Wooden coaster • record-setter</div>
+          <div class="chips"><span class="chip">record-setting drop</span><span class="chip">overbanked turns</span><span class="chip">inversions</span></div>
+          <p class="ride-why">When it opened in 2014 it held records for the fastest, steepest, and longest drop on any wooden coaster in the world. It's compact but utterly relentless — a must-ride.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Built by Rocky Mountain Construction (RMC), Goliath brought world records to a wooden coaster in a footprint smaller than many family rides.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>Raging Bull</h3>
+          <div class="ride-tag">B&amp;M Hyper coaster • airtime machine</div>
+          <div class="chips"><span class="chip">towering first drop</span><span class="chip">camelback hills</span><span class="chip">540&deg; helix</span></div>
+          <p class="ride-why">One of the premier B&amp;M hyper coasters in the chain — long, smooth, and loaded with sustained airtime. Busy days mean long standby; alerts are how you ride it twice.</p>
+          <p class="ride-fact"><b>Fun fact:</b> One of the tallest and fastest rides at the park, and a consistent fan favorite since it opened.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>Maxx Force</h3>
+          <div class="ride-tag">S&amp;S Air Launch coaster • world record</div>
+          <div class="chips"><span class="chip">air-launched</span><span class="chip">fastest vertical loop in the world</span><span class="chip">intense</span></div>
+          <p class="ride-why">Launched by compressed air to insane speed in under two seconds, then a vertical loop that holds the world record for the fastest. Short ride, massive punch.</p>
+          <p class="ride-fact"><b>Fun fact:</b> The vertical loop on Maxx Force is officially the fastest vertical loop on any roller coaster anywhere in the world.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>X-Flight</h3>
+          <div class="ride-tag">B&amp;M Wing coaster • seats outside the track</div>
+          <div class="chips"><span class="chip">wing seats</span><span class="chip">key-hole elements</span><span class="chip">zero-g roll</span></div>
+          <p class="ride-why">Riders sit on either side of the track with nothing above or below — a genuinely different perspective. The key-hole dives make it look like you're about to clip a structure. High demand on busy days.</p>
+          <p class="ride-fact"><b>Fun fact:</b> One of B&amp;M's earlier wing coaster installations, known for its dramatic close-call key-hole theming elements.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>Batman: The Ride</h3>
+          <div class="ride-tag">B&amp;M Inverted coaster • the original</div>
+          <div class="chips"><span class="chip">6 inversions</span><span class="chip">prototype installation</span><span class="chip">feet-dangling</span></div>
+          <p class="ride-why">This is where the B&amp;M inverted coaster was born — the very first installation of a ride type that spread to parks worldwide. Historically significant and still delivers.</p>
+          <p class="ride-fact"><b>Fun fact:</b> The Six Flags Great America Batman is the prototype of the B&amp;M inverted coaster — every Batman: The Ride at other parks traces its lineage here.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>Superman: Ultimate Flight</h3>
+          <div class="ride-tag">B&amp;M Flying coaster • pretzel loop</div>
+          <div class="chips"><span class="chip">pretzel loop</span><span class="chip">fly position</span></div>
+          <p class="ride-why">You're face-down in the "fly" position for most of the ride. The pretzel loop is a brutal positive-G hit. Single-train operations are common — alerts help you catch the dips.</p>
+          <p class="ride-fact"><b>Fun fact:</b> The flying coaster layout puts you parallel to the ground so you experience every element from a Superman-in-flight perspective.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>American Eagle</h3>
+          <div class="ride-tag">Twin-track racing wooden coaster • historic</div>
+          <div class="chips"><span class="chip">dual racing tracks</span><span class="chip">one of the tallest wooden coasters</span></div>
+          <p class="ride-why">A classic racing coaster — two trains launch simultaneously on parallel tracks. Still one of the tallest wooden coasters around, and a park icon since the 1980s.</p>
+          <p class="ride-fact"><b>Fun fact:</b> American Eagle held the record for the world's tallest and fastest wooden coaster when it opened in 1981.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>V2: Vertical Velocity</h3>
+          <div class="ride-tag">Intamin Impulse coaster • back-and-forth thrills</div>
+          <div class="chips"><span class="chip">vertical spike</span><span class="chip">twisted spike</span><span class="chip">launched</span></div>
+          <p class="ride-why">Launched forward and backward through a vertical spike and a twisted spike — compact, punchy, and rerideable. Good for burning 20 minutes while waiting on a Goliath alert.</p>
+          <p class="ride-fact"><b>Fun fact:</b> The impulse coaster design by Intamin sends riders through both towers multiple times in a single cycle.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>Whizzer</h3>
+          <div class="ride-tag">Schwarzkopf Speedracer • historic rarity</div>
+          <div class="chips"><span class="chip">1976 original</span><span class="chip">one of few still operating</span><span class="chip">family-friendly</span></div>
+          <p class="ride-why">One of the last Schwarzkopf Speedracer coasters still operating in the world. A park original from 1976. Not a thrill ride, but worth a lap for the history alone.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Whizzer was nearly demolished but saved by fan campaigns. Most Speedracers were scrapped decades ago — this one survived.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section alert-grid">
+      <h2>Good default alert presets</h2>
+      <div class="grid">
+        <div class="card"><b>Goliath</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &le; 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Record-holding RMC wooden coaster. Worth it at 30, a gamble above 50.</div></div>
+        <div class="card"><b>Raging Bull</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &le; 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">The park's big B&amp;M hyper. High capacity but high demand too — 35 is a green light.</div></div>
+        <div class="card"><b>Maxx Force</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &le; 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Short ride, low throughput, world record loop. Catch the dips — they happen.</div></div>
+        <div class="card"><b>X-Flight</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &le; 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Wing coaster lines move, but the unique experience drives demand. 30 is solid.</div></div>
+        <div class="card"><b>Batman</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &le; 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">The prototype B&amp;M invert. Great backup — keep it as a 'keep the day moving' alert.</div></div>
+        <div class="card"><b>Superman</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &le; 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Single train means slow throughput. Catch the dips when they happen.</div></div>
+      </div>
+      <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
+        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Seasonal notes</h2>
+      <div class="grid">
+        <div class="card">
+          <b style="display:block; margin-bottom:8px;">Regular season</b>
+          <p style="margin:0; color: var(--muted);">Typically late April through early November. Peak crowd weeks are Memorial Day, Fourth of July, and Labor Day weekends — use the crowd calendar to find lighter windows.</p>
+        </div>
+        <div class="card">
+          <b style="display:block; margin-bottom:8px;">Fright Fest (October)</b>
+          <p style="margin:0; color: var(--muted);">Scare zones and haunted mazes run October evenings. Crowds are heavy on Saturday nights. Daytime hours tend to be lighter — a good window for ride credits before the scare zones open.</p>
+        </div>
+        <div class="card">
+          <b style="display:block; margin-bottom:8px;">Holiday in the Park (late Nov/Dec)</b>
+          <p style="margin:0; color: var(--muted);">The park reopens for a holiday event with lights and seasonal entertainment. Select coasters run depending on conditions — check before you go.</p>
+        </div>
+        <div class="card">
+          <b style="display:block; margin-bottom:8px;">Hurricane Harbor</b>
+          <p style="margin:0; color: var(--muted);">The adjacent water park operates summers only and requires separate admission (or is bundled with some passes). A full day plan can split time between both parks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>If you only have one day</h2>
+      <ol class="plan">
+        <li>Rope drop straight to Goliath — it's the most talked-about ride in the park and lines build fast.</li>
+        <li>Hit Maxx Force right after. Short ride, low throughput — get it early before the queue stacks.</li>
+        <li>Raging Bull and X-Flight mid-morning while the rest of the park is still spreading out.</li>
+        <li>Batman: The Ride and V2 as midday filler — both are efficient and ride quickly.</li>
+        <li>Superman: Ultimate Flight late afternoon when single-train waits tend to ease slightly.</li>
+        <li>American Eagle or Whizzer as a cool-down lap before heading out — both are walk-ons more often than not.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>More planning help</h2>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="/parks/six-flags-great-america/crowd-calendar/">SFGA Crowd Calendar</a> — monthly crowd patterns to find your best visit window</li>
+        <li><a class="inline-link" href="/parks/">All supported parks</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>Does Ride Ready use the park's official wait times?</summary>
+        <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
+      </details>
+      <details>
+        <summary>What's the fastest way to get value on a one-day visit?</summary>
+        <p>Pick 4–6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot. That's where you claw back time without buying a line-skip add-on.</p>
+      </details>
+      <details>
+        <summary>Is Six Flags Great America worth a trip from Chicago?</summary>
+        <p>Absolutely — it's about 45 minutes north of downtown Chicago and has one of the strongest coaster lineups in the Midwest. Goliath and Batman alone are worth the drive if you're a coaster fan.</p>
+      </details>
+      <details>
+        <summary>Is this affiliated with Six Flags Great America?</summary>
+        <p>No. Ride Ready is an independent app.</p>
+      </details>
+
+    </section>
+
+    <section class="section sources">
+      <h2>Sources</h2>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Six_Flags_Great_America" rel="noopener noreferrer" target="_blank">Six Flags Great America (park overview), Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Goliath_(Six_Flags_Great_America)" rel="noopener noreferrer" target="_blank">Goliath, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Raging_Bull_(Six_Flags_Great_America)" rel="noopener noreferrer" target="_blank">Raging Bull, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Maxx_Force" rel="noopener noreferrer" target="_blank">Maxx Force, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/X-Flight_(Six_Flags_Great_America)" rel="noopener noreferrer" target="_blank">X-Flight, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Batman:_The_Ride" rel="noopener noreferrer" target="_blank">Batman: The Ride, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/American_Eagle_(Six_Flags_Great_America)" rel="noopener noreferrer" target="_blank">American Eagle, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Whizzer_(Six_Flags_Great_America)" rel="noopener noreferrer" target="_blank">Whizzer, Wikipedia</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      &copy; 2026 Ride Ready. Not affiliated with Six Flags Great America or its operators.
+    </footer>
+  </div>
+<script>
+document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    try {
+      if (typeof gtag !== 'function') return;
+
+      const href = link.getAttribute('href') || '';
+      let ct = null;
+
+      try {
+        ct = new URL(href).searchParams.get('ct');
+      } catch (e) {}
+
+      gtag('event', 'app_store_click', {
+        ref: link.dataset.ref || null,
+        ct: ct,
+        page: window.location.pathname
+      });
+    } catch (e) {}
+  });
+});
+</script>
+</body>
+</html>
