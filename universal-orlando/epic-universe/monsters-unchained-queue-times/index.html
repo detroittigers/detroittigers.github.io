@@ -150,7 +150,7 @@
         }
 
         .survival-label {
-            color: #888;
+            color: #aaa;
             font-size: 0.6rem;
             text-transform: uppercase;
             font-weight: bold;
@@ -185,7 +185,7 @@
         .back-link {
             display: inline-flex;
             align-items: center;
-            color: #888;
+            color: #aaa;
             text-decoration: none;
             font-size: 0.9rem;
             margin-bottom: 20px;
@@ -360,7 +360,7 @@
         }
 
         .cta-box p {
-            color: #888;
+            color: #aaa;
             margin-bottom: 16px;
             font-size: 0.95rem;
         }
@@ -482,7 +482,7 @@
                 <span class="survival-label">Single Rider</span>
                 <span class="survival-val" style="color: #00cc66;">Offered</span>
                 <span class="survival-label"
-                    style="font-size: 0.5rem; text-transform: none; color: #666; margin-top: 2px;">Subject to
+                    style="font-size: 0.5rem; text-transform: none; color: #aaa; margin-top: 2px;">Subject to
                     availability</span>
             </div>
             <div class="survival-box">
@@ -490,7 +490,7 @@
                 <span class="survival-label">Bags</span>
                 <span class="survival-val" style="color: #ff9900;">Strict Lockers</span>
                 <span class="survival-label"
-                    style="font-size: 0.5rem; text-transform: none; color: #666; margin-top: 2px;">Facial
+                    style="font-size: 0.5rem; text-transform: none; color: #aaa; margin-top: 2px;">Facial
                     Recognition</span>
             </div>
             <div class="survival-box">
@@ -502,8 +502,8 @@
         <!-- Methodology Disclaimer -->
         <div
             style="max-width: 600px; margin: 0 auto 20px; text-align: center; border-bottom: 1px solid #333; padding-bottom: 20px;">
-            <p style="color: #666; font-size: 0.8rem; margin: 0;">
-                <strong style="color: #888;">How these estimates work:</strong> Times are projected based on queue
+            <p style="color: #aaa; font-size: 0.8rem; margin: 0;">
+                <strong style="color: #aaa;">How these estimates work:</strong> Times are projected based on queue
                 capacity and active room usage. Actual wait varies by staffing, downtime, and specific Express Pass
                 ratios.
             </p>
@@ -511,12 +511,12 @@
         <!-- Live Wait Time Widget -->
         <div id="rr-live" style="display:none;border-radius:16px;padding:18px 20px;margin-bottom:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);text-align:center;">
             <style>#rr-dot{animation:rrp 2s ease-in-out infinite}@keyframes rrp{0%,100%{opacity:1}50%{opacity:.3}}</style>
-            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:6px;"><span id="rr-dot" style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span>Live Wait</div>
+            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:.1em;color:#aaa;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:6px;"><span id="rr-dot" style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span>Live Wait</div>
             <div id="rr-num" style="font-size:3.5rem;font-weight:800;line-height:1;background:linear-gradient(45deg,#FF416C,#FF4B2B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">—</div>
-            <div id="rr-unit" style="font-size:.85rem;color:#888;margin-top:4px;">minutes posted wait</div>
-            <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:10px;"><span id="rr-trend" style="font-size:.8rem;"></span><span id="rr-upd" style="font-size:.75rem;color:#555;"></span></div>
+            <div id="rr-unit" style="font-size:.85rem;color:#aaa;margin-top:4px;">minutes posted wait</div>
+            <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:10px;"><span id="rr-trend" style="font-size:.8rem;"></span><span id="rr-upd" style="font-size:.75rem;color:#999;"></span></div>
         </div>
-        <script>(function(){var K='Monsters';var w=document.getElementById('rr-live'),num=document.getElementById('rr-num'),unit=document.getElementById('rr-unit'),up=document.getElementById('rr-upd');function ago(s){var d=Math.round((Date.now()-new Date(s))/60000);return d<1?'just now':d+'m ago';}function render(r,t){if(!r)return;w.style.display='block';var wt=r.wait_minutes,st=r.status;if(st!=='OPERATING'){num.style.cssText='font-size:3.5rem;font-weight:800;color:#666';num.textContent='\u2014';unit.textContent='temporarily closed';up.textContent='';return;}if(!wt){num.style.cssText='font-size:3.5rem;font-weight:800;color:#22c55e';num.textContent='Walk-on';unit.textContent='no wait right now';}else{num.textContent=wt;unit.textContent='min posted wait';}up.textContent='Updated '+ago(t);try{gtag('event','live_wait_viewed',{ride:r.name,wait_minutes:wt,page:location.pathname});}catch(e){}}function load(){fetch('https://cdn.rideready.app/public/waits/park_71.json').then(function(r){return r.json();}).then(function(d){render((d.rides||[]).find(function(r){return r.name&&r.name.indexOf(K)!==-1;}),d.updated_at);}).catch(function(){});}load();setInterval(load,300000);})();</script>
+        <script>(function(){var K='Monsters';var w=document.getElementById('rr-live'),num=document.getElementById('rr-num'),unit=document.getElementById('rr-unit'),up=document.getElementById('rr-upd');function ago(s){var d=Math.round((Date.now()-new Date(s))/60000);return d<1?'just now':d+'m ago';}function render(r,t){if(!r)return;w.style.display='block';var wt=r.wait_minutes,st=r.status;if(st!=='OPERATING'){num.style.cssText='font-size:3.5rem;font-weight:800;color:#aaa';num.textContent='\u2014';unit.textContent='temporarily closed';up.textContent='';return;}if(!wt){num.style.cssText='font-size:3.5rem;font-weight:800;color:#22c55e';num.textContent='Walk-on';unit.textContent='no wait right now';}else{num.textContent=wt;unit.textContent='min posted wait';}up.textContent='Updated '+ago(t);try{gtag('event','live_wait_viewed',{ride:r.name,wait_minutes:wt,page:location.pathname});}catch(e){}}function load(){fetch('https://cdn.rideready.app/public/waits/park_71.json').then(function(r){return r.json();}).then(function(d){render((d.rides||[]).find(function(r){return r.name&&r.name.indexOf(K)!==-1;}),d.updated_at);}).catch(function(){});}load();setInterval(load,300000);})();</script>
         <!-- App Upsell Box -->
         <div class="app-upsell"
             style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 16px; display: flex; align-items: center; gap: 16px; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
@@ -723,9 +723,9 @@
             </div>
         </div>
         <footer
-            style="margin-top: 60px; border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; color: #666;">
+            style="margin-top: 60px; border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; color: #aaa;">
             <p>© 2026 Ride Ready. Not affiliated with Universal Orlando Resort.</p>
-            <p><a href="/privacy/" style="color: #666;">Privacy</a> · <a href="/terms/" style="color: #666;">Terms</a>
+            <p><a href="/privacy/" style="color: #aaa;">Privacy</a> · <a href="/terms/" style="color: #aaa;">Terms</a>
             </p>
         </footer>
     </div>
