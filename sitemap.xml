@@ -13,6 +13,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rideready.app/methodology/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rideready.app/parks/universal-orlando/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rideready.app/compare/official-apps/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>

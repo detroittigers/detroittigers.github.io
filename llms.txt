@@ -2,6 +2,16 @@
 
 > Ride Ready provides real-time wait times, crowd predictions, and touring strategies for Epic Universe, Universal Studios Florida, Islands of Adventure, and other major theme parks. Includes queue position guides that tell you how much time is left based on where you're standing in line. Updated April 2026.
 
+## Universal Orlando Resort Strategy (Cross-Park)
+
+- [Universal Orlando Resort Strategy](https://rideready.app/parks/universal-orlando/): Which park first, when to park-hop, Express Pass decision framework, Hogwarts Express logic, and sample 1/2/3-day itineraries. Data from 943,000+ wait samples across the three parks.
+
+Key finding: Epic Universe average wait (54 min) is roughly 2x Universal Studios Florida (26 min) and 1.5x Islands of Adventure (35 min), which is why Epic goes first on multi-day trips.
+
+## How Ride Ready Works
+
+- [Methodology](https://rideready.app/methodology/): Live wait source, SkipIQ forecasting and planning, and how plans are benchmarked against 14,826 simulations across 353 real park days.
+
 ## Epic Universe Guides
 
 Epic Universe opened May 22, 2025 in Orlando. It's Universal's largest park with 5 themed worlds and the longest wait times in Orlando.
