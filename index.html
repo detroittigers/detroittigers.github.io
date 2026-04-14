@@ -72,7 +72,7 @@
           "name": "How accurate are the wait times?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ride Ready displays real-time wait times pulled directly from park systems. Our Chronos ML model also generates full-day forecast curves for every ride, so you can see where waits are headed — not just where they are now."
+            "text": "Ride Ready displays real-time wait times pulled directly from park systems. SkipIQ also generates full-day forecast curves for every ride, so you can see where waits are headed, not just where they are now."
           }
         },
         {
@@ -395,6 +395,54 @@
             display: flex;
             align-items: center;
             gap: 6px;
+        }
+
+        .trust-strip {
+            margin: 18px auto 0;
+            padding: 10px 14px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px 14px;
+            font-size: 0.9rem;
+            color: #ddd;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 75, 43, 0.25);
+            border-radius: 999px;
+            max-width: 100%;
+        }
+
+        .trust-strip .trust-stat strong {
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        .trust-strip .trust-sep {
+            color: #555;
+        }
+
+        .trust-strip .trust-link {
+            color: #FFB6A3;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 182, 163, 0.35);
+            padding-bottom: 1px;
+        }
+
+        .trust-strip .trust-link:hover,
+        .trust-strip .trust-link:focus-visible {
+            color: #FF4B2B;
+            border-bottom-color: #FF4B2B;
+        }
+
+        @media (max-width: 480px) {
+            .trust-strip {
+                font-size: 0.85rem;
+                border-radius: 14px;
+                padding: 10px 12px;
+            }
         }
 
         .press-strip {
@@ -1169,8 +1217,14 @@
                 </div>
                 <!-- Desktop fallback CTA (hidden by default, shown via JS) -->
 
-                <div class="social-proof-hero">
-                    Live data for 14 parks &middot; Benchmarked on 14,826 simulations across 353 real park days &middot; Real-time wait times
+                <div class="trust-strip" role="group" aria-label="Ride Ready data coverage">
+                    <span class="trust-stat"><strong>353</strong> park days</span>
+                    <span class="trust-sep" aria-hidden="true">&middot;</span>
+                    <span class="trust-stat"><strong>14,826</strong> simulations</span>
+                    <span class="trust-sep" aria-hidden="true">&middot;</span>
+                    <span class="trust-stat"><strong>14</strong> parks</span>
+                    <span class="trust-sep" aria-hidden="true">&middot;</span>
+                    <a class="trust-link" href="/methodology/" data-ref="home-hero-methodology">See our methodology →</a>
                 </div>
                 <div class="press-strip">
                     <span class="press-label">As seen in</span>
@@ -1555,8 +1609,8 @@
                 <button class="faq-question">How accurate are the wait times?</button>
                 <div class="faq-answer">
                     <p>Ride Ready displays real-time wait times pulled directly from park systems.
-                        Our Chronos ML model also generates full-day forecast curves for every ride, so you can see where
-                        waits are headed — not just where they are now.</p>
+                        SkipIQ also generates full-day forecast curves for every ride, so you can see where
+                        waits are headed, not just where they are now.</p>
                 </div>
             </div>
             <div class="faq-item">
