@@ -19,6 +19,7 @@
         content="Plan your whole park day with AI. Live wait times, forecast curves, and walking directions for Universal Orlando, SeaWorld, and more. Free on iPhone."
         property="og:description" />
     <meta content="https://rideready.app/images/og/og-home.png" property="og:image" />
+    <meta name="twitter:image" content="https://rideready.app/images/og/og-home.png" />
     <meta property="og:image:width" content="2400" />
     <meta property="og:image:height" content="1260" />
     <meta content="https://rideready.app/" property="og:url" />
@@ -47,7 +48,7 @@
           "name": "What theme parks does Ride Ready support?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ride Ready supports Epic Universe, Universal Studios Florida, Islands of Adventure, SeaWorld Orlando, Busch Gardens Tampa, Cedar Point, Kings Island, and Canada's Wonderland. More parks are being added regularly."
+            "text": "Ride Ready supports 14 parks: Epic Universe, Universal Studios Florida, Islands of Adventure, SeaWorld Orlando, Busch Gardens Tampa, Busch Gardens Williamsburg, Cedar Point, Kings Island, Canada's Wonderland, Carowinds, Kings Dominion, Six Flags Over Georgia, Six Flags Great Adventure, and Six Flags Great America. More parks are being added regularly."
           }
         },
         {
@@ -71,7 +72,7 @@
           "name": "How accurate are the wait times?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ride Ready displays real-time wait times pulled directly from park systems. Our Chronos ML model also generates full-day forecast curves for every ride, so you can see where waits are headed — not just where they are now."
+            "text": "Ride Ready displays real-time wait times pulled directly from park systems. SkipIQ also generates full-day forecast curves for every ride, so you can see where waits are headed, not just where they are now."
           }
         },
         {
@@ -120,6 +121,33 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ride Ready",
+      "url": "https://rideready.app/",
+      "logo": "https://rideready.app/images/logo.png",
+      "email": "support@rideready.app",
+      "sameAs": [
+        "https://x.com/RideReadyApp",
+        "https://www.instagram.com/ridereadyapp",
+        "https://apps.apple.com/us/app/ride-ready/id6748330847"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ride Ready",
+      "url": "https://rideready.app/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ride Ready"
       }
     }
     </script>
@@ -369,6 +397,54 @@
             gap: 6px;
         }
 
+        .trust-strip {
+            margin: 18px auto 0;
+            padding: 10px 14px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px 14px;
+            font-size: 0.9rem;
+            color: #ddd;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 75, 43, 0.25);
+            border-radius: 999px;
+            max-width: 100%;
+        }
+
+        .trust-strip .trust-stat strong {
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        .trust-strip .trust-sep {
+            color: #555;
+        }
+
+        .trust-strip .trust-link {
+            color: #FFB6A3;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 182, 163, 0.35);
+            padding-bottom: 1px;
+        }
+
+        .trust-strip .trust-link:hover,
+        .trust-strip .trust-link:focus-visible {
+            color: #FF4B2B;
+            border-bottom-color: #FF4B2B;
+        }
+
+        @media (max-width: 480px) {
+            .trust-strip {
+                font-size: 0.85rem;
+                border-radius: 14px;
+                padding: 10px 12px;
+            }
+        }
+
         .press-strip {
             margin-top: 14px;
             display: flex;
@@ -376,7 +452,7 @@
             justify-content: center;
             gap: 8px;
             font-size: 0.78rem;
-            color: #666;
+            color: #aaa;
             letter-spacing: 0.02em;
         }
 
@@ -384,14 +460,28 @@
             text-transform: uppercase;
             font-size: 0.65rem;
             letter-spacing: 0.1em;
-            color: #555;
+            color: #999;
             font-weight: 500;
         }
 
         .press-strip span.press-outlet {
-            color: #888;
+            color: #aaa;
             font-weight: 600;
             transition: color 0.2s ease;
+        }
+
+        .press-strip a.press-outlet {
+            color: #aaa;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .press-strip a.press-outlet:hover,
+        .press-strip a.press-outlet:focus-visible {
+            color: #fff;
+            text-decoration: underline;
+            outline: none;
         }
 
         .press-strip span.press-sep {
@@ -489,7 +579,7 @@
             margin-top: 60px;
             padding-bottom: 30px;
             font-size: 0.9rem;
-            color: #888888;
+            color: #aaaaaa;
         }
 
         footer a {
@@ -523,7 +613,7 @@
 
         .social-links a:hover {
             transform: scale(1.05);
-            border-color: #555555;
+            border-color: #999999;
             box-shadow: 0 0 12px rgba(255, 75, 43, 0.25);
         }
 
@@ -578,7 +668,7 @@
         }
 
         a.chip:hover {
-            border-color: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.75);
             background: rgba(255, 255, 255, 0.12);
             color: #fff;
             transform: translateY(-1px);
@@ -638,7 +728,7 @@
         }
 
         .more-note {
-            color: #888888;
+            color: #aaaaaa;
             font-size: 0.9rem;
             margin-left: 4px;
         }
@@ -743,7 +833,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666666;
+            color: #aaaaaa;
             font-size: 0.9rem;
             border-radius: 15px;
         }
@@ -1058,6 +1148,22 @@
 </script>
 
 <body>
+<nav class="site-nav no-print" style="display:block !important; padding:14px 20px !important; border-bottom:1px solid #1a1a1a !important; background:#000 !important; margin:0 !important; width:100% !important; box-sizing:border-box !important; position:relative; z-index:10;">
+  <style>@media print { .site-nav { display: none !important; } }</style>
+  <div style="display:flex !important; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; gap:16px;">
+    <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img alt="Ride Ready" src="/images/logo.png" style="height:32px; width:auto;" />
+      <span style="color:white; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px;">Ride Ready</span>
+    </a>
+    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+      <a href="/parks/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Parks</a>
+      <a href="/crowds/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Crowds</a>
+      <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500;">Why Us?</a>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=smartbanner-home" data-ref="home-nav" style="background:rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap;">Download Free</a>
+    </div>
+  </div>
+</nav>
+
     <div class="sticky-top-cta">
         <span class="emoji">📲</span>
         <span><strong>Visiting soon?</strong> Let SkipIQ plan your whole day.</span>
@@ -1065,27 +1171,7 @@
             Free</a>
     </div>
     <div class="container">
-        <!-- Top Nav -->
-        <nav
-            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding: 10px 0;">
-            <a href="/"
-                style="display: flex; align-items: center; gap: 10px; text-decoration: none; transition: transform 0.2s ease;">
-                <img alt="Ride Ready" src="images/logo.png" style="height: 38px; width: auto;" />
-            </a>
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <a href="/parks/"
-                    style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Parks</a>
-                <a href="/crowds/"
-                    style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Crowds</a>
-                <a href="/compare/official-apps/"
-                    style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Why
-                    Us?</a>
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-nav" data-ref="home-nav"
-                    style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); color: white; padding: 10px 20px; border-radius: 99px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 12px rgba(0,0,0,0.1); backdrop-filter: blur(10px); transition: all 0.2s ease;">Download
-                    Free</a>
-            </div>
-        </nav>
-        <section class="hero" id="top">
+        <!-- Top Nav --><section class="hero" id="top">
             <div class="hero-stack">
                 <div class="hero-logo-wrapper">
                     <img alt="Ride Ready Logo" class="hero-logo" decoding="async" fetchpriority="high"
@@ -1103,7 +1189,7 @@
                     <a class="primary-button hero-button" data-ref="home-hero"
                         href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-hero"
                         rel="noopener noreferrer" target="_blank">Download for iPhone</a>
-                    <p style="margin: 10px 0 0; font-size: 0.8rem; color: #888;">Free to download · Premium from <a href="#premium" class="pricing-teaser-link" style="color: #FF4B2B; text-decoration: none; font-weight: 600;">$7.99/day</a></p>
+                    <p style="margin: 10px 0 0; font-size: 0.8rem; color: #aaa;">Free to download · Premium from <a href="#premium" class="pricing-teaser-link" style="color: #FF4B2B; text-decoration: none; font-weight: 600;">$7.99/day</a></p>
                     <p class="platform-note">
                         Available now on the App Store for iPhone.<br>
                         <a href="/waitlist/android/" aria-label="Join Android Waiting List"
@@ -1127,12 +1213,18 @@
                 </div>
                 <!-- Desktop fallback CTA (hidden by default, shown via JS) -->
 
-                <div class="social-proof-hero">
-                    Live data for 14 parks &middot; 14,826 simulations tested &middot; Real-time wait times
+                <div class="trust-strip" role="group" aria-label="Ride Ready data coverage">
+                    <span class="trust-stat"><strong>353</strong> park days</span>
+                    <span class="trust-sep" aria-hidden="true">&middot;</span>
+                    <span class="trust-stat"><strong>14,826</strong> simulations</span>
+                    <span class="trust-sep" aria-hidden="true">&middot;</span>
+                    <span class="trust-stat"><strong>14</strong> parks</span>
+                    <span class="trust-sep" aria-hidden="true">&middot;</span>
+                    <a class="trust-link" href="/methodology/" data-ref="home-hero-methodology">See our methodology →</a>
                 </div>
                 <div class="press-strip">
                     <span class="press-label">As seen in</span>
-                    <span class="press-outlet">Men's Journal</span>
+                    <a class="press-outlet" data-ref="press-mensjournal" href="https://www.mensjournal.com/travel/this-is-the-smartest-way-to-ride-everything-at-epic-universe-in-one-day" rel="noopener noreferrer" target="_blank">Men's Journal</a>
                     <span class="press-sep">&middot;</span>
                     <span class="press-outlet">Parade</span>
                     <span class="press-sep">&middot;</span>
@@ -1198,6 +1290,9 @@
                 <a class="chip" href="/parks/six-flags-great-adventure/" role="listitem"
                     style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Six Flags Great
                     Adventure</a>
+                <a class="chip" href="/parks/six-flags-great-america/crowd-calendar/" role="listitem"
+                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Six Flags Great
+                    America</a>
                 <a class="request-park" href="mailto:support@rideready.app?subject=Park%20request">Request a park</a>
             </div>
             <!-- Trending Strategies -->
@@ -1221,57 +1316,94 @@
                         style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px; position: relative;">
                         <div style="font-size: 28px; margin-bottom: 12px;">⚡</div>
                         <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Battle at the Ministry</span>
-                        <p style="color: #888; font-size: 0.85rem; margin: 0; line-height: 1.4;">Don't panic at the
+                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Don't panic at the
                             Statue. See the full breakdown.</p>
                     </a>
                     <a href="/universal-orlando/epic-universe/mario-kart-queue-times/"
                         style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
                         <div style="font-size: 28px; margin-bottom: 12px;">🏎️</div>
                         <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Mario Kart Tracker</span>
-                        <p style="color: #888; font-size: 0.85rem; margin: 0; line-height: 1.4;">Yoshi's Island is
+                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Yoshi's Island is
                             longer than it looks. Track your spot.</p>
                     </a>
                     <a href="/universal-orlando/epic-universe/stardust-racers-queue-times/"
                         style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
                         <div style="font-size: 28px; margin-bottom: 12px;">🚀</div>
                         <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Stardust Racers</span>
-                        <p style="color: #888; font-size: 0.85rem; margin: 0; line-height: 1.4;">Warning: Locker area is
+                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Warning: Locker area is
                             a chokepoint. Know the drill.</p>
                     </a>
                     <a href="/universal-orlando/epic-universe/mine-cart-madness-queue-times/"
                         style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
                         <div style="font-size: 28px; margin-bottom: 12px;">🚋</div>
                         <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Mine-Cart Madness</span>
-                        <p style="color: #888; font-size: 0.85rem; margin: 0; line-height: 1.4;">Don't faint in the
+                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Don't faint in the
                             Jungle. Know your jump cues.</p>
                     </a>
                     <a href="/universal-orlando/epic-universe/monsters-unchained-queue-times/"
                         style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
                         <div style="font-size: 28px; margin-bottom: 12px;">🧟</div>
                         <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Monsters Unchained</span>
-                        <p style="color: #888; font-size: 0.85rem; margin: 0; line-height: 1.4;">Frankenstein's lab is a
+                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Frankenstein's lab is a
                             maze. Find the hidden secrets.</p>
                     </a>
                     <a href="/universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/"
                         style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
                         <div style="font-size: 28px; margin-bottom: 12px;">🐉</div>
                         <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Hiccup's Wing Gliders</span>
-                        <p style="color: #888; font-size: 0.85rem; margin: 0; line-height: 1.4;">Phone ban in effect.
+                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Phone ban in effect.
                             Secure your loot early.</p>
                     </a>
                     <a href="/universal-orlando/islands-of-adventure/hagrids-motorbike-queue-times/"
                         style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
                         <div style="font-size: 28px; margin-bottom: 12px;">🏍️</div>
                         <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Hagrid's Motorbike</span>
-                        <p style="color: #888; font-size: 0.85rem; margin: 0; line-height: 1.4;">12 themed rooms through the Forbidden Forest. Know when to brace.</p>
+                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">12 themed rooms through the Forbidden Forest. Know when to brace.</p>
                     </a>
                     <a href="/universal-orlando/islands-of-adventure/velocicoaster-queue-times/"
                         style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
                         <div style="font-size: 28px; margin-bottom: 12px;">🦖</div>
                         <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">VelociCoaster</span>
-                        <p style="color: #888; font-size: 0.85rem; margin: 0; line-height: 1.4;">Raptor Paddock is a trap. Spot the real merge point.</p>
+                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Raptor Paddock is a trap. Spot the real merge point.</p>
                     </a>
                 </div>
+            </div>
+        </section>
+        <!-- Before Your Trip vs At the Park -->
+        <section class="comparison-section" style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 30px; color: #fff;">Before Your Trip vs At the Park</h2>
+            <div class="comparison-grid"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                <div
+                    style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="color: #ddd; font-size: 1.1rem; margin-bottom: 8px;">📖 Before Your Trip</h3>
+                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 16px;">Plan ahead on the website</p>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
+                        <li style="padding: 6px 0; color: #ddd;">✓ Crowd calendars</li>
+                        <li style="padding: 6px 0; color: #ddd;">✓ Queue guides</li>
+                        <li style="padding: 6px 0; color: #ddd;">✓ Park strategy articles</li>
+                        <li style="padding: 6px 0; color: #ddd;">✓ Trip planning tips</li>
+                    </ul>
+                    <p style="color: #aaa; font-size: 0.85rem; line-height: 1.4;">Research &amp; prepare<br>Free on rideready.app</p>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, rgba(255,65,108,0.15), rgba(255,75,43,0.15)); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,65,108,0.3);">
+                    <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">📱 At the Park</h3>
+                    <p style="color: #ddd; font-size: 0.9rem; margin-bottom: 16px;">What SkipIQ does once you're inside</p>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
+                        <li style="padding: 6px 0; color: #fff;">✓ AI day planning (SkipIQ)</li>
+                        <li style="padding: 6px 0; color: #fff;">✓ Live forecast curves</li>
+                        <li style="padding: 6px 0; color: #fff;">✓ Walking directions</li>
+                        <li style="padding: 6px 0; color: #fff;">✓ Drop alerts + queue timer</li>
+                    </ul>
+                    <p style="color: #ddd; font-size: 0.85rem; line-height: 1.4;">Updates every 2 min<br>Free on iPhone</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-compare" data-ref="home-compare"
+                    style="display: inline-block; background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem;">
+                    Download for iPhone
+                </a>
             </div>
         </section>
         <div class="screenshots-section">
@@ -1345,43 +1477,6 @@
                 </div>
             </div>
         </div>
-        <!-- Before Your Trip vs At the Park -->
-        <section class="comparison-section" style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 30px; color: #fff;">Before Your Trip vs At the Park</h2>
-            <div class="comparison-grid"
-                style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
-                <div
-                    style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h3 style="color: #aaa; font-size: 1.1rem; margin-bottom: 8px;">📖 Before Your Trip</h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 16px;">Plan ahead on the website</p>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
-                        <li style="padding: 6px 0; color: #ccc;">✓ Crowd calendars</li>
-                        <li style="padding: 6px 0; color: #ccc;">✓ Queue guides</li>
-                        <li style="padding: 6px 0; color: #ccc;">✓ Park strategy articles</li>
-                        <li style="padding: 6px 0; color: #ccc;">✓ Trip planning tips</li>
-                    </ul>
-                    <p style="color: #666; font-size: 0.85rem; line-height: 1.4;">Research &amp; prepare<br>Free on rideready.app</p>
-                </div>
-                <div
-                    style="background: linear-gradient(135deg, rgba(255,65,108,0.15), rgba(255,75,43,0.15)); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,65,108,0.3);">
-                    <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">📱 At the Park</h3>
-                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 16px;">Your AI companion in the app</p>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
-                        <li style="padding: 6px 0; color: #fff;">✓ AI day planning (SkipIQ)</li>
-                        <li style="padding: 6px 0; color: #fff;">✓ Live forecast curves</li>
-                        <li style="padding: 6px 0; color: #fff;">✓ Walking directions</li>
-                        <li style="padding: 6px 0; color: #fff;">✓ Drop alerts + queue timer</li>
-                    </ul>
-                    <p style="color: #aaa; font-size: 0.85rem; line-height: 1.4;">Updates every 2 min<br>Free on iPhone</p>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-compare" data-ref="home-compare"
-                    style="display: inline-block; background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem;">
-                    Download Free
-                </a>
-            </div>
-        </section>
         <!-- Premium Section -->
         <div id="premium" class="premium-section">
             <div class="crown-icon">👑</div>
@@ -1420,12 +1515,12 @@
                         </tr>
                         <tr>
                             <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Forecast curves</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #666; border-bottom: 1px solid rgba(255,255,255,0.05);">—</td>
+                            <td style="padding: 10px 16px; text-align: center; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.05);">—</td>
                             <td style="padding: 10px 16px; text-align: center; color: #FFD700; border-bottom: 1px solid rgba(255,255,255,0.05);">✓</td>
                         </tr>
                         <tr>
                             <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Active Plan Mode</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #666; border-bottom: 1px solid rgba(255,255,255,0.05);">—</td>
+                            <td style="padding: 10px 16px; text-align: center; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.05);">—</td>
                             <td style="padding: 10px 16px; text-align: center; color: #FFD700; border-bottom: 1px solid rgba(255,255,255,0.05);">✓</td>
                         </tr>
                         <tr>
@@ -1444,7 +1539,7 @@
             <div class="premium-pricing">
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                     <span class="price-tag">Day Pass: <strong>$7.99</strong></span>
-                    <span style="font-size: 0.75rem; color: #888;">One-day visit</span>
+                    <span style="font-size: 0.75rem; color: #aaa;">One-day visit</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                     <span class="price-tag"
@@ -1454,7 +1549,7 @@
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
                     <span class="price-tag">Monthly: <strong>$19.99</strong></span>
-                    <span style="font-size: 0.75rem; color: #888;">For locals / APs</span>
+                    <span style="font-size: 0.75rem; color: #aaa;">For locals / APs</span>
                 </div>
             </div>
             <a class="premium-cta-btn" data-ref="home-premium"
@@ -1477,9 +1572,10 @@
             <div class="faq-item">
                 <button class="faq-question">What theme parks does Ride Ready support?</button>
                 <div class="faq-answer">
-                    <p>Ride Ready supports Epic Universe, Universal Studios Florida, Islands of Adventure, SeaWorld
-                        Orlando, Busch Gardens Tampa, Cedar Point, Kings Island, and Canada's Wonderland. More parks are
-                        being added regularly.</p>
+                    <p>Ride Ready supports 14 parks: Epic Universe, Universal Studios Florida, Islands of Adventure,
+                        SeaWorld Orlando, Busch Gardens Tampa, Busch Gardens Williamsburg, Cedar Point, Kings Island,
+                        Canada's Wonderland, Carowinds, Kings Dominion, Six Flags Over Georgia, Six Flags Great
+                        Adventure, and Six Flags Great America. More parks are being added regularly.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -1509,8 +1605,8 @@
                 <button class="faq-question">How accurate are the wait times?</button>
                 <div class="faq-answer">
                     <p>Ride Ready displays real-time wait times pulled directly from park systems.
-                        Our Chronos ML model also generates full-day forecast curves for every ride, so you can see where
-                        waits are headed — not just where they are now.</p>
+                        SkipIQ also generates full-day forecast curves for every ride, so you can see where
+                        waits are headed, not just where they are now.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -1577,7 +1673,7 @@
                     </svg>
                 </a>
             </div>
-            <p style="color:#666; font-size:0.8rem; margin-top:40px; text-align: center;">Ride Ready is an
+            <p style="color:#aaa; font-size:0.8rem; margin-top:40px; text-align: center;">Ride Ready is an
                 independent
                 application and is not affiliated with, endorsed by, or sponsored by Universal Destinations &amp;
                 Experiences, Universal City Studios LLC, Cedar Fair Entertainment Company (including Cedar Point,
@@ -1602,6 +1698,8 @@
                         if (typeof gtag !== 'function') return;
 
                         const href = link.getAttribute('href') || '';
+                        // Skip if the Android rewrite (or anything else) turned this into an in-page anchor
+                        if (href.charAt(0) === '#') return;
                         let ct = null;
 
                         try {
@@ -1735,7 +1833,18 @@
             }, { passive: true });
 
             // FAQ accordion
-            document.querySelectorAll('.faq-question').forEach(function (btn) {
+            document.querySelectorAll('.faq-question').forEach(function (btn, idx) {
+                var answer = btn.nextElementSibling;
+                var panelId = 'faq-answer-' + idx;
+                if (answer) {
+                    answer.id = panelId;
+                    answer.setAttribute('role', 'region');
+                    answer.setAttribute('aria-labelledby', 'faq-question-' + idx);
+                }
+                btn.id = 'faq-question-' + idx;
+                btn.setAttribute('aria-expanded', 'false');
+                btn.setAttribute('aria-controls', panelId);
+
                 btn.addEventListener('click', function () {
                     var item = btn.parentElement;
                     var wasOpen = item.classList.contains('open');
@@ -1743,11 +1852,14 @@
                     // Close all
                     document.querySelectorAll('.faq-item').forEach(function (faq) {
                         faq.classList.remove('open');
+                        var q = faq.querySelector('.faq-question');
+                        if (q) q.setAttribute('aria-expanded', 'false');
                     });
 
                     // Open clicked if it wasn't open
                     if (!wasOpen) {
                         item.classList.add('open');
+                        btn.setAttribute('aria-expanded', 'true');
 
                         // Track FAQ interaction
                         if (typeof gtag === 'function') {
@@ -1785,16 +1897,20 @@
                 if (iosCta) iosCta.style.display = 'none';
                 if (androidCta) androidCta.style.display = 'block';
 
-                // Also hide the sticky top CTA App Store link on Android
-                var stickyLink = document.querySelector('.sticky-top-cta a[href*="apps.apple.com"]');
-                if (stickyLink) {
-                    stickyLink.textContent = 'Join Waitlist';
-                    stickyLink.href = '#android-cta';
-                    stickyLink.removeAttribute('target');
-                    // Update tracking attributes to reflect Android waitlist context
-                    stickyLink.setAttribute('data-ref', 'sticky-android-waitlist');
-                    stickyLink.setAttribute('aria-label', 'Scroll to Android waitlist signup');
-                }
+                // Redirect ALL App Store CTAs on the page to the Android waitlist anchor
+                document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function (link) {
+                    // Leave badge images that are part of OS-agnostic attribution strips alone if they have no data-ref
+                    var ref = link.getAttribute('data-ref') || 'android-waitlist';
+                    link.href = '#android-cta';
+                    link.removeAttribute('target');
+                    link.removeAttribute('rel');
+                    link.setAttribute('data-ref', ref + '-android-waitlist');
+                    link.setAttribute('aria-label', 'Join Android waitlist');
+                    // Replace text-only labels but preserve images
+                    if (!link.querySelector('img')) {
+                        link.textContent = 'Join Android Waitlist';
+                    }
+                });
             }
 
             // Android waitlist form handler

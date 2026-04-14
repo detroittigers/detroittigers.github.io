@@ -22,6 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/six-flags-over-georgia/crowd-calendar/" />
   <meta property="og:image" content="https://rideready.app/images/og/og-crowd-calendar-six-flags-over-georgia.png" />
+  <meta name="twitter:image" content="https://rideready.app/images/og/og-crowd-calendar-six-flags-over-georgia.png" />
   <meta property="og:image:width" content="2400" />
   <meta property="og:image:height" content="1260" />
   <link rel="canonical" href="https://rideready.app/parks/six-flags-over-georgia/crowd-calendar/" />
@@ -450,7 +451,7 @@
       left: 9px;
       font-size: 12px;
       font-weight: 800;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1;
     }
 
@@ -491,7 +492,7 @@
       bottom: 5px;
       right: 7px;
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.58);
+      color: rgba(255, 255, 255, 0.75);
       font-weight: 600;
       pointer-events: none;
     }
@@ -717,7 +718,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.07em;
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.75);
       margin-bottom: 5px;
     }
 
@@ -729,7 +730,7 @@
 
     .info-card .ic-sub {
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.35);
+      color: rgba(255, 255, 255, 0.75);
       margin-top: 3px;
     }
 
@@ -777,7 +778,7 @@
 
     .authority-strip .auth-text {
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1.5;
     }
 
@@ -802,7 +803,7 @@
 
     .cta-msg {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1.5;
       margin-bottom: 12px;
     }
@@ -834,7 +835,7 @@
       margin-top: 10px;
       font-size: 12px;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.35);
+      color: rgba(255, 255, 255, 0.75);
       text-decoration: none;
     }
 
@@ -942,7 +943,7 @@
       margin-top: 60px;
       padding-bottom: 30px;
       font-size: 0.9rem;
-      color: #888888;
+      color: #aaaaaa;
     }
 
     footer a {
@@ -976,7 +977,7 @@
 
     .social-links a:hover {
       transform: scale(1.05);
-      border-color: #555555;
+      border-color: #999999;
       box-shadow: 0 0 12px rgba(255, 75, 43, 0.25);
     }
 
@@ -1034,7 +1035,7 @@
 
     .ab-header p {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1.5;
       margin: 0;
     }
@@ -1070,7 +1071,7 @@
 
     .stat-label {
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1.4;
       margin-top: 5px;
     }
@@ -1088,7 +1089,7 @@
     .acc-title {
       font-size: 13px;
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.75);
       margin-bottom: 12px;
     }
 
@@ -1122,11 +1123,11 @@
     }
 
     .bar-us { background: linear-gradient(90deg, rgba(34,197,94,0.5), rgba(34,197,94,0.25)); color: #4ade80; }
-    .bar-them { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.3); }
+    .bar-them { background: rgba(255,255,255,0.07); color: rgba(255, 255, 255, 0.75); }
 
     .bar-note {
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.75);
       margin-top: 6px;
       line-height: 1.5;
     }
@@ -1159,7 +1160,7 @@
 
     .diff-body {
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1.5;
     }
 
@@ -1173,23 +1174,23 @@
 </head>
 
 <body>
-  <div class="container">
-    <nav>
-      <div class="left">
-        <a class="logo" href="/">
-          <img src="/images/logo.png" alt="Ride Ready Logo" />
-          <span>Ride Ready</span>
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/parks/">Parks</a>
-        <a href="/crowds/">Crowds</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=crowd-cal-sfog-nav"
-          data-ref="crowd-cal-sfog-nav">Download Free</a>
-      </div>
-    </nav>
+<nav class="site-nav no-print" style="display:block !important; padding:14px 20px !important; border-bottom:1px solid #1a1a1a !important; background:#000 !important; margin:0 !important; width:100% !important; box-sizing:border-box !important; position:relative; z-index:10;">
+  <style>@media print { .site-nav { display: none !important; } }</style>
+  <div style="display:flex !important; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; gap:16px;">
+    <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img alt="Ride Ready" src="/images/logo.png" style="height:32px; width:auto;" />
+      <span style="color:white; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px;">Ride Ready</span>
+    </a>
+    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+      <a href="/parks/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Parks</a>
+      <a href="/crowds/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Crowds</a>
+      <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500;">Why Us?</a>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=smartbanner-parks-six-flags-over-georgia-crowd-calendar" data-ref="parks-six-flags-over-georgia-crowd-calendar-nav" style="background:rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap;">Download Free</a>
+    </div>
+  </div>
+</nav>
 
-    <div style="margin: 16px 0 0; padding: 0; font-size: 14px;">
+  <div class="container"><div style="margin: 16px 0 0; padding: 0; font-size: 14px;">
       <a href="/parks/" style="color: var(--muted); text-decoration: none; transition: color 0.2s;">Parks</a>
       <span style="color: var(--muted); margin: 0 8px;">&rarr;</span>
       <a href="/parks/six-flags-over-georgia/" style="color: var(--muted); text-decoration: none; transition: color 0.2s;">Six Flags Over Georgia</a>
@@ -1292,8 +1293,8 @@
           </div>
           <div class="bar-row" style="margin-top:8px;">
             <div class="bar-label">
-              <span class="bar-name" style="color:rgba(255,255,255,0.35);">Leading alternative</span>
-              <span class="bar-pct" style="color:rgba(255,255,255,0.3);">45%</span>
+              <span class="bar-name" style="color:rgba(255, 255, 255, 0.75);">Leading alternative</span>
+              <span class="bar-pct" style="color:rgba(255, 255, 255, 0.75);">45%</span>
             </div>
             <div class="bar-track"><div class="bar-fill bar-them" style="width:45.5%">45%</div></div>
           </div>
@@ -1410,7 +1411,7 @@
       </div>
     </section>
 
-    <footer style="margin-top: 40px; padding-bottom: 30px; font-size: 0.9rem; color: #888888; text-align: center;">
+    <footer style="margin-top: 40px; padding-bottom: 30px; font-size: 0.9rem; color: #aaaaaa; text-align: center;">
       <div style="display: flex; gap: 12px; justify-content: center; align-items: center; margin: 10px 0 18px;">
         <a aria-label="X (formerly Twitter)" href="https://x.com/RideReadyApp" rel="noopener noreferrer" target="_blank"
           style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; background: #111111; border: 1px solid #333333;">
@@ -1442,16 +1443,16 @@
           </svg>
         </a>
       </div>
-      <p style="color:#666; font-size:0.8rem; margin-top:40px; max-width:800px; margin-left:auto; margin-right:auto;">Ride Ready is an independent application and is not
+      <p style="color:#aaa; font-size:0.8rem; margin-top:40px; max-width:800px; margin-left:auto; margin-right:auto;">Ride Ready is an independent application and is not
         affiliated with, endorsed by, or sponsored by Universal Destinations & Experiences, Universal City Studios LLC,
         Cedar Fair Entertainment Company (including Cedar Point, Kings Island, and Canada's Wonderland), Six Flags
         Entertainment Corporation, or any other theme park operators. All park and ride names and related trademarks are
         the property of their respective owners. Information is provided for informational purposes only and is subject
         to change without notice.</p>
-      <p style="color:#888;">For support or questions, contact us at <a href="mailto:support@rideready.app"
+      <p style="color:#aaa;">For support or questions, contact us at <a href="mailto:support@rideready.app"
           style="color:#aaa;">support@rideready.app</a> &middot; <a href="/privacy/" style="color:#aaa;">Privacy</a> &middot; <a
           href="/terms/" style="color:#aaa;">Terms</a></p>
-      <p style="color:#888;">&copy; 2026 Ride Ready. All rights reserved.</p>
+      <p style="color:#aaa;">&copy; 2026 Ride Ready. All rights reserved.</p>
     </footer>
   </div>
 

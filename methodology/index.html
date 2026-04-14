@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="index, follow, max-image-preview:large" name="robots" />
+    <link href="/favicon.ico" rel="icon" sizes="any" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="/site.webmanifest" rel="manifest" />
+    <link href="https://rideready.app/methodology/" rel="canonical" />
+    <title>How Ride Ready Works: Methodology &amp; Data Sources</title>
+    <meta content="How Ride Ready sources live wait times, how SkipIQ generates forecast curves, and how we validate day plans across 14 parks and 353 real park days." name="description" />
+    <meta content="app-id=6748330847, affiliate-data=ct=smartbanner-methodology" name="apple-itunes-app" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How Ride Ready Works: Methodology" />
+    <meta property="og:description" content="Where our wait times come from, how SkipIQ's forecasts are built, and how we benchmark day plans across 14,826 simulations." />
+    <meta property="og:url" content="https://rideready.app/methodology/" />
+    <meta property="og:image" content="https://rideready.app/images/og-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://rideready.app/images/og-default.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How Ride Ready Works: Methodology & Data Sources",
+      "description": "Where our wait times come from, how SkipIQ's forecasts are built, and how we benchmark day plans across 14 parks and 353 real park days.",
+      "author": {
+        "@type": "Organization",
+        "name": "Ride Ready"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ride Ready",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rideready.app/images/logo.png"
+        }
+      },
+      "mainEntityOfPage": "https://rideready.app/methodology/",
+      "image": "https://rideready.app/images/og-default.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rideready.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Methodology", "item": "https://rideready.app/methodology/" }
+      ]
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KGYGTPMTQ3');
+    </script>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .nav {
+            padding: 20px 24px;
+            border-bottom: 1px solid #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav a.home {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+
+        .nav a.home span.brand {
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav a.cta {
+            color: #FF4B2B;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav a.cta:focus-visible { outline: 2px solid #FF4B2B; outline-offset: 3px; border-radius: 4px; }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.15;
+            margin: 0 0 12px;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .lede {
+            color: #cfcfcf;
+            font-size: 1.15rem;
+            margin: 0 0 36px;
+            max-width: 640px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 0 0 48px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(255, 65, 108, 0.08), rgba(255, 75, 43, 0.04));
+            border: 1px solid rgba(255, 75, 43, 0.25);
+            border-radius: 14px;
+        }
+
+        .stat .num {
+            display: block;
+            font-size: clamp(1.6rem, 4vw, 2.1rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .stat .label {
+            display: block;
+            color: #bbb;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin: 40px 0 12px;
+            color: #fff;
+            letter-spacing: -0.01em;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        p, li {
+            color: #cfcfcf;
+            font-size: 1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 0 0 16px;
+        }
+
+        li { margin-bottom: 8px; }
+
+        strong { color: #fff; }
+
+        a.inline {
+            color: #FFB6A3;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        a.inline:hover { color: #FF4B2B; }
+
+        .callout {
+            margin: 24px 0;
+            padding: 16px 18px;
+            border-left: 3px solid #FF4B2B;
+            background: rgba(255, 75, 43, 0.06);
+            border-radius: 0 8px 8px 0;
+            color: #ddd;
+            font-size: 0.95rem;
+        }
+
+        .cta-row {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #1a1a1a;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .cta-row a.primary {
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .cta-row a.secondary {
+            color: #ddd;
+            text-decoration: none;
+            padding: 12px 4px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .cta-row a.secondary:hover { border-bottom-color: #FF4B2B; color: #fff; }
+
+        .disclaimer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #1a1a1a;
+            color: #8a8a8a;
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 520px) {
+            .stats { grid-template-columns: 1fr; }
+            .stat { display: flex; justify-content: space-between; align-items: baseline; }
+            .stat .label { margin-top: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
+
+        :focus-visible { outline: 2px solid #FF4B2B; outline-offset: 2px; border-radius: 4px; }
+    </style>
+</head>
+
+<body>
+    <nav class="nav" aria-label="Primary">
+        <a class="home" href="/"><span class="brand">Ride Ready</span></a>
+        <a class="cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=methodology-nav" rel="noopener noreferrer" target="_blank" data-ref="methodology-nav">Download →</a>
+    </nav>
+
+    <main class="container">
+        <h1>How Ride Ready Works</h1>
+        <p class="lede">
+            We built Ride Ready to answer one question: <strong>what should you ride next?</strong>
+            Here's where our wait times come from, how our forecasts are built, and how we test the plans we hand to families in line.
+        </p>
+
+        <div class="stats" role="group" aria-label="Ride Ready data coverage">
+            <div class="stat">
+                <span class="num">14</span>
+                <span class="label">Parks covered</span>
+            </div>
+            <div class="stat">
+                <span class="num">353</span>
+                <span class="label">Real park days</span>
+            </div>
+            <div class="stat">
+                <span class="num">14,826</span>
+                <span class="label">Plan simulations</span>
+            </div>
+        </div>
+
+        <h2>Live wait times</h2>
+        <p>
+            Ride Ready displays real-time wait times pulled directly from park systems. When the posted wait changes in the park, it changes in the app. No manual reporting, no user-submitted guesses.
+        </p>
+        <p>
+            We cover all 14 parks Ride Ready supports: Epic Universe, Universal Studios Florida, Islands of Adventure, SeaWorld Orlando, Busch Gardens Tampa, Busch Gardens Williamsburg, Cedar Point, Kings Island, Canada's Wonderland, Carowinds, Kings Dominion, Six Flags Over Georgia, Six Flags Great Adventure, and Six Flags Great America.
+        </p>
+
+        <h2>Forecast curves</h2>
+        <p>
+            Live waits only tell you where the line is <em>now</em>. <strong>SkipIQ</strong> generates full-day forecast curves for every ride, so you can see where waits are headed: which attractions are about to spike, which are about to drop, and when today's sweet spot will hit for the rides you care about.
+        </p>
+        <p>
+            Forecasts are trained on historical wait data and re-run throughout the day as live conditions change.
+        </p>
+
+        <h2>Queue-level estimates</h2>
+        <p>
+            For rides with complex pre-shows and multi-room queues (think Ministry of Magic or Mario Kart), posted waits alone don't tell you when <em>you'll</em> actually board. Our per-queue estimates are <strong>projected based on queue capacity and active room usage</strong>. Actual wait varies by staffing, downtime, and specific Express Pass ratios, and we say so on every queue page.
+        </p>
+
+        <h2>How day plans are built</h2>
+        <p>
+            SkipIQ is the planner. It takes live wait times, its own forecast curves, and walk-time estimates between attractions, and uses them to minimize your total time in line. Plans replan every 30 minutes as the park changes around you.
+        </p>
+        <ul>
+            <li><strong>Live waits</strong> tell the planner where the lines are now.</li>
+            <li><strong>SkipIQ forecasts</strong> tell it where the lines are going.</li>
+            <li><strong>Walk-time estimates</strong> keep the order physically realistic.</li>
+        </ul>
+
+        <h2>How we validate the plans</h2>
+        <p>
+            Building a planner that <em>sounds</em> smart is easy. Building one that actually saves you time takes testing. We benchmark SkipIQ against <strong>14,826 simulations across 353 real park days</strong>. That's real historical wait data, replayed day-by-day, so we can measure whether a Ride Ready plan would have beaten the alternative (walking up to whatever looked short, or following a generic touring guide).
+        </p>
+        <p>
+            That benchmark is why the hero number on our homepage is "14,826 simulations" and not a marketing round number. It's the actual count.
+        </p>
+
+        <div class="callout">
+            <strong>What we don't do:</strong> crowdsource waits from users, scrape unofficial sources, or publish numbers we can't back up. If you ever see a stat in the app or on this site you want sourced, <a class="inline" href="mailto:hello@rideready.app">email us</a>.
+        </div>
+
+        <h2>Limitations we're honest about</h2>
+        <ul>
+            <li>Ride downtime, weather closures, and surprise operational changes can break any plan, including ours. SkipIQ replans quickly, but it can't predict a sudden closure before it happens.</li>
+            <li>Express Pass and Lightning Lane ratios vary by day and by ride. Our queue-level estimates assume typical ratios; unusual days (heavy convention groups, VIP tour volume) will differ.</li>
+            <li>Opening-day and previews for new attractions have limited historical data. We flag low-confidence forecasts in the app.</li>
+        </ul>
+
+        <div class="cta-row">
+            <a class="primary" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=methodology-footer" rel="noopener noreferrer" target="_blank" data-ref="methodology-footer">Download Ride Ready</a>
+            <a class="secondary" href="/">← Back to home</a>
+            <a class="secondary" href="/compare/official-apps/">Compare to official apps</a>
+        </div>
+
+        <p class="disclaimer">
+            Ride Ready is an independent application and is not affiliated with, endorsed by, or sponsored by Universal Destinations &amp; Experiences, Universal City Studios LLC, Cedar Fair Entertainment Company, Six Flags Entertainment Corporation, or any other theme park operators. All park and ride names and related trademarks are the property of their respective owners. Information is provided for informational purposes only and is subject to change without notice.
+        </p>
+    </main>
+</body>
+
+</html>

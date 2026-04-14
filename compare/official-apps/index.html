@@ -121,7 +121,7 @@
         }
 
         .cross {
-            color: #555;
+            color: #999;
             font-size: 1.2rem;
         }
 
@@ -179,7 +179,7 @@
             display: none;
             /* Hidden by default on desktop */
             text-align: center;
-            color: #888;
+            color: #aaa;
             font-size: 0.85rem;
             margin-top: 10px;
             font-weight: 500;
@@ -208,27 +208,24 @@
 </head>
 
 <body>
+<nav class="site-nav no-print" style="display:block !important; padding:14px 20px !important; border-bottom:1px solid #1a1a1a !important; background:#000 !important; margin:0 !important; width:100% !important; box-sizing:border-box !important; position:relative; z-index:10;">
+  <style>@media print { .site-nav { display: none !important; } }</style>
+  <div style="display:flex !important; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; gap:16px;">
+    <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img alt="Ride Ready" src="/images/logo.png" style="height:32px; width:auto;" />
+      <span style="color:white; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px;">Ride Ready</span>
+    </a>
+    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+      <a href="/parks/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Parks</a>
+      <a href="/crowds/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Crowds</a>
+      <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500;">Why Us?</a>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=smartbanner-compare-official-apps" data-ref="compare-official-apps-nav" style="background:rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap;">Download Free</a>
+    </div>
+  </div>
+</nav>
+
     <div class="container">
-        <!-- Top Nav -->
-        <nav
-            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding: 10px 0;">
-            <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                <img alt="Ride Ready" src="../../images/logo.png" style="height: 38px; width: auto;" />
-            </a>
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <a href="/parks/"
-                    style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Parks</a>
-                <a href="/crowds/"
-                    style="color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Crowds</a>
-                <a href="/compare/official-apps/"
-                    style="color: white; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Why Us?</a>
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=compare-official-apps-nav"
-                    data-ref="compare-official-apps-nav"
-                    style="background: rgba(255,255,255,0.1); color: white; padding: 8px 16px; border-radius: 99px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">Get
-                    App</a>
-            </div>
-        </nav>
-        <h1>Ride Ready vs. Official Apps</h1>
+        <!-- Top Nav --><h1>Ride Ready vs. Official Apps</h1>
         <p class="subtitle">Official apps are essential for tickets, maps, and dining. Ride Ready is built for one
             thing: <strong>saving you time.</strong></p>
         <div class="table-wrap">
@@ -324,7 +321,7 @@
                 </svg>
             </a>
         </div>
-        <p style="text-align: center; font-size: 0.8rem; color: #555; margin-top: 10px;">Ride Ready is an independent
+        <p style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 10px;">Ride Ready is an independent
             app and is not affiliated with Universal, Disney, or any park operator.</p>
     </div>
     <script>
