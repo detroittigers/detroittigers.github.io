@@ -32,6 +32,28 @@
     }]
   }
   </script>
+  <!-- JSON-LD AmusementPark Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AmusementPark",
+    "name": "Kings Island",
+    "url": "https://www.visitkingsisland.com/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6300 Kings Island Dr",
+      "addressLocality": "Mason",
+      "addressRegion": "OH",
+      "postalCode": "45040",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://en.wikipedia.org/wiki/Kings_Island",
+      "https://www.visitkingsisland.com/"
+    ],
+    "image": "https://rideready.app/images/og/og-default.png"
+  }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -48,6 +70,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/kings-island/" />
   <meta property="og:image" content="https://rideready.app/images/og/og-default.png" />
+  <meta name="twitter:image" content="https://rideready.app/images/og/og-default.png" />
   <meta property="og:image:width" content="2400" />
   <meta property="og:image:height" content="1260" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -291,7 +314,7 @@ details p {
 
 footer {
   margin: 34px 0 22px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.9rem;
   text-align: center;
 }
