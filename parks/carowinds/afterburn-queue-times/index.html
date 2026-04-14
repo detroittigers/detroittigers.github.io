@@ -401,6 +401,22 @@ footer {
 </head>
 
 <body>
+<nav class="site-nav no-print" style="display:block !important; padding:14px 20px !important; border-bottom:1px solid #1a1a1a !important; background:#000 !important; margin:0 !important; width:100% !important; box-sizing:border-box !important; position:relative; z-index:10;">
+  <style>@media print { .site-nav { display: none !important; } }</style>
+  <div style="display:flex !important; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; gap:16px;">
+    <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img alt="Ride Ready" src="/images/logo.png" style="height:32px; width:auto;" />
+      <span style="color:white; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px;">Ride Ready</span>
+    </a>
+    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+      <a href="/parks/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Parks</a>
+      <a href="/crowds/" style="color:white; text-decoration:none; font-size:0.95rem; font-weight:500;">Crowds</a>
+      <a href="/compare/official-apps/" style="color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500;">Why Us?</a>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=smartbanner-parks-carowinds-afterburn-queue-times" data-ref="parks-carowinds-afterburn-queue-times-nav" style="background:rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap;">Download Free</a>
+    </div>
+  </div>
+</nav>
+
   <div class="sticky-footer">
     <div class="inner">
       <div class="text">Track Afterburn wait times and get alerts when queues drop.</div>
@@ -408,21 +424,7 @@ footer {
     </div>
   </div>
 
-  <div class="container">
-    <nav>
-      <div class="left">
-        <a class="logo" href="/">
-          <img src="/images/logo.png" alt="Ride Ready Logo" />
-          <span>Ride Ready</span>
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/parks/">Parks</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-afterburn-nav" data-ref="queue-afterburn-nav">Download Free</a>
-      </div>
-    </nav>
-
-    <a class="back-link" href="/parks/carowinds/">&larr; Carowinds</a>
+  <div class="container"><a class="back-link" href="/parks/carowinds/">&larr; Carowinds</a>
 
     <div class="hero">
       <h1>Afterburn Queue Times &amp; Wait Strategy</h1>
