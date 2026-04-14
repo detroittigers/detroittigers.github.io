@@ -1,6 +1,6 @@
 # Ride Ready - Theme Park Wait Time Strategies
 
-> Ride Ready provides real-time wait times, crowd predictions, and touring strategies for Epic Universe, Universal Studios Florida, Islands of Adventure, and other major theme parks. Includes queue position guides that tell you how much time is left based on where you're standing in line. Updated January 2026.
+> Ride Ready provides real-time wait times, crowd predictions, and touring strategies for Epic Universe, Universal Studios Florida, Islands of Adventure, and other major theme parks. Includes queue position guides that tell you how much time is left based on where you're standing in line. Updated April 2026.
 
 ## Epic Universe Guides
 
@@ -95,13 +95,33 @@ If you're standing in line and want to know how much time you have left, find yo
 - **Mine entrance/loading area**: ~10 min remaining
 
 ### Battle at the Ministry Queue (Harry Potter)
-- **Telephone booth entrance**: ~120 min remaining
-- **Grand Atrium (gold fountain/statue)**: ~90 min remaining
-- **Department of Mysteries hallway**: ~60 min remaining
-- **Map Room (magical London map on wall)**: ~45 min remaining
-- **Auror Headquarters (cubicles, flying memos)**: ~25 min remaining
-- **Harry & Ron's desks visible**: ~15 min remaining
-- **Wand check/pre-show**: ~5 min remaining
+- **Outdoor Overflow (queue extends to gardens)**: ~130 min remaining
+- **Metro-Floo Entrance (white subway tiles)**: ~90 min remaining
+- **Grand Atrium (Fountain of Magical Brethren, enchanted weather ceiling)**: ~80 min remaining
+- **Ministry Reception (numbered wooden booths)**: ~75 min remaining
+- **Map Room (magical moving map of the Ministry)**: ~65 min remaining
+- **Hall of Ministers (purple tiles, animated portraits 1700s-1980s)**: ~50 min remaining
+- **Cleaning Hallway (Magical Cleaning Machine)**: ~45 min remaining
+- **Auror Locker Room (Harry/Ron/Neville lockers, Hex Evasion chalkboard)**: ~38 min remaining
+- **Auror Headquarters (bullpen + Fallen Auror Memorial display)**: ~25 min remaining
+- **Umbridge's Office (pink room, Higgledy the house-elf)**: ~12 min remaining
+- **Stairs to the Lift Station**: ~5 min remaining
+
+## Islands of Adventure Queue Position Guide
+
+### Hagrid's Magical Creatures Motorbike Adventure Queue
+- **Outdoor switchbacks (Forbidden Forest, 1,200+ trees)**: ~120 min remaining
+- **Hagrid's Hut & Pumpkin Patch (pink umbrella, Fang's bowl)**: ~100 min remaining
+- **Castle Ruins Exterior (ivy-covered stone, Stuart Craig collab)**: ~85 min remaining
+- **Magical Beast Posters (unicorns, centaurs, Niffler)**: ~70 min remaining
+- **Student Graffiti Room (Hogwarts school song, Ravenclaw motto)**: ~60 min remaining
+- **Dueling Club Notice (fire/ice dragons, Dueling Dragons tribute)**: ~50 min remaining
+- **Dragon Egg Chamber (Triwizard golden egg, H heart O carving)**: ~42 min remaining
+- **Arthur Weasley Pre-Show (Musion hologram, Geminio spell)**: ~30 min remaining
+- **Hagrid's Workshop (creature illustrations, research books)**: ~22 min remaining
+- **Blast-Ended Skrewt Chamber (terrarium of cross-bred beasts)**: ~15 min remaining
+- **The Final Stretch (cycling spider shadows + motorbike silhouettes)**: ~8 min remaining
+- **Loading Platform (motorbike vs sidecar choice)**: ~3 min remaining
 
 ### Queue Guide Links
 - [Mario Kart Queue Guide](https://rideready.app/universal-orlando/epic-universe/mario-kart-queue-times/)
@@ -109,6 +129,10 @@ If you're standing in line and want to know how much time you have left, find yo
 - [Battle at the Ministry Queue Guide](https://rideready.app/universal-orlando/epic-universe/ministry-queue-times/)
 - [Stardust Racers Queue Guide](https://rideready.app/universal-orlando/epic-universe/stardust-racers-queue-times/)
 - [Monsters Unchained Queue Guide](https://rideready.app/universal-orlando/epic-universe/monsters-unchained-queue-times/)
+- [Hiccup's Wing Gliders Queue Guide](https://rideready.app/universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/)
+- [Hagrid's Motorbike Queue Guide](https://rideready.app/universal-orlando/islands-of-adventure/hagrids-motorbike-queue-times/)
+- [VelociCoaster Queue Guide](https://rideready.app/universal-orlando/islands-of-adventure/velocicoaster-queue-times/)
+- [Islands of Adventure Queue Hub](https://rideready.app/universal-orlando/islands-of-adventure/)
 
 ## Frequently Asked Questions
 
