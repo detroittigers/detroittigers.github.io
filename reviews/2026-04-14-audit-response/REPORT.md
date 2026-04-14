@@ -78,3 +78,95 @@ Items I agree with but did not attempt tonight:
 - `sitemap.xml` parses clean.
 
 Not run: live browser test of Android CTA rewrite (would need DevTools UA spoof); FAQ keyboard/aria test; press-strip click flow. Recommend a manual smoke test before merging.
+
+---
+
+# Wave 2 — follow-up sweep (2026-04-14 evening, commit 9e1e57d7)
+
+Picks up the items flagged as "not shipped" in Wave 1. All mechanical / deterministic work; no copy rewrites.
+
+## TL;DR
+
+- 7 of the 8 deferred items are now addressed.
+- Only item still open: the hero trust/methodology block + a consolidated `/methodology/` page (needs copy review, deferred to next session).
+- Branch `feat/audit-response-2026-04` is 2 commits ahead of master (52ed144e + 9e1e57d7) and ready for re-review.
+
+## Changes shipped
+
+### Schema / SEO
+
+- **AmusementPark JSON-LD** added to 13 park landing pages (name, address, sameAs, image) alongside existing BreadcrumbList. Skipped `parks/universal-orlando/` (resort-level; deferred pending unique cross-park content) and was added for Six Flags Great America as part of the new landing page below.
+- **New SFGA landing page** at `parks/six-flags-great-america/index.html` — 9 coaster cards (Goliath, Raging Bull, Maxx Force, X-Flight, Batman prototype, Superman, American Eagle, V2, Whizzer), season notes, AmusementPark + BreadcrumbList schema, FAQ. Adapted from the SFOG template. Ride stats kept qualitative where exact numbers weren't in my verified fact set — no fabricated specs.
+- **Sitemap rewritten as a generated allowlist** (`scripts/generate_sitemap.py`): 110 curated URLs replacing the old 48 hand-edited list. Per-date crowd-calendar pages are intentionally excluded — see the thin-content note below.
+- **Orphan removed:** `guides/ride-reaction-scripts.html` was an off-brand page (teleprompter scripts for AR-glasses content creators) and the only non-calendar broken-link source. Deleted.
+
+### Thin-content posture (IMPORTANT for re-review)
+
+- Identified ~729 per-date crowd-calendar pages that differ only by date + a short sentence like "2 rides reporting" — classic thin-template doorway-page risk.
+- **Action:** added `<meta name="robots" content="noindex,follow">` to every per-date page (`scripts/add_noindex_per_date.py`). Pages remain crawlable so link equity flows; they're excluded from the sitemap; they're not indexed. Monthly crowd-calendar indexes stay indexed normally.
+- **Ask for re-reviewer:** is noindex + sitemap exclusion the right posture here, or should we enrich the per-date pages with unique context (events that day, weather, etc.) and aim to earn an index later? The latter is months of content work; noindex is the safe default.
+
+### Navigation
+
+- Fixed prev/next nav on 56 per-date crowd-calendar pages across 9 parks (`scripts/fix_date_prev_next.py`). Previously used naive calendar arithmetic that 404'd on park-closed days. Now skips to the next *existing* date; earliest/latest render a styled-disabled span to preserve layout.
+- **Broken internal links: 63 → 0** (verified via `scripts/check_broken_links.py`).
+
+### Social / sharing
+
+- Injected `og:image` + `twitter:image` fallback across 326 pages that were missing them (`scripts/inject_og_images.py`): 265 got the full block, 61 already had `og:image` but needed `twitter:image`. Skip-if-present: pages with custom OG already set are untouched.
+- **Image selection:** crowd-calendar pages use per-park `og-crowd-calendar-<park>.png`; everything else falls back to `og-default.png`.
+- **Coverage:** 100% of 836 HTML files now have both `og:image` and `twitter:image`.
+
+### Accessibility (contrast)
+
+- 664 low-contrast `color:` replacements across 84 files (`scripts/fix_contrast.py`):
+  - `#555` → `#999` (41 matches)
+  - `#666` → `#aaa` (118 matches, largest offender)
+  - `#777` / `#888` → `#aaa` (206 matches)
+  - `rgba(255,255,255, <0.6)` → `rgba(255,255,255, 0.75)` (278 matches)
+  - `grey`/`gray` → `#aaa` (0 matches; not present in codebase)
+- **Safeguard:** only `color:` property values were touched. Borders and backgrounds that legitimately use the same hex values (e.g. `border-color: #999999` in the calendar template) are untouched. Audit report: `reviews/2026-04-14-audit-response/contrast-audit.md`.
+- Resolves all 592 findings in the initial contrast audit.
+
+### Tooling
+
+Six reusable Python scripts added under `scripts/`, all stdlib-only:
+
+| Script | Purpose |
+| --- | --- |
+| `generate_sitemap.py` | Regenerates `sitemap.xml` from an allowlist, using `git log` for `lastmod`. Excludes per-date dirs. |
+| `check_broken_links.py` | Crawls every HTML for internal links, reports 404s to `broken-links.csv`. |
+| `add_noindex_per_date.py` | One-shot: inject `noindex,follow` into per-date crowd-calendar pages. |
+| `fix_date_prev_next.py` | Rewrites prev/next nav to point at actually-existing adjacent dates per park. |
+| `inject_og_images.py` | Injects `og:image` + `twitter:image` fallback where missing. |
+| `fix_contrast.py` | Substitutes flagged low-contrast `color:` values; leaves borders/backgrounds alone. |
+
+## What a re-review should verify
+
+1. **Thin-content posture** — is `noindex,follow` + sitemap exclusion the right move for per-date calendar pages, or should we aim to enrich them instead?
+2. **Sitemap allowlist coverage** — 110 URLs covers park landings, monthly calendar indexes, queue guides, homepage, tools, legal, waitlist. Anything missing that should be indexable?
+3. **SFGA landing page copy** — was built from verified facts only; confirm no fabricated stats (I can provide the fact set used).
+4. **OG image fallback choice** — crowd-calendar per-park imagery + site-default for everything else. Acceptable, or do key pages (queue guides, tools) deserve custom OG art?
+5. **Contrast substitution** — `#aaa` on `#000` is 7.54:1 (AAA). Overkill, or the right margin of safety?
+
+## Still deferred (for a follow-up session)
+
+- **Hero trust/methodology block.** Keep the existing emotional hero copy; add a compact numeric trust strip (353 park days · 14,826 sims · 14 parks) below the hero with a "See our methodology" link. Requires:
+  1. Survey existing methodology language across `/crowds/`, queue-guide pages, and homepage.
+  2. Consolidate into a single `/methodology/` page — only using claims already made on the site.
+  3. Wire the homepage trust strip.
+- **`/parks/universal-orlando/` resort strategy page.** Only worth building if it has unique cross-park content (park-first order, Express Pass comparison across IOA/USF/Epic, EPA rules, hopping logic). If it'd just be a nav splash, skip to avoid keyword cannibalization with the three existing park pages.
+
+## Verification run (Wave 2)
+
+- Broken internal links: 63 → 0 (`scripts/check_broken_links.py`).
+- OG/Twitter coverage: 510/836 → 836/836 pages.
+- Contrast findings: 592 → 0 (re-scan clean).
+- All new JSON-LD blocks (13 AmusementPark + SFGA's BreadcrumbList + AmusementPark) parse as valid JSON.
+- `sitemap.xml` XML-parses clean, 110 URLs, all resolve to existing files.
+- HTML parse spot-check: 10 random modified files from each script's output pass `html.parser`.
+
+Not run (manual smoke test recommended before merging):
+- Live social preview (Twitter/Facebook/Slack OG unfurl) on a sample of newly-tagged pages.
+- Lighthouse accessibility re-run to quantify the contrast improvement.
+- Google Search Console sitemap resubmission + crawl-error recheck after merge.
