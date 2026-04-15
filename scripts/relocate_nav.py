@@ -31,18 +31,16 @@ NAV_STYLE_BLOCK = """<style>
     .site-nav-inner { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; gap:16px; }
     .site-nav-links { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
     .site-nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .site-nav-brand img { height:32px; width:auto; display:block; }
     .site-nav-brand span { color:#fff; font-weight:700; font-size:1.1rem; letter-spacing:-0.5px; }
     .site-nav a.site-nav-link { color:#fff; text-decoration:none; font-size:0.95rem; font-weight:500; }
     .site-nav a.site-nav-secondary { color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500; }
     .site-nav-cta { background:rgba(255,255,255,0.1); color:#fff !important; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap; }
     @media (max-width: 680px) {
       .site-nav { padding:10px 14px !important; }
-      .site-nav-inner { flex-direction:column; align-items:stretch; gap:10px; }
-      .site-nav-links { width:100%; justify-content:flex-start; gap:14px; }
-      .site-nav-cta { margin-left:auto; }
-    }
-    @media (max-width: 430px) {
-      .site-nav-secondary { display:none; }
+      .site-nav-brand span { display:none; }
+      .site-nav-links a.site-nav-link, .site-nav-links a.site-nav-secondary { display:none; }
+      .site-nav-brand img { height:28px; }
     }
   </style>"""
 
@@ -56,7 +54,7 @@ def canonical_for(ref: str, ct: str) -> str:
         f'  {NAV_STYLE_BLOCK}\n'
         '  <div class="site-nav-inner">\n'
         '    <a class="site-nav-brand" href="/">\n'
-        '      <img alt="Ride Ready" src="/images/logo.png" style="height:32px; width:auto;" />\n'
+        '      <img alt="Ride Ready" src="/images/logo-icon.png" />\n'
         '      <span>Ride Ready</span>\n'
         '    </a>\n'
         '    <div class="site-nav-links">\n'
