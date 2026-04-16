@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="robots" content="max-image-preview:large" />
@@ -41,7 +42,7 @@
     "url": "https://www.visitkingsisland.com/",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "6300 Kings Island Dr",
+      "streetAddress": "6300 Kings Island Drive",
       "addressLocality": "Mason",
       "addressRegion": "OH",
       "postalCode": "45040",
@@ -57,16 +58,18 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KGYGTPMTQ3');
   </script>
 
-  <title>Kings Island Wait Times &amp; Ride Strategy | Ride Ready</title>
-  <meta name="description" content="Track Kings Island wait times. Set Ride Ready alerts for Orion, The Beast, Banshee, Mystic Timbers, Diamondback, and new Phantom Theater — catch coaster windows." />
+  <title>Kings Island Wait Times &amp; Strategy | Ride Ready</title>
+  <meta name="description"
+    content="Track Kings Island wait times and set alerts for Orion, The Beast, Diamondback, Mystic Timbers, and Flight of Fear. Ride the headliners when lines dip." />
   <link rel="canonical" href="https://rideready.app/parks/kings-island/" />
-  <meta property="og:title" content="Kings Island Wait Times &amp; Ride Strategy | Ride Ready" />
-  <meta property="og:description" content="Track Kings Island wait times. Set Ride Ready alerts for Orion, The Beast (world's longest wooden coaster), Banshee (world's longest inverted), Mystic Timbers, and new Phantom Theater — catch coaster windows." />
+  <meta property="og:title" content="Kings Island Wait Times &amp; Strategy | Ride Ready" />
+  <meta property="og:description"
+    content="Track Kings Island wait times. Orion, Beast, Diamondback, Mystic Timbers, Banshee, Flight of Fear. The evening-riser trap and how to avoid it, backed by 503,000+ samples." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/kings-island/" />
   <meta property="og:image" content="https://rideready.app/images/og/og-default.png" />
@@ -76,296 +79,367 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-:root {
-  --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --muted: rgba(255,255,255,0.72);
-  --accent-color: #F97316;
-  --card-bg: #111;
-  --border: #333;
-  --soft-border: rgba(255,255,255,0.08);
-  --shadow: 0 20px 50px rgba(0,0,0,0.55);
-  --radius: 18px;
-}
+    :root {
+      --primary-gradient: linear-gradient(45deg, #F97316, #FF416C);
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --accent-color: #F97316;
+      --card-bg: #111;
+      --border: #333;
+      --soft-border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --radius: 18px;
+    }
 
-* { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  overflow-x: hidden;
-  line-height: 1.55;
-  padding-bottom: 92px; /* space for sticky footer */
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+      line-height: 1.55;
+      padding-bottom: 92px;
+      /* space for sticky footer */
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.20) 0%, transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(255,65,108,0.16) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -1;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.20) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255, 65, 108, 0.16) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 32px 20px 0;
-}
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 0;
+    }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 26px;
-}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
 
-nav .left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
+    nav .left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
 
-nav a:hover { opacity: 1; }
+    nav a:hover {
+      opacity: 1;
+    }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
 
-.logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-.nav-cta {
-  background: var(--primary-gradient);
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 700;
-  color: white;
-  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
-}
+    .nav-cta {
+      background: var(--primary-gradient);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.20);
+    }
 
-.hero {
-  padding: 26px 18px;
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  border: 1px solid var(--soft-border);
-  box-shadow: var(--shadow);
-  text-align: left;
-}
+    .hero {
+      padding: 26px 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--soft-border);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
 
-.hero h1 {
-  margin: 0 0 8px;
-  font-size: clamp(28px, 5vw, 42px);
-  line-height: 1.1;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.1;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.hero p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 70ch;
-}
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 70ch;
+    }
 
-.section {
-  margin-top: 34px;
-  text-align: left;
-}
+    .section {
+      margin-top: 34px;
+      text-align: left;
+    }
 
-.section h2 {
-  margin: 0 0 14px;
-  font-size: 1.35rem;
-}
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+    }
 
-.kicker {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 10px;
-}
+    .kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 10px;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
 
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-}
+    .facts-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
 
-.fact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-}
+    @media (max-width: 1024px) {
+      .facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-.fact {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
+    @media (max-width: 600px) {
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
-.fact span { color: var(--muted); }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
 
-.ride-card h3 {
-  margin: 0 0 6px;
-  font-size: 1.05rem;
-  line-height: 1.2;
-}
+    .fact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
 
-.ride-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.80);
-  margin-bottom: 10px;
-}
+    .fact {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
+    .fact b {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.9rem;
+    }
 
-.chip {
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.86);
-  background: rgba(255,255,255,0.03);
-}
+    .fact span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
 
-.ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
-.ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
+    .ride-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
 
-.inline-link {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 700;
-}
+    .ride-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.80);
+      margin-bottom: 10px;
+    }
 
-.inline-link:hover { text-decoration: underline; }
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0 10px;
+    }
 
-.alert-grid .card b { color: rgba(255,255,255,0.92); }
+    .chip {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.03);
+    }
 
-.plan {
-  margin: 0;
-  padding-left: 18px;
-  color: rgba(255,255,255,0.82);
-}
+    .ride-why {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.80);
+    }
 
-.plan li { margin: 8px 0; }
+    .ride-fact {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.70);
+    }
 
-details {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 14px;
-  padding: 12px 14px;
-}
+    .inline-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+    }
 
-details + details { margin-top: 10px; }
+    .inline-link:hover {
+      text-decoration: underline;
+    }
 
-summary {
-  cursor: pointer;
-  font-weight: 700;
-  outline: none;
-}
+    .alert-grid .card b {
+      color: rgba(255, 255, 255, 0.92);
+    }
 
-details p {
-  margin: 10px 0 0;
-  color: rgba(255,255,255,0.78);
-}
+    .plan {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255, 255, 255, 0.82);
+    }
 
-footer {
-  margin: 34px 0 22px;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.9rem;
-  text-align: center;
-}
+    .plan li {
+      margin: 8px 0;
+    }
 
-.sources a { word-break: break-word; }
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
 
-.sticky-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255,255,255,0.10);
-  padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
-  z-index: 1000;
-}
+    details+details {
+      margin-top: 10px;
+    }
 
-.sticky-footer .inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-}
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      outline: none;
+    }
 
-.sticky-footer .text {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.82);
-}
+    details p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
 
-.sticky-footer a {
-  background: var(--primary-gradient);
-  color: white;
-  padding: 11px 16px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
+    footer {
+      margin: 34px 0 22px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.9rem;
+      text-align: center;
+    }
 
-@media (max-width: 640px) {
-  nav { align-items: flex-start; }
-  .nav-links { justify-content: flex-start; }
-  .hero { padding: 22px 16px; }
-  .sticky-footer .text { display: none; }
-  .logo span { display: none; }
-}
-</style>
+    .sources a {
+      word-break: break-word;
+    }
+
+    .sticky-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
+      z-index: 1000;
+    }
+
+    .sticky-footer .inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sticky-footer .text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .sticky-footer a {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 22px 16px;
+      }
+
+      .sticky-footer .text {
+        display: none;
+      }
+
+      /* Hide redundant "Ride Ready" text - logo already has it */
+      .logo span {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -402,24 +476,73 @@ footer {
 </nav>
 <div class="sticky-footer">
     <div class="inner">
-      <div class="text">Kings Island: set alerts for the big five and chase the dips, not the crowds.</div>
-      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-kings-island-sticky" data-ref="park-kings-island-sticky">Download Free</a>
+      <div class="text">Kings Island: Orion first, Rivertown sweep, Flight of Fear at 9 PM. Get the plan.</div>
+      <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-kings-island-sticky"
+        data-ref="park-kings-island-sticky">Download Free</a>
     </div>
   </div>
 
   <div class="container"><div class="hero">
-      <div class="kicker">🎢 Kings Island • 15 coasters • Wait times + smarter timing</div>
+      <div class="kicker">Kings Island - Wait times + smarter timing</div>
       <h1>Kings Island: Know When to Go</h1>
-      <p>Track wait times for 15 roller coasters including Orion (giga coaster), The Beast (world's longest wooden coaster), Banshee (world's longest inverted coaster), and the all-new Phantom Theater dark ride opening 2026. Set alerts so you ride when lines dip.</p>
+      <p>Track Kings Island wait times and set alerts for Orion, The Beast, Diamondback, Mystic Timbers, Banshee, and Flight of Fear. Ride the headliners when lines dip.</p>
+      <div style="margin-top: 24px;">
+        <a href="/parks/kings-island/strategy/"
+          style="background: white; color: black; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 99px; display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; transition: transform 0.2s; border: none;">
+          <span style="font-size: 1.2rem;">📈</span> Read Strategy Guide
+        </a>
+      </div>
     </div>
 
     <section class="section">
       <h2>Quick park facts</h2>
-      <div class="grid">
-        <div class="card"><div class="fact"><b>Location</b><span>Mason, Ohio (near Cincinnati)</span></div></div>
-<div class="card"><div class="fact"><b>Best for</b><span>World-record coasters + Soak City water park included with admission</span></div></div>
-<div class="card"><div class="fact"><b>What to track</b><span>Orion, The Beast, Banshee, Mystic Timbers, Diamondback, Flight of Fear</span></div></div>
-<div class="card"><div class="fact"><b>The trick</b><span>Tuesday/Wednesday are lightest. The Beast at night is a bucket-list experience. Time it with alerts.</span></div></div>
+      <div class="grid facts-grid">
+        <div class="card">
+          <div class="fact"><b>Location</b><span>Mason, Ohio (suburb of Cincinnati)</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>Opened</b><span>April 29, 1972</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>Most time saved on</b><span>Orion, The Beast, Flight of Fear, Diamondback, Mystic Timbers</span></div>
+        </div>
+        <div class="card">
+          <div class="fact"><b>The trick</b><span>Orion and Beast are evening risers, they get <em>worse</em> at night, not better. Rope-drop them.</span></div>
+        </div>
+      </div>
+
+      <!-- Featured Strategy Block -->
+      <a href="/parks/kings-island/strategy/" style="display: block; text-decoration: none; margin-top: 20px;">
+        <div
+          style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 24px; display: flex; align-items: center; gap: 20px; transition: transform 0.2s, box-shadow 0.2s;">
+          <div style="flex: 1;">
+            <div
+              style="color: #10b981; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em;">
+              Essential Reading</div>
+            <h3 style="color: white; margin: 0 0 8px; font-size: 1.4rem;">The Kings Island Strategy Guide</h3>
+            <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Orion first, Rivertown sweep, Flight of Fear at 9 PM. We analyzed 503,000+ samples to show why Kings Island's evening-riser dynamic inverts the usual theme-park playbook.</p>
+          </div>
+          <div
+            style="background: white; color: black; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+            →</div>
+        </div>
+      </a>
+
+      <!-- New for 2026 callout -->
+      <div style="background: linear-gradient(135deg, rgba(255,65,108,0.12), rgba(255,75,43,0.06)); border: 1px solid rgba(255,75,43,0.35); border-radius: 18px; padding: 22px; margin-top: 20px; text-align: left;">
+        <div style="color: #FF4B2B; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 6px;">New for 2026</div>
+        <h3 style="color: white; margin: 0 0 8px; font-size: 1.2rem;">Phantom Theater: Opening Nightmare</h3>
+        <p style="color: rgba(255,255,255,0.82); margin: 0; line-height: 1.55; font-size: 0.95rem;">An interactive dark ride from Sally Dark Rides opened April 18, 2026 in Planet Snoopy, 26 scenes with spellbound flashlights, animatronic opera performers, and Easter eggs to the original 1992 Phantom Theater that occupied the same building. Waits should stay short early in the season before locals discover it.</p>
+      </div>
+
+      <!-- Internal Tools Cluster -->
+      <div style="margin-top: 24px;">
+        <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: rgba(255,255,255,0.9);">In-park tools</h3>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="/parks/kings-island/strategy/" class="chip" style="text-decoration: none;">Strategy Guide</a>
+          <a href="/parks/kings-island/crowd-calendar/" class="chip" style="text-decoration: none;">Crowd Calendar</a>
+          <a href="/parks/kings-island/secrets/" class="chip" style="text-decoration: none;">Hidden Secrets</a>
+        </div>
       </div>
     </section>
 
@@ -429,50 +552,64 @@ footer {
 
         <div class="card ride-card">
           <h3>Orion</h3>
-          <div class="ride-tag">Giga coaster • park's marquee attraction</div>
-          <div class="chips"><span class="chip">287 ft</span><span class="chip">91 mph</span><span class="chip">5,321 ft</span><span class="chip">300 ft drop</span></div>
-          <p class="ride-why">The 7th giga coaster ever built. Consistently the #1 wait in the park. Alerts let you grab it without burning your morning.</p>
-          <p class="ride-fact"><b>Fun fact:</b> $30M investment that anchors the Area 72 aerospace-themed section.</p>
+          <div class="ride-tag">B&amp;M giga coaster - Area 72</div>
+          <div class="chips"><span class="chip">287 ft</span><span class="chip">91 mph</span><span class="chip">5,321 ft</span><span class="chip">300-ft drop</span></div>
+          <p class="ride-why">8 min at rope drop, 75+ min at close. Alerts catch any mid-day dip so you can double-ride without eating a 60-min line.</p>
+          <p class="ride-fact"><b>Fun fact:</b> One of only seven giga coasters in the world. The 300-foot drop is the fifth-longest on any coaster on Earth.</p>
         </div>
+
 
         <div class="card ride-card">
           <h3>The Beast</h3>
-          <div class="ride-tag">World's longest wooden coaster • night ride legend</div>
-          <div class="chips"><span class="chip">7,361 ft</span><span class="chip">65 mph</span><span class="chip">35 acres</span><span class="chip">540° helix</span></div>
-          <p class="ride-why">The Beast at night, through 35 acres of forest at 65 mph in total darkness, is a bucket-list coaster experience. Time it with alerts so you're in line before sunset.</p>
-          <p class="ride-fact"><b>Fun fact:</b> Guinness World Record holder since 1979. Built in-house by Kings Island engineers. Two lift hills.</p>
+          <div class="ride-tag">Wooden coaster - Rivertown</div>
+          <div class="chips"><span class="chip">7,361 ft</span><span class="chip">64.8 mph</span><span class="chip">World's longest wood</span></div>
+          <p class="ride-why">Evening riser, 15 min at open, 90+ at close. Alerts catch the afternoon trough for a second ride without the night-ride wait.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Opened 1979. Still holds the Guinness record for longest wooden coaster on Earth, 47 years running.</p>
         </div>
 
+
         <div class="card ride-card">
-          <h3>Banshee</h3>
-          <div class="ride-tag">World's longest inverted coaster • 7 inversions</div>
-          <div class="chips"><span class="chip">167 ft</span><span class="chip">68 mph</span><span class="chip">4,124 ft</span><span class="chip">7 inversions</span></div>
-          <p class="ride-why">World's longest inverted coaster and world's fastest non-launched invert. Lines build fast. Catch the dips with alerts.</p>
-          <p class="ride-fact"><b>Fun fact:</b> Named after a wailing spirit of Irish mythology. The on-ride audio delivers.</p>
+          <h3>Flight of Fear</h3>
+          <div class="ride-tag">Indoor LIM coaster - Area 72</div>
+          <div class="chips"><span class="chip">Indoor</span><span class="chip">54 mph launch</span><span class="chip">4 inversions</span></div>
+          <p class="ride-why">48 min even at open, the daytime wall. Alerts catch the evening collapse when it drops from 90 at peak to 39 by 9 PM.</p>
+          <p class="ride-fact"><b>Fun fact:</b> First roller coaster on Earth to use a LIM launch system, opened 1996. Entire ride happens indoors in pitch dark.</p>
         </div>
+
 
         <div class="card ride-card">
           <h3>Mystic Timbers</h3>
-          <div class="ride-tag">GCI wooden • the "shed" mystery</div>
+          <div class="ride-tag">GCI wood coaster - Rivertown</div>
           <div class="chips"><span class="chip">109 ft</span><span class="chip">53 mph</span><span class="chip">3,265 ft</span></div>
-          <p class="ride-why">Consistently beloved by enthusiasts. The famous "shed" ending drives re-rides. Easy to stack multiple laps if you time it right.</p>
-          <p class="ride-fact"><b>Fun fact:</b> With The Beast and Racer, Kings Island has more wooden coaster footage than any park on Earth.</p>
+          <p class="ride-why">Highest-rated ride in the park. Climbs from 17 at open to 60 by 5 PM and never drops back. Alerts catch rare dips.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Ride finale is an enclosed shed with randomized creature projections, the "What's in the shed?" reveal. Won 2017 Golden Ticket for Best New Ride.</p>
         </div>
+
 
         <div class="card ride-card">
           <h3>Diamondback</h3>
-          <div class="ride-tag">B&amp;M hypercoaster • 10 drops + splashdown</div>
+          <div class="ride-tag">B&amp;M hyper coaster - Rivertown</div>
           <div class="chips"><span class="chip">230 ft</span><span class="chip">80 mph</span><span class="chip">5,282 ft</span></div>
-          <p class="ride-why">High-capacity B&M trains keep the line moving faster than it looks. Great "bonus ride" between headliners.</p>
-          <p class="ride-fact"><b>Fun fact:</b> First B&M coaster at Kings Island. The splashdown finale soaks spectators on the bridge.</p>
+          <p class="ride-why">Climbs from 17 at open to 65 at 3 PM, then plateaus. Alerts catch the late-day plateau dips for a re-ride.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Splashdown finale sends water 50 feet in the air. Open-air stadium seating trains designed by B&amp;M.</p>
         </div>
 
+
         <div class="card ride-card">
-          <h3>Phantom Theater: Opening Nightmare</h3>
-          <div class="ride-tag">Interactive dark ride • NEW 2026</div>
-          <div class="chips"><span class="chip">Sally Dark Rides</span><span class="chip">26 scenes</span><span class="chip">Opening Apr 18</span></div>
-          <p class="ride-why">Revival of the beloved 1992-2002 classic. Expect elevated demand all season. Track it so you catch short windows.</p>
-          <p class="ride-fact"><b>Fun fact:</b> Riders collect "ghost notes" from a haunted pipe organ to prevent an opening night disaster.</p>
+          <h3>Banshee</h3>
+          <div class="ride-tag">B&amp;M inverted - Action Zone</div>
+          <div class="chips"><span class="chip">167 ft</span><span class="chip">68 mph</span><span class="chip">7 inversions</span><span class="chip">World's longest inverted</span></div>
+          <p class="ride-why">Flat all day (24&ndash;34 min), no strategic advantage to timing. Use as mid-day filler between targeted rides.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Still the world's longest inverted coaster at 4,124 feet. Built on the land vacated by Son of Beast's demolition.</p>
+        </div>
+
+
+        <div class="card ride-card">
+          <h3>The Bat</h3>
+          <div class="ride-tag">Suspended coaster - Action Zone</div>
+          <div class="chips"><span class="chip">78 ft</span><span class="chip">51 mph</span><span class="chip">Swinging</span></div>
+          <p class="ride-why">Classic evening dropper, 37 at 1 PM drops to 19 by 9 PM. Set an alert after 6 PM to catch the dip.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Trains swing freely side-to-side as they bank through the woods. Opened 1993 as "Top Gun," renamed in 2014 to honor Arrow's original 1981 Bat that stood on similar terrain.</p>
         </div>
 
       </div>
@@ -481,36 +618,58 @@ footer {
     <section class="section alert-grid">
       <h2>Good default alert presets</h2>
       <div class="grid">
-        <div class="card"><b>Orion</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 45 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">The giga is the day's anchor. Catch it early or on a dip. Don't hover in a 60+ min queue.</div></div>
-<div class="card"><b>The Beast</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Set an evening alert. Catching The Beast after dark at under 35 min is the ultimate Kings Island move.</div></div>
-<div class="card"><b>Banshee</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">World's longest invert. Lines spike by mid-morning. Grab a dip.</div></div>
-<div class="card"><b>Mystic Timbers</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Compact enough for a double-ride when the alert fires.</div></div>
-<div class="card"><b>Phantom Theater</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when ≤ 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">New 2026 dark ride. Expect high demand all season. Track it daily.</div></div>
+        <div class="card"><b>Orion</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span></div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Evening riser, any dip below 30 is a gift.</div>
+        </div>
+        <div class="card"><b>The Beast</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Rope drop or catch a mid-day trough for a second ride.</div>
+        </div>
+        <div class="card"><b>Flight of Fear</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 45 min</span></div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Indoor ride, stays busy; wait for the 9 PM collapse.</div>
+        </div>
+        <div class="card"><b>Diamondback</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span></div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Plateaus after 2 PM, alert catches late-day dips.</div>
+        </div>
+        <div class="card"><b>Mystic Timbers</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span></div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Highest-rated ride in the park. Rarely dips, worth chasing when it does.</div>
+        </div>
+        <div class="card"><b>The Bat</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 20 min</span></div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Evening dropper, alert triggers reliably after 7 PM.</div>
+        </div>
+        <div class="card"><b>Banshee</b>
+          <div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div>
+          <div style="margin-top:10px; color: rgba(255,255,255,0.72);">Flat ride, typical 24&ndash;34. Under 25 is the good window.</div>
+        </div>
       </div>
       <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
-        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
+        Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth
+        moving for.
       </p>
     </section>
 
     <section class="section">
       <h2>If you only have one day</h2>
       <ol class="plan">
-        <li>Head straight to Orion in Area 72 at rope drop. It builds the longest lines fastest.</li>
-<li>Banshee next (Action Zone) while morning crowds are still thin.</li>
-<li>Mystic Timbers and Flight of Fear before noon. Both have slow-loading ops that punish afternoon visitors.</li>
-<li>Midday: retreat to Soak City (included with admission) or grab Skyline Chili and LaRosa's Pizza, Cincinnati originals.</li>
-<li>The Beast at night is non-negotiable. Get in line 30 min before sunset. The 540° helix through the forest in darkness is unforgettable.</li>
+        <li><strong>Sprint to Orion at gate drop.</strong> Area 72 is in the back, don't dawdle. 8 min at open vs 75+ at close.</li>
+        <li><strong>Walk to Rivertown for the three-ride sweep.</strong> The Beast, then Mystic Timbers, then Diamondback, all under 25 min if you hustle.</li>
+        <li><strong>Mid-day: Action Zone + Coney Mall sweeps.</strong> Banshee, Drop Tower, Delirium, Racers, Queen City, WindSeeker. All flat.</li>
+        <li><strong>After 7 PM: Evening droppers.</strong> The Bat, Invertigo, then queue Flight of Fear at 9 PM for the biggest drop in the park.</li>
+        <li><strong>Don't save Orion or Beast for late.</strong> Kings Island inverts the usual rule, those two rise into the evening, not drop.</li>
       </ol>
     </section>
 
     <section class="section">
       <h2>More planning help</h2>
       <ul class="plan" style="list-style: disc;">
-        <li><a class="inline-link" href="/parks/kings-island/strategy/">Kings Island Strategy Guide</a></li>
-        <li><a class="inline-link" href="/parks/kings-island/crowd-calendar/">Kings Island Crowd Calendar</a></li>
-        <li><a class="inline-link" href="/parks/kings-island/orion-queue-times/">Orion Queue Times</a></li>
-        <li><a class="inline-link" href="/parks/kings-island/the-beast-queue-times/">The Beast Queue Times</a></li>
-        <li><a class="inline-link" href="/parks/kings-island/mystic-timbers-queue-times/">Mystic Timbers Queue Times</a></li>
+        <li><a class="inline-link" href="/parks/kings-island/strategy/">Full Kings Island strategy guide</a></li>
+        <li><a class="inline-link" href="/parks/kings-island/crowd-calendar/">Kings Island crowd calendar</a></li>
+        <li><a class="inline-link" href="/parks/kings-island/secrets/">Hidden secrets &amp; Easter eggs at Kings Island</a></li>
         <li><a class="inline-link" href="/parks/">All supported parks</a></li>
       </ul>
     </section>
@@ -518,38 +677,37 @@ footer {
     <section class="section">
       <h2>FAQ</h2>
 
-    <details>
-      <summary>What are the best days to visit Kings Island?</summary>
-      <p>Tuesday and Wednesday are consistently the lightest crowd days. October Saturdays (Halloween Haunt) are the busiest days of the year. Late April and early May weekdays offer the shortest waits of the entire season.</p>
-    </details>
-
-    <details>
-      <summary>Does Ride Ready use the park's official wait times?</summary>
-      <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
-    </details>
-    <details>
-      <summary>What's the fastest way to get value on a one-day visit?</summary>
-      <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot. That's where you claw back time without buying a line-skip add-on.</p>
-    </details>
-    <details>
-      <summary>Is this affiliated with Kings Island?</summary>
-      <p>No. Ride Ready is an independent app.</p>
-    </details>
+      <details>
+        <summary>When does Kings Island open for the 2026 season?</summary>
+        <p>The 2026 regular season opens Friday, April 18, 2026 (passholder preview April 17). Weekends only through mid-May, then daily operation through Labor Day. Halloween Haunt runs weekends late September and October. Winterfest typically runs mid-November through early January.</p>
+      </details>
+      <details>
+        <summary>Is Fast Lane Plus worth it at Kings Island?</summary>
+        <p>It depends on your crowd day. On weekdays or during shoulder season, rope drop gets you Orion and the Rivertown coasters at standby. On Saturdays, Haunt nights, and peak summer days, Fast Lane Plus pays for itself on Orion and Flight of Fear alone. Check live waits the morning of, if Orion is posting 45+ min at open, FLP is worth it.</p>
+      </details>
+      <details>
+        <summary>What makes Kings Island different from Cedar Point?</summary>
+        <p>Cedar Point is a coaster destination, 18 coasters, world-class density, everything is a headliner. Kings Island is a more balanced regional park with the world's longest wooden coaster (Beast), a giga coaster (Orion), and strong mid-tier rides. Kings Island's big quirk: Orion and Beast are evening risers. Cedar Point follows the normal "save headliners for evening" rule; Kings Island inverts it.</p>
+      </details>
+      <details>
+        <summary>Is this affiliated with Kings Island?</summary>
+        <p>No. Ride Ready is an independent app. Kings Island is owned and operated by Six Flags Entertainment Corporation.</p>
+      </details>
 
     </section>
 
     <section class="section sources">
       <h2>Sources</h2>
-      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages, public ride databases, and our own wait-time dataset.</p>
       <ul class="plan" style="list-style: disc;">
-        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Kings_Island" rel="noopener noreferrer" target="_blank">Kings Island (park overview) (Wikipedia)</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Orion_(roller_coaster)" rel="noopener noreferrer" target="_blank">Orion (roller coaster) (Wikipedia)</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Diamondback_(Kings_Island)" rel="noopener noreferrer" target="_blank">Diamondback (Kings Island) (Wikipedia)</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Banshee_(roller_coaster)" rel="noopener noreferrer" target="_blank">Banshee (roller coaster) (Wikipedia)</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Mystic_Timbers" rel="noopener noreferrer" target="_blank">Mystic Timbers (Wikipedia)</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/The_Beast_(roller_coaster)" rel="noopener noreferrer" target="_blank">The Beast (roller coaster) (Wikipedia)</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Phantom_Theater:_Opening_Nightmare" rel="noopener noreferrer" target="_blank">Phantom Theater: Opening Nightmare (Wikipedia)</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Flight_of_Fear" rel="noopener noreferrer" target="_blank">Flight of Fear (Wikipedia)</a></li>
+        <li><a class="inline-link" href="https://www.visitkingsisland.com/" rel="noopener noreferrer" target="_blank">Kings Island official site</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Kings_Island" rel="noopener noreferrer" target="_blank">Kings Island (park overview), Wikipedia</a></li>
+        <li><a class="inline-link" href="https://rcdb.com/4253.htm" rel="noopener noreferrer" target="_blank">Diamondback, RCDB stats</a></li>
+        <li><a class="inline-link" href="https://rcdb.com/11437.htm" rel="noopener noreferrer" target="_blank">Orion, RCDB stats</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/The_Beast_(roller_coaster)" rel="noopener noreferrer" target="_blank">The Beast, Wikipedia + Guinness record</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Mystic_Timbers" rel="noopener noreferrer" target="_blank">Mystic Timbers, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Banshee_(roller_coaster)" rel="noopener noreferrer" target="_blank">Banshee, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://attractionsmagazine.com/kings-island-theme-park-new-ride-2026-phantom-theater-opening-nightmare-sally-dark-rides/" rel="noopener noreferrer" target="_blank">Phantom Theater: Opening Nightmare, Attractions Magazine</a></li>
       </ul>
     </section>
 
@@ -557,27 +715,29 @@ footer {
       © 2026 Ride Ready. Not affiliated with Kings Island or its operators.
     </footer>
   </div>
-<script>
-document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function(link) {
-  link.addEventListener('click', function() {
-    try {
-      if (typeof gtag !== 'function') return;
 
-      const href = link.getAttribute('href') || '';
-      let ct = null;
+  <script>
+    document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+            try {
+                if (typeof gtag !== 'function') return;
 
-      try {
-        ct = new URL(href).searchParams.get('ct');
-      } catch (e) {}
+                const href = link.getAttribute('href') || '';
+                let ct = null;
 
-      gtag('event', 'app_store_click', {
-        ref: link.dataset.ref || null,
-        ct: ct,
-        page: window.location.pathname
-      });
-    } catch (e) {}
-  });
-});
-</script>
+                try {
+                    ct = new URL(href).searchParams.get('ct');
+                } catch (e) {}
+
+                gtag('event', 'app_store_click', {
+                    ref: link.dataset.ref || null,
+                    ct: ct,
+                    page: window.location.pathname
+                });
+            } catch (e) {}
+        });
+    });
+  </script>
 </body>
+
 </html>
