@@ -92,7 +92,7 @@
       {"@type": "Question", "name": "How long is the ride?", "acceptedAnswer": {"@type": "Answer", "text": "About four minutes from load to unload. Longer than most park dark rides, with 26 scenes spread across the run."}},
       {"@type": "Question", "name": "How long is the wait for Phantom Theater right now?", "acceptedAnswer": {"@type": "Answer", "text": "Opening week waits peaked at three hours. Post-opening averages run 60–90 minutes mid-day on weekends, 30–60 on weekdays. Waits drop noticeably in the last 90 minutes before park close. Ride Ready's wait time alerts catch the dips so you don't stand in line guessing."}},
       {"@type": "Question", "name": "Is there a single rider line?", "acceptedAnswer": {"@type": "Answer", "text": "Not at launch. Kings Island has not announced a single rider queue for Phantom Theater. We'll update this if that changes."}},
-      {"@type": "Question", "name": "Can young kids ride?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — there is no minimum height requirement. Children under 48 inches must ride with a supervising companion."}},
+      {"@type": "Question", "name": "Can young kids ride?", "acceptedAnswer": {"@type": "Answer", "text": "Phantom Theater lives in Planet Snoopy and is built for families. Younger riders may need a supervising companion. Check the official Kings Island ride page for the current height requirement before you go."}},
       {"@type": "Question", "name": "How do you get a high score?", "acceptedAnswer": {"@type": "Answer", "text": "The single biggest tip: hold the flashlight button down continuously instead of clicking it. The flashlight scores while held, not on click."}},
       {"@type": "Question", "name": "Where is Phantom Theater located in Kings Island?", "acceptedAnswer": {"@type": "Answer", "text": "Planet Snoopy, in the same building that has housed an Omnimover dark ride since 1972 — most recently Boo Blasters on Boo Hill. Same building, brand-new ride."}},
       {"@type": "Question", "name": "Is this the same as the original 1992 Phantom Theater?", "acceptedAnswer": {"@type": "Answer", "text": "Same building, same ride track, same Phantom character, same Boris the cat — but a completely new ride experience. Sally Dark Rides built fresh animatronics, scenes, and an interactive shooter system. The 2026 version is loaded with Easter eggs to the 1992 ride, but it's a new attraction."}}
@@ -327,7 +327,7 @@ footer { margin: 40px 0 20px; color: rgba(255,255,255,0.6); font-size: 0.9rem; t
 
   <section class="section" id="what-it-is">
     <h2>What it is &mdash; a new ride with a 54-year history</h2>
-    <p>Phantom Theater: Opening Nightmare is a Sally Dark Rides interactive shooter that opened April 18, 2026 in Planet Snoopy at Kings Island. It's a trackless dark ride: two-person Doombuggy-style vehicles glide through 26 scenes set inside a haunted vaudeville theater, with riders aiming spellbound flashlights at targets to score points.</p>
+    <p>Phantom Theater: Opening Nightmare is a Sally Dark Rides interactive shooter that opened April 18, 2026 in Planet Snoopy at Kings Island. It's a dark ride: two-person Doombuggy-style vehicles glide through 26 scenes set inside a haunted vaudeville theater, with riders aiming spellbound flashlights at targets to score points.</p>
     <p>The building itself has been a dark ride since the park opened in 1972. The same Arrow Omnimover track has carried <em>Enchanted Voyage</em> (1972), <em>Smurf's Enchanted Voyage</em> (1984), the original <em>Phantom Theater</em> (1992), <em>Scooby-Doo and the Haunted Castle</em> (2003), and <em>Boo Blasters on Boo Hill</em> (2010). The 2026 overlay is the first time the Phantom Theater name has returned, and the new ride is loaded with callbacks to the original. <a class="inline-link" href="/parks/kings-island/secrets/">More on the building's history in our Kings Island secrets guide.</a></p>
   </section>
 
@@ -455,7 +455,7 @@ footer { margin: 40px 0 20px; color: rgba(255,255,255,0.6); font-size: 0.9rem; t
     </details>
     <details>
       <summary>Can young kids ride?</summary>
-      <p>Yes &mdash; there is no minimum height requirement. Children under 48" must ride with a supervising companion.</p>
+      <p>Yes &mdash; Phantom Theater lives in Planet Snoopy and is built for families. Younger riders may need a supervising companion. Check the <a class="inline-link" href="https://www.visitkingsisland.com/explore/rides-experiences/phantom-theater-opening-nightmare" rel="noopener" target="_blank">official Kings Island ride page</a> for the current height requirement before you go.</p>
     </details>
     <details>
       <summary>How do you get a high score?</summary>
@@ -501,6 +501,21 @@ footer { margin: 40px 0 20px; color: rgba(255,255,255,0.6); font-size: 0.9rem; t
   </footer>
 </div>
 <script>
+document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    try {
+      if (typeof gtag !== 'function') return;
+      const href = link.getAttribute('href') || '';
+      let ct = null;
+      try { ct = new URL(href).searchParams.get('ct'); } catch (e) {}
+      gtag('event', 'app_store_click', {
+        ref: link.dataset.ref || null,
+        ct: ct,
+        page: window.location.pathname
+      });
+    } catch (e) {}
+  });
+});
 document.querySelectorAll('.lite-yt').forEach(function(el) {
   el.addEventListener('click', function(e) {
     e.preventDefault();
