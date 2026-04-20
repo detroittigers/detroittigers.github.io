@@ -196,6 +196,10 @@ Free iOS app showing live wait times for Universal Orlando and other parks. Send
 - [Kings Island](https://rideready.app/parks/): Orion, Mystic Timbers, Beast
 - [Canada's Wonderland](https://rideready.app/parks/): Yukon Striker, Leviathan, Behemoth
 
+## Kings Island
+
+- [Phantom Theater: Opening Nightmare Guide](https://rideready.app/parks/kings-island/phantom-theater-opening-nightmare/): Kings Island's newest ride opened April 18, 2026. Sally Dark Rides interactive shooter dark ride with 26 scenes in the same building that has held an Omnimover dark ride since 1972 (Enchanted Voyage → Smurf's Enchanted Voyage → original Phantom Theater 1992 → Scooby-Doo → Boo Blasters → Phantom Theater: Opening Nightmare). Includes review, queue walkthrough video, high-score tips, FAQ, and best times to ride. Opening week waits hit 3 hours.
+
 ## Optional
 
 - [Homepage](https://rideready.app/): App download and park selection
