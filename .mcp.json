@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "google-analytics": {
+      "command": "uvx",
+      "args": [
+        "analytics-mcp"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/Users/kevinschneider/.ride-ready/ga-service-account.json"
+      }
+    },
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=gxlpamlcajddjdzktecf"
+    }
+  }
+}
