@@ -54,6 +54,35 @@
     "image": "https://rideready.app/images/og/og-park-canadas-wonderland.png"
   }
   </script>
+  <!-- JSON-LD FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "When does Canada's Wonderland open for the 2026 season?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 2026 season opens Sunday, May 3, 2026. Weekends only through mid-June, then daily operation through Labor Day. Halloween Haunt runs weekend nights in late September and October. Winterfest typically runs mid-November through early January."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Should I rope-drop Alpen Fury?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Alpen Fury opens at a 135-minute median wait and only drops to 90 by 10 PM. Rope drop is its worst window. Hit Behemoth, Yukon Striker, and Mighty Canadian Minebuster first (all under 20 minutes at gate drop), then queue Alpen Fury after 9 PM."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What is the best day to visit Canada's Wonderland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Thursday is the standout best day in peak summer (40 min park-wide median). Wednesday is the worst (52 min). Saturday is roughly average. The unusual pattern is driven by school groups and corporate events that pile into Wednesdays."
+      }
+    }]
+  }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGYGTPMTQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -62,11 +91,11 @@
     gtag('config', 'G-KGYGTPMTQ3');
   </script>
 
-  <title>Canada&#x27;s Wonderland Wait Times &amp; Ride Strategy | Ride Ready</title>
-  <meta name="description" content="Track Canada's Wonderland wait times. Set alerts for Alpen Fury, Leviathan, Yukon Striker, Behemoth — ride big coasters when lines dip." />
+  <title>Canada's Wonderland Wait Times &amp; Strategy | Ride Ready</title>
+  <meta name="description" content="Track Canada's Wonderland wait times and set alerts for Alpen Fury, Leviathan, Yukon Striker, and Behemoth. The Alpen Fury inversion and the 10 AM B&amp;M sweep, backed by 265,000+ samples." />
   <link rel="canonical" href="https://rideready.app/parks/canadas-wonderland/" />
-  <meta property="og:title" content="Canada&#x27;s Wonderland Wait Times &amp; Ride Strategy | Ride Ready" />
-  <meta property="og:description" content="Track Canada&#x27;s Wonderland wait times with Ride Ready. Set alerts for Alpen Fury, Leviathan, Yukon Striker, Behemoth, and more so you can ride big coasters when lines dip." />
+  <meta property="og:title" content="Canada's Wonderland Wait Times &amp; Strategy | Ride Ready" />
+  <meta property="og:description" content="Track Canada's Wonderland wait times. Alpen Fury, Leviathan, Yukon Striker, Behemoth. The 10 AM rope-drop sweep and why Alpen Fury inverts the rules, backed by 265,000+ samples." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rideready.app/parks/canadas-wonderland/" />
   <meta property="og:image" content="https://rideready.app/images/og/og-park-canadas-wonderland.png" />
@@ -100,7 +129,7 @@ body {
   text-align: center;
   overflow-x: hidden;
   line-height: 1.55;
-  padding-bottom: 92px; /* space for sticky footer */
+  padding-bottom: 92px;
 }
 
 body::before {
@@ -114,62 +143,19 @@ body::before {
   z-index: -1;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 32px 20px 0;
-}
+.container { max-width: 1000px; margin: 0 auto; padding: 32px 20px 0; }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 26px;
-}
-
-nav .left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
-
+nav { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 26px; }
+nav .left { display: flex; align-items: center; gap: 14px; min-width: 0; }
+nav a { color: white; text-decoration: none; font-weight: 600; opacity: 0.9; transition: opacity 0.2s ease; }
 nav a:hover { opacity: 1; }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-}
-
+.logo { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
 .logo img { width: 32px; height: 32px; border-radius: 8px; }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
+.nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
 
-.nav-cta {
-  background: var(--primary-gradient);
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 700;
-  color: white;
-  box-shadow: 0 12px 30px rgba(249,115,22,0.20);
-}
+.nav-cta { background: var(--primary-gradient); padding: 10px 16px; border-radius: 999px; font-weight: 700; color: white; box-shadow: 0 12px 30px rgba(249,115,22,0.20); }
 
 .hero {
   padding: 26px 18px;
@@ -177,7 +163,7 @@ nav a:hover { opacity: 1; }
   background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
   border: 1px solid var(--soft-border);
   box-shadow: var(--shadow);
-  text-align: left;
+  text-align: center;
 }
 
 .hero h1 {
@@ -186,177 +172,57 @@ nav a:hover { opacity: 1; }
   line-height: 1.1;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.hero p {
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 70ch;
-}
+.hero p { margin: 0 auto; color: var(--muted); font-size: 1.05rem; max-width: 70ch; }
 
-.section {
-  margin-top: 34px;
-  text-align: left;
-}
+.section { margin-top: 34px; text-align: left; }
+.section h2 { margin: 0 0 14px; font-size: 1.35rem; }
 
-.section h2 {
-  margin: 0 0 14px;
-  font-size: 1.35rem;
-}
+.kicker { display: inline-flex; gap: 8px; align-items: center; font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 10px; }
 
-.kicker {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 10px;
-}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
-}
+.facts-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1024px) { .facts-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .facts-grid { grid-template-columns: 1fr; } }
 
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-}
+.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
 
-.fact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-}
+.fact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.fact { display: flex; flex-direction: column; gap: 6px; }
+.fact b { color: rgba(255,255,255,0.92); font-size: 0.9rem; }
+.fact span { color: var(--muted); font-size: 0.95rem; line-height: 1.4; }
 
-.fact {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
-
-.fact b { min-width: 120px; color: rgba(255,255,255,0.92); }
-.fact span { color: var(--muted); }
-
-.ride-card h3 {
-  margin: 0 0 6px;
-  font-size: 1.05rem;
-  line-height: 1.2;
-}
-
-.ride-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.80);
-  margin-bottom: 10px;
-}
-
+.ride-card h3 { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.2; }
+.ride-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.80); margin-bottom: 10px; }
 .chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 10px; }
-
-.chip {
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.86);
-  background: rgba(255,255,255,0.03);
-}
-
+.chip { border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; padding: 6px 10px; font-size: 0.85rem; color: rgba(255,255,255,0.86); background: rgba(255,255,255,0.03); }
 .ride-why { margin: 10px 0 0; color: rgba(255,255,255,0.80); }
 .ride-fact { margin: 10px 0 0; color: rgba(255,255,255,0.70); }
 
-.inline-link {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 700;
-}
-
+.inline-link { color: var(--accent-color); text-decoration: none; font-weight: 700; }
 .inline-link:hover { text-decoration: underline; }
 
 .alert-grid .card b { color: rgba(255,255,255,0.92); }
 
-.plan {
-  margin: 0;
-  padding-left: 18px;
-  color: rgba(255,255,255,0.82);
-}
-
+.plan { margin: 0; padding-left: 18px; color: rgba(255,255,255,0.82); }
 .plan li { margin: 8px 0; }
 
-details {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 14px;
-  padding: 12px 14px;
-}
-
+details { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.10); border-radius: 14px; padding: 12px 14px; }
 details + details { margin-top: 10px; }
+summary { cursor: pointer; font-weight: 700; outline: none; }
+details p { margin: 10px 0 0; color: rgba(255,255,255,0.78); }
 
-summary {
-  cursor: pointer;
-  font-weight: 700;
-  outline: none;
-}
-
-details p {
-  margin: 10px 0 0;
-  color: rgba(255,255,255,0.78);
-}
-
-footer {
-  margin: 34px 0 22px;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
+footer { margin: 34px 0 22px; color: rgba(255, 255, 255, 0.75); font-size: 0.9rem; text-align: center; }
 .sources a { word-break: break-word; }
 
-.sticky-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255,255,255,0.10);
-  padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px;
-  z-index: 1000;
-}
-
-.sticky-footer .inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.sticky-footer .text {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.82);
-}
-
-.sticky-footer a {
-  background: var(--primary-gradient);
-  color: white;
-  padding: 11px 16px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
+.sticky-footer { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.10); padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) 14px; z-index: 1000; }
+.sticky-footer .inner { max-width: 1000px; margin: 0 auto; display: flex; gap: 12px; align-items: center; justify-content: space-between; }
+.sticky-footer .text { font-size: 0.95rem; color: rgba(255,255,255,0.82); }
+.sticky-footer a { background: var(--primary-gradient); color: white; padding: 11px 16px; border-radius: 999px; text-decoration: none; font-weight: 800; font-size: 0.95rem; white-space: nowrap; }
 
 @media (max-width: 640px) {
   nav { align-items: flex-start; }
@@ -402,24 +268,64 @@ footer {
 </nav>
 <div class="sticky-footer">
     <div class="inner">
-      <div class="text">Canada's Wonderland: track Alpen Fury + the big coasters — grab windows when lines dip.</div>
+      <div class="text">Canada's Wonderland: rope drop Behemoth, save Alpen Fury for 9 PM. Get the plan.</div>
       <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=park-canadas-wonderland-sticky" data-ref="park-canadas-wonderland-sticky">Download Free</a>
     </div>
   </div>
 
   <div class="container"><div class="hero">
-      <div class="kicker">Canada&#x27;s Wonderland | Wait times + smarter timing</div>
-      <h1>Canada&#x27;s Wonderland: Know When to Go</h1>
-      <p>Track Canada&#x27;s Wonderland wait times with Ride Ready. Set alerts for Alpen Fury, Leviathan, Yukon Striker, Behemoth, and more so you can ride big coasters when lines dip.</p>
+      <div class="kicker">Canada's Wonderland | Wait times + smarter timing</div>
+      <h1>Canada's Wonderland: Know When to Go</h1>
+      <p>Track Canada's Wonderland wait times and set alerts for Alpen Fury, Leviathan, Yukon Striker, and Behemoth. Ride the headliners when lines actually dip, not when the crowd thinks they will.</p>
+      <div style="margin-top: 24px;">
+        <a href="/parks/canadas-wonderland/strategy/"
+          style="background: white; color: black; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 99px; display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; transition: transform 0.2s; border: none;">
+          <span style="font-size: 1.2rem;">📈</span> Read Strategy Guide
+        </a>
+      </div>
     </div>
 
     <section class="section">
       <h2>Quick park facts</h2>
-      <div class="grid">
-        <div class="card"><div class="fact"><b>Location</b><span>Vaughan, Ontario (near Toronto)</span></div></div>
-<div class="card"><div class="fact"><b>Best for</b><span>Big B&amp;M coasters + quick 'bonus' rides between them</span></div></div>
-<div class="card"><div class="fact"><b>What to track</b><span>Alpen Fury, Leviathan, Yukon Striker, Behemoth (plus a couple family favorites)</span></div></div>
-<div class="card"><div class="fact"><b>The trick</b><span>Your day is won by timing the big four, not by walking laps hoping they're shorter.</span></div></div>
+      <div class="grid facts-grid">
+        <div class="card"><div class="fact"><b>Location</b><span>Vaughan, Ontario (north of Toronto)</span></div></div>
+        <div class="card"><div class="fact"><b>Opened</b><span>May 23, 1981</span></div></div>
+        <div class="card"><div class="fact"><b>Most time saved on</b><span>Behemoth, Yukon Striker, Mighty Canadian Minebuster, Leviathan</span></div></div>
+        <div class="card"><div class="fact"><b>The trick</b><span>Rope-drop everything <em>except</em> Alpen Fury. The new ride is the one that never has a good morning window.</span></div></div>
+      </div>
+
+      <!-- Featured Strategy Block -->
+      <a href="/parks/canadas-wonderland/strategy/" style="display: block; text-decoration: none; margin-top: 20px;">
+        <div style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 24px; display: flex; align-items: center; gap: 20px; transition: transform 0.2s, box-shadow 0.2s;">
+          <div style="flex: 1;">
+            <div style="color: #10b981; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em;">Essential Reading</div>
+            <h3 style="color: white; margin: 0 0 8px; font-size: 1.4rem;">The Canada's Wonderland Strategy Guide</h3>
+            <p style="color: rgba(255,255,255,0.8); margin: 0; line-height: 1.5;">Behemoth at gate drop, Alpen Fury at 9 PM, Wednesday is worse than Saturday. We analyzed 265,000+ samples to show why Canada's Wonderland inverts the new-ride rope-drop rule.</p>
+          </div>
+          <div style="background: white; color: black; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">→</div>
+        </div>
+      </a>
+
+      <!-- New for 2025 callout -->
+      <a href="/parks/canadas-wonderland/alpen-fury-queue-times/" style="display: block; text-decoration: none; color: inherit; background: linear-gradient(135deg, rgba(255,65,108,0.12), rgba(255,75,43,0.06)); border: 1px solid rgba(255,75,43,0.35); border-radius: 18px; padding: 22px; margin-top: 20px; text-align: left; transition: border-color 0.15s, transform 0.15s;" onmouseover="this.style.borderColor='rgba(255,75,43,0.7)';this.style.transform='translateY(-1px)';" onmouseout="this.style.borderColor='rgba(255,75,43,0.35)';this.style.transform='translateY(0)';">
+        <div style="color: #FF4B2B; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 6px;">New for 2025</div>
+        <h3 style="color: white; margin: 0 0 8px; font-size: 1.2rem;">Alpen Fury</h3>
+        <p style="color: rgba(255,255,255,0.82); margin: 0 0 10px; line-height: 1.55; font-size: 0.95rem;">A Premier launched coaster with a world-record nine inversions, drilled through Wonder Mountain itself. 164 ft, 71 mph, dual launches synchronized to an IMAscore soundtrack. The catch: a 135-minute median wait at park open and never below 90 all day. Here's how to ride it without burning the morning.</p>
+        <div style="color: #FF6B4A; font-weight: 700; font-size: 0.9rem;">Read the full guide &rarr;</div>
+      </a>
+
+      <!-- Internal Tools Cluster -->
+      <div style="margin-top: 24px;">
+        <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: rgba(255,255,255,0.9);">In-park tools</h3>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="/parks/canadas-wonderland/strategy/" class="chip" style="text-decoration: none;">Strategy Guide</a>
+          <a href="/parks/canadas-wonderland/crowd-calendar/" class="chip" style="text-decoration: none;">Crowd Calendar</a>
+          <a href="/parks/canadas-wonderland/secrets/" class="chip" style="text-decoration: none;">Hidden Secrets</a>
+          <a href="/parks/canadas-wonderland/alpen-fury-queue-times/" class="chip" style="text-decoration: none;">Alpen Fury Waits</a>
+          <a href="/parks/canadas-wonderland/behemoth-queue-times/" class="chip" style="text-decoration: none;">Behemoth Waits</a>
+          <a href="/parks/canadas-wonderland/leviathan-queue-times/" class="chip" style="text-decoration: none;">Leviathan Waits</a>
+          <a href="/parks/canadas-wonderland/yukon-striker-queue-times/" class="chip" style="text-decoration: none;">Yukon Striker Waits</a>
+        </div>
       </div>
     </section>
 
@@ -429,54 +335,66 @@ footer {
 
         <div class="card ride-card">
           <h3>Alpen Fury</h3>
-          <div class="ride-tag">Launch coaster | 2025 NEW</div>
+          <div class="ride-tag">Launched coaster &middot; Alpenfest &middot; New 2025</div>
           <div class="chips"><span class="chip">164 ft</span><span class="chip">71 mph</span><span class="chip">9 inversions</span></div>
-          <p class="ride-why">The park's newest headliner. Expect long lines all season — alerts are essential for catching dips.</p>
-          <p class="ride-fact"><b>Fun fact:</b> Holds the world record for most inversions on a launch coaster. Features a double launch through Wonder Mountain.</p>
+          <p class="ride-why">135 min at open, 90 min at 10 PM. Never sees a sub-90 hour in our data. Rope drop is the worst window because everyone tries it. Save for 9 PM and set an alert at 100 to catch the softening.</p>
+          <p class="ride-fact"><b>Fun fact:</b> The first launched coaster to drill a vertical launch shaft through a mountain. Holds the world record for inversions on a launch coaster (9). The lap-bar SkyRocket Infinity trains were custom-built for airtime.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>Behemoth</h3>
+          <div class="ride-tag">B&amp;M hyper coaster &middot; Action Zone</div>
+          <div class="chips"><span class="chip">230 ft</span><span class="chip">77 mph</span><span class="chip">5,318 ft</span></div>
+          <p class="ride-why">10 min at open, 45 at 4 PM, 28 at 9 PM. Biggest single-ride savings at the park: 35 minutes between rope drop and afternoon peak. Sprint to it at gate drop.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Canada's biggest ride investment at the time at CAD $26M. Five camelback hills deliver 20+ seconds of sustained airtime. The hammerhead skims 15 ft above the Swan Lake fountain jets.</p>
         </div>
 
         <div class="card ride-card">
           <h3>Leviathan</h3>
-          <div class="ride-tag">Giga coaster | fastest/tallest vibe</div>
+          <div class="ride-tag">B&amp;M giga coaster &middot; Medieval Faire</div>
           <div class="chips"><span class="chip">306 ft</span><span class="chip">92 mph</span><span class="chip">5,486 ft</span></div>
-          <p class="ride-why">It's an anchor attraction. Alerts help you ride it when it's actually moving instead of committing blind.</p>
-          <p class="ride-fact"><b>Fun fact:</b> The speed + lack of airtime makes it a 'do it again' coaster if you can catch a second window.</p>
+          <p class="ride-why">Peaks at 11 AM (60 min), plateaus 45-50 all afternoon, drops to 30 by 10 PM. Unusual second-hour peak. Catch it at gate drop or save for the closing window.</p>
+          <p class="ride-fact"><b>Fun fact:</b> B&amp;M's first ever giga coaster (300 ft+). Three 32-passenger trains move 1,650 riders per hour. Track shipped from Ohio over 175 oversize-load truck journeys.</p>
         </div>
-
 
         <div class="card ride-card">
           <h3>Yukon Striker</h3>
-          <div class="ride-tag">Dive coaster | straight down first drop</div>
-          <div class="chips"><span class="chip">223 ft</span><span class="chip">80 mph</span></div>
-          <p class="ride-why">This one draws a line fast. A drop alert is the easiest way to turn it into a win without burning an hour.</p>
-          <p class="ride-fact"><b>Fun fact:</b> A signature dive coaster with a dramatic hold before the drop.</p>
+          <div class="ride-tag">B&amp;M dive coaster &middot; Frontier Canada</div>
+          <div class="chips"><span class="chip">223 ft</span><span class="chip">80 mph</span><span class="chip">4 inversions</span></div>
+          <p class="ride-why">15 min at open, 45 at 4 PM, 30 at 9 PM. Classic morning-or-evening play. Three-second pre-drop hold then dives under the lake.</p>
+          <p class="ride-fact"><b>Fun fact:</b> The first and only dive coaster with a full vertical loop. Thousands of fish were relocated during excavation of the underwater tunnel. Opened 2019 with class-leading height, speed, and length records.</p>
         </div>
-
 
         <div class="card ride-card">
-          <h3>Behemoth</h3>
-          <div class="ride-tag">Hyper coaster | smooth &amp; fast</div>
-          <div class="chips"><span class="chip">230 ft</span><span class="chip">77 mph</span><span class="chip">5,300 ft</span></div>
-          <p class="ride-why">It's often the best 'midday big ride' if you catch it during a lull.</p>
-          <p class="ride-fact"><b>Fun fact:</b> A classic hyper coaster that's usually worth a re-ride if you time it right.</p>
+          <h3>Mighty Canadian Minebuster</h3>
+          <div class="ride-tag">Wooden coaster &middot; Frontier Canada</div>
+          <div class="chips"><span class="chip">90 ft</span><span class="chip">55 mph</span><span class="chip">3,828 ft</span></div>
+          <p class="ride-why">5 min at open, 40 mid-day, 20 at 9 PM. The third leg of the rope-drop sweep. Recently refurbished with Gravity Group precut wood.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Longest single-track wooden coaster in Canada. Modeled after Coney Island's 1927 Shooting Star. The Bat's spare train came from this ride's original 1981 order.</p>
         </div>
-
-
-        <div class="card ride-card">
-          <h3>Wonder Mountain's Guardian</h3>
-          <div class="ride-tag">Indoor/outdoor coaster + shooting elements</div>
-          <div class="chips"><span class="chip">Indoor sections</span><span class="chip">Family-friendly thrill</span></div>
-          <p class="ride-why">A great 'heat / rain' pivot ride while you're waiting for a coaster alert to fire.</p>
-          <p class="ride-fact"><b>Fun fact:</b> A hybrid dark-ride style coaster built into the mountain.</p>
-        </div>
-
 
         <div class="card ride-card">
           <h3>Vortex</h3>
-          <div class="ride-tag">Suspended coaster | soaring turns</div>
-          <div class="chips"><span class="chip">Fast swinging turns</span></div>
-          <p class="ride-why">Easy to slot in between headliners when you want something fun with a typically quicker line.</p>
-          <p class="ride-fact"><b>Fun fact:</b> A classic suspended coaster that still holds up.</p>
+          <div class="ride-tag">Suspended coaster &middot; Medieval Faire</div>
+          <div class="chips"><span class="chip">91 ft</span><span class="chip">55 mph</span><span class="chip">2,361 ft</span></div>
+          <p class="ride-why">Plateau ride: 25 at open, sticks to 35-40 all afternoon, drops to 20 by 10 PM. Easy mid-day filler. Closing-hour dip is reliable.</p>
+          <p class="ride-fact"><b>Fun fact:</b> The tallest operating suspended coaster in the world at 91 ft. Joint Guinness record for fastest suspended at 55 mph. Lake-skimming finale swings 6 ft above the water.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>Wonder Mountain's Guardian</h3>
+          <div class="ride-tag">Interactive dark ride coaster &middot; Alpenfest</div>
+          <div class="chips"><span class="chip">Indoor</span><span class="chip">500-ft screen</span><span class="chip">Shooting elements</span></div>
+          <p class="ride-why">Rain or heat pivot. 15 at open, 40 at peak, 30 at 9 PM. Weekend Halloween overlay turns it into "Zombies 4D."</p>
+          <p class="ride-fact"><b>Fun fact:</b> Holds the record for the world's longest continuous interactive screen at roughly 500 feet. A surprise 30-ft vertical drop track at the finale that the queue doesn't preview.</p>
+        </div>
+
+        <div class="card ride-card">
+          <h3>Backlot Stunt Coaster</h3>
+          <div class="ride-tag">Launched family coaster &middot; Action Zone</div>
+          <div class="chips"><span class="chip">45 ft</span><span class="chip">40 mph</span><span class="chip">Two LIM launches</span></div>
+          <p class="ride-why">10 at open climbs steeply to 45 by 5 PM, then drops to 20. Avoid the 4-5 PM window. Hit before 1 PM or after 8 PM.</p>
+          <p class="ride-fact"><b>Fun fact:</b> Originally The Italian Job: Stunt Track (2005) with custom MINI Cooper trains. Cars were physically stripped in 2010 when Cedar Fair lost the BMW license. The propane fireball finale still hits 25 ft.</p>
         </div>
 
       </div>
@@ -485,12 +403,12 @@ footer {
     <section class="section alert-grid">
       <h2>Good default alert presets</h2>
       <div class="grid">
-        <div class="card"><b>Alpen Fury</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 45 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">New ride = long lines. Take any sub-45 window you can get.</div></div>
-<div class="card"><b>Leviathan</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 40 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">If you want a second ride, this threshold makes it possible.</div></div>
-<div class="card"><b>Yukon Striker</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">You'll feel great about it at this point.</div></div>
-<div class="card"><b>Behemoth</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 30 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">A perfect 'hit it now' coaster when the park shifts.</div></div>
-<div class="card"><b>Wonder Mountain's Guardian</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Good backup when the big coasters are peaking.</div></div>
-<div class="card"><b>Vortex</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 20 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">A reliable filler ride you can chain quickly.</div></div>
+        <div class="card"><b>Alpen Fury</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 100 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Bottoms out at 90 in our data; an alert at 100 catches the 6-10 PM softening window.</div></div>
+        <div class="card"><b>Leviathan</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 35 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Catches the 10 AM open window and the 9-10 PM closing collapse.</div></div>
+        <div class="card"><b>Yukon Striker</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Triggers at gate drop and again after 8 PM. Both are real windows.</div></div>
+        <div class="card"><b>Behemoth</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Morning sweep + evening dip. Set this and you'll get two rides without a 45-min wait.</div></div>
+        <div class="card"><b>Mighty Canadian Minebuster</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 20 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Closing-hour walk-on if you want one more wood coaster.</div></div>
+        <div class="card"><b>Wonder Mountain's Guardian</b><div style="margin-top:8px; color: rgba(255,255,255,0.82);"><span class="chip">Alert when &lt;= 25 min</span></div><div style="margin-top:10px; color: rgba(255,255,255,0.72);">Rain pivot. Indoor dark ride; alerts trigger when weather flips.</div></div>
       </div>
       <p style="margin-top:12px; color: rgba(255,255,255,0.62); font-size: 0.95rem;">
         Tip: start conservative. Once you see how your day flows, tighten thresholds so you're only getting pings worth moving for.
@@ -500,17 +418,24 @@ footer {
     <section class="section">
       <h2>If you only have one day</h2>
       <ol class="plan">
-        <li>Do one big coaster early, then set alerts for the other two.</li>
-<li>Use family rides / indoor attractions as your 'pivot' while you wait for dips.</li>
-<li>When an alert fires, go — don't 'finish one more thing' first.</li>
-<li>After lunch, re-check your favorites and tighten thresholds if you're getting too many pings.</li>
-<li>Last hour: grab your re-rides on whichever coaster is running shortest.</li>
+        <li><strong>Sprint to Behemoth at gate drop.</strong> 10-min wait at open versus 45 by 4 PM. Walk briskly through International Street into Action Zone.</li>
+        <li><strong>Cross to Frontier Canada for Yukon Striker, then Mighty Canadian Minebuster.</strong> Both adjacent. Sub-20 waits at this point. Three majors banked in 90 minutes.</li>
+        <li><strong>Mid-day: second-tier coasters and food.</strong> Vortex, Wonder Mountain's Guardian, The Bat, Tundra Twister. Skip Backlot Stunt Coaster between 4-5 PM (its peak), hit it before 1 PM or after 8 PM.</li>
+        <li><strong>~8 PM: Leviathan.</strong> Drops from 60 mid-day to 45 by 8 PM and 30 by 10 PM. Most reliable evening collapse at the park.</li>
+        <li><strong>9 PM: Alpen Fury.</strong> 100-min wait at 9 PM is the best window you'll see. Commit and stay on phones, you'd have spent 135 min for the same ride at gate drop.</li>
       </ol>
     </section>
 
     <section class="section">
       <h2>More planning help</h2>
       <ul class="plan" style="list-style: disc;">
+        <li><a class="inline-link" href="/parks/canadas-wonderland/strategy/">Full Canada's Wonderland strategy guide</a></li>
+        <li><a class="inline-link" href="/parks/canadas-wonderland/crowd-calendar/">Canada's Wonderland crowd calendar</a></li>
+        <li><a class="inline-link" href="/parks/canadas-wonderland/secrets/">Hidden secrets &amp; Easter eggs at Canada's Wonderland</a></li>
+        <li><a class="inline-link" href="/parks/canadas-wonderland/alpen-fury-queue-times/">Alpen Fury queue-times deep dive</a></li>
+        <li><a class="inline-link" href="/parks/canadas-wonderland/behemoth-queue-times/">Behemoth queue-times deep dive</a></li>
+        <li><a class="inline-link" href="/parks/canadas-wonderland/leviathan-queue-times/">Leviathan queue-times deep dive</a></li>
+        <li><a class="inline-link" href="/parks/canadas-wonderland/yukon-striker-queue-times/">Yukon Striker queue-times deep dive</a></li>
         <li><a class="inline-link" href="/parks/">All supported parks</a></li>
       </ul>
     </section>
@@ -518,37 +443,47 @@ footer {
     <section class="section">
       <h2>FAQ</h2>
 
-    <details>
-      <summary>Does Ride Ready use the park's official wait times?</summary>
-      <p>Ride Ready tracks posted waits and trends so you can time rides better. If a park pauses updates or has downtime, your alerts may be delayed or temporarily less accurate.</p>
-    </details>
-    <details>
-      <summary>What's the fastest way to get value on a one-day visit?</summary>
-      <p>Pick 4-6 headliners, favorite them, and set a few "drop" alerts. When something dips, you pivot — that's where you claw back time without buying a line-skip add-on.</p>
-    </details>
-    <details>
-      <summary>Is this affiliated with Canada&#x27;s Wonderland?</summary>
-      <p>No. Ride Ready is an independent app.</p>
-    </details>
+      <details>
+        <summary>When does Canada's Wonderland open for the 2026 season?</summary>
+        <p>The 2026 season opens Sunday, May 3, 2026. Weekends only through mid-June, then daily operation through Labor Day. Halloween Haunt runs weekend nights in late September and October. Winterfest typically runs mid-November through early January.</p>
+      </details>
+      <details>
+        <summary>Is Fast Lane Plus worth it at Canada's Wonderland?</summary>
+        <p>It's worth it for one reason: Alpen Fury. The ride opens at a 135-min median and only drops to 90 at park close. Fast Lane Plus on Alpen Fury alone saves 90+ minutes. For the rest of the park, rope-drop and timing get you Behemoth, Yukon Striker, and Mighty Canadian Minebuster at sub-20 waits without any add-on. If Alpen Fury isn't your priority, skip Fast Lane Plus.</p>
+      </details>
+      <details>
+        <summary>What is Canada's Wonderland's biggest coaster?</summary>
+        <p>Leviathan, at 306 feet tall and 92 mph. It was B&amp;M's first ever giga coaster (300 ft+). It's also one of three B&amp;M gigas in the combined Cedar Fair / Six Flags portfolio along with Fury 325 (Carowinds) and Orion (Kings Island), plus Cedar Point's Intamin-built Millennium Force. Alpen Fury is the newest and most-demanded ride at the park, but Leviathan is the tallest and fastest.</p>
+      </details>
+      <details>
+        <summary>How is Canada's Wonderland different from Cedar Point?</summary>
+        <p>Cedar Point is a coaster destination, 18 coasters, world-class density, everything is a headliner. Canada's Wonderland is a more balanced regional park with seven major coasters (Leviathan, Behemoth, Yukon Striker, Alpen Fury, Backlot Stunt Coaster, Mighty Canadian Minebuster, Wilde Beast) plus a strong supporting roster. Both parks share Cedar Fair operational DNA. The big quirk at Canada's Wonderland is Alpen Fury: at every other park, you rope-drop the new coaster. At Canada's Wonderland, that's the one ride you don't.</p>
+      </details>
+      <details>
+        <summary>Is this affiliated with Canada's Wonderland?</summary>
+        <p>No. Ride Ready is an independent app. Canada's Wonderland is owned and operated by Six Flags Entertainment Corporation.</p>
+      </details>
 
     </section>
 
     <section class="section sources">
       <h2>Sources</h2>
-      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages and public ride databases.</p>
+      <p style="margin: 0 0 10px; color: rgba(255,255,255,0.70);">Ride stats and park facts come from a mix of official attraction pages, public ride databases, and our own wait-time dataset.</p>
       <ul class="plan" style="list-style: disc;">
-        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Canada%27s_Wonderland" rel="noopener noreferrer" target="_blank">Canada&#x27;s Wonderland (park overview) — Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/AlpenFury" rel="noopener noreferrer" target="_blank">Alpen Fury — Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Leviathan_(roller_coaster)" rel="noopener noreferrer" target="_blank">Leviathan (roller coaster) — Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Yukon_Striker" rel="noopener noreferrer" target="_blank">Yukon Striker — Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Behemoth_(roller_coaster)" rel="noopener noreferrer" target="_blank">Behemoth (roller coaster) — Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Wonder_Mountain%27s_Guardian" rel="noopener noreferrer" target="_blank">Wonder Mountain&#x27;s Guardian — Wikipedia</a></li>
-<li><a class="inline-link" href="https://en.wikipedia.org/wiki/Vortex_(Canada%27s_Wonderland)" rel="noopener noreferrer" target="_blank">Vortex (Canada&#x27;s Wonderland) — Wikipedia</a></li>
+        <li><a class="inline-link" href="https://www.canadaswonderland.com/" rel="noopener noreferrer" target="_blank">Canada's Wonderland official site</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Canada%27s_Wonderland" rel="noopener noreferrer" target="_blank">Canada's Wonderland (park overview), Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/AlpenFury" rel="noopener noreferrer" target="_blank">Alpen Fury, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Leviathan_(roller_coaster)" rel="noopener noreferrer" target="_blank">Leviathan, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Yukon_Striker" rel="noopener noreferrer" target="_blank">Yukon Striker, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Behemoth_(roller_coaster)" rel="noopener noreferrer" target="_blank">Behemoth, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Wonder_Mountain%27s_Guardian" rel="noopener noreferrer" target="_blank">Wonder Mountain's Guardian, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Vortex_(Canada%27s_Wonderland)" rel="noopener noreferrer" target="_blank">Vortex, Wikipedia</a></li>
+        <li><a class="inline-link" href="https://en.wikipedia.org/wiki/Mighty_Canadian_Minebuster" rel="noopener noreferrer" target="_blank">Mighty Canadian Minebuster, Wikipedia</a></li>
       </ul>
     </section>
 
     <footer>
-      © 2026 Ride Ready. Not affiliated with Canada&#x27;s Wonderland or its operators.
+      &copy; 2026 Ride Ready. Not affiliated with Canada's Wonderland or its operators.
     </footer>
   </div>
 <script>
