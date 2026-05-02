@@ -357,8 +357,8 @@
             btn.textContent = 'Request Sent';
             document.getElementById('deletion-email').disabled = true;
           } else if (response.status === 409) {
-            statusEl.style.color = '#fcd34d';
-            statusEl.textContent = 'We already have a request for this email.';
+            statusEl.style.color = '#6ee7b7';
+            statusEl.textContent = "We already have a deletion request for this email. You're all set.";
             btn.disabled = false;
             btn.textContent = 'Request Deletion';
           } else {
