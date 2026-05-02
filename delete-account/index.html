@@ -302,6 +302,80 @@
     </div>
     <p style="text-align:center;">&#169; 2026 Ride Ready. All rights reserved.</p>
   </div>
+  <script>
+    var form = document.getElementById('deletion-form');
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        var honeypot = document.getElementById('deletion-hp');
+        if (honeypot && honeypot.value) return;
+
+        var rawEmail = document.getElementById('deletion-email').value;
+        var email = rawEmail.trim().toLowerCase();
+
+        var statusEl = document.getElementById('deletion-status');
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          statusEl.style.color = '#fca5a5';
+          statusEl.textContent = 'Please enter a valid email address.';
+          return;
+        }
+
+        var btn = document.getElementById('deletion-btn');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        statusEl.textContent = '';
+
+        var controller = new AbortController();
+        var timeoutId = setTimeout(function () { controller.abort(); }, 10000);
+
+        try {
+          var response = await fetch('https://gxlpamlcajddjdzktecf.supabase.co/rest/v1/guide_email_signups', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Prefer': 'return=minimal',
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4bHBhbWxjYWpkZGpkemt0ZWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwODEwNTAsImV4cCI6MjA2NzY1NzA1MH0.3NHEcng2xRLc-LLobJdn8JdZSOzBUD4x3lXMWeKDmHs'
+            },
+            body: JSON.stringify({
+              email: email,
+              guide_slug: 'account-deletion-request',
+              source_url: window.location.pathname
+            }),
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+
+          if (response.ok) {
+            if (typeof gtag === 'function') {
+              gtag('event', 'account_deletion_request', { event_category: 'engagement' });
+            }
+            statusEl.style.color = '#6ee7b7';
+            statusEl.textContent = "Request received. We'll confirm deletion to this email within 30 days.";
+            btn.textContent = 'Request Sent';
+            document.getElementById('deletion-email').disabled = true;
+          } else if (response.status === 409) {
+            statusEl.style.color = '#fcd34d';
+            statusEl.textContent = 'We already have a request for this email.';
+            btn.disabled = false;
+            btn.textContent = 'Request Deletion';
+          } else {
+            throw new Error('status ' + response.status);
+          }
+        } catch (err) {
+          clearTimeout(timeoutId);
+          statusEl.style.color = '#fca5a5';
+          statusEl.textContent = err.name === 'AbortError'
+            ? 'Request timed out. Please try again.'
+            : 'Something went wrong. Please try again.';
+          btn.disabled = false;
+          btn.textContent = 'Request Deletion';
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>
