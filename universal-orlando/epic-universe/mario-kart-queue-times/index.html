@@ -791,23 +791,37 @@
         </footer>
     </div>
     <!-- Mobile Sticky CTA -->
-    <div class="mobile-sticky-cta"
-        style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; color: #000; padding: 12px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 9999; text-align: center; display: none;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-            <span style="font-weight: 700; font-size: 0.9rem;">Set a drop alert?</span>
-            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=queue-mariokart-sticky"
-                data-ref="queue-mariokart-sticky"
-                style="background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">Open
-                App</a>
+    <div id="mobile-sticky-cta" class="mobile-sticky-cta"
+        style="position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(45deg, #FF416C, #FF4B2B); padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); z-index: 9999; text-align: center; display: none; transform: translateY(100%); transition: transform 0.35s ease;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; max-width: 500px; margin: 0 auto;">
+            <span style="font-weight: 700; font-size: 0.9rem; color: #fff;">See predicted waits before you go</span>
+            <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=eu-mario-kart-sticky"
+                data-ref="eu-mario-kart-sticky"
+                style="background: #fff; color: #FF4B2B; text-decoration: none; padding: 8px 18px; border-radius: 99px; font-weight: 800; font-size: 0.85rem; min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap;">Free App</a>
         </div>
     </div>
     <style>
-        @media (max-width: 600px) {
-            .mobile-sticky-cta {
+        @media (max-width: 768px) {
+            #mobile-sticky-cta {
                 display: block !important;
             }
         }
     </style>
+    <script>
+        (function () {
+            var bar = document.getElementById('mobile-sticky-cta');
+            if (!bar) return;
+            var shown = false;
+            function onScroll() {
+                if (!shown && window.scrollY > 400) {
+                    shown = true;
+                    bar.style.transform = 'translateY(0)';
+                    try { gtag('event', 'cta_view', { location: 'eu-mario-kart-sticky', page: location.pathname }); } catch (e) {}
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
+    </script>
     <script>
         // Global App Store click tracking via data-ref attribute
         document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {

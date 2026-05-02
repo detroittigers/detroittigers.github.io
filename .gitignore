@@ -98,3 +98,7 @@ secrets/
 rideready.zip
 
 .worktrees/
+
+# Superpowers brainstorming session files
+.superpowers/
+.agents/
