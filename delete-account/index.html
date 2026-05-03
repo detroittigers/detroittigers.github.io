@@ -324,6 +324,13 @@
           return;
         }
 
+        var lsKey = 'rr-del-' + email;
+        if (localStorage.getItem(lsKey)) {
+          statusEl.style.color = '#6ee7b7';
+          statusEl.textContent = "We already have a deletion request for this email. You're all set.";
+          return;
+        }
+
         var btn = document.getElementById('deletion-btn');
         btn.disabled = true;
         btn.textContent = 'Sending...';
@@ -351,6 +358,7 @@
           clearTimeout(timeoutId);
 
           if (response.ok) {
+            localStorage.setItem(lsKey, '1');
             if (typeof gtag === 'function') {
               gtag('event', 'account_deletion_request', { event_category: 'engagement' });
             }
@@ -359,6 +367,7 @@
             btn.textContent = 'Request Sent';
             document.getElementById('deletion-email').disabled = true;
           } else if (response.status === 409) {
+            localStorage.setItem(lsKey, '1');
             statusEl.style.color = '#6ee7b7';
             statusEl.textContent = "We already have a deletion request for this email. You're all set.";
             btn.disabled = false;
