@@ -2711,7 +2711,7 @@
     .site-nav a.site-nav-link { color:#fff; text-decoration:none; font-size:0.95rem; font-weight:500; }
     .site-nav a.site-nav-secondary { color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500; }
     .site-nav-cta { background:rgba(255,255,255,0.1); color:#fff !important; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap; }
-    .site-nav-toggle { display:none; background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff; padding:8px 10px; border-radius:10px; cursor:pointer; line-height:0; }
+    .site-nav-toggle { display:none; background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff; padding:10px 12px; min-width:44px; min-height:44px; border-radius:10px; cursor:pointer; line-height:0; align-items:center; justify-content:center; }
     .site-nav-toggle svg { display:block; width:22px; height:22px; }
     .site-nav-toggle .icon-close { display:none; }
     .site-nav-toggle[aria-expanded="true"] .icon-open { display:none; }
@@ -3437,8 +3437,10 @@
                 });
             });
 
-            // Queue guide click tracking
-            var queueGuideLinks = document.querySelectorAll('a[href*="queue-times"]');
+            // Queue guide click tracking (in-page queue cards only — rail clicks are
+            // already covered by popular_guides_click above, so skip those to avoid
+            // double-firing).
+            var queueGuideLinks = document.querySelectorAll('a[href*="queue-times"]:not([data-ref^="home-pg-"])');
             queueGuideLinks.forEach(function (link, index) {
                 link.addEventListener('click', function () {
                     if (typeof gtag === 'function') {
