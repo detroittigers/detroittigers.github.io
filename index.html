@@ -2667,11 +2667,12 @@
                 font-size: 12px;
                 padding: 10px 12px;
             }
-            /* Press strip wraps onto multiple lines */
+            /* Press strip: stack label above outlets so the row doesn't mid-wrap */
             .hero-v2 .press-strip {
                 flex-wrap: wrap;
-                gap: 6px 10px;
+                gap: 4px 10px;
             }
+            .hero-v2 .press-strip .press-label { flex-basis: 100%; }
             /* Platform line wraps natural */
             .hero-v2 .platform-line { word-break: break-word; }
             /* Buttons wrap + share width */
