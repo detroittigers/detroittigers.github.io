@@ -114,6 +114,15 @@
             margin-bottom: 50px;
         }
 
+        .ride-hero {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+            margin-bottom: 32px;
+        }
+
         .survival-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -628,28 +637,33 @@
             <p style="color: #aaa; font-size: 1.1rem; max-width: 500px; margin: 0 auto;">Standing in line? Find your
                 current location to see how much longer you have to wait.</p>
         </header>
+        <img class="ride-hero"
+             src="/images/rides/islands-of-adventure/velocicoaster/hero.jpg"
+             alt="Jurassic World VelociCoaster"
+             width="1242" height="698"
+             loading="eager">
         <div class="survival-grid">
         <div class="survival-box">
-            <span class="survival-icon">📏</span>
+            <span class="survival-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="6" height="16" rx="1" stroke="#aaa" stroke-width="1.5"/><line x1="8" y1="5" x2="11" y2="5" stroke="#aaa" stroke-width="1.5"/><line x1="8" y1="9" x2="12" y2="9" stroke="#aaa" stroke-width="1.5"/><line x1="8" y1="13" x2="11" y2="13" stroke="#aaa" stroke-width="1.5"/></svg></span>
             <span class="survival-label">Height Requirement</span>
             <span class="survival-val">Min 51" (130cm)</span>
         </div>
         <div class="survival-box">
-            <span class="survival-icon">👤</span>
+            <span class="survival-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="6" r="3" stroke="#aaa" stroke-width="1.5"/><path d="M4 18c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#aaa" stroke-width="1.5" stroke-linecap="round"/></svg></span>
             <span class="survival-label">Single Rider</span>
             <span class="survival-val" style="color: #00cc66;">Offered</span>
             <span class="survival-label"
                 style="font-size: 0.75rem; text-transform: none; color: #aaa; margin-top: 2px;">Opens intermittently</span>
         </div>
         <div class="survival-box">
-            <span class="survival-icon">🔒</span>
+            <span class="survival-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4" y="9" width="12" height="9" rx="2" stroke="#aaa" stroke-width="1.5"/><path d="M7 9V6a3 3 0 016 0v3" stroke="#aaa" stroke-width="1.5"/></svg></span>
             <span class="survival-label">Lockers</span>
             <span class="survival-val" style="color: #ff9900;">Required</span>
             <span class="survival-label"
                 style="font-size: 0.75rem; text-transform: none; color: #aaa; margin-top: 2px;">Free dual-sided</span>
         </div>
         <div class="survival-box">
-            <span class="survival-icon">⏱️</span>
+            <span class="survival-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="#aaa" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#aaa" stroke-width="1.5" stroke-linecap="round"/></svg></span>
             <span class="survival-label">Ride Duration</span>
             <span class="survival-val">~2 Min</span>
         </div>
