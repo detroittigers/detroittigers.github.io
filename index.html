@@ -1555,6 +1555,54 @@
             border-top: 1px solid var(--border);
             overflow-x: clip;
         }
+
+        /* ----- Review quote (App Store) ----- */
+        section.review-quote {
+            padding: 56px 0 8px;
+        }
+        .review-card {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 28px 32px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+        .review-card .stars {
+            color: var(--sunshine);
+            font-size: 14px;
+            letter-spacing: 0.18em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .review-card .review-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(20px, 2.4vw, 26px);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            color: #fff;
+            margin: 0 0 12px;
+        }
+        .review-card blockquote {
+            margin: 0 0 14px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dim);
+            text-wrap: pretty;
+        }
+        .review-card .review-meta {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: var(--tracking-mono);
+            text-transform: uppercase;
+            color: var(--text-mute);
+        }
+        @media (max-width: 560px) {
+            section.review-quote { padding: 40px 0 0; }
+            .review-card { padding: 22px 20px; border-radius: var(--radius-md); }
+        }
         .meet-skip-grid {
             display: grid;
             grid-template-columns: 1.15fr 1fr;
@@ -2615,6 +2663,20 @@
             <div class="screen">
                 <img src="/images/app-rides.png" alt="Ride Ready rides list with live wait times" loading="lazy">
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- APP STORE REVIEW -->
+<section class="review-quote" aria-label="App Store review">
+    <div class="section-shell">
+        <div class="review-card">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <p class="review-title">Removes the &ldquo;what next?&rdquo; frustrations.</p>
+            <blockquote>
+                &ldquo;It&rsquo;s great to have a game-plan from the get-go; plan is determined by a quick few ride &amp; walking preferences you answer at the beginning of the day. It&rsquo;s also nice to track each ride&rsquo;s actual wait times in the app; sometimes I really haven&rsquo;t been waiting as long as I had thought&hellip; ;)&rdquo;
+            </blockquote>
+            <p class="review-meta">App Store · April 2026</p>
         </div>
     </div>
 </section>
