@@ -1410,7 +1410,20 @@
             justify-content: center;
             padding-left: 40px;
         }
-        @media (max-width: 860px) { .hero-device { display: none; } }
+        @media (max-width: 860px) {
+            .hero-device {
+                padding-left: 0;
+                margin-top: 24px;
+                /* Hide floating cards on mobile to keep the visual clean */
+            }
+            .hero-device .stat-card { display: none; }
+            .hero-device .phone {
+                width: min(260px, 70%);
+                /* Flatten the perspective tilt on small screens */
+                transform: none !important;
+                animation: none !important;
+            }
+        }
 
         .phone {
             width: min(340px, 100%);
@@ -1602,6 +1615,74 @@
         @media (max-width: 560px) {
             section.review-quote { padding: 40px 0 0; }
             .review-card { padding: 22px 20px; border-radius: var(--radius-md); }
+        }
+
+        /* ----- Popular guides rail (SEO deep links) ----- */
+        section.popular-guides {
+            padding: 56px 0 16px;
+        }
+        .popular-guides .section-title {
+            font-size: clamp(26px, 3.4vw, 38px);
+            margin: 6px 0 6px;
+        }
+        .popular-guides .section-lede {
+            margin-bottom: 28px;
+        }
+        .pg-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+        .pg-col {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 20px 14px;
+        }
+        .pg-col h3 {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: var(--tracking-mono);
+            text-transform: uppercase;
+            color: var(--teal);
+            margin: 0 0 14px;
+            font-weight: 600;
+        }
+        .pg-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .pg-col li a {
+            display: block;
+            padding: 10px 12px;
+            margin: 0 -12px;
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: background .18s var(--ease-out), color .18s var(--ease-out);
+        }
+        .pg-col li a:hover {
+            background: var(--surface-2);
+            color: #fff;
+        }
+        .pg-col li a:focus-visible {
+            outline: 2px solid var(--teal);
+            outline-offset: 2px;
+        }
+        @media (max-width: 1000px) {
+            .pg-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 560px) {
+            section.popular-guides { padding: 40px 0 8px; }
+            .pg-grid { grid-template-columns: 1fr; gap: 12px; }
+            .pg-col { padding: 16px 18px 10px; }
         }
         .meet-skip-grid {
             display: grid;
@@ -2727,6 +2808,52 @@
     </div>
 </section>
 
+<!-- POPULAR GUIDES (SEO deep links to park content) -->
+<section class="popular-guides" aria-labelledby="popular-guides-heading">
+    <div class="section-shell">
+        <p class="section-label">Plan smarter</p>
+        <h2 class="section-title" id="popular-guides-heading">Popular <em>guides &amp; calendars</em>.</h2>
+        <p class="section-lede">Real strategy, ride by ride, before you set foot in the park.</p>
+        <div class="pg-grid">
+            <div class="pg-col">
+                <h3>Crowd calendars</h3>
+                <ul role="list">
+                    <li><a href="/parks/epic-universe/crowd-calendar/" data-ref="home-pg-cc">Epic Universe</a></li>
+                    <li><a href="/parks/cedar-point/crowd-calendar/" data-ref="home-pg-cc">Cedar Point</a></li>
+                    <li><a href="/parks/islands-of-adventure/crowd-calendar/" data-ref="home-pg-cc">Islands of Adventure</a></li>
+                    <li><a href="/parks/six-flags-great-america/crowd-calendar/" data-ref="home-pg-cc">Six Flags Great America</a></li>
+                </ul>
+            </div>
+            <div class="pg-col">
+                <h3>Strategy guides</h3>
+                <ul role="list">
+                    <li><a href="/parks/epic-universe/strategy/" data-ref="home-pg-strat">Epic Universe</a></li>
+                    <li><a href="/parks/kings-island/strategy/" data-ref="home-pg-strat">Kings Island</a></li>
+                    <li><a href="/parks/carowinds/strategy/" data-ref="home-pg-strat">Carowinds</a></li>
+                    <li><a href="/parks/busch-gardens-williamsburg/strategy/" data-ref="home-pg-strat">Busch Gardens Williamsburg</a></li>
+                </ul>
+            </div>
+            <div class="pg-col">
+                <h3>Hidden secrets</h3>
+                <ul role="list">
+                    <li><a href="/parks/epic-universe/secrets/" data-ref="home-pg-secrets">Epic Universe Easter eggs</a></li>
+                    <li><a href="/parks/islands-of-adventure/secrets/" data-ref="home-pg-secrets">Islands of Adventure</a></li>
+                    <li><a href="/parks/cedar-point/secrets/" data-ref="home-pg-secrets">Cedar Point</a></li>
+                </ul>
+            </div>
+            <div class="pg-col">
+                <h3>Top queue guides</h3>
+                <ul role="list">
+                    <li><a href="/parks/carowinds/fury-325-queue-times/" data-ref="home-pg-queue">Fury 325 wait times</a></li>
+                    <li><a href="/parks/kings-island/the-beast-queue-times/" data-ref="home-pg-queue">The Beast wait times</a></li>
+                    <li><a href="/parks/busch-gardens-williamsburg/pantheon-queue-times/" data-ref="home-pg-queue">Pantheon wait times</a></li>
+                    <li><a href="/parks/six-flags-great-adventure/el-toro-queue-times/" data-ref="home-pg-queue">El Toro wait times</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- MEET SKIPIQ -->
 <section class="meet-skip" id="meet-skipiq">
     <div class="section-shell">
@@ -2765,7 +2892,7 @@
     <div class="section-shell">
         <p class="section-label">Every tool you need</p>
         <h2 class="section-title">Four tools. <em>One perfect day.</em></h2>
-        <p class="section-lede">Live data, live planning, live recovery. The tools that actually change how your day goes.</p>
+        <p class="section-lede">Know when to ride, when to wait, and when to move. The tools that actually change how your day goes.</p>
 
         <div class="features-grid">
             <!-- Bento 1: Skip plans your whole day -->
