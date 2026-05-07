@@ -3412,6 +3412,30 @@
                 });
             });
 
+            // Popular Guides rail click tracking (Crowd calendars / Strategy / Secrets / Queue / Browse-all)
+            // Categorizes by data-ref prefix so GA can split engagement by guide type.
+            document.querySelectorAll('a[data-ref^="home-pg-"]').forEach(function (link, idx) {
+                link.addEventListener('click', function () {
+                    if (typeof gtag !== 'function') return;
+                    try {
+                        var ref = link.getAttribute('data-ref') || '';
+                        // ref shape: "home-pg-cc" | "home-pg-strat" | "home-pg-secrets" | "home-pg-queue" | "home-pg-all"
+                        var category = ref.replace('home-pg-', '') || 'unknown';
+                        var col = link.closest('.pg-col');
+                        var positionInCol = col ? Array.prototype.indexOf.call(col.querySelectorAll('a'), link) + 1 : 0;
+                        gtag('event', 'popular_guides_click', {
+                            event_category: 'content_engagement',
+                            guide_category: category,
+                            guide_name: (link.textContent || '').trim(),
+                            destination: link.getAttribute('href'),
+                            position_in_column: positionInCol,
+                            value: 2,
+                            currency: 'USD'
+                        });
+                    } catch (e) {}
+                });
+            });
+
             // Queue guide click tracking
             var queueGuideLinks = document.querySelectorAll('a[href*="queue-times"]');
             queueGuideLinks.forEach(function (link, index) {
