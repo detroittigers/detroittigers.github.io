@@ -2414,14 +2414,13 @@
                 radial-gradient(600px 400px at 50% 0%, rgba(254, 198, 2, 0.12), transparent 55%),
                 linear-gradient(180deg, rgba(254, 198, 2, 0.05), rgba(13, 13, 17, 0.95));
             border-color: rgba(254, 198, 2, 0.42);
-            transform: scale(1.03);
         }
         .price-card.featured .tier { color: var(--sunshine); }
         .price-card.featured .buy {
             background: var(--sunset-gradient);
             border-color: transparent;
             color: #fff;
-            box-shadow: 0 14px 34px rgba(255, 75, 43, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 75, 43, 0.22);
         }
         .price-card.featured .buy:hover { filter: brightness(1.05); transform: translateY(-1px); }
         .price-card .popular-flag {
@@ -2483,7 +2482,8 @@
             vertical-align: middle;
             margin-right: 10px;
         }
-        .compare-wrap td.cell { text-align: center; font-family: var(--font-mono); font-size: 13px; color: var(--text-dim); }
+        .compare-wrap th.cell, .compare-wrap td.cell { text-align: center; font-family: var(--font-mono); font-size: 13px; color: var(--text-dim); }
+        .compare-wrap thead th.cell { font-size: 11px; }
         .compare-wrap td.cell.yes { color: var(--fresh); font-size: 15px; }
         .compare-wrap td.cell.premium-cell { color: var(--sunshine); font-weight: 600; }
         .compare-wrap td.feature-name { font-family: var(--font-body); color: var(--text); font-weight: 500; }
