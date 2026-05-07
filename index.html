@@ -3388,6 +3388,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
+            // PostHog dual-fire helper. Safe when blocked or not yet loaded
+            // (the snippet's stub queues calls until init resolves).
+            function ph(name, props) {
+                if (window.posthog && typeof posthog.capture === 'function') {
+                    try { posthog.capture(name, props); } catch (_) {}
+                }
+            }
 
             // Global App Store click tracking via data-ref attribute
             document.querySelectorAll('a[data-ref][href*="apps.apple.com"]').forEach(function (link) {
@@ -3424,15 +3431,18 @@
                         var category = ref.replace('home-pg-', '') || 'unknown';
                         var col = link.closest('.pg-col');
                         var positionInCol = col ? Array.prototype.indexOf.call(col.querySelectorAll('a'), link) + 1 : 0;
-                        gtag('event', 'popular_guides_click', {
-                            event_category: 'content_engagement',
+                        var pgPayload = {
                             guide_category: category,
                             guide_name: (link.textContent || '').trim(),
                             destination: link.getAttribute('href'),
-                            position_in_column: positionInCol,
+                            position_in_column: positionInCol
+                        };
+                        gtag('event', 'popular_guides_click', Object.assign({
+                            event_category: 'content_engagement',
                             value: 2,
                             currency: 'USD'
-                        });
+                        }, pgPayload));
+                        ph('popular_guides_clicked', pgPayload);
                     } catch (e) {}
                 });
             });
@@ -3443,17 +3453,20 @@
             var queueGuideLinks = document.querySelectorAll('a[href*="queue-times"]:not([data-ref^="home-pg-"])');
             queueGuideLinks.forEach(function (link, index) {
                 link.addEventListener('click', function () {
+                    var guideName = link.querySelector('.card-title') ? link.querySelector('.card-title').textContent : 'Unknown Guide';
+                    var qgPayload = {
+                        guide_name: guideName,
+                        guide_position: index + 1,
+                        source_page: 'homepage'
+                    };
                     if (typeof gtag === 'function') {
-                        var guideName = link.querySelector('.card-title') ? link.querySelector('.card-title').textContent : 'Unknown Guide';
-                        gtag('event', 'queue_guide_click', {
+                        gtag('event', 'queue_guide_click', Object.assign({
                             event_category: 'content_engagement',
-                            guide_name: guideName,
-                            guide_position: index + 1,
-                            source_page: 'homepage',
                             value: 2,
                             currency: 'USD'
-                        });
+                        }, qgPayload));
                     }
+                    ph('queue_guide_clicked', qgPayload);
                 });
             });
 
@@ -3461,15 +3474,18 @@
             var strategyChip = document.querySelector('a.chip[href*="epic-universe"]');
             if (strategyChip) {
                 strategyChip.addEventListener('click', function () {
+                    var sgPayload = {
+                        guide_type: 'epic_universe',
+                        link_location: 'supported_parks_section'
+                    };
                     if (typeof gtag === 'function') {
-                        gtag('event', 'strategy_guide_click', {
+                        gtag('event', 'strategy_guide_click', Object.assign({
                             event_category: 'content_engagement',
-                            guide_type: 'epic_universe',
-                            link_location: 'supported_parks_section',
                             value: 2,
                             currency: 'USD'
-                        });
+                        }, sgPayload));
                     }
+                    ph('strategy_guide_clicked', sgPayload);
                 });
             }
 
@@ -3478,13 +3494,16 @@
             if (premiumSection && 'IntersectionObserver' in window) {
                 var premiumObserver = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
-                        if (entry.isIntersecting && typeof gtag === 'function') {
-                            gtag('event', 'premium_section_view', {
-                                event_category: 'engagement',
-                                section: 'premium_pricing',
-                                value: 3,
-                                currency: 'USD'
-                            });
+                        if (entry.isIntersecting) {
+                            if (typeof gtag === 'function') {
+                                gtag('event', 'premium_section_view', {
+                                    event_category: 'engagement',
+                                    section: 'premium_pricing',
+                                    value: 3,
+                                    currency: 'USD'
+                                });
+                            }
+                            ph('premium_section_viewed', { section: 'premium_pricing' });
                             premiumObserver.unobserve(entry.target);
                         }
                     });
@@ -3496,14 +3515,17 @@
             var socialLinks = document.querySelectorAll('.social-links a');
             socialLinks.forEach(function (link) {
                 link.addEventListener('click', function () {
+                    var platform = link.getAttribute('aria-label') || 'unknown';
+                    var slPayload = {
+                        social_network: platform,
+                        link_url: link.href
+                    };
                     if (typeof gtag === 'function') {
-                        var platform = link.getAttribute('aria-label') || 'unknown';
-                        gtag('event', 'social_click', {
-                            event_category: 'engagement',
-                            social_network: platform,
-                            link_url: link.href
-                        });
+                        gtag('event', 'social_click', Object.assign({
+                            event_category: 'engagement'
+                        }, slPayload));
                     }
+                    ph('social_link_clicked', slPayload);
                 });
             });
 
@@ -3519,6 +3541,7 @@
                             currency: 'USD'
                         });
                     }
+                    ph('park_request_clicked', { request_method: 'email' });
                 });
             }
 
@@ -3592,6 +3615,7 @@
                                 faq_question: btn.textContent
                             });
                         }
+                        ph('faq_question_clicked', { faq_question: (btn.textContent || '').trim() });
                     }
                 });
             });
