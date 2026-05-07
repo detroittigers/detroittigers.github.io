@@ -1,0 +1,168 @@
+/* ============================================================
+   Ride Ready · Design Tokens
+   Source of truth for the marketing site.
+   Mirrors iOS DesignSystem.swift naming where possible so
+   design conversations stay portable across surfaces.
+   ============================================================ */
+
+:root {
+  /* -----------------------------------------------------------
+     BRAND · SUNSET (marketing + CTA)
+     Reserved for marketing surfaces, hero headlines, primary CTAs,
+     and hero glows. Use ONE Sunset gradient per page.
+     ----------------------------------------------------------- */
+  --sunset-pink:     #FF416C;  /* gradient stop A — rarely solo */
+  --sunset-red:      #FF4B2B;  /* solid CTA fallback, focus rings */
+  --sunset-amber:    #FF9A44;  /* gradient stop C, warm accents */
+  --sunset-peach:    #FFB6A3;  /* caveat: ≥18px or bold only */
+  --sunset-gradient: linear-gradient(45deg, var(--sunset-pink), var(--sunset-red) 55%, var(--sunset-amber));
+
+  /* -----------------------------------------------------------
+     BRAND · SUMMER DAY (product / iOS parity)
+     ----------------------------------------------------------- */
+  --sunshine:     #FEC602;  /* Skip's cap, premium, gold */
+  --sky:          #59CBE8;  /* Skip's body, water rides */
+  --navy:         #123A63;  /* headers, paired with sky */
+  --fresh:        #4BAE4F;  /* success, family rides */
+  --track:        #F17D2D;  /* coaster category */
+  --teal:         #3DCEC2;  /* ★ the bridge — shared brand */
+  --alert:        #C72929;  /* destructive, blocking errors */
+  --charcoal:     #333333;  /* body text on light */
+  --cool-white:   #F7F9FB;  /* iOS app canvas */
+
+  /* -----------------------------------------------------------
+     SEMANTIC · WAIT TIMES (source of truth — DesignSystem.swift)
+     Use these ONLY. Do not reintroduce MapboxConfig palette.
+     ----------------------------------------------------------- */
+  --wait-short:   #0A8817;  /* ≤15 min · "go now" · AA on white */
+  --wait-medium:  #B88510;  /* 16–40 min · "worth it" */
+  --wait-long:    #C62828;  /* >40 min · "skip for now" */
+  --wait-closed:  #7c7c84;  /* closed / down · system gray */
+
+  /* On-dark tints of the wait colors (list rows, pills) */
+  --wait-short-fg:   #6EE086;
+  --wait-medium-fg:  #F0C160;
+  --wait-long-fg:    #FF8A8A;
+
+  /* -----------------------------------------------------------
+     NEUTRALS · dark canvas (marketing)
+     ----------------------------------------------------------- */
+  --ink:          #07070a;  /* web canvas */
+  --ink-2:        #0d0d11;  /* raised panels */
+  --auth-dark:    #0A0A08;  /* iOS auth parity */
+
+  --surface:      rgba(255,255,255,0.04);
+  --surface-2:    rgba(255,255,255,0.06);
+  --border:       rgba(255,255,255,0.10);
+  --border-2:     rgba(255,255,255,0.18);
+
+  --text:         #f4f4f6;  /* primary on dark */
+  --text-dim:     #b5b5bb;  /* secondary (4.9:1 AA) */
+  --text-mute:    #7c7c84;  /* tertiary — 18px+ only */
+  /* ⚠ Do not use #aaaaaa — fails AA on black (3.5:1). */
+
+  /* -----------------------------------------------------------
+     TYPOGRAPHY
+     Load Montserrat + Open Sans from Google Fonts:
+     family=Montserrat:wght@500;600;700;800;900
+     family=Open+Sans:wght@400;500;600
+     ----------------------------------------------------------- */
+  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:    'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* Type scale (fluid where marked) */
+  --fs-disp-xl:  clamp(64px, 9vw, 128px);
+  --fs-disp-l:   clamp(48px, 6vw, 88px);
+  --fs-disp-m:   clamp(32px, 4vw, 48px);
+  --fs-disp-s:   22px;
+  --fs-body-l:   18px;
+  --fs-body-m:   15px;
+  --fs-body-s:   13px;
+  --fs-mono:     11px;
+
+  --lh-tight:   0.95;
+  --lh-snug:    1.1;
+  --lh-normal:  1.55;
+
+  --tracking-display: -0.035em;
+  --tracking-mono:     0.14em;
+
+  /* -----------------------------------------------------------
+     SPACING (4pt base)
+     ----------------------------------------------------------- */
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* -----------------------------------------------------------
+     RADII
+     ----------------------------------------------------------- */
+  --radius-xs:    8px;   /* inputs, small chips */
+  --radius-sm:   12px;   /* buttons, small cards */
+  --radius-md:   18px;   /* ride thumbs, standard cards */
+  --radius-lg:   28px;   /* hero cards, modals */
+  --radius-pill: 999px;  /* pills, round CTAs */
+
+  /* -----------------------------------------------------------
+     ELEVATION
+     ----------------------------------------------------------- */
+  --shadow-subtle: 0 1px 1px rgba(0,0,0,0.10);
+  --shadow-medium: 0 2px 4px rgba(0,0,0,0.15);
+  --shadow-card:   0 14px 32px rgba(0,0,0,0.22);
+  --shadow-cta:    0 14px 32px rgba(255,75,43,0.28);  /* CTA glow — Sunset only */
+
+  /* -----------------------------------------------------------
+     MOTION
+     ----------------------------------------------------------- */
+  --ease-out:     cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:   160ms;
+  --dur-med:    280ms;
+  --dur-slow:   520ms;
+
+  /* -----------------------------------------------------------
+     LAYOUT
+     ----------------------------------------------------------- */
+  --container:  1240px;
+  --gutter:     clamp(22px, 4vw, 40px);
+}
+
+/* =============================================================
+   OPTIONAL: light-mode overrides (future)
+   Uncomment once the light-surface logo asset ships.
+   ============================================================= */
+/*
+@media (prefers-color-scheme: light) {
+  :root {
+    --ink:       var(--cool-white);
+    --ink-2:     #FFFFFF;
+    --text:      #111111;
+    --text-dim:  #555555;
+    --text-mute: #888888;
+    --border:    rgba(0,0,0,0.08);
+    --border-2:  rgba(0,0,0,0.14);
+    --surface:   rgba(0,0,0,0.02);
+    --surface-2: rgba(0,0,0,0.04);
+  }
+}
+*/
+
+/* =============================================================
+   ACCESSIBILITY: respect reduced motion globally
+   ============================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

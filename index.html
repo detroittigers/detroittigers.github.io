@@ -27,7 +27,6 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta name="theme-color" content="#000000" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link as="image" fetchpriority="high" href="/images/logo.png" rel="preload" />
     <title>Ride Ready - AI Day Planner + Live Wait Times for Theme Parks</title>
     <!-- FAQ Schema for SEO and LLMs -->
     <script type="application/ld+json">
@@ -151,6 +150,11 @@
       }
     }
     </script>
+    <!-- Design tokens + fonts (redesign/home-v2) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/tokens.css">
     <style>
         /* Sticky CTA Bar */
         .sticky-top-cta {
@@ -902,11 +906,33 @@
             }
 
             .screenshots-section {
-                padding: 52px 22px;
+                padding: 52px 22px 44px;
             }
 
             .screenshot-gallery {
-                grid-template-columns: 1fr;
+                display: flex;
+                grid-template-columns: none;
+                gap: 16px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                margin: 0 -22px;
+                padding: 4px 22px 14px;
+                scroll-padding-left: 22px;
+            }
+
+            .screenshot-gallery::-webkit-scrollbar { display: none; }
+
+            .screenshot-item {
+                flex: 0 0 78%;
+                scroll-snap-align: start;
+            }
+
+            /* Always-visible label on mobile (no hover state) */
+            .screenshot-item::after {
+                opacity: 1;
+                transform: translateY(0);
             }
 
             /* Horizontal Scroll Fix for Supported Parks */
@@ -1135,6 +1161,1531 @@
                 padding: 14px 20px;
             }
         }
+
+        /* =========================================================
+           REDESIGN/HOME-V2 — token-driven sections
+           These cascade after the legacy CSS above and override
+           where they share class names with cut sections.
+           ========================================================= */
+
+        /* Body type baseline (without overriding existing layout) */
+        body {
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ----- Aurora background (replaces body::before gradient) ----- */
+        .aurora {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: var(--ink);
+        }
+        .aurora::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 60%, transparent 20%, rgba(7, 7, 10, 0.55) 85%);
+        }
+        .aurora .blob {
+            position: absolute;
+            width: 55%;
+            height: 55%;
+            border-radius: 50%;
+            filter: blur(80px);
+            mix-blend-mode: screen;
+            opacity: 0.7;
+            will-change: transform;
+        }
+        .aurora .b1 { background: var(--sunset-pink);  top: -15%; left: -10%; animation: drift1 19s var(--ease-in-out) infinite; }
+        .aurora .b2 { background: var(--sunset-red);   top:  25%; right: -15%; animation: drift2 23s var(--ease-in-out) infinite; }
+        .aurora .b3 { background: var(--sunset-amber); bottom: -20%; left: 20%; animation: drift3 27s var(--ease-in-out) infinite; }
+        .aurora .b4 {
+            background: var(--teal);
+            top: 10%;
+            left: 40%;
+            width: 38%;
+            height: 38%;
+            opacity: 0.45;
+            animation: drift4 31s var(--ease-in-out) infinite;
+        }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(28%,22%) scale(1.18); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-22%,28%) scale(1.12); } }
+        @keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(16%,-24%) scale(1.15); } }
+        @keyframes drift4 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-28%,-14%) scale(1.3); } }
+
+        /* Override the legacy body::before gradient since we now use .aurora */
+        body::before { content: none !important; }
+
+        /* ----- Aurora Hero ----- */
+        .hero-v2 {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: clamp(40px, 6vw, 80px);
+            padding: 64px clamp(22px, 4vw, 80px) 56px;
+            max-width: var(--container);
+            margin: 0 auto;
+            text-align: left;
+            overflow-x: clip;
+        }
+        @media (max-width: 860px) {
+            .hero-v2 {
+                grid-template-columns: 1fr;
+                padding-top: 56px;
+                padding-bottom: 32px;
+            }
+        }
+        .hero-copy { position: relative; z-index: 2; }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            background: rgba(61, 206, 194, 0.1);
+            border: 1px solid rgba(61, 206, 194, 0.35);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: var(--tracking-mono);
+            text-transform: uppercase;
+            color: #7ee8de;
+            margin-bottom: 28px;
+        }
+        .eyebrow .pulse {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+            box-shadow: 0 0 0 0 rgba(61, 206, 194, 0.7);
+            animation: aurora-pulse 2s var(--ease-out) infinite;
+        }
+        @keyframes aurora-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(61, 206, 194, 0.6); }
+            70%  { box-shadow: 0 0 0 10px rgba(61, 206, 194, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(61, 206, 194, 0); }
+        }
+
+        h1.headline-v2 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: var(--fs-disp-xl);
+            line-height: var(--lh-tight);
+            letter-spacing: var(--tracking-display);
+            margin: 0 0 24px;
+            color: #fff;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+        h1.headline-v2 em {
+            font-style: normal;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 6px 32px rgba(255, 75, 43, 0.3));
+        }
+
+        .hero-v2 .sub {
+            font-size: clamp(17px, 1.4vw, 20px);
+            line-height: 1.5;
+            color: var(--text-dim);
+            max-width: 520px;
+            margin: 0 0 36px;
+            text-wrap: pretty;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+        .btn-v2 {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 26px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+        }
+        .btn-primary-v2 {
+            background: var(--sunset-gradient);
+            color: #fff;
+            box-shadow: var(--shadow-cta);
+        }
+        .btn-primary-v2:hover { transform: translateY(-1px); box-shadow: 0 18px 44px rgba(255, 75, 43, 0.42); }
+        .btn-primary-v2:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+        .btn-ghost-v2 {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--border-2);
+            color: #fff;
+            backdrop-filter: blur(10px);
+        }
+        .btn-ghost-v2:hover { background: rgba(255, 255, 255, 0.12); }
+
+        .hero-v2 .platform-line {
+            font-size: 13px;
+            color: var(--text-mute);
+            margin: 0 0 28px;
+        }
+        .hero-v2 .platform-line a { color: var(--sunset-peach); text-decoration: none; font-weight: 600; }
+        .hero-v2 .platform-line a:hover { color: var(--sunset-red); }
+
+        .hero-v2 .trust-strip {
+            margin: 0 0 14px;
+            padding: 10px 14px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px 14px;
+            font-size: 13px;
+            color: var(--text-dim);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+        }
+        .hero-v2 .trust-strip strong { color: #fff; font-family: var(--font-display); font-weight: 700; }
+        .hero-v2 .trust-strip .trust-link {
+            color: var(--sunset-peach);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 182, 163, 0.35);
+            padding-bottom: 1px;
+        }
+        .hero-v2 .trust-strip .trust-link:hover { color: var(--sunset-red); border-bottom-color: var(--sunset-red); }
+
+        .hero-v2 .press-strip {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--text-mute);
+            margin-top: 10px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+        .hero-v2 .press-strip .press-label {
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: var(--tracking-mono);
+            color: var(--text-mute);
+        }
+        .hero-v2 .press-strip .press-outlet {
+            color: var(--text-dim);
+            font-weight: 600;
+        }
+        .hero-v2 .press-strip .press-sep { color: #444; }
+
+        .proof-stars {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-dim);
+            margin: 0 0 18px;
+        }
+        .proof-stars .stars { color: var(--sunshine); letter-spacing: 2px; font-size: 15px; }
+        .proof-stars strong { color: #fff; font-family: var(--font-display); font-weight: 700; }
+
+        /* Hero device (right column) */
+        .hero-device {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            padding-left: 40px;
+        }
+        @media (max-width: 860px) {
+            .hero-device {
+                padding-left: 0;
+                margin-top: 24px;
+                /* Hide floating cards on mobile to keep the visual clean */
+            }
+            .hero-device .stat-card { display: none; }
+            .hero-device .phone {
+                width: min(260px, 70%);
+                /* Flatten the perspective tilt on small screens */
+                transform: none !important;
+                animation: none !important;
+            }
+        }
+
+        .phone {
+            width: min(340px, 100%);
+            aspect-ratio: 1206 / 2436;
+            border-radius: 44px;
+            background: #000;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow:
+                0 50px 100px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+                0 0 120px rgba(255, 75, 43, 0.18);
+            position: relative;
+            transform: perspective(1400px) rotateY(-4deg) rotateX(1deg);
+            animation: phone-float 8s var(--ease-in-out) infinite;
+        }
+        @keyframes phone-float {
+            0%, 100% { transform: perspective(1400px) rotateY(-4deg) rotateX(1deg) translateY(0); }
+            50%      { transform: perspective(1400px) rotateY(-4deg) rotateX(1deg) translateY(-10px); }
+        }
+        @media (prefers-reduced-motion: reduce) { .phone { animation: none; } .aurora .blob { animation: none !important; } }
+        .phone .screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #000;
+        }
+        .phone .screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: top center;
+            display: block;
+            border-radius: 32px;
+            background: #000;
+        }
+
+        /* Floating stat cards on hero phone */
+        .stat-card {
+            position: absolute;
+            padding: 14px 18px;
+            background: rgba(20, 20, 28, 0.85);
+            border: 1px solid var(--border-2);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(18px);
+            box-shadow: var(--shadow-card);
+            z-index: 3;
+            text-align: left;
+        }
+        .stat-card .label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-mute);
+            letter-spacing: var(--tracking-mono);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .stat-card .val {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: #fff;
+        }
+        .stat-card .trend {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            margin-top: 4px;
+            color: var(--wait-short-fg);
+        }
+        .stat-card.stat-a { top: 8%; left: clamp(-10%, -6%, 0%); max-width: 180px; animation: floatA 7s var(--ease-in-out) infinite; }
+        .stat-card.stat-b { bottom: 18%; right: clamp(-10%, -6%, 0%); max-width: 230px; animation: floatB 9s var(--ease-in-out) infinite; }
+        @keyframes floatA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes floatB { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+        .stat-skip {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(255, 75, 43, 0.35), rgba(20, 20, 28, 0.94));
+            border: 1px solid rgba(255, 75, 43, 0.55);
+        }
+        .stat-skip .skip-ico { width: 56px; height: 56px; flex: 0 0 auto; }
+        .stat-skip .skip-ico img { width: 100%; height: auto; display: block; }
+        .stat-skip .label { color: var(--sunset-peach); }
+        .stat-skip .val { font-size: 14px; font-weight: 700; line-height: 1.35; }
+
+        /* ----- Section chrome (shared by Meet SkipIQ, Features, Premium) ----- */
+        .section-shell {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 clamp(20px, 3vw, 40px);
+            text-align: left;
+        }
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: var(--tracking-mono);
+            text-transform: uppercase;
+            color: var(--text-mute);
+            margin: 0 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-label::before {
+            content: "";
+            width: 24px;
+            height: 1px;
+            background: var(--text-mute);
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(36px, 5.2vw, 64px);
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            margin: 0 0 24px;
+            max-width: 920px;
+            color: var(--text);
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+        .section-title em {
+            font-style: normal;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-lede {
+            font-size: 19px;
+            color: var(--text-dim);
+            max-width: 620px;
+            margin: 0 0 56px;
+        }
+
+        /* ----- Meet SkipIQ ----- */
+        section.meet-skip {
+            padding: 72px 0;
+            border-top: 1px solid var(--border);
+            overflow-x: clip;
+        }
+
+        /* ----- Review quote (App Store) ----- */
+        section.review-quote {
+            padding: 56px 0 8px;
+        }
+        .review-card {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 28px 32px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+        .review-card .stars {
+            color: var(--sunshine);
+            font-size: 14px;
+            letter-spacing: 0.18em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .review-card .review-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(20px, 2.4vw, 26px);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            color: #fff;
+            margin: 0 0 12px;
+        }
+        .review-card blockquote {
+            margin: 0 0 14px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dim);
+            text-wrap: pretty;
+        }
+        .review-card .review-meta {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: var(--tracking-mono);
+            text-transform: uppercase;
+            color: var(--text-mute);
+        }
+        @media (max-width: 560px) {
+            section.review-quote { padding: 40px 0 0; }
+            .review-card { padding: 22px 20px; border-radius: var(--radius-md); }
+        }
+
+        /* ----- Popular guides rail (SEO deep links) ----- */
+        section.popular-guides {
+            padding: 56px 0 16px;
+        }
+        .popular-guides .section-title {
+            font-size: clamp(26px, 3.4vw, 38px);
+            margin: 6px 0 6px;
+        }
+        .popular-guides .section-lede {
+            margin-bottom: 28px;
+        }
+        .pg-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+        .pg-col {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 20px 14px;
+        }
+        .pg-col h3 {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: var(--tracking-mono);
+            text-transform: uppercase;
+            color: var(--teal);
+            margin: 0 0 14px;
+            font-weight: 600;
+        }
+        .pg-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .pg-col li a {
+            display: block;
+            padding: 10px 12px;
+            margin: 0 -12px;
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: background .18s var(--ease-out), color .18s var(--ease-out);
+        }
+        .pg-col li a:hover {
+            background: var(--surface-2);
+            color: #fff;
+        }
+        .pg-col li a:focus-visible {
+            outline: 2px solid var(--teal);
+            outline-offset: 2px;
+        }
+        @media (max-width: 1000px) {
+            .pg-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .pg-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 24px 0 0;
+            padding: 12px 20px;
+            border-radius: var(--radius-pill);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 14px;
+            transition: background .18s var(--ease-out), border-color .18s var(--ease-out);
+        }
+        .pg-all:hover { background: var(--surface-2); border-color: var(--border-2); color: #fff; }
+        .pg-all:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+        @media (max-width: 560px) {
+            section.popular-guides { padding: 40px 0 8px; }
+            .pg-grid { grid-template-columns: 1fr; gap: 12px; }
+            .pg-col { padding: 16px 18px 10px; }
+        }
+        .meet-skip-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: clamp(40px, 6vw, 96px);
+            align-items: center;
+        }
+        @media (max-width: 900px) { .meet-skip-grid { grid-template-columns: 1fr; gap: 40px; } }
+        .meet-copy .section-title { font-size: clamp(40px, 6vw, 72px); }
+        .meet-copy p.lede-big {
+            font-size: 20px;
+            color: var(--text-dim);
+            max-width: 520px;
+            line-height: 1.55;
+            margin: 0 0 28px;
+        }
+        .skip-highlights { display: grid; gap: 14px; margin-top: 8px; }
+        .hl {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: border-color .25s var(--ease-out), background .25s var(--ease-out);
+            text-align: left;
+        }
+        .hl:hover { border-color: var(--border-2); background: var(--surface-2); }
+        .hl .dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; }
+        .hl.hl-teal .dot { background: var(--teal); box-shadow: 0 0 0 4px rgba(61, 206, 194, 0.18); }
+        .hl.hl-orange .dot { background: var(--sunset-amber); box-shadow: 0 0 0 4px rgba(255, 154, 68, 0.18); }
+        .hl.hl-gold .dot { background: var(--sunshine); box-shadow: 0 0 0 4px rgba(254, 198, 2, 0.18); }
+        .hl strong { color: var(--text); font-weight: 600; font-size: 15px; }
+        .hl span.hl-sub { color: var(--text-dim); font-size: 14px; }
+
+        .skip-stage {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .skip-stage::before {
+            content: "";
+            position: absolute;
+            inset: 8%;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(61, 206, 194, 0.3), rgba(61, 206, 194, 0) 60%),
+                radial-gradient(circle at 70% 70%, rgba(255, 75, 43, 0.22), rgba(255, 75, 43, 0) 55%);
+            filter: blur(4px);
+        }
+        .skip-hero-img {
+            position: relative;
+            z-index: 2;
+            width: min(78%, 460px);
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 40px 60px rgba(61, 206, 194, 0.2));
+            animation: bob 5s ease-in-out infinite;
+        }
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-12px); }
+        }
+        .bubble {
+            position: absolute;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: rgba(13, 13, 17, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-2);
+            border-radius: 16px;
+            font-size: 13px;
+            color: var(--text);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .bubble .b-ico {
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .bubble.b-1 { top: 4%; left: 0; animation: bob 6s ease-in-out -1.5s infinite; }
+        .bubble.b-1 .b-ico { background: rgba(61, 206, 194, 0.2); color: var(--teal); }
+        .bubble.b-2 { bottom: 14%; right: 0; animation: bob 6s ease-in-out -3s infinite; }
+        .bubble.b-2 .b-ico { background: rgba(254, 198, 2, 0.2); color: var(--sunshine); }
+        .bubble.b-3 { top: 52%; right: 0; animation: bob 6s ease-in-out -4.5s infinite; }
+        .bubble.b-3 .b-ico { background: rgba(255, 75, 43, 0.2); color: var(--sunset-amber); }
+        @media (max-width: 900px) {
+            .bubble.b-1 { left: 0; top: 0; }
+            .bubble.b-2 { right: 0; bottom: 0; }
+            .bubble.b-3 { right: 0; top: 40%; }
+        }
+        @media (max-width: 560px) { .bubble { display: none; } }
+        @media (prefers-reduced-motion: reduce) { .skip-hero-img, .bubble { animation: none; } }
+        @media (max-width: 700px) {
+            .skip-stage { display: none; }
+            section.meet-skip { padding: 64px 0 56px; }
+        }
+
+        /* ----- Features bento ----- */
+        section.features-section {
+            padding: 90px 0 60px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        .bento {
+            position: relative;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px 36px 40px;
+            transition: border-color .3s var(--ease-out), transform .3s var(--ease-out), background .3s var(--ease-out);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-height: 340px;
+            text-align: left;
+        }
+        .bento:hover {
+            border-color: var(--border-2);
+            background: var(--surface-2);
+            transform: translateY(-3px);
+        }
+        .bento .feature-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .bento .skip-portrait {
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .bento .skip-portrait::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: var(--tint, rgba(61, 206, 194, 0.14));
+            border: 1px solid var(--tint-border, rgba(61, 206, 194, 0.3));
+        }
+        .bento .skip-portrait img {
+            position: relative;
+            z-index: 1;
+            width: 78%;
+            height: 78%;
+            object-fit: contain;
+            display: block;
+        }
+        .bento .proof-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(10, 136, 23, 0.16);
+            border: 1px solid rgba(10, 136, 23, 0.4);
+            color: #6ee094;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .bento h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 26px;
+            letter-spacing: -0.02em;
+            line-height: 1.12;
+            margin: 0;
+            color: var(--text);
+        }
+        .bento p.body {
+            font-size: 15.5px;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin: 0;
+            max-width: 40ch;
+        }
+
+        /* Bento 1: Skip plans your day (wide, primary) */
+        .bento.b-skip {
+            --tint: rgba(255, 75, 43, 0.16);
+            --tint-border: rgba(255, 75, 43, 0.4);
+            grid-column: span 2;
+            background:
+                radial-gradient(500px 280px at 92% 12%, rgba(255, 75, 43, 0.10), transparent 55%),
+                var(--surface);
+            border-color: rgba(255, 75, 43, 0.25);
+        }
+        .bento.b-skip h3 { font-size: 30px; }
+        .bento.b-skip .feature-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            align-items: center;
+        }
+        @media (max-width: 720px) { .bento.b-skip .feature-body { grid-template-columns: 1fr; } }
+
+        .plan-preview { display: flex; flex-direction: column; gap: 8px; position: relative; }
+        .plan-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            font-size: 13px;
+            transition: background .25s var(--ease-out);
+        }
+        .plan-row.active {
+            background: rgba(255, 75, 43, 0.14);
+            border-color: rgba(255, 75, 43, 0.42);
+        }
+        .plan-row .time {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-mute);
+            letter-spacing: 0.04em;
+            min-width: 52px;
+            font-weight: 500;
+        }
+        .plan-row.active .time { color: var(--sunset-peach); }
+        .plan-row .name { color: var(--text); font-weight: 600; flex: 1; font-size: 13.5px; }
+        .plan-row .wait {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(10, 136, 23, 0.18);
+            color: #6ee094;
+        }
+        .plan-row .wait.med { background: rgba(184, 133, 16, 0.2); color: #f0c560; }
+        .plan-row .wait.high { background: rgba(198, 40, 40, 0.2); color: #ff8a8a; }
+        .replan-chip {
+            position: absolute;
+            right: 0;
+            top: -12px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(61, 206, 194, 0.16);
+            color: var(--teal);
+            border: 1px solid rgba(61, 206, 194, 0.42);
+            text-transform: uppercase;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .replan-chip .rp-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+            animation: replan-pulse 2s infinite;
+        }
+        @keyframes replan-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(61, 206, 194, 0.5); }
+            50%      { box-shadow: 0 0 0 5px rgba(61, 206, 194, 0); }
+        }
+
+        /* Bento 2: Forecast */
+        .bento.b-forecast {
+            --tint: rgba(61, 206, 194, 0.14);
+            --tint-border: rgba(61, 206, 194, 0.32);
+        }
+        .forecast-svg { width: 100%; height: 120px; display: block; margin-top: auto; }
+
+        /* Bento 3: Drop alerts */
+        .bento.b-alerts {
+            --tint: rgba(254, 198, 2, 0.14);
+            --tint-border: rgba(254, 198, 2, 0.36);
+        }
+        .alert-toasts { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+        .alert-toast {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(13, 13, 17, 0.85);
+            border: 1px solid var(--border-2);
+            font-size: 13px;
+        }
+        .alert-toast.fresh { border-color: rgba(10, 136, 23, 0.42); background: rgba(10, 136, 23, 0.08); }
+        .alert-toast .at-ico {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(10, 136, 23, 0.22);
+            color: #6ee094;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .alert-toast strong { color: var(--text); font-weight: 600; }
+        .alert-toast .at-time {
+            margin-left: auto;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-mute);
+            letter-spacing: 0.04em;
+        }
+
+        /* Bento 4: Queue Timer (wide) */
+        .bento.b-timer {
+            --tint: rgba(89, 203, 232, 0.14);
+            --tint-border: rgba(89, 203, 232, 0.32);
+            grid-column: span 2;
+            background:
+                radial-gradient(500px 280px at 92% 12%, rgba(89, 203, 232, 0.08), transparent 55%),
+                var(--surface);
+        }
+        .bento.b-timer h3 { font-size: 30px; }
+        .bento.b-timer .feature-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            align-items: center;
+        }
+        @media (max-width: 720px) {
+            .bento.b-timer { grid-column: span 1; }
+            .bento.b-timer .feature-body { grid-template-columns: 1fr; }
+        }
+        .timer-stack {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: auto;
+            align-items: stretch;
+        }
+        @media (max-width: 560px) { .timer-stack { grid-template-columns: 1fr; } }
+        .lockscreen-mock {
+            background: linear-gradient(160deg, #1a1a22, #0a0a0e);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 18px 18px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .lockscreen-mock .ls-hh {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 42px;
+            color: #fff;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        .lockscreen-mock .ls-date {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.65);
+            margin-top: 4px;
+            letter-spacing: 0.02em;
+        }
+        .lockscreen-mock .ls-widget {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 10px 12px;
+        }
+        .ls-w-row { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; }
+        .ls-w-ico {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(89, 203, 232, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ls-w-ico .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sky); }
+        .ls-w-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 12.5px;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .ls-w-meta {
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 2px;
+            letter-spacing: 0.04em;
+        }
+        .ls-w-bar {
+            width: 60px;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            overflow: hidden;
+        }
+        .ls-w-bar span {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--sky), var(--teal));
+            border-radius: 999px;
+        }
+        .timer-side { display: flex; flex-direction: column; gap: 12px; }
+        .di-card {
+            flex: 1;
+            min-height: 0;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 18px 14px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .dynamic-island {
+            height: 30px;
+            padding: 0 14px;
+            border-radius: 18px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .dynamic-island .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+        .dynamic-island .t {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--teal);
+        }
+        .di-cap {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            margin: 0;
+            text-align: center;
+        }
+        .timer-stat {
+            background: rgba(89, 203, 232, 0.06);
+            border: 1px solid rgba(89, 203, 232, 0.2);
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .timer-stat .ts-num {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 28px;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--sky);
+        }
+        .timer-stat .ts-num .ts-unit { font-size: 18px; margin-left: 2px; }
+        .timer-stat .ts-lbl { font-size: 11px; color: var(--text-dim); line-height: 1.35; }
+
+        /* Plus row — walking + shows */
+        .plus-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .plus-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 22px 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: border-color .25s var(--ease-out);
+        }
+        .plus-card:hover { border-color: var(--border-2); }
+        .plus-card .p-ico {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 auto;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+        .plus-card .p-ico svg { width: 22px; height: 22px; }
+        .plus-card h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 15px;
+            margin: 0 0 2px;
+            color: var(--text);
+        }
+        .plus-card span { font-size: 13px; color: var(--text-mute); }
+        @media (max-width: 720px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .bento.b-skip { grid-column: span 1; }
+            .plus-row { grid-template-columns: 1fr; }
+        }
+
+        /* ----- Comparison rebalance (Before Trip vs At Park) ----- */
+        .comparison-section.rebalanced {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 60px clamp(20px, 3vw, 40px);
+        }
+        .comparison-section.rebalanced .comparison-grid {
+            display: grid;
+            grid-template-columns: 40fr 60fr;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 720px) {
+            .comparison-section.rebalanced .comparison-grid { grid-template-columns: 1fr; }
+        }
+        .comparison-section.rebalanced .panel {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            padding: 24px 26px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        .comparison-section.rebalanced .panel.app {
+            background:
+                radial-gradient(500px 280px at 92% 8%, rgba(255, 75, 43, 0.10), transparent 55%),
+                var(--surface);
+            border-color: rgba(255, 75, 43, 0.28);
+        }
+        .comparison-section.rebalanced .panel-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: var(--tracking-mono);
+            text-transform: uppercase;
+            color: var(--text-mute);
+            margin: 0 0 10px;
+        }
+        .comparison-section.rebalanced .panel.app .panel-label { color: var(--sunset-peach); }
+        .comparison-section.rebalanced h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0 0 6px;
+            color: var(--text);
+        }
+        .comparison-section.rebalanced .panel-tag {
+            color: var(--text-dim);
+            font-size: 14px;
+            margin: 0 0 16px;
+        }
+        .comparison-section.rebalanced .panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px;
+        }
+        .comparison-section.rebalanced .panel li {
+            padding: 8px 0;
+            color: var(--text);
+            font-size: 14.5px;
+        }
+        .comparison-section.rebalanced .panel.web li { color: var(--text-dim); }
+        .comparison-section.rebalanced .panel-foot {
+            font-size: 13px;
+            color: var(--text-mute);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        /* ----- Hinge ----- */
+        .hinge {
+            padding: 80px clamp(20px, 3vw, 40px) 40px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+            max-width: var(--container);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hinge-mark {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            display: block;
+            filter: drop-shadow(0 16px 30px rgba(254, 198, 2, 0.3));
+        }
+        .hinge p {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(24px, 3.2vw, 34px);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin: 0 auto;
+            max-width: 680px;
+        }
+        .hinge p em { font-style: normal; color: var(--sunshine); }
+
+        /* ----- Premium v2 ----- */
+        section.premium-v2 {
+            padding: 60px clamp(20px, 3vw, 40px) 40px;
+            max-width: var(--container);
+            margin: 0 auto;
+            text-align: left;
+            background: none;
+            border: none;
+            border-radius: 0;
+        }
+        section.premium-v2 .section-label.premium-label { color: var(--sunshine); }
+        section.premium-v2 .section-label.premium-label::before { background: var(--sunshine); }
+        .pricing-v2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 0 0 64px;
+        }
+        @media (max-width: 860px) {
+            .pricing-v2 { grid-template-columns: 1fr; }
+            .price-card.featured { transform: none; }
+        }
+        .price-card {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px 34px;
+            transition: border-color .3s var(--ease-out), transform .3s var(--ease-out);
+        }
+        .price-card:hover { border-color: var(--border-2); }
+        .price-card .tier {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            margin: 0 0 14px;
+        }
+        .price-card .cost {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 48px;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--text);
+        }
+        .price-card .cost .unit {
+            font-size: 15px;
+            color: var(--text-mute);
+            font-weight: 600;
+            margin-left: 6px;
+            letter-spacing: 0;
+        }
+        .price-card .audience {
+            margin: 16px 0 28px;
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.55;
+        }
+        .price-card .buy {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px 18px;
+            text-align: center;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 12px;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border-2);
+            text-decoration: none;
+            transition: background .2s var(--ease-out), border-color .2s var(--ease-out);
+        }
+        .price-card .buy:hover { background: var(--surface-2); border-color: var(--text-dim); }
+        .price-card.featured {
+            background:
+                radial-gradient(600px 400px at 50% 0%, rgba(254, 198, 2, 0.12), transparent 55%),
+                linear-gradient(180deg, rgba(254, 198, 2, 0.05), rgba(13, 13, 17, 0.95));
+            border-color: rgba(254, 198, 2, 0.42);
+        }
+        .price-card.featured .tier { color: var(--sunshine); }
+        .price-card.featured .buy {
+            background: var(--sunset-gradient);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(255, 75, 43, 0.22);
+        }
+        .price-card.featured .buy:hover { filter: brightness(1.05); transform: translateY(-1px); }
+        .price-card .popular-flag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: var(--sunshine);
+            color: #1a1206;
+        }
+
+        .compare-wrap {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .compare-wrap table { width: 100%; border-collapse: collapse; font-size: 15px; }
+        .compare-wrap th, .compare-wrap td {
+            padding: 14px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .compare-wrap thead th {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            font-weight: 600;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .compare-wrap thead th.premium-col { color: var(--sunshine); }
+        .compare-wrap tr.group-head td {
+            background: rgba(255, 255, 255, 0.025);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            padding: 14px 24px;
+            font-weight: 600;
+        }
+        .compare-wrap tr.group-head.premium td { color: var(--sunshine); background: rgba(254, 198, 2, 0.04); }
+        .compare-wrap tr.group-head td::before {
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 1px;
+            background: currentColor;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .compare-wrap th.cell, .compare-wrap td.cell { text-align: center; font-family: var(--font-mono); font-size: 13px; color: var(--text-dim); }
+        .compare-wrap thead th.cell { font-size: 11px; }
+        .compare-wrap td.cell.yes { color: var(--fresh); font-size: 15px; }
+        .compare-wrap td.cell.premium-cell { color: var(--sunshine); font-weight: 600; }
+        .compare-wrap td.feature-name { font-family: var(--font-body); color: var(--text); font-weight: 500; }
+        .compare-wrap tr:last-child td { border-bottom: 0; }
+        .compare-wrap tr:hover td { background: rgba(255, 255, 255, 0.015); }
+        .compare-wrap tr.group-head:hover td { background: rgba(255, 255, 255, 0.025); }
+        .compare-wrap tr.group-head.premium:hover td { background: rgba(254, 198, 2, 0.04); }
+        @media (max-width: 640px) {
+            .compare-wrap th, .compare-wrap td { padding: 12px 14px; }
+            .compare-wrap thead th { padding: 14px 14px; font-size: 10px; letter-spacing: 0.12em; }
+        }
+
+        section.premium-v2 .roi-note {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-mute);
+            font-style: italic;
+        }
+
+        /* ----- Parks (clean grid) ----- */
+        section.parks-v2 {
+            padding: 60px clamp(20px, 3vw, 40px);
+            max-width: var(--container);
+            margin: 0 auto;
+            text-align: left;
+        }
+        .parks-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            list-style: none;
+            margin: 0 0 24px;
+            padding: 0;
+        }
+        .parks-grid li {
+            background: var(--ink);
+            transition: background .2s var(--ease-out);
+        }
+        .parks-grid li a, .parks-grid li span {
+            display: block;
+            padding: 18px 18px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-dim);
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: color .2s var(--ease-out), background .2s var(--ease-out);
+        }
+        .parks-grid li a:hover {
+            color: #fff;
+            background: rgba(61, 206, 194, 0.08);
+        }
+        @media (max-width: 1100px) { .parks-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 640px)  { .parks-grid { grid-template-columns: repeat(2, 1fr); } }
+        .parks-request {
+            display: inline-block;
+            color: var(--sunset-peach);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 182, 163, 0.35);
+            padding-bottom: 1px;
+        }
+        .parks-request:hover { color: var(--sunset-red); border-bottom-color: var(--sunset-red); }
+
+        /* ----- FAQ restyle ----- */
+        .faq-section.restyled {
+            margin: 80px auto 40px;
+            max-width: 800px;
+            text-align: left;
+            padding: 0 clamp(20px, 3vw, 40px);
+        }
+        .faq-section.restyled h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(32px, 4.5vw, 48px);
+            letter-spacing: -0.02em;
+            text-align: left;
+            margin-bottom: 32px;
+            background: none;
+            -webkit-text-fill-color: initial;
+            color: var(--text);
+        }
+        .faq-section.restyled h2 em {
+            font-style: normal;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .faq-section.restyled .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color .25s var(--ease-out);
+        }
+        .faq-section.restyled .faq-item:hover { border-color: var(--border-2); }
+        .faq-section.restyled .faq-item.open { border-color: rgba(255, 75, 43, 0.32); }
+        .faq-section.restyled .faq-question {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text);
+            padding: 18px 22px;
+        }
+        .faq-section.restyled .faq-question::after { color: var(--sunset-red); }
+        .faq-section.restyled .faq-question:hover { background: var(--surface-2); }
+        .faq-section.restyled .faq-answer p {
+            font-family: var(--font-body);
+            color: var(--text-dim);
+            font-size: 15px;
+            line-height: 1.65;
+        }
+        .faq-section.restyled .faq-answer a {
+            color: var(--sunset-peach);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 182, 163, 0.35);
+        }
+        .faq-section.restyled .faq-answer a:hover { color: var(--sunset-red); border-bottom-color: var(--sunset-red); }
+
+        /* ----- Sticky bottom CTA (mobile only) ----- */
+        .sticky-bottom-cta {
+            display: none;
+        }
+        @media (max-width: 720px) {
+            .sticky-bottom-cta {
+                display: block;
+                position: fixed;
+                bottom: calc(16px + env(safe-area-inset-bottom, 0));
+                left: 16px;
+                right: 16px;
+                z-index: 50;
+                background: var(--sunset-gradient);
+                color: #fff;
+                padding: 14px 20px;
+                border-radius: var(--radius-md);
+                font-family: var(--font-display);
+                font-weight: 700;
+                font-size: 15px;
+                text-align: center;
+                text-decoration: none;
+                box-shadow: 0 14px 34px rgba(255, 75, 43, 0.3);
+                opacity: 0;
+                transform: translateY(20px);
+                pointer-events: none;
+                transition: opacity .3s var(--ease-out), transform .3s var(--ease-out);
+            }
+            .sticky-bottom-cta.visible {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+        }
+
+        /* =========================================================
+           MOBILE NARROW (≤480px) — wrap/sizing safety net so the
+           hero doesn't push past the viewport on small phones.
+           ========================================================= */
+        @media (max-width: 480px) {
+            /* Headline shrinks below the global clamp floor */
+            h1.headline-v2 {
+                font-size: clamp(44px, 13vw, 64px);
+                line-height: 1.0;
+            }
+            /* Eyebrow allows wrap, slightly tighter */
+            .eyebrow {
+                flex-wrap: wrap;
+                font-size: 10px;
+                padding: 7px 12px;
+                gap: 6px 10px;
+            }
+            /* Trust strip: tighten font + allow internal wrap */
+            .hero-v2 .trust-strip {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+            /* Press strip: stack label above outlets so the row doesn't mid-wrap */
+            .hero-v2 .press-strip {
+                flex-wrap: wrap;
+                gap: 4px 10px;
+            }
+            .hero-v2 .press-strip .press-label { flex-basis: 100%; }
+            /* Platform line wraps natural */
+            .hero-v2 .platform-line { word-break: break-word; }
+            /* Buttons wrap + share width */
+            .cta-row { gap: 10px; }
+            .btn-v2 { padding: 14px 20px; font-size: 14px; }
+            /* Top nav: shrink CTA so logo + CTA + hamburger fit */
+            .site-nav-cta { padding: 7px 12px; font-size: 0.85rem; }
+            /* Review title prevents long words from blowing past edge */
+            .review-card .review-title { word-break: break-word; }
+            /* Popular guides links allow line breaks on long names */
+            .pg-col li a { word-break: break-word; }
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -1146,6 +2697,7 @@
 
     gtag('config', 'G-KGYGTPMTQ3');
 </script>
+<script defer src="/assets/js/posthog.js"></script>
 
 <body>
 <nav class="site-nav no-print" style="display:block !important; padding:14px 20px !important; border-bottom:1px solid #1a1a1a !important; background:#000 !important; margin:0 !important; width:100% !important; box-sizing:border-box !important; position:relative; z-index:10;">
@@ -1159,11 +2711,32 @@
     .site-nav a.site-nav-link { color:#fff; text-decoration:none; font-size:0.95rem; font-weight:500; }
     .site-nav a.site-nav-secondary { color:#ccc; text-decoration:none; font-size:0.95rem; font-weight:500; }
     .site-nav-cta { background:rgba(255,255,255,0.1); color:#fff !important; padding:8px 16px; border-radius:99px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); white-space:nowrap; }
+    .site-nav-toggle { display:none; background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff; padding:10px 12px; min-width:44px; min-height:44px; border-radius:10px; cursor:pointer; line-height:0; align-items:center; justify-content:center; }
+    .site-nav-toggle svg { display:block; width:22px; height:22px; }
+    .site-nav-toggle .icon-close { display:none; }
+    .site-nav-toggle[aria-expanded="true"] .icon-open { display:none; }
+    .site-nav-toggle[aria-expanded="true"] .icon-close { display:block; }
+    .site-nav-mobile { display:none; }
     @media (max-width: 680px) {
       .site-nav { padding:10px 14px !important; }
       .site-nav-brand span { display:none; }
       .site-nav-links a.site-nav-link, .site-nav-links a.site-nav-secondary { display:none; }
       .site-nav-brand img { height:28px; }
+      .site-nav-toggle { display:inline-flex; }
+      .site-nav-mobile {
+        display:block;
+        max-height:0; overflow:hidden;
+        transition: max-height .28s var(--ease-out);
+        background:#000;
+        border-bottom:1px solid #1a1a1a;
+      }
+      .site-nav-mobile.open { max-height:280px; }
+      .site-nav-mobile-list { display:flex; flex-direction:column; padding:8px 14px 14px; gap:2px; }
+      .site-nav-mobile-list a {
+        color:#fff; text-decoration:none; font-size:1rem; font-weight:600;
+        padding:14px 12px; border-radius:10px;
+      }
+      .site-nav-mobile-list a:active, .site-nav-mobile-list a:hover { background:rgba(255,255,255,0.06); }
     }
   </style>
   <div class="site-nav-inner">
@@ -1176,249 +2749,358 @@
       <a class="site-nav-link" href="/crowds/">Crowds</a>
       <a class="site-nav-secondary" href="/compare/official-apps/">Why Us?</a>
       <a class="site-nav-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=smartbanner-home" data-ref="home-nav">Download Free</a>
+      <button class="site-nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav-mobile">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="site-nav-mobile" id="site-nav-mobile" hidden>
+    <div class="site-nav-mobile-list">
+      <a href="/parks/">Parks</a>
+      <a href="/crowds/">Crowds</a>
+      <a href="/compare/official-apps/">Why Us?</a>
     </div>
   </div>
 </nav>
-<div class="sticky-top-cta">
-        <span class="emoji">📲</span>
-        <span><strong>Visiting soon?</strong> Let SkipIQ plan your whole day.</span>
-        <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-sticky" data-ref="home-sticky">Download
-            Free</a>
+<script>
+  (function(){
+    var btn = document.querySelector('.site-nav-toggle');
+    var panel = document.getElementById('site-nav-mobile');
+    if (!btn || !panel) return;
+    panel.removeAttribute('hidden');
+    btn.addEventListener('click', function(){
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      btn.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+      panel.classList.toggle('open', !open);
+    });
+  })();
+</script>
+<!-- Aurora background, fixed so it persists on scroll -->
+<div class="aurora" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="blob b4"></div>
+</div>
+
+<!-- HERO v2 (Aurora) -->
+<section class="hero-v2" id="top">
+    <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse" aria-hidden="true"></span>Live · 14 parks · updated every 60s</div>
+        <h1 class="headline-v2">Outsmart<br>the <em>lines.</em></h1>
+        <p class="sub">SkipIQ plans your whole park day, replans every 30 minutes, and shows where waits are headed. Ride more. Stand in line less. Go home with feet that still work.</p>
+
+        <div id="mobile-cta">
+            <div class="cta-row">
+                <a class="btn-v2 btn-primary-v2" data-ref="home-hero" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-hero" rel="noopener noreferrer" target="_blank">Download for iPhone <span aria-hidden="true">→</span></a>
+                <a class="btn-v2 btn-ghost-v2" href="#features">See what it does</a>
+            </div>
+            <p class="platform-line">Free on iPhone · Premium from <a href="#premium" class="pricing-teaser-link">$7.99/day</a> · <a href="/waitlist/android/">Join Android waitlist</a></p>
+        </div>
+
+        <div id="android-cta" style="display:none; margin: 0 0 28px;">
+            <p style="font-size: 1.1rem; font-weight: 600; color: #fff; margin: 0 0 8px;">Android coming soon</p>
+            <p style="color: var(--text-dim); font-size: 0.95rem; margin: 0 0 16px;">Get notified when Ride Ready launches on Android.</p>
+            <form id="android-waitlist-form" style="display: flex; gap: 10px; flex-wrap: wrap; max-width: 460px;">
+                <input type="email" id="android-email" name="email" aria-label="Email address" autocomplete="email" inputmode="email" placeholder="your@email.com" required style="flex: 1; min-width: 200px; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.08); color: #fff; font-family: var(--font-body);">
+                <input type="text" name="website" id="android-hp" autocomplete="off" tabindex="-1" aria-hidden="true" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
+                <button type="submit" style="background: var(--sunset-gradient); color: #fff; border: none; padding: 14px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 1rem; font-family: var(--font-display);">Notify Me</button>
+            </form>
+            <p id="android-form-status" role="status" aria-live="polite" style="margin-top: 10px; font-size: 0.9rem; display: none;"></p>
+        </div>
+
+        <div class="proof-stars" role="group" aria-label="App Store rating">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span><strong>5.0</strong> on the App Store</span>
+        </div>
+
+        <div class="trust-strip" role="group" aria-label="Ride Ready data coverage">
+            <span><strong>14</strong> parks</span>
+            <span aria-hidden="true">·</span>
+            <span><strong>943,000+</strong> wait time samples</span>
+            <span aria-hidden="true">·</span>
+            <a class="trust-link" href="/methodology/" data-ref="home-hero-methodology">See our methodology →</a>
+        </div>
+
+        <div class="press-strip" aria-label="Press mentions">
+            <span class="press-label">As seen in</span>
+            <span class="press-outlet">Men's Journal</span>
+            <span class="press-sep" aria-hidden="true">·</span>
+            <span class="press-outlet">Parade</span>
+            <span class="press-sep" aria-hidden="true">·</span>
+            <span class="press-outlet">Yahoo Travel</span>
+        </div>
     </div>
+
+    <div class="hero-device" aria-hidden="true">
+        <div class="stat-card stat-a">
+            <div class="label">Mario Kart · Epic</div>
+            <div class="val" style="color: var(--wait-short-fg);">↓ 45 min</div>
+            <div class="trend">dropping 25%</div>
+        </div>
+        <div class="stat-card stat-b stat-skip">
+            <div class="skip-ico"><img src="/images/skip-ready.png" alt=""></div>
+            <div>
+                <div class="label">Skip says</div>
+                <div class="val">Ride Mario Kart next. The curve climbs after 11:30.</div>
+            </div>
+        </div>
+        <div class="phone">
+            <div class="screen">
+                <img src="/images/app-rides.png" alt="Ride Ready rides list with live wait times" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- APP STORE REVIEW -->
+<section class="review-quote" aria-label="App Store review">
+    <div class="section-shell">
+        <div class="review-card">
+            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <p class="review-title">Removes &ldquo;what next?&rdquo; Question frustrations.</p>
+            <blockquote>
+                &ldquo;It&rsquo;s great to have a game-plan from the get-go; plan is determined by a quick few ride &amp; walking preferences you answer at the beginning of the day. It&rsquo;s also nice to track each ride actual wait times in the app; sometimes I really haven&rsquo;t been waiting as long as I had thought&hellip; ;)&rdquo;
+            </blockquote>
+            <p class="review-meta">App Store · Apr 25, 2026</p>
+        </div>
+    </div>
+</section>
+
+<!-- POPULAR GUIDES (SEO deep links to park content) -->
+<section class="popular-guides" aria-labelledby="popular-guides-heading">
+    <div class="section-shell">
+        <p class="section-label">Plan smarter</p>
+        <h2 class="section-title" id="popular-guides-heading">Popular <em>guides &amp; calendars</em>.</h2>
+        <p class="section-lede">Real strategy, ride by ride, before you set foot in the park.</p>
+        <div class="pg-grid">
+            <div class="pg-col">
+                <h3>Crowd calendars</h3>
+                <ul role="list">
+                    <li><a href="/parks/epic-universe/crowd-calendar/" data-ref="home-pg-cc">Epic Universe</a></li>
+                    <li><a href="/parks/cedar-point/crowd-calendar/" data-ref="home-pg-cc">Cedar Point</a></li>
+                    <li><a href="/parks/islands-of-adventure/crowd-calendar/" data-ref="home-pg-cc">Islands of Adventure</a></li>
+                    <li><a href="/parks/kings-island/crowd-calendar/" data-ref="home-pg-cc">Kings Island</a></li>
+                </ul>
+            </div>
+            <div class="pg-col">
+                <h3>Strategy guides</h3>
+                <ul role="list">
+                    <li><a href="/parks/epic-universe/strategy/" data-ref="home-pg-strat">Epic Universe</a></li>
+                    <li><a href="/parks/kings-island/strategy/" data-ref="home-pg-strat">Kings Island</a></li>
+                    <li><a href="/parks/carowinds/strategy/" data-ref="home-pg-strat">Carowinds</a></li>
+                    <li><a href="/parks/busch-gardens-williamsburg/strategy/" data-ref="home-pg-strat">Busch Gardens Williamsburg</a></li>
+                </ul>
+            </div>
+            <div class="pg-col">
+                <h3>Hidden secrets</h3>
+                <ul role="list">
+                    <li><a href="/parks/epic-universe/secrets/" data-ref="home-pg-secrets">Epic Universe Easter eggs</a></li>
+                    <li><a href="/parks/islands-of-adventure/secrets/" data-ref="home-pg-secrets">Islands of Adventure</a></li>
+                    <li><a href="/parks/cedar-point/secrets/" data-ref="home-pg-secrets">Cedar Point</a></li>
+                </ul>
+            </div>
+            <div class="pg-col">
+                <h3>Top queue guides</h3>
+                <ul role="list">
+                    <li><a href="/universal-orlando/islands-of-adventure/hagrids-motorbike-queue-times/" data-ref="home-pg-queue">Hagrid&rsquo;s Motorbike wait times</a></li>
+                    <li><a href="/universal-orlando/islands-of-adventure/velocicoaster-queue-times/" data-ref="home-pg-queue">VelociCoaster wait times</a></li>
+                    <li><a href="/universal-orlando/epic-universe/ministry-queue-times/" data-ref="home-pg-queue">Ministry of Magic wait times</a></li>
+                    <li><a href="/universal-orlando/epic-universe/mario-kart-queue-times/" data-ref="home-pg-queue">Mario Kart: Bowser&rsquo;s Challenge</a></li>
+                </ul>
+            </div>
+        </div>
+        <a class="pg-all" href="/parks/" data-ref="home-pg-all">Browse all 14 parks →</a>
+    </div>
+</section>
+
+<!-- MEET SKIPIQ -->
+<section class="meet-skip" id="meet-skipiq">
+    <div class="section-shell">
+        <div class="meet-skip-grid">
+            <div class="meet-copy">
+                <p class="section-label">Meet SkipIQ</p>
+                <h2 class="section-title">The AI that actually <em>plans your day</em>.</h2>
+                <p class="lede-big">Tell Skip your group, your must-rides, your pace. Skip sequences every ride and show, then replans every 30 minutes as lines shift.</p>
+                <div class="skip-highlights">
+                    <div class="hl hl-teal">
+                        <span class="dot" aria-hidden="true"></span>
+                        <div><strong>Trained on 943,000+ wait samples.</strong> <span class="hl-sub">Not a guess. Not a generic model.</span></div>
+                    </div>
+                    <div class="hl hl-orange">
+                        <span class="dot" aria-hidden="true"></span>
+                        <div><strong>Replans every 30 minutes.</strong> <span class="hl-sub">When lines shift, your plan shifts with them.</span></div>
+                    </div>
+                    <div class="hl hl-gold">
+                        <span class="dot" aria-hidden="true"></span>
+                        <div><strong>Knows the day, not just the month.</strong> <span class="hl-sub">Halloween Friday is not a regular October Friday.</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skip-stage" aria-hidden="true">
+                <div class="bubble b-1"><span class="b-ico">+3</span><span>rides before lunch</span></div>
+                <div class="bubble b-2"><span class="b-ico">↓</span><span>47% less waiting</span></div>
+                <div class="bubble b-3"><span class="b-ico">1s</span><span>to replan</span></div>
+                <img class="skip-hero-img" src="/images/skip-ready.png" alt="" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES (bento) -->
+<section class="features-section" id="features">
+    <div class="section-shell">
+        <p class="section-label">Every tool you need</p>
+        <h2 class="section-title">Four tools. <em>One perfect day.</em></h2>
+        <p class="section-lede">Know when to ride, when to wait, and when to move. The tools that actually change how your day goes.</p>
+
+        <div class="features-grid">
+            <!-- Bento 1: Skip plans your whole day -->
+            <div class="bento b-skip">
+                <div class="feature-head">
+                    <div class="skip-portrait"><img src="/images/skip-ready.png" alt="" loading="lazy"></div>
+                </div>
+                <div class="feature-body">
+                    <div>
+                        <h3>Skip plans your whole day.</h3>
+                        <p class="body" style="margin-top: 12px;">Tell Skip your group, your must-dos, your pace. Skip sequences every ride, then replans every 30 minutes as conditions change. You ride more. You wait less.</p>
+                    </div>
+                    <div class="plan-preview" aria-hidden="true">
+                        <div class="replan-chip"><span class="rp-dot"></span>Replanning · 30m</div>
+                        <div class="plan-row"><span class="time">9:42</span><span class="name">Stardust Racers</span><span class="wait">5 min</span></div>
+                        <div class="plan-row active"><span class="time">10:15</span><span class="name">Mario Kart</span><span class="wait med">45 min</span></div>
+                        <div class="plan-row"><span class="time">11:30</span><span class="name">Ministry of Magic</span><span class="wait high">85 min</span></div>
+                        <div class="plan-row"><span class="time">12:45</span><span class="name">Forbidden Journey</span><span class="wait med">55 min</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento 2: Forecast -->
+            <div class="bento b-forecast">
+                <div class="feature-head">
+                    <div class="skip-portrait"><img src="/images/skip-timing.png" alt="" loading="lazy"></div>
+                    <span class="proof-chip">Live · updated every 15m</span>
+                </div>
+                <div>
+                    <h3>See where waits are headed.</h3>
+                    <p class="body" style="margin-top: 10px;">Live forecast curves for every ride, updated every 15 minutes from real park data. See the peak before it peaks.</p>
+                </div>
+                <svg class="forecast-svg" viewBox="0 0 320 120" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#3DCEC2" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#3DCEC2" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                    <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                        <line x1="0" y1="30" x2="320" y2="30"/>
+                        <line x1="0" y1="60" x2="320" y2="60"/>
+                        <line x1="0" y1="90" x2="320" y2="90"/>
+                    </g>
+                    <path d="M0,96 C30,90 55,50 80,40 C110,28 140,50 170,56 C200,62 225,24 260,16 C290,12 310,30 320,44 L320,120 L0,120 Z" fill="url(#curveFill)"/>
+                    <path d="M0,96 C30,90 55,50 80,40 C110,28 140,50 170,56 C200,62 225,24 260,16 C290,12 310,30 320,44" fill="none" stroke="#3DCEC2" stroke-width="2"/>
+                    <line x1="140" y1="6" x2="140" y2="114" stroke="rgba(255,75,43,0.45)" stroke-width="1" stroke-dasharray="3,3"/>
+                    <circle cx="140" cy="52" r="4" fill="#FF4B2B"/>
+                    <text x="148" y="16" fill="rgba(255,182,163,0.8)" font-size="9" font-family="JetBrains Mono, monospace" letter-spacing="0.08em">NOW</text>
+                </svg>
+            </div>
+
+            <!-- Bento 3: Drop alerts -->
+            <div class="bento b-alerts">
+                <div class="feature-head">
+                    <div class="skip-portrait"><img src="/images/skip-alert.png" alt="" loading="lazy"></div>
+                </div>
+                <div>
+                    <h3>Drop alerts the moment lines dip.</h3>
+                    <p class="body" style="margin-top: 10px;">Ride just reopened? Wait just halved? You'll know in under a minute, before the crowd does.</p>
+                </div>
+                <div class="alert-toasts" aria-hidden="true">
+                    <div class="alert-toast fresh">
+                        <span class="at-ico">↓</span>
+                        <div><strong>Mario Kart</strong> wait dropped to 20 min</div>
+                        <span class="at-time">just now</span>
+                    </div>
+                    <div class="alert-toast">
+                        <span class="at-ico" style="background: rgba(89,203,232,0.22); color: var(--sky);">⟳</span>
+                        <div><strong>Hagrid's</strong> just reopened</div>
+                        <span class="at-time">2m ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento 4: Queue Timer (wide) -->
+            <div class="bento b-timer">
+                <div class="feature-head">
+                    <div class="skip-portrait"><img src="/images/skip-excited.png" alt="" loading="lazy"></div>
+                </div>
+                <div>
+                    <h3>Track your wait from your Lock Screen.</h3>
+                    <p class="body" style="margin-top: 10px;">Queue Timer lives on Dynamic Island and your Lock Screen, so you know exactly how long you've been waiting without unlocking.</p>
+                </div>
+                <div class="timer-stack" aria-hidden="true">
+                    <div class="lockscreen-mock">
+                        <div class="ls-time">
+                            <div class="ls-hh">10:42</div>
+                            <div class="ls-date">Saturday, April 25</div>
+                        </div>
+                        <div class="ls-widget">
+                            <div class="ls-w-row">
+                                <div class="ls-w-ico"><span class="dot"></span></div>
+                                <div>
+                                    <div class="ls-w-title">Mine-Cart Madness</div>
+                                    <div class="ls-w-meta">In line · 23 min</div>
+                                </div>
+                                <div class="ls-w-bar"><span style="width: 62%;"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timer-side">
+                        <div class="di-card">
+                            <div class="dynamic-island"><span class="dot"></span><span class="t">23:14</span></div>
+                            <p class="di-cap">Live on Dynamic Island</p>
+                        </div>
+                        <div class="timer-stat">
+                            <span class="ts-num">23<span class="ts-unit">m</span></span>
+                            <span class="ts-lbl">how long you've been in line, at a glance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ...plus row -->
+        <div class="plus-row">
+            <div class="plus-card">
+                <div class="p-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s-7-7.5-7-13a7 7 0 1 1 14 0c0 5.5-7 13-7 13z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4>Turn-by-turn walking directions</h4>
+                    <span>Fastest path to your next ride, with real walk times</span>
+                </div>
+            </div>
+            <div class="plus-card">
+                <div class="p-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 11c0-1 1-2 2.5-2 2.5 0 3 2 3 4s-1 4-3 4S3 16 3 14z"/>
+                        <path d="M15.5 9c1.5 0 2.5 1 2.5 2v3c0 2-1.5 3-3 3s-3-2-3-4 .5-4 3-4z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4>Shows &amp; character meets</h4>
+                    <span>Full schedules baked into your day plan</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <div class="container">
-        <!-- Top Nav --><section class="hero" id="top">
-            <div class="hero-stack">
-                <div class="hero-logo-wrapper">
-                    <img alt="Ride Ready Logo" class="hero-logo" decoding="async" fetchpriority="high"
-                        src="images/logo-transparent.png" width="180" />
-                </div>
-                <p
-                    style="color: #ffb6a3; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 24px;">
-                    AI-powered theme park companion</p>
-                <h1>Your AI Day Planner for Theme Parks</h1>
-                <p class="subtitle">SkipIQ plans your whole park day, replans every 30 minutes, and shows where waits are headed. You ride more, wait less.</p>
-            </div>
-            <div class="hero-cta">
-                <!-- Mobile/iOS CTA -->
-                <div id="mobile-cta">
-                    <a class="primary-button hero-button" data-ref="home-hero"
-                        href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-hero"
-                        rel="noopener noreferrer" target="_blank">Download for iPhone</a>
-                    <p style="margin: 10px 0 0; font-size: 0.8rem; color: #aaa;">Free to download · Premium from <a href="#premium" class="pricing-teaser-link" style="color: #FF4B2B; text-decoration: none; font-weight: 600;">$7.99/day</a></p>
-                    <p class="platform-note">
-                        Available now on the App Store for iPhone.<br>
-                        <a href="/waitlist/android/" aria-label="Join Android Waiting List"
-                            style="color: #aaaaaa; text-decoration: underline; font-size: 0.9rem; margin-top: 8px; display: inline-block;">Join
-                            Android Waiting List</a>
-                    </p>
-                </div>
-                <!-- Android CTA (hidden by default, shown via JS for Android users) -->
-                <div id="android-cta" style="display: none;">
-                    <p style="font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Android coming soon</p>
-                    <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 16px;">Get notified when Ride Ready launches on Android.</p>
-                    <form id="android-waitlist-form" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 420px; margin: 0 auto;">
-                        <input type="email" id="android-email" name="email" aria-label="Email address" autocomplete="email" inputmode="email" placeholder="your@email.com" required
-                            style="flex: 1; min-width: 200px; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.08); color: #fff;">
-                        <!-- Honeypot field for bot protection - hidden from real users -->
-                        <input type="text" name="website" id="android-hp" autocomplete="off" tabindex="-1" aria-hidden="true" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
-                        <button type="submit"
-                            style="background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; border: none; padding: 14px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 1rem;">Notify Me</button>
-                    </form>
-                    <p id="android-form-status" role="status" aria-live="polite" style="margin-top: 10px; font-size: 0.9rem; display: none;"></p>
-                </div>
-                <!-- Desktop fallback CTA (hidden by default, shown via JS) -->
-
-                <div class="trust-strip" role="group" aria-label="Ride Ready data coverage">
-                    <span class="trust-stat"><strong>14</strong> parks</span>
-                    <span class="trust-sep" aria-hidden="true">&middot;</span>
-                    <span class="trust-stat"><strong>943,000+</strong> wait time samples</span>
-                    <span class="trust-sep" aria-hidden="true">&middot;</span>
-                    <a class="trust-link" href="/methodology/" data-ref="home-hero-methodology">See our methodology →</a>
-                </div>
-                <div class="press-strip">
-                    <span class="press-label">As seen in</span>
-                    <span class="press-outlet">Men's Journal</span>
-                    <span class="press-sep">&middot;</span>
-                    <span class="press-outlet">Parade</span>
-                    <span class="press-sep">&middot;</span>
-                    <span class="press-outlet">Yahoo Travel</span>
-                </div>
-            </div>
-
-            <!-- Problem Statement -->
-            <p style="color: #b5b5b5; font-size: 1.05rem; line-height: 1.7; max-width: 580px; margin: 36px auto 28px; text-align: center;">
-                Theme parks cost $200+ a day. Your time is limited. But most families spend half the day guessing which line to join next, and the other half regretting the one they picked.
-            </p>
-            <!-- How It Works Strip -->
-            <div class="how-it-works-strip"
-                style="display: flex; gap: 24px; justify-content: center; margin: 10px auto 10px; flex-wrap: wrap; max-width: 680px;">
-                <div style="display: flex; align-items: center; gap: 10px; color: #ddd; font-size: 0.95rem;">
-                    <span
-                        style="background: rgba(255,255,255,0.1); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;">1</span>
-                    Download free, pick your park
-                </div>
-                <div style="display: flex; align-items: center; gap: 10px; color: #ddd; font-size: 0.95rem;">
-                    <span
-                        style="background: rgba(255,255,255,0.1); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;">2</span>
-                    SkipIQ builds your day plan
-                </div>
-                <div style="display: flex; align-items: center; gap: 10px; color: #ddd; font-size: 0.95rem;">
-                    <span
-                        style="background: rgba(255,255,255,0.1); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;">3</span>
-                    Plans update every 30 min
-                </div>
-            </div>
-            <div aria-label="Supported parks" class="supported-parks" role="list">
-                <span class="label">Supported parks:</span>
-                <a class="chip" href="/parks/epic-universe/" role="listitem"
-                    style="border-color: rgba(255, 75, 43, 0.5); background: rgba(255, 75, 43, 0.1); text-decoration: none; cursor: pointer; transition: 0.2s;">Epic
-                    Universe <span style="font-size: 0.8em; opacity: 0.8;">(Strategy Guide)</span></a>
-                <a class="chip" href="/parks/universal-studios-florida/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Universal
-                    Studios</a>
-                <a class="chip" href="/parks/islands-of-adventure/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Islands of
-                    Adventure</a>
-                <a class="chip" href="/parks/seaworld-orlando/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">SeaWorld</a>
-                <a class="chip" href="/parks/busch-gardens-tampa/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Busch Gardens</a>
-                <a class="chip" href="/parks/cedar-point/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Cedar Point</a>
-                <a class="chip" href="/parks/kings-island/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Kings Island</a>
-                <a class="chip" href="/parks/canadas-wonderland/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Canada's
-                    Wonderland</a>
-                <a class="chip" href="/parks/busch-gardens-williamsburg/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Busch Gardens
-                    Williamsburg</a>
-                <a class="chip" href="/parks/carowinds/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Carowinds</a>
-                <a class="chip" href="/parks/kings-dominion/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Kings Dominion</a>
-                <a class="chip" href="/parks/six-flags-over-georgia/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Six Flags Over
-                    Georgia</a>
-                <a class="chip" href="/parks/six-flags-great-adventure/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Six Flags Great
-                    Adventure</a>
-                <a class="chip" href="/parks/six-flags-great-america/crowd-calendar/" role="listitem"
-                    style="text-decoration: none; color: inherit; transition: 0.2s; cursor: pointer;">Six Flags Great
-                    America</a>
-                <a class="request-park" href="mailto:support@rideready.app?subject=Park%20request">Request a park</a>
-            </div>
-            <!-- Trending Strategies -->
-            <div aria-label="Trending strategies" class="supported-parks" role="list" style="margin-top: 12px;">
-                <span class="label" style="color: #FFD700;">Trending:</span>
-                <a class="chip" href="/parks/epic-universe/strategy/" role="listitem"
-                    style="border-color: rgba(255, 75, 43, 0.5); background: rgba(255, 75, 43, 0.1); text-decoration: none; cursor: pointer; transition: 0.2s;">
-                    🎯 Epic Universe Strategy Guide
-                </a>
-                <a class="chip" href="/parks/epic-universe/secrets/" role="listitem"
-                    style="border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1); text-decoration: none; cursor: pointer; transition: 0.2s;">
-                    🔍 EU Hidden Secrets & Easter Eggs
-                </a>
-            </div>
-            <!-- Premium Horizontal Scroll Carousel -->
-            <div style="margin: 40px -24px; text-align: left;">
-                <p style="padding: 0 24px; margin-bottom: 16px; color: #fff; font-weight: 600;">Popular Queue Guides</p>
-                <div
-                    style="display: flex; gap: 16px; overflow-x: auto; padding: 0 24px 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
-                    <a href="/universal-orlando/epic-universe/ministry-queue-times/"
-                        style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px; position: relative;">
-                        <div style="font-size: 28px; margin-bottom: 12px;">⚡</div>
-                        <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Battle at the Ministry</span>
-                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Don't panic at the
-                            Statue. See the full breakdown.</p>
-                    </a>
-                    <a href="/universal-orlando/epic-universe/mario-kart-queue-times/"
-                        style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🏎️</div>
-                        <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Mario Kart Tracker</span>
-                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Yoshi's Island is
-                            longer than it looks. Track your spot.</p>
-                    </a>
-                    <a href="/universal-orlando/epic-universe/stardust-racers-queue-times/"
-                        style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🚀</div>
-                        <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Stardust Racers</span>
-                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Warning: Locker area is
-                            a chokepoint. Know the drill.</p>
-                    </a>
-                    <a href="/universal-orlando/epic-universe/mine-cart-madness-queue-times/"
-                        style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🚋</div>
-                        <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Mine-Cart Madness</span>
-                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Don't faint in the
-                            Jungle. Know your jump cues.</p>
-                    </a>
-                    <a href="/universal-orlando/epic-universe/monsters-unchained-queue-times/"
-                        style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🧟</div>
-                        <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Monsters Unchained</span>
-                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Frankenstein's lab is a
-                            maze. Find the hidden secrets.</p>
-                    </a>
-                    <a href="/universal-orlando/epic-universe/hiccups-wing-gliders-queue-times/"
-                        style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🐉</div>
-                        <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Hiccup's Wing Gliders</span>
-                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Phone ban in effect.
-                            Secure your loot early.</p>
-                    </a>
-                    <a href="/universal-orlando/islands-of-adventure/hagrids-motorbike-queue-times/"
-                        style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🏍️</div>
-                        <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">Hagrid's Motorbike</span>
-                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">12 themed rooms through the Forbidden Forest. Know when to brace.</p>
-                    </a>
-                    <a href="/universal-orlando/islands-of-adventure/velocicoaster-queue-times/"
-                        style="flex: 0 0 260px; scroll-snap-align: center; text-decoration: none; background: linear-gradient(145deg, #1a1a1a, #222); border: 1px solid #333; border-radius: 20px; padding: 20px;">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🦖</div>
-                        <span class="card-title" style="display:block; font-weight:700; color: #fff; margin: 0 0 6px; font-size: 1rem;">VelociCoaster</span>
-                        <p style="color: #aaa; font-size: 0.85rem; margin: 0; line-height: 1.4;">Raptor Paddock is a trap. Spot the real merge point.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <!-- Before Your Trip vs At the Park -->
-        <section class="comparison-section" style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 30px; color: #fff;">Before Your Trip vs At the Park</h2>
-            <div class="comparison-grid"
-                style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
-                <div
-                    style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h3 style="color: #ddd; font-size: 1.1rem; margin-bottom: 8px;">📖 Before Your Trip</h3>
-                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 16px;">Plan ahead on the website</p>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
-                        <li style="padding: 6px 0; color: #ddd;">✓ Crowd calendars</li>
-                        <li style="padding: 6px 0; color: #ddd;">✓ Queue guides</li>
-                        <li style="padding: 6px 0; color: #ddd;">✓ Park strategy articles</li>
-                        <li style="padding: 6px 0; color: #ddd;">✓ Trip planning tips</li>
-                    </ul>
-                    <p style="color: #aaa; font-size: 0.85rem; line-height: 1.4;">Research &amp; prepare<br>Free on rideready.app</p>
-                </div>
-                <div
-                    style="background: linear-gradient(135deg, rgba(255,65,108,0.15), rgba(255,75,43,0.15)); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,65,108,0.3);">
-                    <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">📱 At the Park</h3>
-                    <p style="color: #ddd; font-size: 0.9rem; margin-bottom: 16px;">What SkipIQ does once you're inside</p>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 16px 0;">
-                        <li style="padding: 6px 0; color: #fff;">✓ AI day planning (SkipIQ)</li>
-                        <li style="padding: 6px 0; color: #fff;">✓ Live forecast curves</li>
-                        <li style="padding: 6px 0; color: #fff;">✓ Walking directions</li>
-                        <li style="padding: 6px 0; color: #fff;">✓ Drop alerts + queue timer</li>
-                    </ul>
-                    <p style="color: #ddd; font-size: 0.85rem; line-height: 1.4;">Updates every 2 min<br>Free on iPhone</p>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <a href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-compare" data-ref="home-compare"
-                    style="display: inline-block; background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem;">
-                    Download for iPhone
-                </a>
-            </div>
-        </section>
         <div class="screenshots-section">
             <h2>See Ride Ready in Action</h2>
             <p>AI day planning, live forecast curves, walking directions, and more.</p>
@@ -1443,140 +3125,139 @@
                 </div>
             </div>
         </div>
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🧠</div>
-                <div class="feature-text">
-                    <h3>AI Day Planning</h3>
-                    <p>SkipIQ builds a ride-by-ride schedule for your group. It replans every 30 minutes as conditions change.</p>
+
+        <!-- BEFORE TRIP vs AT PARK (rebalanced 40/60, repositioned after screenshots) -->
+        <section class="comparison-section rebalanced" aria-labelledby="compare-heading">
+            <h2 id="compare-heading" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.02em; color: var(--text); text-align: left; margin: 0 0 8px;">Plan here. <em style="font-style:normal; background: var(--sunset-gradient); -webkit-background-clip: text; background-clip: text; color: transparent;">Win the day in the app.</em></h2>
+            <p style="color: var(--text-dim); font-size: 16px; margin: 0 0 28px; max-width: 620px;">The website is for research. The app is what you use once you're in the park.</p>
+            <div class="comparison-grid">
+                <div class="panel web">
+                    <p class="panel-label">Ride Ready · Web</p>
+                    <h3>Before your trip</h3>
+                    <p class="panel-tag">Plan ahead on the website</p>
+                    <ul>
+                        <li>Crowd calendars</li>
+                        <li>Queue guides</li>
+                        <li>Park strategy articles</li>
+                        <li>Trip planning tips</li>
+                    </ul>
+                    <p class="panel-foot">Research and prepare. Free on rideready.app</p>
+                </div>
+                <div class="panel app">
+                    <p class="panel-label">Ride Ready · App</p>
+                    <h3>At the park</h3>
+                    <p class="panel-tag">What SkipIQ does once you're inside</p>
+                    <ul>
+                        <li>AI day planning (SkipIQ)</li>
+                        <li>Live forecast curves for every ride</li>
+                        <li>Turn-by-turn walking directions</li>
+                        <li>Drop alerts + Lock Screen queue timer</li>
+                        <li>Replans every 30 minutes</li>
+                    </ul>
+                    <p class="panel-foot">Updates every 2 minutes. Free on iPhone.</p>
                 </div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">📈</div>
-                <div class="feature-text">
-                    <h3>Full-Day Forecast Curves</h3>
-                    <p>See when waits will peak and when they'll drop. Not a crowd calendar. A live forecast for every ride, all day long.</p>
-                </div>
+            <div style="text-align: left;">
+                <a class="btn-v2 btn-primary-v2" data-ref="home-compare" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-compare" rel="noopener noreferrer" target="_blank">Download for iPhone <span aria-hidden="true">→</span></a>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🗺️</div>
-                <div class="feature-text">
-                    <h3>Walking Directions</h3>
-                    <p>Interactive park maps with turn-by-turn paths to your next ride. Walk times, distances, and the fastest route.</p>
-                </div>
+        </section>
+
+        <!-- /container break: parks, hinge, premium go full-width -->
+    </div>
+
+    <!-- SUPPORTED PARKS (clean grid) -->
+    <section class="parks-v2" id="parks" aria-labelledby="parks-heading">
+        <p class="section-label">Coverage</p>
+        <h2 class="section-title" id="parks-heading">14 parks. <em>Live data, every ride.</em></h2>
+        <ul class="parks-grid" role="list">
+            <li><a href="/parks/epic-universe/">Epic Universe</a></li>
+            <li><a href="/parks/universal-studios-florida/">Universal Studios Florida</a></li>
+            <li><a href="/parks/islands-of-adventure/">Islands of Adventure</a></li>
+            <li><a href="/parks/seaworld-orlando/">SeaWorld Orlando</a></li>
+            <li><a href="/parks/busch-gardens-tampa/">Busch Gardens Tampa</a></li>
+            <li><a href="/parks/busch-gardens-williamsburg/">Busch Gardens Williamsburg</a></li>
+            <li><a href="/parks/cedar-point/">Cedar Point</a></li>
+            <li><a href="/parks/kings-island/">Kings Island</a></li>
+            <li><a href="/parks/canadas-wonderland/">Canada's Wonderland</a></li>
+            <li><a href="/parks/carowinds/">Carowinds</a></li>
+            <li><a href="/parks/kings-dominion/">Kings Dominion</a></li>
+            <li><a href="/parks/six-flags-over-georgia/">Six Flags Over Georgia</a></li>
+            <li><a href="/parks/six-flags-great-adventure/">Six Flags Great Adventure</a></li>
+            <li><a href="/parks/six-flags-great-america/">Six Flags Great America</a></li>
+        </ul>
+        <a class="parks-request" href="mailto:support@rideready.app?subject=Park%20request">Don't see your park? Request it →</a>
+    </section>
+
+    <!-- HINGE — bridges to Premium -->
+    <div class="hinge">
+        <img class="hinge-mark" src="/images/skip-minimal.png" alt="" loading="lazy">
+        <p>Free gets you enough Skip to know if a line is worth it. <em>Premium is the brain that plans the whole day.</em></p>
+    </div>
+
+    <!-- PREMIUM v2 -->
+    <section class="premium-v2" id="premium">
+        <p class="section-label premium-label">Ride Ready Premium</p>
+        <h2 class="section-title">One long wait saved <em>pays for the day</em>.</h2>
+        <p class="section-lede">Free unlocks live waits and a taste of Skip. Premium unlocks the planning engine, and keeps replanning as the park changes.</p>
+
+        <div class="pricing-v2">
+            <div class="price-card">
+                <p class="tier">Day Pass</p>
+                <div class="cost">$7.99<span class="unit">/ day</span></div>
+                <p class="audience">For a one-day park trip. Unlock everything Premium for the day you're there.</p>
+                <a class="buy" data-ref="home-premium-day" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-premium-day" rel="noopener noreferrer" target="_blank">Get Day Pass</a>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🔔</div>
-                <div class="feature-text">
-                    <h3>Drop Alerts + Live Waits</h3>
-                    <p>Color-coded waits for every ride. Drop alerts the moment a line dips. Ride just reopened? You'll know.</p>
-                </div>
+            <div class="price-card featured">
+                <span class="popular-flag">Most popular</span>
+                <p class="tier">Week Pass</p>
+                <div class="cost">$14.99<span class="unit">/ week</span></div>
+                <p class="audience">For a vacation. Covers the full trip for less than a single Express Pass upgrade.</p>
+                <a class="buy" data-ref="home-premium-week" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-premium-week" rel="noopener noreferrer" target="_blank">Get Week Pass</a>
+            </div>
+            <div class="price-card">
+                <p class="tier">Monthly</p>
+                <div class="cost">$19.99<span class="unit">/ mo</span></div>
+                <p class="audience">For locals and annual passholders. Cancel anytime from the App Store.</p>
+                <a class="buy" data-ref="home-premium-monthly" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-premium-monthly" rel="noopener noreferrer" target="_blank">Go Monthly</a>
             </div>
         </div>
-        <!-- Secondary Features -->
-        <div class="features" style="margin-top: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-            <div class="feature">
-                <div class="feature-icon">🎭</div>
-                <div class="feature-text">
-                    <h3>Shows &amp; Character Meets</h3>
-                    <p>Full show schedules and character meet times for every park. Never miss a performance or photo op.</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">⏱️</div>
-                <div class="feature-text">
-                    <h3>Queue Timer</h3>
-                    <p>Track your actual wait from the back of the line. Live on your Lock Screen and Dynamic Island so you always know how long you've been waiting.</p>
-                </div>
-            </div>
+
+        <div class="compare-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">Feature</th>
+                        <th class="cell" style="width: 25%;">Free</th>
+                        <th class="cell premium-col" style="width: 25%;">Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="group-head"><td colspan="3">Always free</td></tr>
+                    <tr><td class="feature-name">Live wait times, every ride</td><td class="cell yes">✓</td><td class="cell yes">✓</td></tr>
+                    <tr><td class="feature-name">Queue timer · Dynamic Island</td><td class="cell yes">✓</td><td class="cell yes">✓</td></tr>
+                    <tr><td class="feature-name">Walking directions</td><td class="cell yes">✓</td><td class="cell yes">✓</td></tr>
+                    <tr><td class="feature-name">Shows &amp; character meets</td><td class="cell yes">✓</td><td class="cell yes">✓</td></tr>
+                    <tr class="group-head premium"><td colspan="3">Unlocked with Premium</td></tr>
+                    <tr><td class="feature-name">SkipIQ day plans</td><td class="cell">1 / day</td><td class="cell premium-cell">Unlimited · replans every 30m</td></tr>
+                    <tr><td class="feature-name">Quick Picks</td><td class="cell">#1 only</td><td class="cell premium-cell">All 3</td></tr>
+                    <tr><td class="feature-name">Drop alerts</td><td class="cell">3 / park</td><td class="cell premium-cell">Unlimited</td></tr>
+                    <tr><td class="feature-name">Full-day forecast curves</td><td class="cell">—</td><td class="cell premium-cell">✓</td></tr>
+                    <tr><td class="feature-name">Active Plan Mode</td><td class="cell">—</td><td class="cell premium-cell">✓</td></tr>
+                </tbody>
+            </table>
         </div>
-        <!-- Premium Section -->
-        <div id="premium" class="premium-section">
-            <div class="crown-icon">👑</div>
-            <h2>Go Premium</h2>
-            <p class="subtitle">Unlock the full power of Ride Ready</p>
-            <!-- Free vs Premium comparison table -->
-            <div style="max-width: 600px; margin: 0 auto 32px; text-align: left; overflow-x: auto; -webkit-overflow-scrolling: touch;">
-                <table style="width: 100%; min-width: 320px; border-collapse: collapse; font-size: 0.95rem;">
-                    <thead>
-                        <tr>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid rgba(255,215,0,0.2); color: #aaa; text-align: left;"></th>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid rgba(255,215,0,0.2); color: #ccc; text-align: center;">Free</th>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid rgba(255,215,0,0.2); color: #FFD700; text-align: center;">Premium</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Live wait times</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #6ee7b7; border-bottom: 1px solid rgba(255,255,255,0.05);">✓</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #6ee7b7; border-bottom: 1px solid rgba(255,255,255,0.05);">✓</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Quick Picks</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.05);">#1 only</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #FFD700; border-bottom: 1px solid rgba(255,255,255,0.05);">All 3</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Day plans</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.05);">1/day</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #FFD700; border-bottom: 1px solid rgba(255,255,255,0.05);">Unlimited + replanning</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Ride alerts</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.05);">3 per park</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #FFD700; border-bottom: 1px solid rgba(255,255,255,0.05);">Unlimited</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Forecast curves</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.05);">—</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #FFD700; border-bottom: 1px solid rgba(255,255,255,0.05);">✓</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Active Plan Mode</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.05);">—</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #FFD700; border-bottom: 1px solid rgba(255,255,255,0.05);">✓</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 16px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.05);">Queue timer</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #6ee7b7; border-bottom: 1px solid rgba(255,255,255,0.05);">✓</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #6ee7b7; border-bottom: 1px solid rgba(255,255,255,0.05);">✓</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 16px; color: #ccc;">Walking directions</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #6ee7b7;">✓</td>
-                            <td style="padding: 10px 16px; text-align: center; color: #6ee7b7;">✓</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="premium-pricing">
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                    <span class="price-tag">Day Pass: <strong>$7.99</strong></span>
-                    <span style="font-size: 0.75rem; color: #aaa;">One-day visit</span>
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                    <span class="price-tag"
-                        style="border-color: rgba(255, 215, 0, 0.4); background: rgba(255, 215, 0, 0.1);">Week Pass:
-                        <strong>$14.99</strong></span>
-                    <span style="font-size: 0.75rem; color: #FFD700;">Best for vacation</span>
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                    <span class="price-tag">Monthly: <strong>$19.99</strong></span>
-                    <span style="font-size: 0.75rem; color: #aaa;">For locals / APs</span>
-                </div>
-            </div>
-            <a class="premium-cta-btn" data-ref="home-premium"
-                href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-premium">Download
-                &amp; Upgrade</a>
-            <p class="roi-text">Premium pays for itself if it saves you just one long wait.</p>
-        </div>
+
+        <p class="roi-note">Premium pays for itself if it saves you just one long wait.</p>
+    </section>
+
+    <div class="container">
         <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
+        <div class="faq-section restyled">
+            <h2>Frequently Asked <em>Questions</em></h2>
             <div class="faq-item">
                 <button class="faq-question">Is Ride Ready free?</button>
                 <div class="faq-answer">
-                    <p>Yes — Ride Ready is free to download and use. Free includes live wait times, 1 day plan per day,
+                    <p>Yes. Ride Ready is free to download and use. Free includes live wait times, 1 day plan per day,
                         the #1 Quick Pick, <strong>3 ride alerts per park</strong>, queue timer, and walking directions.
                         Premium unlocks unlimited day plans with replanning, all 3 Quick Picks,
                         <strong>unlimited alerts</strong>, forecast curves, and Active Plan Mode.</p>
@@ -1700,6 +3381,10 @@
             <p>© 2026 Ride Ready. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Sticky bottom CTA (mobile only, appears after 60% scroll). Must precede the scripts so the Android rewrite and scroll handler can find it. -->
+    <a class="sticky-bottom-cta" href="https://apps.apple.com/us/app/ride-ready/id6748330847?ct=home-sticky-bottom" data-ref="home-sticky-bottom" rel="noopener noreferrer" target="_blank">Download for iPhone <span aria-hidden="true">→</span></a>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
@@ -1728,8 +3413,34 @@
                 });
             });
 
-            // Queue guide click tracking
-            var queueGuideLinks = document.querySelectorAll('a[href*="queue-times"]');
+            // Popular Guides rail click tracking (Crowd calendars / Strategy / Secrets / Queue / Browse-all)
+            // Categorizes by data-ref prefix so GA can split engagement by guide type.
+            document.querySelectorAll('a[data-ref^="home-pg-"]').forEach(function (link, idx) {
+                link.addEventListener('click', function () {
+                    if (typeof gtag !== 'function') return;
+                    try {
+                        var ref = link.getAttribute('data-ref') || '';
+                        // ref shape: "home-pg-cc" | "home-pg-strat" | "home-pg-secrets" | "home-pg-queue" | "home-pg-all"
+                        var category = ref.replace('home-pg-', '') || 'unknown';
+                        var col = link.closest('.pg-col');
+                        var positionInCol = col ? Array.prototype.indexOf.call(col.querySelectorAll('a'), link) + 1 : 0;
+                        gtag('event', 'popular_guides_click', {
+                            event_category: 'content_engagement',
+                            guide_category: category,
+                            guide_name: (link.textContent || '').trim(),
+                            destination: link.getAttribute('href'),
+                            position_in_column: positionInCol,
+                            value: 2,
+                            currency: 'USD'
+                        });
+                    } catch (e) {}
+                });
+            });
+
+            // Queue guide click tracking (in-page queue cards only — rail clicks are
+            // already covered by popular_guides_click above, so skip those to avoid
+            // double-firing).
+            var queueGuideLinks = document.querySelectorAll('a[href*="queue-times"]:not([data-ref^="home-pg-"])');
             queueGuideLinks.forEach(function (link, index) {
                 link.addEventListener('click', function () {
                     if (typeof gtag === 'function') {
@@ -1763,7 +3474,7 @@
             }
 
             // Premium section visibility tracking
-            var premiumSection = document.querySelector('.premium-section');
+            var premiumSection = document.querySelector('#premium');
             if (premiumSection && 'IntersectionObserver' in window) {
                 var premiumObserver = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
@@ -1887,18 +3598,25 @@
         });
     </script>
     <script>
-        // Sticky Header Logic
-        window.addEventListener('scroll', function () {
-            const stickyCta = document.querySelector('.sticky-top-cta');
-            const hero = document.querySelector('.hero');
-            if (hero && stickyCta) {
-                if (window.scrollY > (hero.offsetTop + hero.offsetHeight - 100)) {
-                    stickyCta.classList.add('visible');
-                } else {
-                    stickyCta.classList.remove('visible');
-                }
+        // Sticky bottom CTA: show on mobile after 60% scroll
+        (function() {
+            const cta = document.querySelector('.sticky-bottom-cta');
+            if (!cta) return;
+            let ticking = false;
+            function check() {
+                ticking = false;
+                const scrolled = window.scrollY + window.innerHeight;
+                const trigger = document.documentElement.scrollHeight * 0.6;
+                cta.classList.toggle('visible', scrolled > trigger);
             }
-        });
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(check);
+                    ticking = true;
+                }
+            }, { passive: true });
+            check();
+        })();
     </script>
     <script>
         // Android detection: show email capture instead of App Store CTA
