@@ -906,11 +906,33 @@
             }
 
             .screenshots-section {
-                padding: 52px 22px;
+                padding: 52px 22px 44px;
             }
 
             .screenshot-gallery {
-                grid-template-columns: 1fr;
+                display: flex;
+                grid-template-columns: none;
+                gap: 16px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                margin: 0 -22px;
+                padding: 4px 22px 14px;
+                scroll-padding-left: 22px;
+            }
+
+            .screenshot-gallery::-webkit-scrollbar { display: none; }
+
+            .screenshot-item {
+                flex: 0 0 78%;
+                scroll-snap-align: start;
+            }
+
+            /* Always-visible label on mobile (no hover state) */
+            .screenshot-item::after {
+                opacity: 1;
+                transform: translateY(0);
             }
 
             /* Horizontal Scroll Fix for Supported Parks */
@@ -1204,10 +1226,11 @@
             grid-template-columns: 1.1fr 0.9fr;
             align-items: center;
             gap: clamp(40px, 6vw, 80px);
-            padding: 80px clamp(22px, 4vw, 80px) 60px;
+            padding: 64px clamp(22px, 4vw, 80px) 56px;
             max-width: var(--container);
             margin: 0 auto;
             text-align: left;
+            overflow-x: clip;
         }
         @media (max-width: 860px) {
             .hero-v2 {
@@ -1460,8 +1483,8 @@
             margin-top: 4px;
             color: var(--wait-short-fg);
         }
-        .stat-card.stat-a { top: 12%; left: -18%; max-width: 180px; animation: floatA 7s var(--ease-in-out) infinite; }
-        .stat-card.stat-b { bottom: 22%; right: -14%; max-width: 230px; animation: floatB 9s var(--ease-in-out) infinite; }
+        .stat-card.stat-a { top: 8%; left: clamp(-10%, -6%, 0%); max-width: 180px; animation: floatA 7s var(--ease-in-out) infinite; }
+        .stat-card.stat-b { bottom: 18%; right: clamp(-10%, -6%, 0%); max-width: 230px; animation: floatB 9s var(--ease-in-out) infinite; }
         @keyframes floatA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes floatB { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
         .stat-skip {
@@ -1528,8 +1551,9 @@
 
         /* ----- Meet SkipIQ ----- */
         section.meet-skip {
-            padding: 80px 0;
+            padding: 72px 0;
             border-top: 1px solid var(--border);
+            overflow-x: clip;
         }
         .meet-skip-grid {
             display: grid;
@@ -1622,11 +1646,11 @@
             font-size: 11px;
             font-weight: 700;
         }
-        .bubble.b-1 { top: 6%; left: -8%; animation: bob 6s ease-in-out -1.5s infinite; }
+        .bubble.b-1 { top: 4%; left: 0; animation: bob 6s ease-in-out -1.5s infinite; }
         .bubble.b-1 .b-ico { background: rgba(61, 206, 194, 0.2); color: var(--teal); }
-        .bubble.b-2 { bottom: 18%; right: -6%; animation: bob 6s ease-in-out -3s infinite; }
+        .bubble.b-2 { bottom: 14%; right: 0; animation: bob 6s ease-in-out -3s infinite; }
         .bubble.b-2 .b-ico { background: rgba(254, 198, 2, 0.2); color: var(--sunshine); }
-        .bubble.b-3 { top: 50%; right: -12%; animation: bob 6s ease-in-out -4.5s infinite; }
+        .bubble.b-3 { top: 52%; right: 0; animation: bob 6s ease-in-out -4.5s infinite; }
         .bubble.b-3 .b-ico { background: rgba(255, 75, 43, 0.2); color: var(--sunset-amber); }
         @media (max-width: 900px) {
             .bubble.b-1 { left: 0; top: 0; }
@@ -1635,6 +1659,10 @@
         }
         @media (max-width: 560px) { .bubble { display: none; } }
         @media (prefers-reduced-motion: reduce) { .skip-hero-img, .bubble { animation: none; } }
+        @media (max-width: 700px) {
+            .skip-stage { display: none; }
+            section.meet-skip { padding: 64px 0 56px; }
+        }
 
         /* ----- Features bento ----- */
         section.features-section {
@@ -2525,7 +2553,7 @@
 <section class="hero-v2" id="top">
     <div class="hero-copy">
         <div class="eyebrow"><span class="pulse" aria-hidden="true"></span>Live · 14 parks · updated every 60s</div>
-        <h1 class="headline-v2">Skip<br>the <em>wait.</em></h1>
+        <h1 class="headline-v2">Outsmart<br>the <em>lines.</em></h1>
         <p class="sub">SkipIQ plans your whole park day, replans every 30 minutes, and shows where waits are headed. Ride more. Stand in line less. Go home with feet that still work.</p>
 
         <div id="mobile-cta">
