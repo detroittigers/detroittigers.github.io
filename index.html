@@ -2644,6 +2644,46 @@
                 pointer-events: auto;
             }
         }
+
+        /* =========================================================
+           MOBILE NARROW (≤480px) — wrap/sizing safety net so the
+           hero doesn't push past the viewport on small phones.
+           ========================================================= */
+        @media (max-width: 480px) {
+            /* Headline shrinks below the global clamp floor */
+            h1.headline-v2 {
+                font-size: clamp(44px, 13vw, 64px);
+                line-height: 1.0;
+            }
+            /* Eyebrow allows wrap, slightly tighter */
+            .eyebrow {
+                flex-wrap: wrap;
+                font-size: 10px;
+                padding: 7px 12px;
+                gap: 6px 10px;
+            }
+            /* Trust strip: tighten font + allow internal wrap */
+            .hero-v2 .trust-strip {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+            /* Press strip wraps onto multiple lines */
+            .hero-v2 .press-strip {
+                flex-wrap: wrap;
+                gap: 6px 10px;
+            }
+            /* Platform line wraps natural */
+            .hero-v2 .platform-line { word-break: break-word; }
+            /* Buttons wrap + share width */
+            .cta-row { gap: 10px; }
+            .btn-v2 { padding: 14px 20px; font-size: 14px; }
+            /* Top nav: shrink CTA so logo + CTA + hamburger fit */
+            .site-nav-cta { padding: 7px 12px; font-size: 0.85rem; }
+            /* Review title prevents long words from blowing past edge */
+            .review-card .review-title { word-break: break-word; }
+            /* Popular guides links allow line breaks on long names */
+            .pg-col li a { word-break: break-word; }
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -2862,10 +2902,10 @@
             <div class="pg-col">
                 <h3>Top queue guides</h3>
                 <ul role="list">
-                    <li><a href="/parks/carowinds/fury-325-queue-times/" data-ref="home-pg-queue">Fury 325 wait times</a></li>
-                    <li><a href="/parks/kings-island/the-beast-queue-times/" data-ref="home-pg-queue">The Beast wait times</a></li>
-                    <li><a href="/parks/busch-gardens-williamsburg/pantheon-queue-times/" data-ref="home-pg-queue">Pantheon wait times</a></li>
-                    <li><a href="/parks/six-flags-great-adventure/el-toro-queue-times/" data-ref="home-pg-queue">El Toro wait times</a></li>
+                    <li><a href="/universal-orlando/islands-of-adventure/hagrids-motorbike-queue-times/" data-ref="home-pg-queue">Hagrid&rsquo;s Motorbike wait times</a></li>
+                    <li><a href="/universal-orlando/islands-of-adventure/velocicoaster-queue-times/" data-ref="home-pg-queue">VelociCoaster wait times</a></li>
+                    <li><a href="/universal-orlando/epic-universe/ministry-queue-times/" data-ref="home-pg-queue">Ministry of Magic wait times</a></li>
+                    <li><a href="/universal-orlando/epic-universe/mario-kart-queue-times/" data-ref="home-pg-queue">Mario Kart: Bowser&rsquo;s Challenge</a></li>
                 </ul>
             </div>
         </div>
