@@ -72,12 +72,20 @@ temp/
 reports/
 plans/
 docs/
+reviews/
+_design-source/
 
 # Internal development files
 AGENT.md
+AGENTS.md
 CLAUDE.md
 _config.yml
 generate_redirects.py
+PLAN-100x-better.md
+
+# Local tooling config (not for the public site)
+.mcp.json
+.claude/
 
 # Secrets
 secrets/
